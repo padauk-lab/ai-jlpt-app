@@ -147,3 +147,25 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# ===== Padauk Lab additions =====
+# Secrets (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Expo
+.expo/
+
+# Editor and OS
+.vscode/
+.DS_Store
+Thumbs.db
