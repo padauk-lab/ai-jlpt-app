@@ -1,0 +1,17 @@
+# Secrets
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+
+# Python junk
+**/__pycache__
+**/*.pyc
+**/venv
+**/.venv
+
+# Not needed in the image
+tests
+**/.gitkeep
+Dockerfile
+.dockerignore

@@ -24,7 +24,10 @@ A GenAI JLPT study app for Burmese speakers, built by Padauk Lab.
 ## Getting started
 1. Clone the repo
 2. Copy .env.example to .env and fill in the values
-3. Setup instructions for Docker coming soon
+3. Run `docker compose up --build`
+4. Open http://localhost:8000/health, you should see {"status":"ok"}
+5. API docs: http://localhost:8000/docs
+6. Stop with Ctrl+C, then `docker compose down`
 
 ## Team
 - HP: Backend and Infrastructure
