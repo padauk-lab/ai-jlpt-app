@@ -1,3 +1,5 @@
+Also follow the team rules in ../AGENTS.md and ../docs/api-contract.md (Burmese only, use the contract exactly).
+
 This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
 
 ## Expo has changed — do not trust your training data
