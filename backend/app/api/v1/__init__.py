@@ -2,8 +2,9 @@
 
 from fastapi import APIRouter
 
-from app.api.v1 import dashboard, onboarding
+from app.api.v1 import dashboard, exams, onboarding
 
 api_router = APIRouter()
 api_router.include_router(onboarding.router)
 api_router.include_router(dashboard.router)
+api_router.include_router(exams.router)
