@@ -36,3 +36,10 @@ A GenAI JLPT study app for Burmese speakers, built by Padauk Lab.
 - SWYH: AI Integration
 
 Read CONTRIBUTING.md before you start.
+
+## Documentation
+- [AGENTS.md](AGENTS.md): instructions for AI assistants, read this first
+- [Project brief](docs/project-brief.md)
+- [Team roles](docs/team-roles.md)
+- [API contract](docs/api-contract.md)
+- [Progress reports](docs/progress/) (PDF versions in [docs/pdf](docs/pdf/))
