@@ -1,7 +1,8 @@
 # AI JLPT App, API Contract
 
-Version: 0.1 (draft for team review)
+Version: 0.2 (draft for team review)
 Date: 2026-10-13
+Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -216,14 +217,9 @@ Response `200`:
 
 Errors: `401` expired or invalid, the user must log in again.
 
-### 8. `GET /exam-dates`
-Official upcoming JLPT dates for the Setup dropdown.
-
-Response `200`:
-```json
-{ "exam_dates": ["2026-12-06", "2027-07-04"] }
-```
-- Kept on the server so it can be updated without an app update. Only future dates are returned.
+### 8. Removed (was `GET /exam-dates`)
+Removed in v0.2. There is no official date list. The user picks their own exam date in Setup (#9) and can change it in Settings (#29).
+The number 8 is kept so the other endpoint numbers do not change.
 
 ### 9. `POST /onboarding`
 Save the setup answers and create the study plan. Used by **First-time setup**, then the app shows **Generating plan** while waiting.
@@ -239,7 +235,8 @@ Request:
 Rules:
 - `last_level`: `"N1"`, `"N2"` or `"not_taken"`.
 - `last_score`: whole number from 0 to 180. Must be `null` when `last_level` is `"not_taken"`.
-- `exam_date`: one of the dates from #8, or `null` for "Not decided yet".
+- `exam_date`: any date after today, or `null` for "Not decided yet".
+  The app can show a hint: the JLPT is usually held on a Sunday in early July and early December.
 
 Response `201`: the plan, same shape as #10.
 
@@ -920,7 +917,7 @@ Errors: `422` missing confirmation.
 | 5 | POST | `/auth/forgot-password` | 1 | No |
 | 6 | POST | `/auth/reset-password` | 1 | No |
 | 7 | POST | `/auth/refresh` | 1 | No (refresh token) |
-| 8 | GET | `/exam-dates` | 1 | Yes |
+| 8 | | Removed in v0.2 | 1 | |
 | 9 | POST | `/onboarding` | 1 | Yes |
 | 10 | GET | `/plan` | 1 | Yes |
 | 11 | GET | `/dashboard` | 2 | Yes |
