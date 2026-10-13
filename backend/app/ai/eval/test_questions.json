@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "type": "kanji_reading",
+    "prompt": "彼の意志力には驚かされる。",
+    "options": {"a": "いしりょく", "b": "いしりき", "c": "いしょく", "d": "いじりょく"},
+    "correct": "a",
+    "selected": "b"
+  },
+  {
+    "id": 2,
+    "type": "grammar",
+    "prompt": "彼は面白い（　）、変だ。",
+    "options": {"a": "というよりも", "b": "からこそ", "c": "にしては", "d": "とはいえ"},
+    "correct": "a",
+    "selected": "d"
+  },
+  {
+    "id": 3,
+    "type": "grammar",
+    "prompt": "彼は数学の天才だ。この程度の問題が解けない（　）。",
+    "options": {"a": "わけがない", "b": "わけだ", "c": "わけにはいかない", "d": "はずだ"},
+    "correct": "a",
+    "selected": "c"
+  },
+  {
+    "id": 4,
+    "type": "vocabulary",
+    "prompt": "（　）に悪いとは言えない。",
+    "options": {"a": "一概", "b": "一切", "c": "一律", "d": "一斉"},
+    "correct": "a",
+    "selected": "b"
+  },
+  {
+    "id": 5,
+    "type": "grammar",
+    "prompt": "台風のため、試合は中止（　）。",
+    "options": {"a": "を余儀なくされた", "b": "を禁じ得なかった", "c": "に至った", "d": "をものともしなかった"},
+    "correct": "a",
+    "selected": "c"
+  }
+]
