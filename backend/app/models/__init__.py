@@ -1,6 +1,7 @@
 """Import every model here, so Alembic can find all tables in one place."""
 
 from app.models.content import Example, Grammar, Proverb, StudySession, Unit, Word
+from app.models.exams import MockTest, Question, Quiz, ReadingPassage
 from app.models.plan import ExamDate, Plan, StudySettings
 from app.models.users import Device, NotificationSettings, PasswordResetToken, RefreshToken, User
 
@@ -22,4 +23,9 @@ __all__ = [
     "StudySession",
     "Unit",
     "Word",
+    # Group 4: quizzes and mock tests
+    "MockTest",
+    "Question",
+    "Quiz",
+    "ReadingPassage",
 ]
