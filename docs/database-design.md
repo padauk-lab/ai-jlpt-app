@@ -58,7 +58,7 @@ If a table or column needs to change, update this file in the same pull request.
 
 ## Overview
 
-24 tables in 5 groups.
+27 tables in 5 groups.
 
 ```
 USERS AND LOGIN               STUDY SETUP AND PLAN
