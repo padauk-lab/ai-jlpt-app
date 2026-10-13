@@ -1,4 +1,4 @@
-"""Section 1: Onboarding. Contract endpoints #1 to #10 (docs/api-contract.md).
+"""Section 1: Onboarding. Contract endpoints #1 to #10 (docs/api-contract.md). #8 was removed in contract v0.2.
 
 PLACEHOLDER: every endpoint returns the contract's example JSON.
 There is no database and no login check yet. Each endpoint is replaced with real logic later.
@@ -114,11 +114,6 @@ def reset_password(body: ResetPasswordRequest) -> dict[str, Any]:
 @router.post("/auth/refresh", summary="#7 Get a new access token")
 def refresh(body: RefreshRequest) -> dict[str, Any]:
     return {"access_token": "eyJhbGciOi...", "refresh_token": "a91f3c77b2..."}
-
-
-@router.get("/exam-dates", summary="#8 Upcoming JLPT dates")
-def get_exam_dates() -> dict[str, Any]:
-    return {"exam_dates": ["2026-12-06", "2027-07-04"]}
 
 
 @router.post("/onboarding", status_code=status.HTTP_201_CREATED, summary="#9 Save setup answers and create the plan")
