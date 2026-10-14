@@ -1,8 +1,9 @@
 # AI JLPT App, API Contract
 
-Version: 0.2 (draft for team review)
+Version: 0.3 (draft for team review)
 Date: 2026-10-13
 Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
+Changes in 0.3: decided how the study plan pace is calculated (#10).
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -259,6 +260,7 @@ Response `200`:
 }
 ```
 - The numbers are calculated by backend code. The AI only writes `ai_tip_my`.
+- How: units left ÷ study days, rounded up, between 1 and 20 units per day. The last days before the exam stay free for review and mock tests: 7 days if the user already took N1, 14 days otherwise (never more than a third of the time left). Code: `backend/app/plan/calculator.py`.
 - No exam date: `exam_date`, `days_left` and `finish_by` are `null`, and `units_per_day` is the default pace of 3.
 
 Errors: `404` onboarding not done yet.
@@ -954,6 +956,6 @@ Errors: `422` missing confirmation.
 
 1. **Pass prediction formula**: how mock test scores turn into a 0 to 100 prediction. HP and ANK to propose.
 2. **Mock test part split**: exact number of vocabulary, grammar and reading questions per template. ANK to confirm against the official N1 format.
-3. **Plan pace by level**: how `last_level` and `last_score` change `units_per_day`. HP to propose.
+3. **Plan pace by level**: decided in v0.3, see #10. The score does not change the pace yet; we tune it after real users try it.
 4. **LLM choice**: which AI model to use. SWYH to propose.
 5. **Daily AI limit**: is 50 "More examples" per day right? Team to decide after testing.
