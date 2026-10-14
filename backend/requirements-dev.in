@@ -1,0 +1,4 @@
+# Tools for development and tests only. Never installed in the production image.
+-r requirements.txt
+pytest
+httpx
