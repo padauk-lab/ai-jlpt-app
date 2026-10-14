@@ -1,4 +1,5 @@
 """Section 4: AI and settings. Contract endpoints #27 to #37 (docs/api-contract.md).
+#35 (log out) is real and lives in auth.py.
 
 PLACEHOLDER: every endpoint returns the contract's example JSON.
 There is no database, no AI call and no login check yet. Each endpoint is replaced with real logic later.
@@ -57,10 +58,6 @@ class DeviceRequest(BaseModel):
 class ChangePasswordRequest(BaseModel):
     current_password: str
     new_password: str
-
-
-class LogoutRequest(BaseModel):
-    refresh_token: str
 
 
 class DeleteAccountRequest(BaseModel):
@@ -125,11 +122,6 @@ def register_device(body: DeviceRequest) -> dict[str, Any]:
 @router.post("/auth/change-password", summary="#34 Change password")
 def change_password(body: ChangePasswordRequest) -> dict[str, Any]:
     return {"message": "Password updated."}
-
-
-@router.post("/auth/logout", status_code=status.HTTP_204_NO_CONTENT, summary="#35 Log out on this device")
-def logout(body: LogoutRequest) -> None:
-    return None
 
 
 @router.delete("/me", status_code=status.HTTP_204_NO_CONTENT, summary="#36 Delete the account and all its data")

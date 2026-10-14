@@ -11,7 +11,7 @@
 **/.venv
 
 # Not needed in the image
-tests
+**/.pytest_cache
 **/.gitkeep
 Dockerfile
 .dockerignore
