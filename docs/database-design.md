@@ -1,9 +1,10 @@
 # Database design
 
-Version: 0.1 (draft for team review)
+Version: 0.2 (draft for team review)
 Date: 2026-10-13
 Owner: HP (Backend). ANK takes over after Dec 6.
-Based on: `docs/api-contract.md` v0.1
+Based on: `docs/api-contract.md` v0.2
+Changes in 0.2: removed the `exam_dates` table (the user picks any future exam date).
 
 This file describes every table in the PostgreSQL database, its columns, and how tables connect.
 Backend code (SQLAlchemy models and Alembic migrations) must match this file.
@@ -58,13 +59,13 @@ If a table or column needs to change, update this file in the same pull request.
 
 ## Overview
 
-27 tables in 5 groups.
+26 tables in 5 groups.
 
 ```
 USERS AND LOGIN               STUDY SETUP AND PLAN
 users                         study_settings   (1 per user)
  ├── refresh_tokens            plans            (1 per user)
- ├── password_reset_tokens     exam_dates       (shared)
+ ├── password_reset_tokens
  ├── devices
  └── notification_settings
 
@@ -175,7 +176,7 @@ The onboarding answers (#9), changeable in Settings (#29). One row per user.
 | user_id | bigint | primary key, → users, cascade | |
 | last_level | text | NOT NULL, `N1`, `N2` or `not_taken` | |
 | last_score | smallint | nullable, 0 to 180 | Must be empty when `last_level` is `not_taken` |
-| exam_date | date | nullable | Empty means "not decided yet" |
+| exam_date | date | nullable | Empty means "not decided yet". The backend checks it is after today when saved |
 | updated_at | timestamptz | | |
 
 ### `plans`
@@ -188,15 +189,6 @@ The study plan (#10). One row per user, recalculated on onboarding, settings cha
 | finish_by | date | nullable | Empty when no exam date |
 | ai_tip_my | text | | Burmese tip from the AI |
 | updated_at | timestamptz | NOT NULL | |
-
-### `exam_dates`
-Official JLPT dates for the dropdown (#8). Shared by everyone.
-
-| Column | Type | Rules | Notes |
-|---|---|---|---|
-| id | bigint | primary key | |
-| exam_date | date | NOT NULL, unique | |
-| is_active | boolean | NOT NULL, default true | Hide without deleting |
 
 ---
 

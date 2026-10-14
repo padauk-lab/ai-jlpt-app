@@ -2,7 +2,7 @@
 
 from datetime import date, datetime
 
-from sqlalchemy import BigInteger, Boolean, CheckConstraint, Date, DateTime, ForeignKey, SmallInteger, Text, func, text
+from sqlalchemy import BigInteger, CheckConstraint, Date, DateTime, ForeignKey, SmallInteger, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base
@@ -37,12 +37,3 @@ class Plan(Base):
     ai_tip_my: Mapped[str | None] = mapped_column(Text)  # Burmese tip from the AI
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
-
-class ExamDate(Base):
-    """Official JLPT dates for the dropdown. Shared by everyone."""
-
-    __tablename__ = "exam_dates"
-
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    exam_date: Mapped[date] = mapped_column(Date, unique=True)
-    is_active: Mapped[bool] = mapped_column(Boolean, server_default=text("true"))

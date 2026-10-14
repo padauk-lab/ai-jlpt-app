@@ -3,7 +3,7 @@
 from app.models.ai import AIExplanation, AIUsage
 from app.models.content import Example, Grammar, Proverb, StudySession, Unit, Word
 from app.models.exams import MockTest, Question, Quiz, ReadingPassage
-from app.models.plan import ExamDate, Plan, StudySettings
+from app.models.plan import Plan, StudySettings
 from app.models.progress import (
     Bookmark,
     MockAnswer,
@@ -23,7 +23,6 @@ __all__ = [
     "RefreshToken",
     "User",
     # Group 2: study setup and plan
-    "ExamDate",
     "Plan",
     "StudySettings",
     # Group 3: learning content
