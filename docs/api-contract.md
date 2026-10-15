@@ -1,9 +1,10 @@
 # AI JLPT App, API Contract
 
-Version: 0.3 (draft for team review)
-Date: 2026-10-13
+Version: 0.4 (draft for team review)
+Date: 2026-10-15
 Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
 Changes in 0.3: decided how the study plan pace is calculated (#10).
+Changes in 0.4: clarified #9 and #10 (score needed for N1 and N2, "today" is Japan time, `ai_tip_my` can be `null`).
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -235,8 +236,8 @@ Request:
 ```
 Rules:
 - `last_level`: `"N1"`, `"N2"` or `"not_taken"`.
-- `last_score`: whole number from 0 to 180. Must be `null` when `last_level` is `"not_taken"`.
-- `exam_date`: any date after today, or `null` for "Not decided yet".
+- `last_score`: whole number from 0 to 180. Needed for `"N1"` and `"N2"`. Must be `null` when `last_level` is `"not_taken"`.
+- `exam_date`: any date after today (Japan time), or `null` for "Not decided yet".
   The app can show a hint: the JLPT is usually held on a Sunday in early July and early December.
 
 Response `201`: the plan, same shape as #10.
@@ -262,6 +263,7 @@ Response `200`:
 - The numbers are calculated by backend code. The AI only writes `ai_tip_my`.
 - How: units left ÷ study days, rounded up, between 1 and 20 units per day. The last days before the exam stay free for review and mock tests: 7 days if the user already took N1, 14 days otherwise (never more than a third of the time left). Code: `backend/app/plan/calculator.py`.
 - No exam date: `exam_date`, `days_left` and `finish_by` are `null`, and `units_per_day` is the default pace of 3.
+- `ai_tip_my` is `null` until the AI tip is ready. The app hides the tip box when it is `null`.
 
 Errors: `404` onboarding not done yet.
 
