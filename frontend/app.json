@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "AI JLPT",
-    "slug": "ai-jlpt-app",
+    "name": "急合",
+    "slug": "kyugo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "aijlpt",
+    "scheme": "kyugo",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
