@@ -3,13 +3,14 @@ import os
 import time
 import urllib.request
 from pathlib import Path
+import urllib.error
 
-HERE = Path(__file__).parent              # backend/app/ai/eval
-ROOT = HERE.parents[3]                    # ai-jlpt-app
+HERE = Path(__file__).parent              # backend/scripts/ai_eval
+ROOT = HERE.parents[2]                    # ai-jlpt-app
 
 PROVIDER = "gemini"                       # "ollama" or "gemini"
 MODEL = "gemini-2.5-flash"                # e.g. "qwen2.5:7b" for ollama
-VERSION = "v2"                            # prompt version
+VERSION = "v3"                            # prompt version
 
 
 # 1. Load secrets from .env (never hard-code keys)
@@ -27,16 +28,25 @@ SYSTEM = (HERE / f"prompt_explain_{VERSION}.txt").read_text(encoding="utf-8")
 questions = json.loads((HERE / "test_questions.json").read_text(encoding="utf-8"))
 
 
-# 3. Helper: send JSON to a URL and read the JSON reply
-def post_json(url, body, headers):
+# 3. Helper: send JSON to a URL and read the JSON reply (retry if server is busy)
+def post_json(url, body, headers, retries=4):
     req = urllib.request.Request(
         url,
         data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json", **headers},
     )
-    with urllib.request.urlopen(req, timeout=300) as res:
-        return json.loads(res.read())
-
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=300) as res:
+                return json.loads(res.read())
+        except urllib.error.HTTPError as e:
+            if e.code == 503 and attempt < retries - 1:
+                wait = 5 * 2 ** attempt              # 5s, 10s, 20s
+                print(f"  Server busy (503), retry in {wait}s...")
+                time.sleep(wait)
+            else:
+                print("API error:", e.code, e.read().decode("utf-8"))
+                raise
 
 # 4a. Local model (Ollama)
 def ask_ollama(user_msg):
