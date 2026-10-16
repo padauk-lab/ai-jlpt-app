@@ -3,9 +3,11 @@
 Owner: LMHP. Screens and UI for iOS, Android and web.
 
 ## Run
+```bash
 cd frontend
 npm install
 npx expo start
+```
 Press w for web, or scan the QR code with Expo Go.
 
 ## Backend
