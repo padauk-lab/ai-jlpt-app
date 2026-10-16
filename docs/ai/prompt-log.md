@@ -17,3 +17,11 @@
 - Issues: answers too long for mobile; Q1 other-option notes give no reason;
   extra backslashes in Q4; uses loanwords like "nuance".
 - Next: prompt v3 – max 3 sentences, give a reason for every option, avoid loanwords.
+
+## Attempt 4 – gemini-2.5-flash, prompt v3 (review feedback from HP)
+- Change: why_selected_wrong_my must be null when the student chose the correct answer (contract #28)
+- Added Q6 (same as Q3, but selected = correct) to test this case
+- Result: Q6 returned null correctly, and other_options_my listed b, c, d. Q1-Q5 still good.
+- Note: Q1 says 腕力 can be read わんりき; the standard reading is わんりょく. Human review is still needed.
+- Moved eval files to backend/scripts/ai_eval/ (outside the app).
+- Added retry with exponential backoff (5s, 10s, 20s) for HTTP 503 from Gemini.
