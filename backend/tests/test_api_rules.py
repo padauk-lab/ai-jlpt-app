@@ -12,11 +12,11 @@ def test_errors_use_the_contract_format(client):
     assert not_found.status_code == 404
     assert not_found.json() == {"error": {"code": "not_found", "message": "Not Found"}}
 
-    invalid = client.post(f"{API}/onboarding", json={"last_level": "N3"})
+    invalid = client.post(f"{API}/auth/register", json={"email": "not-an-email", "username": "htetpai", "password": "x" * 8})
     assert invalid.status_code == 422
     body = invalid.json()["error"]
     assert body["code"] == "validation_error"
-    assert "last_level" in body["fields"]
+    assert "email" in body["fields"]
 
 
 def test_starting_a_quiz_or_mock_test_never_sends_correct_answers(client):
