@@ -1,0 +1,40 @@
+# Runs the backend tests on every pull request and on every push to main.
+# It uses the same command we run on our own computers.
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Security: this workflow can only read the code. It can't push, merge or change anything.
+permissions:
+  contents: read
+
+# If someone pushes again to the same pull request, stop the older run.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-tests:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      # .env.example holds fake values only, which is all the tests need.
+      # No real secret is ever used here.
+      - name: Create .env from the example
+        run: cp .env.example .env
+
+      - name: Run backend tests
+        run: docker compose --profile test run --rm --build tests
+
+      - name: Clean up
+        if: always()
+        run: docker compose --profile test down --volumes
