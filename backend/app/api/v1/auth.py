@@ -7,18 +7,22 @@ Security notes:
 - Refresh tokens work once (rotation). If an old one is used again, someone may have stolen it,
   so every login of that user is signed out.
 - All database queries use SQLAlchemy parameters, never strings glued together (no SQL injection).
+- Rate limits (app/core/rate_limit.py) stop password guessing and mass sign-ups:
+  wrong passwords are counted per email, and all attempts per network address.
+  Unknown emails are counted the same way, so the limit doesn't reveal who has an account.
 """
 
 from datetime import UTC, datetime
 from typing import Annotated, Any
 
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Request, status
 from pydantic import BaseModel, EmailStr, Field, StringConstraints
 from sqlalchemy import select, update
 from sqlalchemy.exc import IntegrityError
 
 from app.api.deps import CurrentUser, DbSession
 from app.core.errors import ApiError
+from app.core.rate_limit import LOGIN_FAILS_PER_EMAIL, LOGIN_PER_IP, REGISTER_PER_IP, client_ip, limiter
 from app.core.security import (
     burn_time_like_a_password_check,
     create_access_token,
@@ -89,7 +93,8 @@ def get_me(user: CurrentUser) -> dict[str, Any]:
 
 
 @router.post("/auth/register", status_code=status.HTTP_201_CREATED, tags=["1. Onboarding"], summary="#2 Create an account")
-def register(body: RegisterRequest, db: DbSession) -> dict[str, Any]:
+def register(body: RegisterRequest, db: DbSession, request: Request) -> dict[str, Any]:
+    limiter.hit(f"register-ip:{client_ip(request)}", *REGISTER_PER_IP)
     email = body.email.strip().lower()
     username = body.username.lower()
 
@@ -112,15 +117,23 @@ def register(body: RegisterRequest, db: DbSession) -> dict[str, Any]:
 
 
 @router.post("/auth/login", tags=["1. Onboarding"], summary="#3 Log in with email and password")
-def login(body: LoginRequest, db: DbSession) -> dict[str, Any]:
-    user = db.scalar(select(User).where(User.email == body.email.strip().lower()))
+def login(body: LoginRequest, db: DbSession, request: Request) -> dict[str, Any]:
+    email = body.email.strip().lower()
+    email_key = f"login-fail:{email}"
+    limiter.hit(f"login-ip:{client_ip(request)}", *LOGIN_PER_IP)
+    limiter.check(email_key, *LOGIN_FAILS_PER_EMAIL)  # checked BEFORE the password, so guessing stops
+
+    user = db.scalar(select(User).where(User.email == email))
 
     if user is None or user.password_hash is None:
         burn_time_like_a_password_check()  # same timing as a real check
+        limiter.record(email_key, LOGIN_FAILS_PER_EMAIL[1])
         raise ApiError(401, "wrong_login", WRONG_LOGIN)
     if not verify_password(body.password, user.password_hash):
+        limiter.record(email_key, LOGIN_FAILS_PER_EMAIL[1])
         raise ApiError(401, "wrong_login", WRONG_LOGIN)
 
+    limiter.clear(email_key)  # correct password: start counting from zero again
     tokens = issue_tokens(db, user)
     db.commit()
     return {**tokens, "user": user_json(user)}
