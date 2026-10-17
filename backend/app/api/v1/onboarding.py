@@ -39,17 +39,6 @@ EXAMPLE_LOGIN: dict[str, Any] = {
     "user": {**EXAMPLE_USER, "onboarding_completed": False},
 }
 
-EXAMPLE_PLAN: dict[str, Any] = {
-    "exam_date": "2026-12-06",
-    "days_left": 54,
-    "units_total": 200,
-    "units_done": 0,
-    "units_per_day": 4,
-    "finish_by": "2026-11-29",
-    "ai_tip_my": "Burmese text: focus on reading practice on weekends.",
-    "updated_at": "2026-10-13T09:30:00Z",
-}
-
 
 # --- Request shapes (what the app sends) ---
 
