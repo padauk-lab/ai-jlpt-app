@@ -6,3 +6,5 @@ psycopg[binary]
 argon2-cffi
 pyjwt
 email-validator
+# Timezone list for notification settings, so it works even if the system has none
+tzdata
