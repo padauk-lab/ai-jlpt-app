@@ -1,10 +1,11 @@
 # AI JLPT App, API Contract
 
-Version: 0.4 (draft for team review)
-Date: 2026-10-15
+Version: 0.5 (draft for team review)
+Date: 2026-10-17
 Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
 Changes in 0.3: decided how the study plan pace is calculated (#10).
 Changes in 0.4: clarified #9 and #10 (score needed for N1 and N2, "today" is Japan time, `ai_tip_my` can be `null`).
+Changes in 0.5: rate limits for log in and sign up (429 with a `Retry-After` header).
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -95,6 +96,9 @@ Every error has the same shape:
 - Locked items return `403` even if the app is bypassed.
 - Correct quiz and mock test answers are **never sent before the user answers**.
 - Login, register, forgot password and AI endpoints are rate limited.
+  - Log in: 5 wrong passwords per email in 15 minutes (a correct log in resets it), and 30 attempts per network in 5 minutes.
+  - Sign up: 20 per network in 1 hour.
+  - When a limit is hit: `429`, code `too_many_requests`, and a `Retry-After` header with the seconds to wait. The app shows a Burmese message and does not retry by itself.
 
 ---
 

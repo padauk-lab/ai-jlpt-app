@@ -37,12 +37,20 @@ class ApiError(Exception):
     Example: raise ApiError(409, "email_taken", "This email is already registered.")
     """
 
-    def __init__(self, status_code: int, code: str, message: str, fields: dict[str, str] | None = None) -> None:
+    def __init__(
+        self,
+        status_code: int,
+        code: str,
+        message: str,
+        fields: dict[str, str] | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> None:
         super().__init__(message)
         self.status_code = status_code
         self.code = code
         self.message = message
         self.fields = fields
+        self.headers = headers  # extra response headers, for example Retry-After on 429
 
 
 def error_body(code: str, message: str, fields: dict[str, str] | None = None) -> dict[str, Any]:
@@ -53,7 +61,9 @@ def error_body(code: str, message: str, fields: dict[str, str] | None = None) ->
 
 
 async def _api_error(request: Request, exc: ApiError) -> JSONResponse:
-    return JSONResponse(status_code=exc.status_code, content=error_body(exc.code, exc.message, exc.fields))
+    return JSONResponse(
+        status_code=exc.status_code, content=error_body(exc.code, exc.message, exc.fields), headers=exc.headers
+    )
 
 
 async def _http_error(request: Request, exc: StarletteHTTPException) -> JSONResponse:
