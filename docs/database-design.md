@@ -320,7 +320,7 @@ Every quiz and mock test question.
 | passage_id | bigint | nullable, → reading_passages, restrict | Set for reading questions |
 | part | text | NOT NULL, `vocabulary`, `grammar` or `reading` | |
 | type | text | NOT NULL | Example: `kanji_reading`, `paraphrase` |
-| number | smallint | | Order in the mock test (quiz order is random) |
+| number | smallint | | Mock test: order in the test. Quiz: the question's number in its bank file, used to update it safely (attempt order is random) |
 | prompt_ruby | jsonb | NOT NULL | |
 | underline | text | nullable | Part of the prompt being tested |
 | options | jsonb | NOT NULL | `[{"id":"a","text":"..."}]`, 4 options |
