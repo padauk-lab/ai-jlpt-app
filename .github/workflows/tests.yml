@@ -1,5 +1,6 @@
-# Runs the backend tests on every pull request and on every push to main.
-# It uses the same command we run on our own computers.
+# Runs on every pull request and on every push to main:
+# 1. checks the content files, 2. runs the backend tests.
+# It uses the same commands we run on our own computers.
 name: Tests
 
 on:
@@ -31,6 +32,12 @@ jobs:
       # No real secret is ever used here.
       - name: Create .env from the example
         run: cp .env.example .env
+
+      # Content files from the content team. --check reads and checks every file,
+      # and never changes any database. (Quizzes and proverbs get a step here once
+      # their loaders are merged.)
+      - name: Check content files (units)
+        run: docker compose run --rm --build -v "$PWD/data":/data:ro backend python -m app.content.load_units --check /data/units
 
       - name: Run backend tests
         run: docker compose --profile test run --rm --build tests
