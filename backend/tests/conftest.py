@@ -64,6 +64,16 @@ def clean_user_data() -> Iterator[None]:
         conn.execute(text("TRUNCATE users RESTART IDENTITY CASCADE"))
 
 
+@pytest.fixture(autouse=True)
+def reset_rate_limits() -> Iterator[None]:
+    """Every test starts with fresh rate limit counters."""
+    from app.core.rate_limit import limiter
+
+    limiter.reset()
+    yield
+    limiter.reset()
+
+
 @pytest.fixture
 def client() -> TestClient:
     from app.main import app
