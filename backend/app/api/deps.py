@@ -2,7 +2,7 @@
 
 from typing import Annotated
 
-from fastapi import Depends
+from fastapi import Depends, Path
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
@@ -30,3 +30,8 @@ def get_current_user(
 
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
+
+
+# An id in the URL, like /units/{unit_id}. The limits match the database's BIGINT,
+# so a huge or negative number gets a clean 422 instead of a database error.
+PathId = Annotated[int, Path(ge=1, le=9_223_372_036_854_775_807)]
