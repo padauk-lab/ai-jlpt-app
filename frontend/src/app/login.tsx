@@ -29,8 +29,8 @@ export default function LoginScreen() {
 
   function handleSubmit() {
     // Next step: call POST /auth/login or POST /auth/register here.
-    // For now, go straight to Home so we can try the screens.
-    router.replace('/home');
+    // For now, a new account goes to first-time setup (onboarding_completed: false).
+    router.replace('/setup');
   }
 
   return (

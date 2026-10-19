@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo-google-fonts/noto-sans-myanmar": "^0.4.2",
+    "@expo-google-fonts/noto-serif-myanmar": "^0.4.1",
     "@expo-google-fonts/shippori-mincho-b1": "^0.4.1",
     "@expo-google-fonts/zen-kaku-gothic-new": "^0.4.2",
     "@expo/ui": "~57.0.23",

@@ -14,6 +14,7 @@ type Props = {
   color?: string;
   readingColor?: string;
   fontFamily?: string;
+  align?: 'center' | 'left';
 };
 
 // Draws each reading (furigana) small, above its kanji.
@@ -23,11 +24,12 @@ export function RubyText({
   color = colors.ink,
   readingColor = colors.inkMuted,
   fontFamily = fonts.japanese,
+  align = 'center',
 }: Props) {
   const readingSize = Math.max(8, Math.round(size * 0.5));
 
   return (
-    <View style={styles.row}>
+    <View style={[styles.row, align === 'left' && styles.left]}>
       {ruby.map((piece, index) => (
         <View key={index} style={styles.piece}>
           <Text
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'flex-end',
     justifyContent: 'center',
+  },
+  left: {
+    justifyContent: 'flex-start',
   },
   piece: {
     alignItems: 'center',

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 import { getDashboard, getSession, getTodayProverb } from '@/api';
 import type { Dashboard, Proverb, SessionDetail } from '@/api/types';
 import { HomeHeader } from '@/components/home/HomeHeader';
@@ -52,8 +53,13 @@ export default function HomeScreen() {
   }, [data]);
 
   function openStop(stop: MapStop) {
-    // Next step: open the unit, quiz or mock test screen for stop.id.
-    console.log('open', stop.kind, stop.id);
+    if (stop.state === 'locked') return;
+    if (stop.kind === 'unit') {
+      router.push({ pathname: '/unit/[id]', params: { id: String(stop.id) } });
+    } else if (stop.kind === 'quiz') {
+      router.push({ pathname: '/quiz/[id]', params: { id: String(stop.id) } });
+    }
+    // The mock test screen is designed next (#23 to #26).
   }
 
   if (failed) {
