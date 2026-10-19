@@ -1,19 +1,22 @@
 """Section 2: Dashboard, sessions and units. Contract endpoints #11 to #18 (docs/api-contract.md).
 
-REAL: #13 (session), #14 (unit) and #15 (mark a unit as done).
-PLACEHOLDER: #11, #12 and #16 to #18 still return the contract's example JSON.
+REAL: #13 (session), #14 (unit), #15 (mark a unit as done) and #16 to #18 (saved words).
+#12 (proverb of the day) is real and lives in proverbs.py.
+PLACEHOLDER: #11 (dashboard) still returns the contract's example JSON.
 
 Security notes:
 - The unlock rules live in app/progress/unlock.py and are checked here on the server.
   A locked session or unit returns 403 even if someone calls the API directly.
 - Progress is always the logged-in user's own, in their current round.
+- A word from a locked unit can't be saved (403), so saved words never reveal locked content.
 """
 
-from typing import Any
+from datetime import UTC
+from typing import Annotated, Any
 
-from fastapi import APIRouter, status
-from pydantic import BaseModel
-from sqlalchemy import select
+from fastapi import APIRouter, Query, status
+from pydantic import BaseModel, ConfigDict, Field
+from sqlalchemy import delete, or_, select
 from sqlalchemy.dialects.postgresql import insert
 
 from app.api.deps import CurrentUser, DbSession, PathId
@@ -38,52 +41,21 @@ EXAMPLE_DASHBOARD: dict[str, Any] = {
     ],
 }
 
-EXAMPLE_PROVERB: dict[str, Any] = {
-    "id": 7,
-    "ruby": [
-        {"text": "継続", "reading": "けいぞく"},
-        {"text": "は"},
-        {"text": "力", "reading": "ちから"},
-        {"text": "なり"},
-    ],
-    "meaning_my": "Burmese translation.",
-    "explanation_my": "Burmese explanation of when and why this proverb is used.",
-}
-
-EXAMPLE_BOOKMARKS: dict[str, Any] = {
-    "total": 12,
-    "words": [
-        {
-            "word_id": 501,
-            "ruby": [{"text": "意志力", "reading": "いしりょく"}],
-            "meaning_my": "Burmese meaning.",
-            "session_number": 3,
-            "unit_number": 5,
-            "saved_at": "2026-10-12T14:00:00Z",
-        }
-    ],
-}
-
-
 # --- Request shapes (what the app sends) ---
 
 
 class BookmarkRequest(BaseModel):
-    word_id: int
+    model_config = ConfigDict(extra="forbid")
+
+    word_id: Annotated[int, Field(strict=True, ge=1, le=9_223_372_036_854_775_807)]
 
 
 # --- Endpoints ---
-# Inputs (ids, search, request bodies) are not used yet. They are declared so /docs shows them.
 
 
 @router.get("/dashboard", summary="#11 Everything the Dashboard needs")
 def get_dashboard() -> dict[str, Any]:
     return EXAMPLE_DASHBOARD
-
-
-@router.get("/proverbs/today", summary="#12 Proverb of the day")
-def get_proverb_today() -> dict[str, Any]:
-    return EXAMPLE_PROVERB
 
 
 # --- Helpers for #13 to #15 ---
@@ -222,16 +194,71 @@ def complete_unit(unit_id: PathId, user: CurrentUser, db: DbSession) -> dict[str
     return {"unit_id": unit.id, "status": "completed", "next": _next_step(facts, unit.number)}
 
 
+# --- Endpoints #16 to #18: saved words ---
+
+
+def _escape_like(text: str) -> str:
+    """Treat % and _ in the search as normal letters, not as wildcards."""
+    return text.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
+
 @router.get("/bookmarks", summary="#16 Saved words")
-def get_bookmarks(search: str | None = None) -> dict[str, Any]:
-    return EXAMPLE_BOOKMARKS
+def get_bookmarks(
+    user: CurrentUser,
+    db: DbSession,
+    search: Annotated[str | None, Query(max_length=50)] = None,
+) -> dict[str, Any]:
+    query = (
+        select(Bookmark.created_at, Word, StudySession.number, Unit.number)
+        .join(Word, Word.id == Bookmark.word_id)
+        .join(Unit, Unit.id == Word.unit_id)
+        .join(StudySession, StudySession.id == Unit.session_id)
+        .where(Bookmark.user_id == user.id)
+        .order_by(Bookmark.created_at.desc(), Word.id.desc())  # newest first
+    )
+    if search and search.strip():
+        # Matches the word, its reading or its Burmese meaning. Parameters keep it safe from SQL injection.
+        pattern = f"%{_escape_like(search.strip())}%"
+        query = query.where(or_(
+            Word.word.ilike(pattern, escape="\\"),
+            Word.furigana.ilike(pattern, escape="\\"),
+            Word.meaning_my.ilike(pattern, escape="\\"),
+        ))
+    rows = db.execute(query).all()
+    return {
+        "total": len(rows),
+        "words": [
+            {
+                "word_id": word.id,
+                "ruby": word.ruby,
+                "meaning_my": word.meaning_my,
+                "session_number": session_number,
+                "unit_number": unit_number,
+                "saved_at": saved_at.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            }
+            for saved_at, word, session_number, unit_number in rows
+        ],
+    }
 
 
 @router.post("/bookmarks", status_code=status.HTTP_201_CREATED, summary="#17 Save a word")
-def add_bookmark(body: BookmarkRequest) -> dict[str, Any]:
-    return {"word_id": 501, "bookmarked": True}
+def add_bookmark(body: BookmarkRequest, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    word = db.get(Word, body.word_id)
+    if word is None:
+        raise ApiError(404, "not_found", "Word not found.")
+    unit, _, facts = _unit_and_facts(db, user, word.unit_id)
+    if unlock.unit_status(facts, unit.number) == "locked":
+        raise ApiError(403, "unit_locked", "This word is in a locked unit.")
+
+    # Saving twice (or two taps at once) is safe.
+    db.execute(insert(Bookmark).values(user_id=user.id, word_id=word.id).on_conflict_do_nothing())
+    db.commit()
+    return {"word_id": word.id, "bookmarked": True}
 
 
 @router.delete("/bookmarks/{word_id}", status_code=status.HTTP_204_NO_CONTENT, summary="#18 Remove a saved word")
-def remove_bookmark(word_id: int) -> None:
-    return None
+def remove_bookmark(word_id: PathId, user: CurrentUser, db: DbSession) -> None:
+    removed = db.execute(delete(Bookmark).where(Bookmark.user_id == user.id, Bookmark.word_id == word_id)).rowcount
+    if removed == 0:
+        raise ApiError(404, "not_found", "This word is not saved.")
+    db.commit()
