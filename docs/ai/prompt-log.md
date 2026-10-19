@@ -25,3 +25,13 @@
 - Note: Q1 says 腕力 can be read わんりき; the standard reading is わんりょく. Human review is still needed.
 - Moved eval files to backend/scripts/ai_eval/ (outside the app).
 - Added retry with exponential backoff (5s, 10s, 20s) for HTTP 503 from Gemini.
+
+## Attempt 5 – gemini-3.8-flash, prompt v3 (2026-10-19)
+- Speed: the first request of each run was slow (33-125s), the rest ~7-15s (3 runs)
+- Answers vary between runs, so human review of cached answers is still needed
+
+## Prompt v4 – app version (2026-10-19)
+- File: backend/app/ai/prompts/explain.txt (used by explain_answer())
+- Change from v3: the input now also has type, underline and passage (from the Question table),
+  and every other option must have a reason
+- Not tested with the real model yet. Tested with a fake AI (backend/tests/test_ai_explain.py)
