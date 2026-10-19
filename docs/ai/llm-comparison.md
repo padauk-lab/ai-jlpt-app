@@ -4,9 +4,9 @@ Answers Open question 4 (LLM choice) in `docs/api-contract.md`.
 Author: SWYH · Date: 2026-10-13
 
 ## Test setup
-- 5 N1 questions (kanji reading, vocabulary, grammar): `backend/app/ai/eval/test_questions.json`
+- 5 N1 questions (kanji reading, vocabulary, grammar): `backend/scripts/ai_eval/test_questions.json`
 - Same prompt for every model ("Why?" explanation, contract #28 JSON shape): `prompt_explain_v2.txt`
-- Script: `backend/app/ai/eval/compare_llms.py`
+- Script: `backend/scripts/ai_eval/compare_llms.py`
 - Each answer checked by hand (scores 0-5)
 
 ## Results
@@ -38,5 +38,39 @@ Use **gemini-2.5-flash** for "Why?", "More examples" and the study plan tip.
 - Add `GEMINI_API_KEY=your-key-here` to `.env.example` (root file, owner: team lead).
 - Next prompt version (v3): shorter answers for mobile, a reason for every option,
   avoid loanwords like "nuance".
+
+## Update 2026-10-19: newer model (gemini-3.8-flash)
+
+Answers the follow-up from HP on #26: test one newer Gemini model.
+Listed available models with `backend/scripts/ai_eval/list_models.py` and picked the newest stable Flash model
+(no "preview" or codename, same tier as 2.5-flash). Same prompt v3 and 6 questions, 3 runs.
+
+| Criteria | gemini-2.5-flash | gemini-3.8-flash |
+|---|---|---|
+| Natural Burmese | 5 | 5 |
+| Correct explanations | 5 | 5 (more precise, e.g. explains why はずだ contradicts the sentence) |
+| Reason for every other option | Sometimes missing | Usually given (missing once in 3 runs) |
+| Q6 null case | Pass | Pass (3/3 runs) |
+
+| Time (s) | Run 1 | Run 2 | Run 3 |
+|---|---|---|---|
+| Q1 (first request) | 125.5 | 33.5 | 91.1 |
+| Q2-Q6 | 7-139 | 6-15 | 7-9 |
+
+Findings:
+1. **The first request of each run is slow (30-125s)**, the rest are ~7-15s. Likely a cold start.
+   The backend route needs a long timeout, or returns 503 "Try again later".
+2. Run 1 also had 120-140s answers and one HTTP 503 (server load). One run is not enough to judge speed.
+3. **Answers change between runs** (e.g. Q1 gave a correct example in run 2 and a doubtful one in run 3).
+   This supports caching "Why?" once and having ANK review it.
+
+**Recommendation:** `LLM_MODEL=gemini-3.8-flash`. Fallback: `gemini-2.5-flash` (change `.env` only, no code change).
+
+Notes:
+- Use exact version names, not aliases like `gemini-flash-latest`, so results stay the same.
+- Cost of 3.8-flash vs 2.5-flash is not checked yet.
+- "More examples" is not cached, so slow first requests affect users there.
+
+
 
 Full prompt history: `docs/ai/prompt-log.md`

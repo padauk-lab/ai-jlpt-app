@@ -9,7 +9,7 @@ HERE = Path(__file__).parent              # backend/scripts/ai_eval
 ROOT = HERE.parents[2]                    # ai-jlpt-app
 
 PROVIDER = "gemini"                       # "ollama" or "gemini"
-MODEL = "gemini-2.5-flash"                # e.g. "qwen2.5:7b" for ollama
+MODEL = "gemini-3.8-flash"                # e.g. "qwen2.5:7b" for ollama
 VERSION = "v3"                            # prompt version
 
 
@@ -71,7 +71,7 @@ def ask_gemini(user_msg):
         "contents": [{"role": "user", "parts": [{"text": user_msg}]}],
         "generationConfig": {"responseMimeType": "application/json"},
     }
-    headers = {"x-goog-api-key": os.environ["GEMINI_API_KEY"]}
+    headers = {"x-goog-api-key": os.environ["LLM_API_KEY"]}
     data = post_json(url, body, headers)
     return data["candidates"][0]["content"]["parts"][0]["text"]
 
