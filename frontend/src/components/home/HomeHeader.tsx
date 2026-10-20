@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   leafLabel: {
     fontFamily: fonts.burmeseSerif,
     fontSize: 12,
-    lineHeight: 21,
+    lineHeight: 25,
     color: '#6B2E1A',
   },
   leafDivider: {

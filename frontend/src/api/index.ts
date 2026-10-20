@@ -7,7 +7,9 @@ import type {
   OnboardingRequest,
   Proverb,
   QuizAttempt,
+  QuizFinish,
   QuizOption,
+  QuizReview,
   SessionDetail,
   StudyPlan,
   UnitCompleteResult,
@@ -60,31 +62,84 @@ export function startQuiz(_quizId: number): Promise<QuizAttempt> {
 }
 
 // #20 POST /quiz-attempts/{id}/answers
-// The fake "server" checks the answer, just like the real one will.
-let correctSoFar = 0;
-let answeredCount = 0;
+// The fake "server" checks the answer and remembers it, just like the real one will.
+const PASS_MARK = 70;
+let picks: Record<number, QuizOption['id']> = {};
+let bestScore = 0;
+
+function fakeAnswers() {
+  return quizServerFake.answers as Record<string, QuizOption['id']>;
+}
+
+function countCorrect() {
+  const answers = fakeAnswers();
+  return Object.entries(picks).filter(([id, pick]) => answers[id] === pick).length;
+}
+
 export function answerQuestion(
   _attemptId: number,
   questionId: number,
   selected: QuizOption['id'],
 ): Promise<AnswerResult> {
-  const answers = quizServerFake.answers as Record<string, QuizOption['id']>;
-  const correct = answers[String(questionId)];
-  answeredCount += 1;
-  if (selected === correct) correctSoFar += 1;
+  const correct = fakeAnswers()[String(questionId)];
+  picks[questionId] = selected;
   return fake<AnswerResult>({
     question_id: questionId,
     is_correct: selected === correct,
     selected_option_id: selected,
     correct_option_id: correct,
-    answered: answeredCount,
-    correct_so_far: correctSoFar,
+    answered: Object.keys(picks).length,
+    correct_so_far: countCorrect(),
   });
 }
 
 export function resetFakeQuiz() {
-  correctSoFar = 0;
-  answeredCount = 0;
+  picks = {};
+}
+
+// #21 POST /quiz-attempts/{id}/finish  (unanswered questions count as wrong)
+export function finishQuiz(attemptId: number): Promise<QuizFinish> {
+  const answers = fakeAnswers();
+  const questions = (quizAttemptFake as QuizAttempt).questions;
+  const correct = countCorrect();
+  const score = Math.round((correct / questions.length) * 100);
+  bestScore = Math.max(bestScore, score);
+  return fake<QuizFinish>({
+    attempt_id: attemptId,
+    score,
+    correct,
+    total: questions.length,
+    passed: score >= PASS_MARK,
+    pass_mark: PASS_MARK,
+    best_score: bestScore,
+    wrong_questions: questions.map((q) => q.id).filter((id) => picks[id] !== answers[String(id)]),
+  });
+}
+
+// #22 GET /quiz-attempts/{id}  (after finishing, the correct answers may be shown)
+export function getQuizReview(attemptId: number): Promise<QuizReview> {
+  const answers = fakeAnswers();
+  const questions = (quizAttemptFake as QuizAttempt).questions.map((q) => {
+    const selected = picks[q.id] ?? null;
+    const correct = answers[String(q.id)];
+    return {
+      id: q.id,
+      number: q.number,
+      prompt_ruby: q.prompt_ruby,
+      options: q.options,
+      selected_option_id: selected,
+      correct_option_id: correct,
+      is_correct: selected === correct,
+    };
+  });
+  const score = Math.round((questions.filter((q) => q.is_correct).length / questions.length) * 100);
+  return fake<QuizReview>({
+    attempt_id: attemptId,
+    score,
+    passed: score >= PASS_MARK,
+    finished_at: new Date().toISOString(),
+    questions,
+  });
 }
 
 // #28 POST /ai/explain

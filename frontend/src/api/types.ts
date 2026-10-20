@@ -143,3 +143,34 @@ export type StudyPlan = {
   ai_tip_my: string | null;
   updated_at: string;
 };
+
+// #21 POST /quiz-attempts/{id}/finish
+export type QuizFinish = {
+  attempt_id: number;
+  score: number;
+  correct: number;
+  total: number;
+  passed: boolean;
+  pass_mark: number;
+  best_score: number;
+  wrong_questions: number[];
+};
+
+// #22 GET /quiz-attempts/{id}
+export type QuizReviewQuestion = {
+  id: number;
+  number: number;
+  prompt_ruby: RubyPiece[];
+  options: QuizOption[];
+  selected_option_id: QuizOption['id'] | null;
+  correct_option_id: QuizOption['id'];
+  is_correct: boolean;
+};
+
+export type QuizReview = {
+  attempt_id: number;
+  score: number;
+  passed: boolean;
+  finished_at: string;
+  questions: QuizReviewQuestion[];
+};

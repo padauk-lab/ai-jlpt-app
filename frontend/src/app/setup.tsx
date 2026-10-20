@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: fonts.burmeseSerif,
     fontSize: 22,
-    lineHeight: 40,
+    lineHeight: 46,
     color: colors.lacquer,
   },
   subtitle: {

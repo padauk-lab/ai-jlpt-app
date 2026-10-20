@@ -2,15 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
-import { answerQuestion, explainAnswer, resetFakeQuiz, startQuiz } from '@/api';
-import type { AnswerResult, Explanation, QuizAttempt, QuizOption } from '@/api/types';
+import { answerQuestion, explainAnswer, finishQuiz, resetFakeQuiz, startQuiz } from '@/api';
+import type { AnswerResult, Explanation, QuizAttempt, QuizFinish, QuizOption } from '@/api/types';
 import { PromptText } from '@/components/quiz/PromptText';
 import { QuizProgress } from '@/components/quiz/QuizProgress';
+import { QuizResult } from '@/components/quiz/QuizResult';
 import { CloseIcon, SparkIcon } from '@/components/ui/Icons';
 import Svg, { Path } from 'react-native-svg';
 import { colors, fonts, spacing, text } from '@/theme';
-
-const PASS_MARK = 70; // contract: quizzes need 70% or more
 
 // Question types from the contract, with a Burmese name and the JLPT name.
 const TYPE_LABELS: Record<string, [string, string]> = {
@@ -26,8 +25,7 @@ export default function QuizScreen() {
   const [result, setResult] = useState<AnswerResult | null>(null);
   const [explanation, setExplanation] = useState<Explanation | null>(null);
   const [explaining, setExplaining] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [finished, setFinished] = useState(false);
+  const [finished, setFinished] = useState<QuizFinish | null>(null);
 
   const begin = useCallback(async () => {
     resetFakeQuiz();
@@ -35,8 +33,7 @@ export default function QuizScreen() {
     setIndex(0);
     setResult(null);
     setExplanation(null);
-    setCorrectCount(0);
-    setFinished(false);
+    setFinished(null);
     setAttempt(await startQuiz(Number(id)));
   }, [id]);
 
@@ -55,24 +52,14 @@ export default function QuizScreen() {
   const total = attempt.questions.length;
 
   if (finished) {
-    const score = Math.round((correctCount / total) * 100);
-    const passed = score >= PASS_MARK;
     return (
-      <SafeAreaView style={styles.resultScreen}>
-        <Text style={styles.resultTitle}>{passed ? 'အောင်ပါပြီ' : 'ထပ်ကြိုးစားကြည့်ပါ'}</Text>
-        <Text style={styles.resultScore}>{score}%</Text>
-        <Text style={styles.muted}>
-          {total} ခုအနက် {correctCount} ခု မှန်ပါတယ် ၊ အောင်မှတ် {PASS_MARK}%
-        </Text>
-        <View style={styles.resultButtons}>
-          <Pressable onPress={begin} style={styles.secondaryButton}>
-            <Text style={styles.secondaryText}>ပြန်ဖြေမည်</Text>
-          </Pressable>
-          <Pressable onPress={() => router.back()} style={styles.primaryButton}>
-            <Text style={styles.primaryText}>မြေပုံသို့ ပြန်မည်</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
+      <QuizResult
+        result={finished}
+        quizName="စာမေးပွဲငယ်"
+        onContinue={() => router.back()}
+        onReview={() => router.push({ pathname: '/review/[id]', params: { id: String(finished.attempt_id) } })}
+        onRetake={begin}
+      />
     );
   }
 
@@ -84,7 +71,6 @@ export default function QuizScreen() {
     if (answered || !attempt) return;
     const res = await answerQuestion(attempt.attempt_id, question.id, option);
     setResult(res);
-    if (res.is_correct) setCorrectCount((n) => n + 1);
   }
 
   async function why() {
@@ -96,8 +82,7 @@ export default function QuizScreen() {
 
   function next() {
     if (index + 1 >= total) {
-      // Next step: POST /quiz-attempts/{id}/finish (#21) for the official score.
-      setFinished(true);
+      if (attempt) finishQuiz(attempt.attempt_id).then(setFinished);
       return;
     }
     setIndex(index + 1);
@@ -402,44 +387,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 28,
     color: colors.onInk,
-  },
-  secondaryButton: {
-    height: 52,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1.5,
-    borderColor: colors.border,
-  },
-  secondaryText: {
-    fontFamily: fonts.burmeseBold,
-    fontSize: 16,
-    lineHeight: 28,
-    color: colors.ink,
-  },
-  resultScreen: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.md,
-    padding: spacing.xl,
-    backgroundColor: colors.background,
-  },
-  resultTitle: {
-    fontFamily: fonts.burmeseSerif,
-    fontSize: 24,
-    lineHeight: 42,
-    color: colors.lacquer,
-  },
-  resultScore: {
-    fontFamily: fonts.japaneseBold,
-    fontSize: 56,
-    lineHeight: 68,
-    color: colors.ink,
-  },
-  resultButtons: {
-    alignSelf: 'stretch',
-    gap: spacing.md,
-    marginTop: spacing.lg,
   },
 });
