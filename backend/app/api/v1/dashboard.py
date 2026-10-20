@@ -1,8 +1,7 @@
 """Section 2: Dashboard, sessions and units. Contract endpoints #11 to #18 (docs/api-contract.md).
 
-REAL: #13 (session), #14 (unit), #15 (mark a unit as done) and #16 to #18 (saved words).
-#12 (proverb of the day) is real and lives in proverbs.py.
-PLACEHOLDER: #11 (dashboard) still returns the contract's example JSON.
+All real: #11 (dashboard), #13 (session), #14 (unit), #15 (mark a unit as done) and #16 to #18 (saved words).
+#12 (proverb of the day) lives in proverbs.py.
 
 Security notes:
 - The unlock rules live in app/progress/unlock.py and are checked here on the server.
@@ -11,35 +10,22 @@ Security notes:
 - A word from a locked unit can't be saved (403), so saved words never reveal locked content.
 """
 
-from datetime import UTC
+from datetime import UTC, datetime, time
 from typing import Annotated, Any
 
 from fastapi import APIRouter, Query, status
 from pydantic import BaseModel, ConfigDict, Field
-from sqlalchemy import delete, or_, select
+from sqlalchemy import delete, func, or_, select
 from sqlalchemy.dialects.postgresql import insert
 
 from app.api.deps import CurrentUser, DbSession, PathId
 from app.core.errors import ApiError
-from app.models import Bookmark, Example, Grammar, StudySession, Unit, UnitProgress, User, Word
+from app.models import Bookmark, Example, Grammar, Plan, StudySession, Unit, UnitProgress, User, Word
+from app.plan import service
+from app.plan.calculator import DEFAULT_UNITS_PER_DAY, UNITS_TOTAL
 from app.progress import unlock
 
 router = APIRouter(tags=["2. Dashboard, sessions and units"])
-
-# --- Example data, copied from the contract ---
-
-EXAMPLE_DASHBOARD: dict[str, Any] = {
-    "overall_progress": 32,
-    "pass_prediction": 68,
-    "today": {"units_done": 2, "units_goal": 4},
-    "continue": {"session_id": 3, "unit_id": 25, "label": "Session 3, Unit 5"},
-    "sessions": [
-        {"id": 1, "number": 1, "progress": 100, "status": "completed"},
-        {"id": 2, "number": 2, "progress": 100, "status": "completed"},
-        {"id": 3, "number": 3, "progress": 40, "status": "in_progress"},
-        {"id": 4, "number": 4, "progress": 0, "status": "locked"},
-    ],
-}
 
 # --- Request shapes (what the app sends) ---
 
@@ -53,9 +39,70 @@ class BookmarkRequest(BaseModel):
 # --- Endpoints ---
 
 
+SESSIONS_TOTAL = 20
+
+
+def _session_status(facts: unlock.SessionFacts) -> str:
+    """completed: mock test submitted (that is what opens the next session).
+    in_progress: something done. available: open, nothing done yet. locked: not open."""
+    if not facts.unlocked:
+        return "locked"
+    if facts.mock is not None and facts.mock.submitted_attempts > 0:
+        return "completed"
+    if facts.completed or any(q.finished_attempts for q in facts.quizzes.values()):
+        return "in_progress"
+    return "available"
+
+
+def _units_done_today(db: DbSession, user: User) -> int:
+    """Units marked as done since midnight in Japan (the same "today" as the study plan)."""
+    midnight = datetime.combine(service.today(), time.min, tzinfo=service.JAPAN_TIME)
+    query = select(func.count()).select_from(UnitProgress).where(
+        UnitProgress.user_id == user.id,
+        UnitProgress.round == user.current_round,
+        UnitProgress.completed_at >= midnight,
+    )
+    return db.scalar(query) or 0
+
+
 @router.get("/dashboard", summary="#11 Everything the Dashboard needs")
-def get_dashboard() -> dict[str, Any]:
-    return EXAMPLE_DASHBOARD
+def get_dashboard(user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    loaded = {s.number: s for s in db.scalars(select(StudySession).order_by(StudySession.number))}
+
+    sessions: list[dict[str, Any]] = []
+    next_unit: dict[str, Any] | None = None
+    for number in range(1, SESSIONS_TOTAL + 1):
+        session = loaded.get(number)
+        if session is None:
+            # Content for this session isn't loaded yet: shown on the map, but locked and without an id.
+            sessions.append({"id": None, "number": number, "progress": 0, "status": "locked"})
+            continue
+        facts = unlock.load_session_facts(db, user, session)
+        sessions.append({
+            "id": session.id,
+            "number": number,
+            "progress": len(facts.completed) * 100 // unlock.UNITS_PER_SESSION,
+            "status": _session_status(facts),
+        })
+        if next_unit is None and facts.unlocked:
+            # "Continue" = the first unit the user can study now, in the earliest open session.
+            for unit_id, unit_number in facts.units:
+                if unlock.unit_status(facts, unit_number) == "available":
+                    next_unit = {"session_id": session.id, "unit_id": unit_id, "label": f"Session {number}, Unit {unit_number}"}
+                    break
+
+    plan = db.get(Plan, user.id)
+    return {
+        "overall_progress": service.count_units_done(db, user) * 100 // UNITS_TOTAL,
+        # Needs the mock tests (#23 to #26) and the agreed formula. Until then: null, as the contract allows.
+        "pass_prediction": None,
+        "today": {
+            "units_done": _units_done_today(db, user),
+            "units_goal": plan.units_per_day if plan is not None else DEFAULT_UNITS_PER_DAY,
+        },
+        "continue": next_unit,
+        "sessions": sessions,
+    }
 
 
 # --- Helpers for #13 to #15 ---
