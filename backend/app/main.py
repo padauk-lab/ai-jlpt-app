@@ -1,6 +1,9 @@
+import os
+
 from fastapi import FastAPI
 
 from app.api.v1 import api_router
+from app.core.cors import add_cors
 from app.core.errors import register_error_handlers
 
 # The order of this list is the order of the groups in /docs.
@@ -13,6 +16,7 @@ TAGS = [
 
 app = FastAPI(title="AI JLPT App API", openapi_tags=TAGS)
 register_error_handlers(app)
+add_cors(app, os.environ.get("CORS_ORIGINS", ""))
 app.include_router(api_router, prefix="/api/v1")
 
 
