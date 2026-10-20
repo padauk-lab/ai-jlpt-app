@@ -5,6 +5,7 @@ export const fonts = {
   burmeseBold: 'NotoSansMyanmar_600SemiBold',
   japanese: 'ZenKakuGothicNew_400Regular',
   japaneseBold: 'ZenKakuGothicNew_700Bold',
+  burmeseSerif: 'NotoSerifMyanmar_700Bold', // traditional titles: session frame, proverb label
   brand: 'ShipporiMinchoB1_800ExtraBold', // only for the 急合 name
 } as const;
 

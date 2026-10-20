@@ -1,0 +1,98 @@
+{
+  "attempt_id": 880,
+  "quiz_id": 5,
+  "total_questions": 3,
+  "questions": [
+    {
+      "id": 3101,
+      "number": 1,
+      "type": "kanji_reading",
+      "prompt_ruby": [
+        {
+          "text": "彼の"
+        },
+        {
+          "text": "意志力"
+        },
+        {
+          "text": "には驚かされる。"
+        }
+      ],
+      "underline": "意志力",
+      "options": [
+        {
+          "id": "a",
+          "text": "いしりょく"
+        },
+        {
+          "id": "b",
+          "text": "いしりき"
+        },
+        {
+          "id": "c",
+          "text": "いしょく"
+        },
+        {
+          "id": "d",
+          "text": "いじりょく"
+        }
+      ]
+    },
+    {
+      "id": 3102,
+      "number": 2,
+      "type": "context",
+      "prompt_ruby": [
+        {
+          "text": "担当者に早めの提出を（　　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "催した"
+        },
+        {
+          "id": "b",
+          "text": "施した"
+        },
+        {
+          "id": "c",
+          "text": "促した"
+        },
+        {
+          "id": "d",
+          "text": "費やした"
+        }
+      ]
+    },
+    {
+      "id": 3103,
+      "number": 3,
+      "type": "grammar",
+      "prompt_ruby": [
+        {
+          "text": "彼は面白い（　　）、変な人だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ばかりか"
+        },
+        {
+          "id": "b",
+          "text": "というよりも"
+        },
+        {
+          "id": "c",
+          "text": "にもかかわらず"
+        },
+        {
+          "id": "d",
+          "text": "どころか"
+        }
+      ]
+    }
+  ]
+}

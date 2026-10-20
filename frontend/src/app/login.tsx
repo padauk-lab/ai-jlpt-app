@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 import { Logo } from '@/components/Logo';
 import { RubyText, type RubyPiece } from '@/components/RubyText';
 import { colors, fonts, radius, spacing, text } from '@/theme';
@@ -28,6 +29,8 @@ export default function LoginScreen() {
 
   function handleSubmit() {
     // Next step: call POST /auth/login or POST /auth/register here.
+    // For now, a new account goes to first-time setup (onboarding_completed: false).
+    router.replace('/setup');
   }
 
   return (

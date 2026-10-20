@@ -10,6 +10,7 @@ import {
   ZenKakuGothicNew_400Regular,
   ZenKakuGothicNew_700Bold,
 } from '@expo-google-fonts/zen-kaku-gothic-new';
+import { NotoSerifMyanmar_700Bold } from '@expo-google-fonts/noto-serif-myanmar';
 import { ShipporiMinchoB1_800ExtraBold } from '@expo-google-fonts/shippori-mincho-b1';
 
 // Keep the splash screen visible until the fonts are ready,
@@ -22,6 +23,7 @@ export default function RootLayout() {
     NotoSansMyanmar_600SemiBold,
     ZenKakuGothicNew_400Regular,
     ZenKakuGothicNew_700Bold,
+    NotoSerifMyanmar_700Bold,
     ShipporiMinchoB1_800ExtraBold,
   });
 

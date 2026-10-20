@@ -16,6 +16,11 @@ export const colors = {
   brandRed: '#C8102E', // the logo, the 急合 name and test gates ONLY
   gold: '#D9A441', // highlights, progress, rewards (never for small text)
   goldDeep: '#A97A1F', // gold details on goldSoft backgrounds
+  lacquer: '#6B2E1A', // Myanmar lacquer red-brown: traditional titles, AI buttons
+  ornament: '#B8913A', // gold lines of frames and flourishes
+  paper: '#FBF7EE', // light panels on cards (AI answers, map road)
+  paperEdge: '#E2D3B5', // edges of paper panels
+  track: '#EFE9E1', // empty part of progress bars
 
   correct: '#2E7D4F', // quiz: right answer
   correctBg: '#E8F3EC',
