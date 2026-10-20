@@ -12,8 +12,10 @@ import urllib.error
 import urllib.request
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-RETRIES = 3            # 1 try + 2 retries on 503 (waits 5s, then 10s)
-TIMEOUT_SECONDS = 120  # the first request after a quiet time can take ~2 minutes
+# A user is waiting on the screen, so give up quickly: at most 20s + 5s wait + 20s = 45 seconds.
+# The app then shows "try again later" (503). Slow test scripts set their own longer timeout.
+RETRIES = 2            # 1 try + 1 retry on 503 (waits 5s)
+TIMEOUT_SECONDS = 20
 
 
 class AIUnavailableError(Exception):

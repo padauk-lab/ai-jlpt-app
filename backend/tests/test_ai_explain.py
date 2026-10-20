@@ -145,9 +145,9 @@ def fake_server(monkeypatch, busy_times):
 
 
 def test_llm_retries_when_busy(monkeypatch):
-    calls = fake_server(monkeypatch, busy_times=2)
+    calls = fake_server(monkeypatch, busy_times=llm.RETRIES - 1)  # busy until the last try
     assert llm.generate_json("system", "user") == '{"ok": true}'
-    assert len(calls) == 3
+    assert len(calls) == llm.RETRIES
 
 
 def test_llm_gives_up_after_retries(monkeypatch):

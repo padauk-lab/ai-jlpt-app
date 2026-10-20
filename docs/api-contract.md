@@ -789,7 +789,8 @@ Response `200`:
 }
 ```
 - `why_selected_wrong_my` is `null` when the selected answer was correct.
-- Works only for questions the user has already answered (quiz) or submitted (mock test). Otherwise `403`, so nobody can use it to get answers early.
+- Works only for questions the user has already answered (quiz) or submitted (mock test). Otherwise `403`, so nobody can use it to get answers early. Questions skipped in a finished quiz also work, because the review (#22) already shows their answers.
+- Answers are saved per question and choice and shared by all users, so only the first request waits for the AI.
 
 Errors: `403` not answered yet, `404` question not found, `503` AI service temporarily unavailable.
 
