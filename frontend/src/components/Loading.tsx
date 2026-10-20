@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { AccessibilityInfo, Animated, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Platform, StyleSheet, Text, View } from 'react-native';
 import { Logo } from '@/components/Logo';
 import { colors, fonts, spacing, text } from '@/theme';
 
@@ -11,7 +11,7 @@ export function PlanLoading() {
     let loop: Animated.CompositeAnimation | null = null;
     AccessibilityInfo.isReduceMotionEnabled().then((reduce) => {
       if (reduce) return;
-      loop = Animated.loop(Animated.timing(beat, { toValue: 3, duration: 1200, useNativeDriver: true }));
+      loop = Animated.loop(Animated.timing(beat, { toValue: 3, duration: 1200, useNativeDriver: Platform.OS !== 'web' }));
       loop.start();
     });
     return () => loop?.stop();
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: fonts.burmeseSerif,
     fontSize: 20,
-    lineHeight: 36,
+    lineHeight: 42,
     color: colors.lacquer,
     textAlign: 'center',
   },
