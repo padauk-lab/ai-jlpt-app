@@ -20,7 +20,7 @@ const NEXT_MARKER = { x: 112, y: 25 };
 export function StudyMap({ session, onOpenStop }: Props) {
   const { stops, currentIndex, goldUntil } = buildMapLayout(session);
   const current = currentIndex >= 0 ? stops[currentIndex] : undefined;
-  const last = stops[stops.length - 1];
+  const last = stops.length > 0 ? stops[stops.length - 1] : undefined; // a session can be empty while content is added
 
   return (
     <View style={styles.sand}>
@@ -32,13 +32,15 @@ export function StudyMap({ session, onOpenStop }: Props) {
         <Svg width={MAP_WIDTH} height={MAP_HEIGHT} style={StyleSheet.absoluteFill}>
           <Path d={pathThrough(stops)} stroke={ROAD_EDGE} strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" fill="none" />
           <Path d={pathThrough(stops)} stroke={ROAD} strokeWidth={15} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-          <Path
-            d={`M ${last.x} ${last.y} L ${NEXT_MARKER.x} ${NEXT_MARKER.y}`}
-            stroke="#B9A47E"
-            strokeWidth={4}
-            strokeDasharray="2 10"
-            strokeLinecap="round"
-          />
+          {last && (
+            <Path
+              d={`M ${last.x} ${last.y} L ${NEXT_MARKER.x} ${NEXT_MARKER.y}`}
+              stroke="#B9A47E"
+              strokeWidth={4}
+              strokeDasharray="2 10"
+              strokeLinecap="round"
+            />
+          )}
           {goldUntil > 0 && (
             <Path
               d={pathThrough(stops.slice(0, goldUntil + 1))}

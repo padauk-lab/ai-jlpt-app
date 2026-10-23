@@ -12,7 +12,8 @@ export type Dashboard = {
   pass_prediction: number | null;
   today: { units_done: number; units_goal: number };
   continue: { session_id: number; unit_id: number; label: string } | null;
-  sessions: { id: number; number: number; progress: number; status: SessionStatus }[];
+  // id is null while a session's content isn't loaded yet (contract v0.6)
+  sessions: { id: number | null; number: number; progress: number; status: SessionStatus }[];
 };
 
 // #12 GET /proverbs/today
@@ -23,7 +24,8 @@ export type Proverb = {
   explanation_my: string;
 };
 
-// #13 GET /sessions/{id}
+// #13 GET /sessions/{id}. While content is still being added, a session can have
+// fewer than 10 units, no quizzes, and no mock test.
 export type SessionDetail = {
   id: number;
   number: number;
@@ -35,13 +37,14 @@ export type SessionDetail = {
     status: QuizStatus;
     best_score: number | null;
   }[];
+  // null while the session has no mock test yet (contract #13)
   mock_test: {
     id: number;
     status: MockTestStatus;
     best_score: number | null;
     last_score: number | null;
     attempts: number;
-  };
+  } | null;
 };
 
 export type Example = {
@@ -77,7 +80,7 @@ export type UnitDetail = {
   number: number;
   status: UnitStatus;
   words: Word[];
-  grammar: Grammar;
+  grammar: Grammar | null; // the backend sends null while a unit's grammar isn't loaded
 };
 
 // #15 POST /units/{id}/complete
@@ -174,3 +177,31 @@ export type QuizReview = {
   finished_at: string;
   questions: QuizReviewQuestion[];
 };
+
+// #1 GET /me
+export type Me = {
+  id: number;
+  email: string;
+  username: string;
+  login_method: 'email' | 'google';
+  onboarding_completed: boolean;
+};
+
+// #2, #3, #4 register / login / Google
+export type AuthResponse = {
+  access_token: string;
+  refresh_token: string;
+  user: Me;
+};
+
+// #16 GET /bookmarks
+export type SavedWord = {
+  word_id: number;
+  ruby: RubyPiece[];
+  meaning_my: string;
+  session_number: number;
+  unit_number: number;
+  saved_at: string;
+};
+
+export type SavedWords = { total: number; words: SavedWord[] };

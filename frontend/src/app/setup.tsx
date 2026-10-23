@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { submitOnboarding } from '@/api';
+import { ApiError, submitOnboarding } from '@/api';
 import type { OnboardingRequest } from '@/api/types';
 import { PlanLoading } from '@/components/Loading';
 import { Logo } from '@/components/Logo';
 import { AlertIcon, CalendarIcon } from '@/components/ui/Icons';
 import { colors, fonts, radius, spacing, text } from '@/theme';
+import { errorMessage } from '@/utils/errors';
 import { formatDateMy, upcomingJlptDates } from '@/utils/myanmar';
 
 type Level = OnboardingRequest['last_level'];
@@ -28,6 +29,7 @@ export default function SetupScreen() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
+  const [problem, setProblem] = useState<string | null>(null);
 
   const needsScore = level === 'N1' || level === 'N2';
 
@@ -50,9 +52,23 @@ export default function SetupScreen() {
   async function submit() {
     const answers = validate();
     if (!answers) return;
+    setProblem(null);
     setSubmitting(true);
-    await submitOnboarding(answers);
-    router.replace('/plan');
+    try {
+      await submitOnboarding(answers);
+      router.replace('/plan');
+    } catch (error) {
+      if (error instanceof ApiError && error.code === 'onboarding_already_done') {
+        router.replace('/plan'); // already set up earlier: just show the plan
+        return;
+      }
+      if (error instanceof ApiError && error.status === 401) {
+        router.replace('/login');
+        return;
+      }
+      setSubmitting(false);
+      setProblem(errorMessage(error));
+    }
   }
 
   if (submitting) return <PlanLoading />;
@@ -141,6 +157,8 @@ export default function SetupScreen() {
             <Text style={styles.hint}>JLPT ကို ပုံမှန်အားဖြင့် ဇူလိုင်နဲ့ ဒီဇင်ဘာလ အစောပိုင်း တနင်္ဂနွေနေ့တွေမှာ ကျင်းပပါတယ်။</Text>
           )}
         </View>
+
+        {problem && <ErrorText message={problem} />}
 
         <Pressable onPress={submit} style={({ pressed }) => [styles.primaryButton, pressed && { opacity: 0.85 }]}>
           <Text style={styles.primaryText}>အစီအစဉ် ပြုလုပ်မည်</Text>

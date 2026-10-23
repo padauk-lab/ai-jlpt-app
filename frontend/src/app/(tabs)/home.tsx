@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
-import { getDashboard, getSession, getTodayProverb } from '@/api';
+import { router, useFocusEffect } from 'expo-router';
+import { ApiError, getDashboard, getSession, getTodayProverb } from '@/api';
 import type { Dashboard, Proverb, SessionDetail } from '@/api/types';
 import { HomeHeader } from '@/components/home/HomeHeader';
 import { StudyMap } from '@/components/home/StudyMap';
 import { buildMapLayout, type MapStop } from '@/components/home/mapLayout';
 import { colors, fonts, spacing, text } from '@/theme';
+import { errorMessage } from '@/utils/errors';
 
 type HomeData = {
   dashboard: Dashboard;
@@ -17,32 +18,46 @@ type HomeData = {
 
 export default function HomeScreen() {
   const [data, setData] = useState<HomeData | null>(null);
-  const [failed, setFailed] = useState(false);
+  const [problem, setProblem] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView>(null);
 
   const load = useCallback(async () => {
-    setFailed(false);
+    setProblem(null);
     try {
       const dashboard = await getDashboard();
-      // Show the session the user is working on: the "continue" session,
-      // or the first one that is not finished.
+      // Show the session the user is working on: the "continue" session, or the first
+      // open session that isn't finished. Sessions without content have id null (v0.6).
+      const open = dashboard.sessions.filter((s) => s.id !== null && s.status !== 'locked');
       const sessionId =
         dashboard.continue?.session_id ??
-        dashboard.sessions.find((s) => s.status !== 'completed')?.id ??
-        dashboard.sessions[dashboard.sessions.length - 1].id;
+        open.find((s) => s.status !== 'completed')?.id ??
+        open[open.length - 1]?.id ??
+        null;
+      if (sessionId === null) {
+        setProblem('သင်ခန်းစာများ မထည့်ရသေးပါ။ အဖွဲ့က content တင်ပြီးမှ ပြန်ဝင်ကြည့်ပါ။');
+        return;
+      }
       const [session, proverb] = await Promise.all([
         getSession(sessionId),
         getTodayProverb().catch(() => null), // the proverb is nice to have, not required
       ]);
       setData({ dashboard, session, proverb });
-    } catch {
-      setFailed(true);
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 401) {
+        router.replace('/login'); // the login has expired
+        return;
+      }
+      setProblem(errorMessage(error));
     }
   }, []);
 
-  useEffect(() => {
-    load();
-  }, [load]);
+  // Load again every time Home comes back into view, e.g. after "Mark as done",
+  // so the map shows the newly unlocked unit.
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [load]),
+  );
 
   // Open the map scrolled to the next unit, like a game level map.
   const scrollToCurrent = useCallback(() => {
@@ -62,10 +77,10 @@ export default function HomeScreen() {
     // The mock test screen is designed next (#23 to #26).
   }
 
-  if (failed) {
+  if (problem) {
     return (
       <SafeAreaView style={styles.center}>
-        <Text style={styles.message}>ဒေတာ ရယူ၍ မရပါ။ ပြန်ကြိုးစားပါ။</Text>
+        <Text style={styles.message}>{problem}</Text>
         <Pressable onPress={load} style={styles.retry}>
           <Text style={styles.retryText}>ပြန်ကြိုးစားမည်</Text>
         </Pressable>
