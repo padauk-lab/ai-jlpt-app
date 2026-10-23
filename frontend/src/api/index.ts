@@ -8,8 +8,11 @@ import type {
   Proverb,
   QuizAttempt,
   QuizFinish,
+  Me,
+  NotificationSettings,
   QuizOption,
   QuizReview,
+  ResetResult,
   SavedWords,
   SessionDetail,
   StudyPlan,
@@ -187,4 +190,36 @@ export function submitOnboarding(answers: OnboardingRequest): Promise<StudyPlan>
 // #10 GET /plan
 export function getPlan(): Promise<StudyPlan> {
   return request<StudyPlan>('/plan');
+}
+
+// --- Settings (#29 to #37) ---
+
+// #29 PUT /me/study-settings  (recalculates the plan)
+export function updateStudySettings(answers: OnboardingRequest): Promise<StudyPlan> {
+  return request<StudyPlan>('/me/study-settings', { method: 'PUT', body: answers });
+}
+
+// #30 PUT /me  (change the username)
+export function updateUsername(username: string): Promise<Me> {
+  return request('/me', { method: 'PUT', body: { username } });
+}
+
+// #31 GET /me/notifications
+export function getNotifications(): Promise<NotificationSettings> {
+  return request<NotificationSettings>('/me/notifications');
+}
+
+// #32 PUT /me/notifications
+export function updateNotifications(settings: NotificationSettings): Promise<NotificationSettings> {
+  return request<NotificationSettings>('/me/notifications', { method: 'PUT', body: settings });
+}
+
+// #36 DELETE /me  (password only for email accounts)
+export function deleteAccount(password: string | null): Promise<void> {
+  return request<void>('/me', { method: 'DELETE', body: password ? { confirm: 'DELETE', password } : { confirm: 'DELETE' } });
+}
+
+// #37 POST /me/reset-progress
+export function resetProgress(): Promise<ResetResult> {
+  return request<ResetResult>('/me/reset-progress', { method: 'POST', body: { confirm: 'RESET' } });
 }

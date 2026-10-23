@@ -205,3 +205,14 @@ export type SavedWord = {
 };
 
 export type SavedWords = { total: number; words: SavedWord[] };
+
+// #31 GET /me/notifications, #32 PUT /me/notifications
+export type NotificationSettings = {
+  daily_reminder: boolean;
+  reminder_time: string; // "HH:MM"
+  proverb_notification: boolean;
+  timezone: string; // e.g. "Asia/Tokyo"
+};
+
+// #37 POST /me/reset-progress
+export type ResetResult = { round: number; plan: StudyPlan };
