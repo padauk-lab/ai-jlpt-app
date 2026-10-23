@@ -1,20 +1,22 @@
 """Section 4: AI and settings. Contract endpoints #27 to #37 (docs/api-contract.md).
 #35 (log out) is real and lives in auth.py.
 
-REAL: #29, #30, #31, #32, #33, #36 and #37 (the Settings screen).
-PLACEHOLDER: #27 and #28 (AI, waiting for SWYH's functions) and #34 (change password, it edits the
-login code, so it waits until the rate-limit pull request is merged).
+REAL: #28 ("Why?"), #29, #30, #31, #32, #33, #36 and #37 (the Settings screen).
+PLACEHOLDER: #27 ("More examples", waiting for SWYH's generate_examples()) and #34 (change password).
 
 Security notes:
 - Every real endpoint needs login and only changes the logged-in user's own data.
 - Dangerous actions need a typed confirmation ("DELETE", "RESET"), and deleting an email account
   also needs the password.
 
-Rules for the AI endpoints (later):
+Rules for the AI endpoints:
 - The app sends only IDs. The backend looks up the content and passes it to SWYH's AI functions.
-- "Why?" (#28) works only for questions the user has already answered or submitted. Otherwise 403.
+- "Why?" (#28) works only when the user has already seen the correct answer: a quiz question they
+  answered or that was in a quiz they finished, or a question of a mock test they submitted. Otherwise 403.
+- "Why?" answers are saved per question and choice and reused for everyone, so the AI is asked only once.
 """
 
+import logging
 import re
 from datetime import UTC, datetime, time
 from functools import cache
@@ -23,7 +25,8 @@ from zoneinfo import available_timezones
 
 from fastapi import APIRouter, status
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from sqlalchemy import func, select
+from sqlalchemy import exists, func, select
+from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.exc import IntegrityError
 
 from app.api.deps import CurrentUser, DbSession
@@ -31,10 +34,25 @@ from app.api.v1.auth import Username, user_json
 from app.api.v1.onboarding import OnboardingRequest
 from app.core.errors import ApiError
 from app.core.security import verify_password
-from app.models import Device, NotificationSettings, StudySettings, User
+from app.ai import explain as ai_explain
+from app.ai.llm import AIUnavailableError
+from app.models import (
+    AIExplanation,
+    Device,
+    MockAttempt,
+    NotificationSettings,
+    Question,
+    QuizAnswer,
+    QuizAttempt,
+    QuizAttemptQuestion,
+    ReadingPassage,
+    StudySettings,
+    User,
+)
 from app.plan import service
 
 router = APIRouter(tags=["4. AI and settings"])
+logger = logging.getLogger(__name__)
 
 MAX_DEVICES_PER_USER = 10  # older phones are forgotten, so one account can't register thousands of tokens
 DEFAULT_NOTIFICATIONS = {"daily_reminder": True, "reminder_time": "20:00", "proverb_notification": True, "timezone": "Asia/Tokyo"}
@@ -54,7 +72,9 @@ class ExamplesRequest(BaseModel):
 
 
 class ExplainRequest(BaseModel):
-    question_id: int
+    model_config = ConfigDict(extra="forbid")
+
+    question_id: Annotated[int, Field(strict=True, ge=1, le=9_223_372_036_854_775_807)]
     selected_option_id: Literal["a", "b", "c", "d"]
 
 
@@ -134,14 +154,76 @@ def more_examples(body: ExamplesRequest) -> dict[str, Any]:
     }
 
 
+def _has_seen_the_answer(db: DbSession, user: User, question: Question) -> bool:
+    """True only if the app has already shown this user the correct answer to this question."""
+    if question.quiz_id is not None:
+        mine = (QuizAttempt.user_id == user.id,)
+        answered = exists().where(
+            QuizAnswer.attempt_id == QuizAttempt.id, QuizAnswer.question_id == question.id, *mine
+        )
+        in_finished_quiz = exists().where(  # the review (#22) shows every answer, skipped ones too
+            QuizAttemptQuestion.attempt_id == QuizAttempt.id,
+            QuizAttemptQuestion.question_id == question.id,
+            QuizAttempt.finished_at.is_not(None),
+            *mine,
+        )
+        return bool(db.scalar(select(answered | in_finished_quiz)))
+    submitted_mock = exists().where(
+        MockAttempt.user_id == user.id,
+        MockAttempt.mock_test_id == question.mock_test_id,
+        MockAttempt.submitted_at.is_not(None),
+    )
+    return bool(db.scalar(select(submitted_mock)))
+
+
+def _passage_text(db: DbSession, question: Question) -> str | None:
+    """Reading questions need their passage, or the AI can't explain them."""
+    if question.passage_id is None:
+        return None
+    passage = db.get(ReadingPassage, question.passage_id)
+    return "".join(piece["text"] for piece in passage.text_ruby) if passage else None
+
+
+def _saved_explanation(db: DbSession, question_id: int, selected: str) -> AIExplanation | None:
+    return db.scalar(select(AIExplanation).where(
+        AIExplanation.question_id == question_id, AIExplanation.selected_option_id == selected
+    ))
+
+
 @router.post("/ai/explain", summary="#28 Why? (AI explanation)")
-def explain_answer(body: ExplainRequest) -> dict[str, Any]:
+def explain_answer(body: ExplainRequest, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    question = db.get(Question, body.question_id)
+    if question is None:
+        raise ApiError(404, "not_found", "Question not found.")
+    if not _has_seen_the_answer(db, user, question):
+        raise ApiError(403, "not_answered_yet", "Answer this question first.")
+
+    question_id, correct = question.id, question.correct_option_id
+    saved = _saved_explanation(db, question_id, body.selected_option_id)
+    if saved is None:
+        passage = _passage_text(db, question)
+        db.expunge(question)  # keep its loaded fields for the AI, without the database
+        db.commit()  # end the read transaction, so no database connection waits on the AI
+        try:
+            result = ai_explain.explain_answer(question, body.selected_option_id, passage)
+        except AIUnavailableError as exc:
+            logger.warning("Why? failed for question %s, option %s: %s", question_id, body.selected_option_id, exc)
+            raise ApiError(503, "ai_unavailable", "The AI is busy. Please try again later.") from None
+        # Two users can ask at the same moment: the first answer is kept, the second one is dropped.
+        db.execute(
+            insert(AIExplanation)
+            .values(question_id=question_id, selected_option_id=body.selected_option_id, **result)
+            .on_conflict_do_nothing(index_elements=["question_id", "selected_option_id"])
+        )
+        db.commit()
+        saved = _saved_explanation(db, question_id, body.selected_option_id)
+
     return {
-        "question_id": 3101,
-        "correct_option_id": "a",
-        "why_correct_my": "Burmese explanation of why (a) is correct.",
-        "why_selected_wrong_my": "Burmese explanation of why (b) is wrong.",
-        "other_options_my": {"c": "Burmese note on (c).", "d": "Burmese note on (d)."},
+        "question_id": question_id,
+        "correct_option_id": correct,
+        "why_correct_my": saved.why_correct_my,
+        "why_selected_wrong_my": saved.why_selected_wrong_my,
+        "other_options_my": saved.other_options_my or {},
     }
 
 
