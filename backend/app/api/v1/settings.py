@@ -2,7 +2,8 @@
 #35 (log out) is real and lives in auth.py.
 
 REAL: #28 ("Why?"), #29, #30, #31, #32, #33, #36 and #37 (the Settings screen).
-PLACEHOLDER: #27 ("More examples", waiting for SWYH's generate_examples()) and #34 (change password).
+REAL: #34 (change password).
+PLACEHOLDER: #27 ("More examples", waiting for SWYH's generate_examples()).
 
 Security notes:
 - Every real endpoint needs login and only changes the logged-in user's own data.
@@ -25,15 +26,16 @@ from zoneinfo import available_timezones
 
 from fastapi import APIRouter, status
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from sqlalchemy import exists, func, select
+from sqlalchemy import delete, exists, func, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.exc import IntegrityError
 
 from app.api.deps import CurrentUser, DbSession
-from app.api.v1.auth import Username, user_json
+from app.api.v1.auth import Password, Username, issue_tokens, user_json
 from app.api.v1.onboarding import OnboardingRequest
 from app.core.errors import ApiError
-from app.core.security import verify_password
+from app.core.rate_limit import LOGIN_FAILS_PER_EMAIL, limiter
+from app.core.security import hash_password, verify_password
 from app.ai import explain as ai_explain
 from app.ai.llm import AIUnavailableError
 from app.models import (
@@ -46,6 +48,7 @@ from app.models import (
     QuizAttempt,
     QuizAttemptQuestion,
     ReadingPassage,
+    RefreshToken,
     StudySettings,
     User,
 )
@@ -106,9 +109,9 @@ class DeviceRequest(Strict):
     platform: Literal["ios", "android", "web"]
 
 
-class ChangePasswordRequest(BaseModel):
-    current_password: str
-    new_password: str
+class ChangePasswordRequest(Strict):
+    current_password: Annotated[str, Field(max_length=128)]
+    new_password: Password  # same rules as sign up: 8 to 128 characters
 
 
 class DeleteAccountRequest(Strict):
@@ -300,8 +303,29 @@ def register_device(body: DeviceRequest, user: CurrentUser, db: DbSession) -> di
 
 
 @router.post("/auth/change-password", summary="#34 Change password")
-def change_password(body: ChangePasswordRequest) -> dict[str, Any]:
-    return {"message": "Password updated."}
+def change_password(body: ChangePasswordRequest, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    if user.password_hash is None:
+        raise ApiError(400, "google_account", "This account logs in with Google and has no password here.")
+
+    # Wrong guesses share the login limit for this email (5 in 15 minutes), so a stolen phone
+    # can't be used to guess the password here instead of on the login screen.
+    fail_key = f"login-fail:{user.email}"
+    limiter.check(fail_key, *LOGIN_FAILS_PER_EMAIL)
+    if not verify_password(body.current_password, user.password_hash):
+        limiter.record(fail_key, LOGIN_FAILS_PER_EMAIL[1])
+        raise ApiError(401, "wrong_password", "Password is incorrect.")
+    limiter.clear(fail_key)
+
+    locked_user = db.get(User, user.id, with_for_update=True, populate_existing=True)
+    locked_user.password_hash = hash_password(body.new_password)
+    # Sign out every device: whoever knew the old password is logged out now.
+    # The tokens are deleted, not marked as used. A used token coming back sets off the "stolen token"
+    # alarm in #7, which would also sign out the fresh login below the moment another phone tries its old token.
+    db.execute(delete(RefreshToken).where(RefreshToken.user_id == user.id))
+    # This phone gets a fresh login, so the user who just changed the password stays logged in here.
+    tokens = issue_tokens(db, locked_user)
+    db.commit()
+    return {"message": "Password updated.", **tokens}
 
 
 @router.delete("/me", status_code=status.HTTP_204_NO_CONTENT, summary="#36 Delete the account and all its data")
