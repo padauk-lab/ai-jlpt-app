@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
-import { completeUnit, getUnit } from '@/api';
+import { completeUnit, getUnit, saveWord, unsaveWord } from '@/api';
 import type { UnitDetail } from '@/api/types';
 import { OrnateFrame } from '@/components/OrnateFrame';
 import { BackIcon, NextIcon } from '@/components/ui/Icons';
@@ -10,6 +10,7 @@ import { Notice, useNotice } from '@/components/ui/Notice';
 import { FlipCard } from '@/components/unit/FlipCard';
 import { GrammarCard } from '@/components/unit/GrammarCard';
 import { colors, fonts, spacing, text } from '@/theme';
+import { errorMessage } from '@/utils/errors';
 import { toMyanmarDigits } from '@/utils/myanmar';
 
 type Tab = 'words' | 'grammar';
@@ -22,19 +23,42 @@ export default function UnitScreen() {
   const [saved, setSaved] = useState<Set<number>>(new Set());
   const [review, setReview] = useState<Set<number>>(new Set());
   const [finishing, setFinishing] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const notice = useNotice();
 
   useEffect(() => {
-    getUnit(Number(id)).then((data) => {
-      setUnit(data);
-      setSaved(new Set(data.words.filter((w) => w.bookmarked).map((w) => w.id)));
-    });
+    getUnit(Number(id))
+      .then((data) => {
+        setUnit(data);
+        setSaved(new Set(data.words.filter((w) => w.bookmarked).map((w) => w.id)));
+      })
+      .catch((error) => setLoadError(errorMessage(error)));
   }, [id]);
 
   if (!unit) {
     return (
       <SafeAreaView style={styles.center}>
-        <ActivityIndicator color={colors.ink} />
+        {loadError ? (
+          <>
+            <Text style={styles.muted}>{loadError}</Text>
+            <Pressable onPress={() => router.back()} style={styles.backLink}>
+              <Text style={styles.backLinkText}>နောက်သို့</Text>
+            </Pressable>
+          </>
+        ) : (
+          <ActivityIndicator color={colors.ink} />
+        )}
+      </SafeAreaView>
+    );
+  }
+
+  if (unit.words.length === 0) {
+    return (
+      <SafeAreaView style={styles.center}>
+        <Text style={styles.muted}>ဒီယူနစ်ရဲ့ စကားလုံးတွေ မထည့်ရသေးပါ။</Text>
+        <Pressable onPress={() => router.back()} style={styles.backLink}>
+          <Text style={styles.backLinkText}>နောက်သို့</Text>
+        </Pressable>
       </SafeAreaView>
     );
   }
@@ -42,14 +66,24 @@ export default function UnitScreen() {
   const word = unit.words[index];
   const total = unit.words.length;
 
-  function toggleSaved(wordId: number) {
-    // Next step: POST /bookmarks (#17) and DELETE /bookmarks/{id} (#18).
-    setSaved((current) => {
+  // #17 save / #18 remove. The star changes at once; if the server says no, it changes back.
+  async function toggleSaved(wordId: number) {
+    const wasSaved = saved.has(wordId);
+    const flip = (current: Set<number>) => {
       const next = new Set(current);
       if (next.has(wordId)) next.delete(wordId);
       else next.add(wordId);
       return next;
-    });
+    };
+    setSaved(flip);
+    try {
+      if (wasSaved) await unsaveWord(wordId);
+      else await saveWord(wordId);
+      if (!wasSaved) notice.show('မှတ်စုစာအုပ်ထဲ သိမ်းပြီးပါပြီ');
+    } catch (error) {
+      setSaved(flip); // undo
+      notice.show(errorMessage(error));
+    }
   }
 
   function toggleReview(wordId: number) {
@@ -65,8 +99,13 @@ export default function UnitScreen() {
   async function markDone() {
     if (!unit) return;
     setFinishing(true);
-    await completeUnit(unit.id);
-    router.back();
+    try {
+      await completeUnit(unit.id);
+      router.back(); // Home reloads and shows the next stop unlocked
+    } catch (error) {
+      setFinishing(false);
+      notice.show(errorMessage(error));
+    }
   }
 
   const showMoreExamples = () => notice.show('AI ဥပမာများ မကြာမီ ရပါမယ်');
@@ -85,7 +124,9 @@ export default function UnitScreen() {
         </View>
         <View style={styles.tabs} accessibilityRole="tablist">
           <TabButton label="ဝေါဟာရ" count={total} active={tab === 'words'} onPress={() => setTab('words')} />
-          <TabButton label="သဒ္ဒါ" count={1} active={tab === 'grammar'} onPress={() => setTab('grammar')} />
+          {unit.grammar && (
+            <TabButton label="သဒ္ဒါ" count={1} active={tab === 'grammar'} onPress={() => setTab('grammar')} />
+          )}
         </View>
       </View>
 
@@ -140,7 +181,7 @@ export default function UnitScreen() {
         </ScrollView>
       ) : (
         <ScrollView contentContainerStyle={styles.body}>
-          <GrammarCard grammar={unit.grammar} onMoreExamples={showMoreExamples} />
+          {unit.grammar && <GrammarCard grammar={unit.grammar} onMoreExamples={showMoreExamples} />}
         </ScrollView>
       )}
 
@@ -183,6 +224,20 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: spacing.md,
+    padding: spacing.xl,
+  },
+  backLink: {
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    borderRadius: 10,
+    backgroundColor: colors.ink,
+  },
+  backLinkText: {
+    fontFamily: fonts.burmeseBold,
+    fontSize: 15,
+    lineHeight: 26,
+    color: colors.onInk,
   },
   header: {
     paddingHorizontal: spacing.md,

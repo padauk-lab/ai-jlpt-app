@@ -10,50 +10,66 @@ import type {
   QuizFinish,
   QuizOption,
   QuizReview,
+  SavedWords,
   SessionDetail,
   StudyPlan,
   UnitCompleteResult,
   UnitDetail,
 } from './types';
-import dashboardFake from './fake/dashboard.json';
-import planFake from './fake/plan.json';
-import proverbFake from './fake/proverb-today.json';
+import { request } from './client';
 import quizAttemptFake from './fake/quiz-5-attempt.json';
 import quizServerFake from './fake/quiz-5-server.json';
-import sessionFake from './fake/session-3.json';
-import unitFake from './fake/unit-25.json';
 
 export type * from './types';
+export { ApiError } from './client';
+export { getMe, login, logout, register } from './auth';
 
-// For now every function returns the contract's example data.
-// When HP's endpoints are merged, each one becomes a real request to /api/v1.
+// REAL: these call HP's backend (contract #9 to #18).
+// FAKE: quiz (#19 to #22) and "Why?" (#28) still use the example data in ./fake,
+// because the backend has no quiz questions loaded yet. Switch them when it does.
 function fake<T>(data: unknown, delayMs = 0): Promise<T> {
   return new Promise((resolve) => setTimeout(() => resolve(data as T), delayMs));
 }
 
 // #11 GET /dashboard
 export function getDashboard(): Promise<Dashboard> {
-  return fake<Dashboard>(dashboardFake);
+  return request<Dashboard>('/dashboard');
 }
 
 // #12 GET /proverbs/today
 export function getTodayProverb(): Promise<Proverb> {
-  return fake<Proverb>(proverbFake);
+  return request<Proverb>('/proverbs/today');
 }
 
 // #13 GET /sessions/{id}
-export function getSession(_id: number): Promise<SessionDetail> {
-  return fake<SessionDetail>(sessionFake);
+export function getSession(id: number): Promise<SessionDetail> {
+  return request<SessionDetail>(`/sessions/${id}`);
 }
 
 // #14 GET /units/{id}
-export function getUnit(_id: number): Promise<UnitDetail> {
-  return fake<UnitDetail>(unitFake);
+export function getUnit(id: number): Promise<UnitDetail> {
+  return request<UnitDetail>(`/units/${id}`);
 }
 
 // #15 POST /units/{id}/complete
 export function completeUnit(id: number): Promise<UnitCompleteResult> {
-  return fake<UnitCompleteResult>({ unit_id: id, status: 'completed', next: { type: 'quiz', id: 5 } });
+  return request<UnitCompleteResult>(`/units/${id}/complete`, { method: 'POST' });
+}
+
+// #16 GET /bookmarks
+export function getSavedWords(search?: string): Promise<SavedWords> {
+  const query = search ? `?search=${encodeURIComponent(search)}` : '';
+  return request<SavedWords>(`/bookmarks${query}`);
+}
+
+// #17 POST /bookmarks
+export function saveWord(wordId: number): Promise<{ word_id: number; bookmarked: boolean }> {
+  return request('/bookmarks', { method: 'POST', body: { word_id: wordId } });
+}
+
+// #18 DELETE /bookmarks/{word_id}
+export function unsaveWord(wordId: number): Promise<void> {
+  return request<void>(`/bookmarks/${wordId}`, { method: 'DELETE' });
 }
 
 // #19 POST /quizzes/{id}/attempts
@@ -164,11 +180,11 @@ export function explainAnswer(questionId: number, selected: QuizOption['id']): P
 }
 
 // #9 POST /onboarding  (returns the new plan, same shape as #10)
-export function submitOnboarding(_answers: OnboardingRequest): Promise<StudyPlan> {
-  return fake<StudyPlan>(planFake, 1500);
+export function submitOnboarding(answers: OnboardingRequest): Promise<StudyPlan> {
+  return request<StudyPlan>('/onboarding', { method: 'POST', body: answers });
 }
 
 // #10 GET /plan
 export function getPlan(): Promise<StudyPlan> {
-  return fake<StudyPlan>(planFake);
+  return request<StudyPlan>('/plan');
 }

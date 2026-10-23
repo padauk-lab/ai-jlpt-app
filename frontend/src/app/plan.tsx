@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { getPlan } from '@/api';
+import { ApiError, getPlan } from '@/api';
 import type { StudyPlan } from '@/api/types';
 import { SparkIcon } from '@/components/ui/Icons';
 import { colors, fonts, radius, spacing, text } from '@/theme';
@@ -13,7 +13,13 @@ export default function PlanScreen() {
   const [plan, setPlan] = useState<StudyPlan | null>(null);
 
   useEffect(() => {
-    getPlan().then(setPlan);
+    getPlan()
+      .then(setPlan)
+      .catch((error) => {
+        // #10 says 404 when setup isn't done yet; 401 when the login has expired.
+        if (error instanceof ApiError && error.status === 404) router.replace('/setup');
+        else router.replace('/login');
+      });
   }, []);
 
   if (!plan) {

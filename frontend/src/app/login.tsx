@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
+import { ApiError, login, register } from '@/api';
 import { Logo } from '@/components/Logo';
 import { RubyText, type RubyPiece } from '@/components/RubyText';
 import { colors, fonts, radius, spacing, text } from '@/theme';
+import { errorMessage } from '@/utils/errors';
 
 const TAGLINE: RubyPiece[] = [
   { text: '小', reading: 'ちい' },
@@ -18,6 +20,9 @@ const TAGLINE: RubyPiece[] = [
 ];
 
 type Mode = 'login' | 'register';
+type FieldErrors = { username?: string; email?: string; password?: string };
+
+const USERNAME_RULE = /^[A-Za-z0-9_]{3,20}$/;
 
 export default function LoginScreen() {
   const [mode, setMode] = useState<Mode>('login');
@@ -25,12 +30,45 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
   const isRegister = mode === 'register';
 
-  function handleSubmit() {
-    // Next step: call POST /auth/login or POST /auth/register here.
-    // For now, a new account goes to first-time setup (onboarding_completed: false).
-    router.replace('/setup');
+  function switchMode(next: Mode) {
+    setMode(next);
+    setMessage(null);
+    setFieldErrors({});
+  }
+
+  // The same rules as the backend (#2). The backend still checks everything itself.
+  function checkFields(): FieldErrors {
+    const found: FieldErrors = {};
+    if (isRegister && !USERNAME_RULE.test(username)) found.username = 'စာလုံး 3 မှ 20 ၊ အင်္ဂလိပ်စာ၊ ဂဏန်းနှင့် _ သာ ရပါတယ်။';
+    if (!/^\S+@\S+\.\S+$/.test(email.trim())) found.email = 'အီးမေးလ် ပုံစံ မမှန်ပါ။';
+    if (isRegister && password.length < 8) found.password = 'စာလုံး 8 လုံး အနည်းဆုံး လိုပါတယ်။';
+    if (!isRegister && password.length === 0) found.password = 'စကားဝှက် ထည့်ပါ။';
+    return found;
+  }
+
+  async function handleSubmit() {
+    setMessage(null);
+    const found = checkFields();
+    setFieldErrors(found);
+    if (Object.keys(found).length > 0) return;
+
+    setBusy(true);
+    try {
+      const me = isRegister ? await register(email.trim(), username, password) : await login(email.trim(), password);
+      router.replace(me.onboarding_completed ? '/home' : '/setup');
+    } catch (error) {
+      if (error instanceof ApiError && error.code === 'email_taken') setFieldErrors({ email: errorMessage(error) });
+      else if (error instanceof ApiError && error.code === 'username_taken') setFieldErrors({ username: errorMessage(error) });
+      else setMessage(errorMessage(error));
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
@@ -47,8 +85,8 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.tabs}>
-          <Tab label="အကောင့်ဝင်မည်" active={!isRegister} onPress={() => setMode('login')} />
-          <Tab label="အကောင့်သစ်ဖွင့်မည်" active={isRegister} onPress={() => setMode('register')} />
+          <Tab label="အကောင့်ဝင်မည်" active={!isRegister} onPress={() => switchMode('login')} />
+          <Tab label="အကောင့်သစ်ဖွင့်မည်" active={isRegister} onPress={() => switchMode('register')} />
         </View>
 
         {isRegister && (
@@ -63,7 +101,11 @@ export default function LoginScreen() {
               placeholder="htet_pai"
               placeholderTextColor={colors.inkMuted}
             />
-            <Text style={styles.hint}>စာလုံး 3 မှ 20 အထိ၊ အင်္ဂလိပ်စာ၊ ဂဏန်းနှင့် _ သာ</Text>
+            {fieldErrors.username ? (
+              <FieldError message={fieldErrors.username} />
+            ) : (
+              <Text style={styles.hint}>စာလုံး 3 မှ 20 အထိ၊ အင်္ဂလိပ်စာ၊ ဂဏန်းနှင့် _ သာ</Text>
+            )}
           </View>
         )}
 
@@ -80,6 +122,7 @@ export default function LoginScreen() {
             placeholder="you@example.com"
             placeholderTextColor={colors.inkMuted}
           />
+          {fieldErrors.email && <FieldError message={fieldErrors.email} />}
         </View>
 
         <View style={styles.field}>
@@ -99,16 +142,29 @@ export default function LoginScreen() {
             autoCapitalize="none"
             autoComplete={isRegister ? 'new-password' : 'current-password'}
           />
-          {isRegister && <Text style={styles.hint}>အနည်းဆုံး စာလုံး 8 လုံး</Text>}
+          {fieldErrors.password ? (
+            <FieldError message={fieldErrors.password} />
+          ) : (
+            isRegister && <Text style={styles.hint}>အနည်းဆုံး စာလုံး 8 လုံး</Text>
+          )}
         </View>
+
+        {message && (
+          <View style={styles.banner} accessibilityRole="alert">
+            <Text style={styles.bannerText}>{message}</Text>
+          </View>
+        )}
 
         <Pressable
           onPress={handleSubmit}
-          style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}
+          disabled={busy}
+          style={({ pressed }) => [styles.primaryButton, (pressed || busy) && styles.pressed]}
         >
-          <Text style={styles.primaryButtonText}>
-            {isRegister ? 'အကောင့်သစ်ဖွင့်မည်' : 'အကောင့်ဝင်မည်'}
-          </Text>
+          {busy ? (
+            <ActivityIndicator color={colors.onInk} />
+          ) : (
+            <Text style={styles.primaryButtonText}>{isRegister ? 'အကောင့်သစ်ဖွင့်မည်' : 'အကောင့်ဝင်မည်'}</Text>
+          )}
         </Pressable>
 
         <View style={styles.dividerRow}>
@@ -130,6 +186,14 @@ export default function LoginScreen() {
         </Text>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function FieldError({ message }: { message: string }) {
+  return (
+    <Text accessibilityRole="alert" style={styles.fieldError}>
+      {message}
+    </Text>
   );
 }
 
@@ -254,6 +318,23 @@ const styles = StyleSheet.create({
     fontFamily: fonts.burmese,
     fontSize: 16,
     color: colors.ink,
+  },
+  fieldError: {
+    ...text.label,
+    fontSize: 13,
+    lineHeight: 23,
+    color: colors.wrong,
+  },
+  banner: {
+    padding: spacing.md,
+    borderRadius: radius.control,
+    backgroundColor: colors.wrongBg,
+  },
+  bannerText: {
+    ...text.small,
+    fontSize: 14,
+    lineHeight: 25,
+    color: '#9E2F29',
   },
   hint: {
     ...text.small,
