@@ -33,11 +33,14 @@ jobs:
       - name: Create .env from the example
         run: cp .env.example .env
 
-      # Content files from the content team. --check reads and checks every file,
-      # and never changes any database. (Quizzes and proverbs get a step here once
-      # their loaders are merged.)
-      - name: Check content files (units)
-        run: docker compose run --rm --build -v "$PWD/data":/data:ro backend python -m app.content.load_units --check /data/units
+      # Content files from the content team: units, quizzes, mock tests and proverbs.
+      # Quizzes and mock tests are checked against the units, so the checker needs an
+      # (empty) database. It never saves anything (everything is rolled back).
+      - name: Prepare an empty database for the content check
+        run: docker compose run --rm --build backend alembic upgrade head
+
+      - name: Check content files (units, quizzes, mock tests, proverbs)
+        run: docker compose run --rm -v "$PWD/data":/data:ro backend python -m app.content.check_all /data
 
       - name: Run backend tests
         run: docker compose --profile test run --rm --build tests
