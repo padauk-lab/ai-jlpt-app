@@ -3,6 +3,7 @@ import type { SessionDetail } from '@/api/types';
 // Turns one session from GET /sessions/{id} into the stops on the study map,
 // in the order the contract's unlock rules use:
 // units 1-5, quiz 1, units 6-10, quiz 2, mock test.
+// Stops that don't exist yet (fewer units, no quiz, no mock test) are simply left out.
 
 export type StopKind = 'unit' | 'quiz' | 'mock';
 export type StopState = 'done' | 'current' | 'locked';
@@ -30,7 +31,9 @@ const SWING_X = 100;
 
 export function buildMapLayout(session: SessionDetail): MapLayout {
   const units = [...session.units].sort((a, b) => a.number - b.number);
-  const [quiz1, quiz2] = session.quizzes;
+  // Find each quiz by the units it covers, so a missing quiz doesn't shift the other.
+  const quiz1 = session.quizzes.find((q) => q.covers_units[0] === 1);
+  const quiz2 = session.quizzes.find((q) => q.covers_units[0] === 6);
 
   const raw: Omit<MapStop, 'x' | 'y'>[] = [];
 
@@ -60,14 +63,17 @@ export function buildMapLayout(session: SessionDetail): MapLayout {
   units.slice(5, 10).forEach(addUnit);
   addQuiz(quiz2, 'စာမေးပွဲငယ် 2');
 
+  // The mock test is null until it has been added to the session (contract #13).
   const mock = session.mock_test;
-  raw.push({
-    key: `mock-${mock.id}`,
-    kind: 'mock',
-    id: mock.id,
-    label: 'စမ်းသပ် စာမေးပွဲ',
-    state: mock.status === 'completed' ? 'done' : mock.status === 'locked' ? 'locked' : 'current',
-  });
+  if (mock) {
+    raw.push({
+      key: `mock-${mock.id}`,
+      kind: 'mock',
+      id: mock.id,
+      label: 'စမ်းသပ် စာမေးပွဲ',
+      state: mock.status === 'completed' ? 'done' : mock.status === 'locked' ? 'locked' : 'current',
+    });
+  }
 
   const stops = raw.map((stop, i) => ({
     ...stop,

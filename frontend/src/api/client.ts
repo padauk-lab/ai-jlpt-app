@@ -59,19 +59,30 @@ async function toError(res: Response): Promise<ApiError> {
   return new ApiError(res.status, code, message, fields, Number.isFinite(retry) && retry > 0 ? retry : undefined);
 }
 
-// Only one refresh at a time, even if several requests get 401 together.
-let refreshing: Promise<boolean> | null = null;
+// What a refresh attempt ended with.
+// 'ok': new tokens saved. 'expired': the refresh token is no longer valid (401), so log in again.
+// ApiError: the server had another problem (500, 429, no network); the user stays logged in.
+type RefreshResult = 'ok' | 'expired' | ApiError;
 
-async function refreshTokens(): Promise<boolean> {
+// Only one refresh at a time, even if several requests get 401 together.
+let refreshing: Promise<RefreshResult> | null = null;
+
+async function refreshTokens(): Promise<RefreshResult> {
   const refresh = await tokens.refresh();
-  if (!refresh) return false;
-  const res = await send('/auth/refresh', { method: 'POST', body: { refresh_token: refresh }, auth: false });
-  if (!res.ok) {
-    await tokens.clear(); // the refresh token is no longer valid: log in again
-    return false;
+  if (!refresh) return 'expired';
+  let res: Response;
+  try {
+    res = await send('/auth/refresh', { method: 'POST', body: { refresh_token: refresh }, auth: false });
+  } catch (error) {
+    return error as ApiError; // no network: keep the tokens and try again later
   }
+  if (res.status === 401) {
+    await tokens.clear(); // only a 401 means the login itself is over
+    return 'expired';
+  }
+  if (!res.ok) return toError(res);
   await tokens.save(await res.json());
-  return true;
+  return 'ok';
 }
 
 // Sends a request and returns the JSON body. When the access token has expired (401),
@@ -83,7 +94,9 @@ export async function request<T>(path: string, options: Options = {}): Promise<T
     refreshing ??= refreshTokens().finally(() => {
       refreshing = null;
     });
-    if (await refreshing) res = await send(path, options);
+    const result = await refreshing;
+    if (result === 'ok') res = await send(path, options);
+    else if (result !== 'expired') throw result; // e.g. 500 or 429: show that problem, don't log out
   }
 
   if (!res.ok) throw await toError(res);

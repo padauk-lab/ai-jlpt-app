@@ -24,7 +24,8 @@ export type Proverb = {
   explanation_my: string;
 };
 
-// #13 GET /sessions/{id}
+// #13 GET /sessions/{id}. While content is still being added, a session can have
+// fewer than 10 units, no quizzes, and no mock test.
 export type SessionDetail = {
   id: number;
   number: number;
@@ -36,13 +37,14 @@ export type SessionDetail = {
     status: QuizStatus;
     best_score: number | null;
   }[];
+  // null while the session has no mock test yet (contract #13)
   mock_test: {
     id: number;
     status: MockTestStatus;
     best_score: number | null;
     last_score: number | null;
     attempts: number;
-  };
+  } | null;
 };
 
 export type Example = {

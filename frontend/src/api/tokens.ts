@@ -2,23 +2,26 @@ import { Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 
 // Login tokens (contract "Login tokens"): kept in the phone's secure storage,
-// never in plain storage. Web browsers have no secure storage, so on the web
-// (only used while developing) they are kept in localStorage instead.
+// never in plain storage. Web browsers have no secure storage, so on the web the
+// tokens live only in memory: reloading the page means logging in again.
 
 const ACCESS = 'kyugo.access_token';
 const REFRESH = 'kyugo.refresh_token';
 
 export type Tokens = { access_token: string; refresh_token: string };
 
+// Web only: the tokens for as long as the page stays open.
+const inMemory: Record<string, string> = {};
+
 async function read(key: string): Promise<string | null> {
-  if (Platform.OS === 'web') return globalThis.localStorage?.getItem(key) ?? null;
+  if (Platform.OS === 'web') return inMemory[key] ?? null;
   return SecureStore.getItemAsync(key);
 }
 
 async function write(key: string, value: string | null): Promise<void> {
   if (Platform.OS === 'web') {
-    if (value === null) globalThis.localStorage?.removeItem(key);
-    else globalThis.localStorage?.setItem(key, value);
+    if (value === null) delete inMemory[key];
+    else inMemory[key] = value;
     return;
   }
   if (value === null) await SecureStore.deleteItemAsync(key);
