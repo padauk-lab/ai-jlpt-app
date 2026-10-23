@@ -104,7 +104,7 @@ def add_mock_attempt(mock_id: int, correct: int, total: int = 50, submitted: boo
         user = db.query(User).one()
         db.add(MockAttempt(
             user_id=user.id, mock_test_id=mock_id, round=user.current_round,
-            started_at=now - timedelta(minutes=30), ends_at=now,
+            started_at=now - timedelta(minutes=30), ends_at=now if submitted else now + timedelta(minutes=30),  # still running
             submitted_at=now if submitted else None, submitted_by="user" if submitted else None,
             correct=correct if submitted else None, total=total if submitted else None,
             counts_for_prediction=True,

@@ -8,7 +8,8 @@ The rules:
 Everything counts only in the user's current round (a progress reset starts a new round).
 
 The rules are plain functions over "facts", with no database, so they are easy to test.
-load_session_facts() collects the facts from the database.
+load_session_facts() collects the facts from the database. Before that, it submits mock test
+attempts whose time is up (see progress/mock.py), so the facts never show a finished test as running.
 """
 
 from dataclasses import dataclass, field
@@ -17,6 +18,7 @@ from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
 from app.models import MockAttempt, MockTest, Quiz, QuizAttempt, StudySession, Unit, UnitProgress, User
+from app.progress import mock as mock_clock
 
 UNITS_PER_SESSION = 10
 
@@ -105,6 +107,9 @@ def _percent(correct, total):
 
 def mock_submitted(db: Session, user: User, session_id: int) -> bool:
     """Has the user submitted this session's mock test in the current round?"""
+    mock_test_id = db.scalar(select(MockTest.id).where(MockTest.session_id == session_id))
+    if mock_test_id is not None:
+        mock_clock.submit_expired(db, user.id, mock_test_id)  # time up counts as submitted
     query = (
         select(MockAttempt.id)
         .join(MockTest, MockTest.id == MockAttempt.mock_test_id)
@@ -155,6 +160,7 @@ def load_session_facts(db: Session, user: User, session: StudySession) -> Sessio
     mock = None
     mock_test = db.scalar(select(MockTest).where(MockTest.session_id == session.id))
     if mock_test is not None:
+        mock_clock.submit_expired(db, user.id, mock_test.id)  # an attempt whose time is up is not "in progress"
         mine = (
             MockAttempt.mock_test_id == mock_test.id,
             MockAttempt.user_id == user.id,

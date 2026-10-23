@@ -666,7 +666,9 @@ Response `201` (new) or `200` (resumed):
 - `language_knowledge` has 45 questions. `reading` has 3 passages: `"short"`, `"medium"`, `"long"`.
 - **No correct answers are included.**
 
-Errors: `403` mock test locked.
+- A retake starts with no saved answers and a new 30 minutes. An attempt left open from before a progress reset (#37) is thrown away.
+
+Errors: `403` mock test locked, `404` mock test not found or has no questions yet.
 
 ### 24. `PUT /mock-attempts/{id}/answers`
 Save or change one answer. No feedback.
@@ -679,14 +681,17 @@ Response `200`:
 ```json
 { "question_id": 9001, "saved": true, "answered_count": 12, "total_questions": 51 }
 ```
-Errors: `400` time is up or already submitted (the app then opens the result), `403` not your attempt.
+- Changing an answer replaces it. `answered_count` counts each question once.
+
+Errors: `400` `attempt_finished` (time is up or already submitted, the app then opens the result), `400` `question_not_in_attempt`, `403` not your attempt.
 
 ### 25. `POST /mock-attempts/{id}/submit`
 Submit before time runs out. No request body. If time runs out, the server submits automatically.
 
 Response `200`: same as #26.
+- If the time ran out before the tap arrived, the server already submitted it: the response is that result, with `submitted_by: "timeout"`.
 
-Errors: `400` already submitted.
+Errors: `400` `already_submitted` (the user already submitted it).
 
 ### 26. `GET /mock-attempts/{id}/result`
 The Mock test result and review screen.
@@ -731,6 +736,8 @@ Response `200`:
 - Unanswered questions have `selected_option_id: null`.
 - The "Why?" button on each question uses #28.
 - Part totals depend on the template. The numbers above are an example.
+- `pass_prediction` is `null` until the prediction formula is decided (open decision).
+- A test submitted by `"timeout"` has `submitted_at` = `ends_at`, even if the server noticed later.
 
 Errors: `400` not submitted yet, `403` not your attempt.
 
