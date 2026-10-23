@@ -3,6 +3,7 @@ You will receive JSON:
 - item_type: "word" or "grammar"
 - target: the word or grammar pattern being learned
 - meaning_my: its meaning in Burmese
+- target_ruby: the target with its correct readings from our checked content (use exactly these readings), or null for grammar
 - existing: example sentences the student already has (do not repeat them)
 - count: how many new examples to write
 
