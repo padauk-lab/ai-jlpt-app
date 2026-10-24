@@ -1,8 +1,9 @@
-"""Section 1: Onboarding. Contract endpoints #4, #5, #6, #9 and #10 (docs/api-contract.md).
-#1, #2, #3 and #7 are real and live in auth.py. #8 was removed in contract v0.2.
+"""Section 1: Onboarding. Contract endpoints #4, #9 and #10 (docs/api-contract.md).
+#1, #2, #3 and #7 are real and live in auth.py, #5 and #6 (forgot password) in password_reset.py.
+#8 was removed in contract v0.2.
 
 REAL: #9 (save setup answers and create the plan) and #10 (current plan).
-PLACEHOLDER: #4, #5 and #6 still return the contract's example JSON.
+LATER: #4 Google login, together with Sign in with Apple (App Store rule 4.8). Still a placeholder.
 
 Security notes:
 - Both real endpoints need a logged-in user, and only ever read or change that user's own data.
@@ -45,15 +46,6 @@ EXAMPLE_LOGIN: dict[str, Any] = {
 
 class GoogleLoginRequest(BaseModel):
     id_token: str
-
-
-class ForgotPasswordRequest(BaseModel):
-    email: str
-
-
-class ResetPasswordRequest(BaseModel):
-    reset_token: str
-    new_password: str
 
 
 class OnboardingRequest(BaseModel):
@@ -102,16 +94,6 @@ def login_google(body: GoogleLoginRequest) -> dict[str, Any]:
     return EXAMPLE_LOGIN
 
 
-@router.post("/auth/forgot-password", summary="#5 Send a password reset email")
-def forgot_password(body: ForgotPasswordRequest) -> dict[str, Any]:
-    return {"message": "If this email is registered, a reset link has been sent."}
-
-
-@router.post("/auth/reset-password", summary="#6 Set a new password")
-def reset_password(body: ResetPasswordRequest) -> dict[str, Any]:
-    return {"message": "Password updated. Please log in."}
-
-
 @router.post("/onboarding", status_code=status.HTTP_201_CREATED, summary="#9 Save setup answers and create the plan")
 def save_onboarding(body: OnboardingRequest, user: CurrentUser, db: DbSession) -> dict[str, Any]:
     # Lock this user's row until we finish, so two quick taps can't both create a setup.
@@ -140,3 +122,9 @@ def get_plan(user: CurrentUser, db: DbSession) -> dict[str, Any]:
     if settings is None or plan is None:
         raise ApiError(404, "onboarding_not_done", "Please finish the setup first.")
     return service.plan_json(db, user, settings, plan)
+
+# #5 and #6 (forgot password) live in their own file. They are added to this router,
+# so /docs lists them in the Onboarding group next to the other log in endpoints.
+from app.api.v1 import password_reset  # noqa: E402  (imported here on purpose, after the router exists)
+
+router.include_router(password_reset.router)
