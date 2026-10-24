@@ -1,7 +1,6 @@
 """Section 3: Quiz and mock test. Contract endpoints #19 to #26 (docs/api-contract.md).
 
-REAL: #19 to #22 (quiz).
-PLACEHOLDER: #23 to #26 (mock test) still return the contract's example JSON.
+REAL: #19 to #22 (quiz) and #23 to #26 (mock test).
 
 Security rules:
 - Correct answers are NEVER sent before the user answers. Only #20 (after answering one question),
@@ -9,102 +8,39 @@ Security rules:
 - A locked quiz can't be started (403), and an attempt can only be used by its owner (403).
 - Each question can be answered once per attempt, and only questions that belong to the attempt.
 - The score is calculated here on the server. The app never sends a score.
+- The mock test clock is the server's: ends_at is set here, answers after it are refused, and an
+  attempt whose time is up is submitted automatically with the answers saved so far (progress/mock.py).
 """
 
 import random
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from typing import Annotated, Any, Literal
 
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Response, status
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import delete, func, select
 from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.exc import IntegrityError
 
 from app.api.deps import CurrentUser, DbSession, PathId
 from app.core.errors import ApiError
-from app.models import Question, Quiz, QuizAnswer, QuizAttempt, QuizAttemptQuestion, StudySession, User
+from app.models import (
+    MockAnswer,
+    MockAttempt,
+    MockTest,
+    Question,
+    Quiz,
+    QuizAnswer,
+    QuizAttempt,
+    QuizAttemptQuestion,
+    ReadingPassage,
+    StudySession,
+    User,
+)
+from app.progress import mock as mock_clock
 from app.progress import unlock
 
 router = APIRouter(tags=["3. Quiz and mock test"])
-
-OPTIONS_PLACEHOLDER: list[dict[str, str]] = [
-    {"id": "a", "text": "..."},
-    {"id": "b", "text": "..."},
-    {"id": "c", "text": "..."},
-    {"id": "d", "text": "..."},
-]
-
-# --- Example data, copied from the contract ---
-
-EXAMPLE_MOCK_START: dict[str, Any] = {
-    "attempt_id": 410,
-    "mock_test_id": 3,
-    "started_at": "2026-10-13T11:00:00Z",
-    "ends_at": "2026-10-13T11:30:00Z",
-    "server_time": "2026-10-13T11:00:00Z",
-    "sections": [
-        {
-            "part": "language_knowledge",
-            "questions": [
-                {
-                    "id": 9001,
-                    "number": 1,
-                    "type": "kanji_reading",
-                    "prompt_ruby": [{"text": "..."}],
-                    "options": OPTIONS_PLACEHOLDER,
-                }
-            ],
-        },
-        {
-            "part": "reading",
-            "passages": [
-                {
-                    "id": 71,
-                    "length": "short",
-                    "text_ruby": [{"text": "..."}],
-                    "questions": [
-                        {
-                            "id": 9046,
-                            "number": 46,
-                            "prompt_ruby": [{"text": "..."}],
-                            "options": OPTIONS_PLACEHOLDER,
-                        }
-                    ],
-                }
-            ],
-        },
-    ],
-    "saved_answers": {"9001": "c"},
-}
-
-EXAMPLE_MOCK_RESULT: dict[str, Any] = {
-    "attempt_id": 410,
-    "submitted_at": "2026-10-13T11:27:40Z",
-    "submitted_by": "user",
-    "time_used_seconds": 1660,
-    "time_limit_seconds": 1800,
-    "score": {"correct": 38, "total": 51, "percent": 75},
-    "parts": [
-        {"part": "vocabulary", "correct": 22, "total": 25},
-        {"part": "grammar", "correct": 12, "total": 20},
-        {"part": "reading", "correct": 4, "total": 6},
-    ],
-    "pass_prediction": 70,
-    "counts_for_prediction": True,
-    "questions": [
-        {
-            "id": 9001,
-            "number": 1,
-            "part": "vocabulary",
-            "prompt_ruby": [{"text": "..."}],
-            "options": OPTIONS_PLACEHOLDER,
-            "selected_option_id": "c",
-            "correct_option_id": "a",
-            "is_correct": False,
-        }
-    ],
-}
-
 
 # --- Request shapes (what the app sends) ---
 
@@ -292,8 +228,116 @@ def get_quiz_attempt(attempt_id: PathId, user: CurrentUser, db: DbSession) -> di
     }
 
 
-# --- Endpoints #23 to #26: mock test (placeholders) ---
-# Inputs (ids, request bodies) are not used yet. They are declared so /docs shows them.
+# --- Mock test helpers ---
+
+PART_ORDER = ("vocabulary", "grammar", "reading")
+
+
+def _own_mock_attempt(db: DbSession, user: User, attempt_id: int, lock: bool = False) -> MockAttempt:
+    """The user's own mock attempt, already submitted if its time is up."""
+    attempt = db.get(MockAttempt, attempt_id, with_for_update=lock, populate_existing=lock)
+    if attempt is None:
+        raise ApiError(404, "not_found", "Mock test attempt not found.")
+    if attempt.user_id != user.id:
+        raise ApiError(403, "not_your_attempt", "This mock test attempt belongs to someone else.")
+    mock_clock.submit_if_time_is_up(db, attempt)
+    return attempt
+
+
+def _mock_questions(db: DbSession, mock_test_id: int) -> list[Question]:
+    return list(db.scalars(select(Question).where(Question.mock_test_id == mock_test_id).order_by(Question.number)))
+
+
+def _mock_answers(db: DbSession, attempt: MockAttempt) -> dict[int, str]:
+    rows = db.execute(select(MockAnswer.question_id, MockAnswer.selected_option_id).where(MockAnswer.attempt_id == attempt.id))
+    return dict(rows.all())
+
+
+def _question_json(q: Question, with_type: bool) -> dict[str, Any]:
+    item: dict[str, Any] = {"id": q.id, "number": q.number}
+    if with_type:
+        item["type"] = q.type
+    item["prompt_ruby"] = q.prompt_ruby
+    if q.underline is not None:
+        item["underline"] = q.underline
+    item["options"] = q.options
+    return item  # never correct_option_id here
+
+
+def _start_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
+    questions = _mock_questions(db, attempt.mock_test_id)
+    passages = list(db.scalars(
+        select(ReadingPassage).where(ReadingPassage.mock_test_id == attempt.mock_test_id).order_by(ReadingPassage.position)
+    ))
+    return {
+        "attempt_id": attempt.id,
+        "mock_test_id": attempt.mock_test_id,
+        "started_at": _utc_text(attempt.started_at),
+        "ends_at": _utc_text(attempt.ends_at),
+        "server_time": _utc_text(mock_clock.now()),
+        "sections": [
+            {
+                "part": "language_knowledge",
+                "questions": [_question_json(q, with_type=True) for q in questions if q.passage_id is None],
+            },
+            {
+                "part": "reading",
+                "passages": [
+                    {
+                        "id": p.id,
+                        "length": p.length,
+                        "text_ruby": p.text_ruby,
+                        "questions": [_question_json(q, with_type=False) for q in questions if q.passage_id == p.id],
+                    }
+                    for p in passages
+                ],
+            },
+        ],
+        "saved_answers": {str(question_id): option for question_id, option in _mock_answers(db, attempt).items()},
+    }
+
+
+def _result_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
+    questions = _mock_questions(db, attempt.mock_test_id)
+    answers = _mock_answers(db, attempt)
+    parts: dict[str, list[int]] = {}
+    review = []
+    for q in questions:
+        selected = answers.get(q.id)
+        is_correct = selected == q.correct_option_id
+        counts = parts.setdefault(q.part, [0, 0])
+        counts[0] += is_correct
+        counts[1] += 1
+        review.append({
+            "id": q.id,
+            "number": q.number,
+            "part": q.part,
+            "prompt_ruby": q.prompt_ruby,
+            "options": q.options,
+            "selected_option_id": selected,
+            "correct_option_id": q.correct_option_id,  # allowed now: the test is submitted
+            "is_correct": is_correct,
+        })
+    limit = int((attempt.ends_at - attempt.started_at).total_seconds())
+    used = int((attempt.submitted_at - attempt.started_at).total_seconds())
+    return {
+        "attempt_id": attempt.id,
+        "submitted_at": _utc_text(attempt.submitted_at),
+        "submitted_by": attempt.submitted_by,
+        "time_used_seconds": max(0, min(used, limit)),
+        "time_limit_seconds": limit,
+        "score": {"correct": attempt.correct, "total": attempt.total, "percent": mock_clock.percent(attempt.correct, attempt.total)},
+        "parts": [
+            {"part": part, "correct": parts[part][0], "total": parts[part][1]} for part in PART_ORDER if part in parts
+        ],
+        # The prediction formula is still an open decision (HP and ANK). Until then: null.
+        "pass_prediction": None,
+        "counts_for_prediction": attempt.counts_for_prediction,
+        "questions": review,
+    }
+
+
+# --- Endpoints #23 to #26: mock test ---
 
 
 @router.post(
@@ -301,21 +345,98 @@ def get_quiz_attempt(attempt_id: PathId, user: CurrentUser, db: DbSession) -> di
     status_code=status.HTTP_201_CREATED,
     summary="#23 Start, resume or retake a mock test",
 )
-def start_mock_test(mock_test_id: int) -> dict[str, Any]:
-    # The real version returns 200 instead of 201 when it resumes an attempt in progress.
-    return EXAMPLE_MOCK_START
+def start_mock_test(mock_test_id: PathId, response: Response, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    mock_test = db.get(MockTest, mock_test_id)
+    if mock_test is None:
+        raise ApiError(404, "not_found", "Mock test not found.")
+    facts = unlock.load_session_facts(db, user, db.get(StudySession, mock_test.session_id))  # also submits timed-out attempts
+    if unlock.mock_status(facts) == "locked":
+        raise ApiError(403, "mock_locked", "This mock test is locked.")
+    if mock_clock.total_questions(db, mock_test.id) == 0:
+        raise ApiError(404, "not_found", "This mock test has no questions yet.")
+
+    mine = (MockAttempt.user_id == user.id, MockAttempt.mock_test_id == mock_test.id)
+    # An attempt left open from before a progress reset (#37) belongs to an old round: throw it away.
+    db.execute(delete(MockAttempt).where(
+        *mine, MockAttempt.submitted_at.is_(None), MockAttempt.round != user.current_round
+    ))
+
+    running = db.scalar(select(MockAttempt).where(*mine, MockAttempt.submitted_at.is_(None)))
+    if running is not None:
+        db.commit()
+        response.status_code = status.HTTP_200_OK  # resumed: same attempt, the clock kept running
+        return _start_json(db, running)
+
+    # Only the first attempt in a round counts for the pass prediction. Retakes are for review.
+    earlier = db.scalar(select(func.count()).select_from(MockAttempt).where(*mine, MockAttempt.round == user.current_round))
+    started = mock_clock.now()
+    attempt = MockAttempt(
+        user_id=user.id,
+        mock_test_id=mock_test.id,
+        round=user.current_round,
+        started_at=started,
+        ends_at=started + timedelta(seconds=mock_test.time_limit_seconds),  # set by the server, never the app
+        counts_for_prediction=earlier == 0,
+    )
+    db.add(attempt)
+    try:
+        db.commit()
+    except IntegrityError:
+        # Two "start" taps at the same moment: the database allows only one open attempt, so resume it.
+        db.rollback()
+        running = db.scalar(select(MockAttempt).where(*mine, MockAttempt.submitted_at.is_(None)))
+        if running is None:
+            raise
+        response.status_code = status.HTTP_200_OK
+        return _start_json(db, running)
+    return _start_json(db, attempt)
 
 
 @router.put("/mock-attempts/{attempt_id}/answers", summary="#24 Save or change one mock test answer")
-def save_mock_answer(attempt_id: int, body: AnswerRequest) -> dict[str, Any]:
-    return {"question_id": 9001, "saved": True, "answered_count": 12, "total_questions": 51}
+def save_mock_answer(attempt_id: PathId, body: AnswerRequest, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    attempt = _own_mock_attempt(db, user, attempt_id, lock=True)
+    if attempt.submitted_at is not None:
+        db.commit()  # keeps the automatic submit if the time just ran out
+        raise ApiError(400, "attempt_finished", "Time is up or the test was already submitted.")
+
+    question = db.get(Question, body.question_id)
+    if question is None or question.mock_test_id != attempt.mock_test_id:
+        raise ApiError(400, "question_not_in_attempt", "This question is not part of this mock test.")
+
+    db.execute(
+        insert(MockAnswer)
+        .values(attempt_id=attempt.id, question_id=question.id, selected_option_id=body.selected_option_id)
+        .on_conflict_do_update(
+            index_elements=["attempt_id", "question_id"],
+            set_={"selected_option_id": body.selected_option_id, "updated_at": func.now()},
+        )
+    )
+    db.commit()
+    answered = db.scalar(select(func.count()).select_from(MockAnswer).where(MockAnswer.attempt_id == attempt.id))
+    return {
+        "question_id": question.id,
+        "saved": True,
+        "answered_count": answered,
+        "total_questions": mock_clock.total_questions(db, attempt.mock_test_id),
+    }
 
 
 @router.post("/mock-attempts/{attempt_id}/submit", summary="#25 Submit a mock test")
-def submit_mock_test(attempt_id: int) -> dict[str, Any]:
-    return EXAMPLE_MOCK_RESULT
+def submit_mock_test(attempt_id: PathId, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    attempt = _own_mock_attempt(db, user, attempt_id, lock=True)
+    if attempt.submitted_by == "user":
+        raise ApiError(400, "already_submitted", "This mock test was already submitted.")
+    if attempt.submitted_at is None:
+        mock_clock.submit(db, attempt, "user", mock_clock.now())
+    # If the time had run out, the server already submitted it ("timeout"): just show that result.
+    db.commit()
+    return _result_json(db, attempt)
 
 
 @router.get("/mock-attempts/{attempt_id}/result", summary="#26 Mock test result and review")
-def get_mock_result(attempt_id: int) -> dict[str, Any]:
-    return EXAMPLE_MOCK_RESULT
+def get_mock_result(attempt_id: PathId, user: CurrentUser, db: DbSession) -> dict[str, Any]:
+    attempt = _own_mock_attempt(db, user, attempt_id, lock=True)
+    db.commit()
+    if attempt.submitted_at is None:
+        raise ApiError(400, "not_submitted", "This mock test is not submitted yet.")
+    return _result_json(db, attempt)
