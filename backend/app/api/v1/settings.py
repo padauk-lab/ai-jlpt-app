@@ -66,11 +66,6 @@ def _timezones() -> frozenset[str]:
 # --- Request shapes (what the app sends) ---
 
 
-class ExamplesRequest(BaseModel):
-    item_type: Literal["word", "grammar"]
-    item_id: int
-
-
 class ExplainRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -142,16 +137,6 @@ def _notifications_json(row: NotificationSettings | None) -> dict[str, Any]:
 
 
 # --- Endpoints ---
-
-
-@router.post("/ai/examples", summary="#27 More examples (AI)")
-def more_examples(body: ExamplesRequest) -> dict[str, Any]:
-    return {
-        "item_type": "word",
-        "item_id": 501,
-        "examples": [{"ruby": [{"text": "..."}], "translation_my": "Burmese translation."}],
-        "remaining_today": 47,
-    }
 
 
 def _has_seen_the_answer(db: DbSession, user: User, question: Question) -> bool:

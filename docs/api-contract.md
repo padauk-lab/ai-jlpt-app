@@ -777,9 +777,11 @@ Response `200`:
   "remaining_today": 47
 }
 ```
-- Returns 3 new examples.
+- Returns 3 new examples. They are not saved, so every tap gives new sentences.
+- `remaining_today`: taps left today. "Today" ends at midnight in the user's timezone (from #31). The limit is the server setting `AI_EXAMPLES_DAILY_LIMIT` (default 50).
+- A tap that ends in `503` is not counted.
 
-Errors: `403` item is in a locked unit, `429` daily limit reached, `503` AI service temporarily unavailable (the app shows "Try again later").
+Errors: `403` item is in a locked unit, `404` item not found, `429` `daily_limit_reached` (with a `Retry-After` header: seconds until the user's midnight), `503` AI service temporarily unavailable (the app shows "Try again later").
 
 ### 28. `POST /ai/explain`
 "Why?" button. Explains why the correct answer is right, and why the selected answer is wrong.
