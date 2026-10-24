@@ -354,9 +354,13 @@ Response `200`:
   "mock_test": { "id": 3, "status": "locked", "best_score": null, "last_score": null, "attempts": 0 }
 }
 ```
-- `units` always has all 10, in order. Unit `status`: `"completed"`, `"available"` or `"locked"`.
+- `units` has the session's units in order. Unit `status`: `"completed"`, `"available"` or `"locked"`.
 - Quiz `status`: `"locked"`, `"available"`, `"passed"` or `"failed"`. `best_score` is 0 to 100.
 - Mock test `status`: `"locked"`, `"available"`, `"in_progress"` or `"completed"`. A completed mock test can be retaken.
+- **Content is added step by step, so some parts can be missing.** The app must not crash on any of these:
+  - `units` lists only the units that are loaded (fewer than 10 while the team is still writing them).
+  - `quizzes` lists only the quizzes that are loaded (it can be empty).
+  - `mock_test` is `null` until the session's mock test is loaded.
 
 Errors: `403` session locked.
 
@@ -413,6 +417,7 @@ Response `200`:
 }
 ```
 - `words` always has 20. Each word has 2 or 3 examples. Grammar has 2 or 3 examples.
+- `grammar` is `null` if the unit's grammar isn't loaded (the app hides the grammar tab).
 - "More examples" button uses #27.
 
 Errors: `403` unit locked.
