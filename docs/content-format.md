@@ -94,6 +94,14 @@ docker compose run --rm -v "$PWD/data":/data:ro backend python -m app.content.lo
 
 `All N quiz file(s) passed the checks.` means it's ready. Otherwise every problem is listed with the file and question number.
 
+GitHub also runs this check automatically on every pull request (together with the units, mock tests and proverbs).
+A red X on the pull request means a content file has a problem: open "Details" to see which one.
+To run the same full check yourself:
+
+```
+docker compose run --rm -v "$PWD/data":/data:ro backend python -m app.content.check_all /data
+```
+
 ## Changing a question later
 
 - Fixing a question's text, options or answer is fine. Keep its `number`. Its saved "Why?" explanations are cleared, so the AI writes new ones.
