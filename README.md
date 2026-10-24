@@ -30,6 +30,13 @@ A GenAI JLPT study app for Burmese speakers, built by Padauk Lab.
 5. API docs: http://localhost:8000/docs
 6. Stop with Ctrl+C, then `docker compose down`
 
+## Testing the app on a real phone (home Wi-Fi only)
+1. In your own `.env`, add `BACKEND_HOST=0.0.0.0`, then restart: `docker compose up --build`
+2. Find your computer's Wi-Fi address (Mac: System Settings > Wi-Fi > Details, e.g. `192.168.1.23`)
+3. In `frontend/.env`, set `EXPO_PUBLIC_API_URL=http://192.168.1.23:8000/api/v1` (your address)
+4. Start the app with `npx expo start` and open it with Expo Go on the phone (same Wi-Fi)
+5. When done, remove `BACKEND_HOST` again. Never use it on public Wi-Fi.
+
 ## Team
 - HP: Backend and Infrastructure
 - LMHP: Frontend and Design
