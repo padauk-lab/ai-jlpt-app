@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import type { ScrollViewInstance } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useFocusEffect } from 'expo-router';
 import { ApiError, getDashboard, getSession, getTodayProverb } from '@/api';
@@ -19,7 +20,7 @@ type HomeData = {
 export default function HomeScreen() {
   const [data, setData] = useState<HomeData | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
-  const scrollRef = useRef<ScrollView>(null);
+  const scrollRef = useRef<ScrollViewInstance>(null);
 
   const load = useCallback(async () => {
     setProblem(null);
