@@ -1,12 +1,13 @@
 # AI JLPT App, API Contract
 
-Version: 0.6 (draft for team review)
-Date: 2026-10-20
+Version: 0.7 (draft for team review)
+Date: 2026-10-23
 Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
 Changes in 0.3: decided how the study plan pace is calculated (#10).
 Changes in 0.4: clarified #9 and #10 (score needed for N1 and N2, "today" is Japan time, `ai_tip_my` can be `null`).
 Changes in 0.5: rate limits for log in and sign up (429 with a `Retry-After` header).
 Changes in 0.6: clarified #11 (how progress, status and `continue` are worked out, and `id` is `null` for sessions whose content isn't loaded yet).
+Changes in 0.7: #34 returns new tokens for this device, because every device (this one too) is signed out.
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -875,11 +876,14 @@ Request:
 ```
 Response `200`:
 ```json
-{ "message": "Password updated." }
+{ "message": "Password updated.", "access_token": "eyJhbGciOi...", "refresh_token": "a91f3c77b2..." }
 ```
-- Other devices are signed out.
+- Every device is signed out (its refresh token stops working). This device stays logged in by saving the new tokens from the response, replacing the old ones.
+- Other devices can keep using an access token they already have until it expires (about 15 minutes), then they must log in again.
+- `new_password`: 8 to 128 characters, the same rule as sign up.
+- Wrong current passwords count toward the same limit as log in (5 per email in 15 minutes), then `429`.
 
-Errors: `401` current password wrong, `400` Google account, `422` new password too short.
+Errors: `401` current password wrong, `400` Google account, `422` new password too short, `429` too many wrong passwords.
 
 ### 35. `POST /auth/logout`
 Log out on this device.
