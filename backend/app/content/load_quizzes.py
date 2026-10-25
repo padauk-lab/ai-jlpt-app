@@ -21,6 +21,7 @@ from pydantic import ValidationError
 from sqlalchemy import delete, exists, select
 from sqlalchemy.orm import Session
 
+from app.content.files import read_content_json
 from app.content.quiz_schema import FILE_NAME, UNITS_BY_QUIZ, QuizFile, QuizQuestion
 from app.db import SessionLocal
 from app.models import AIExplanation, Grammar, Question, Quiz, QuizAnswer, QuizAttemptQuestion, StudySession, Unit, Word
@@ -36,7 +37,7 @@ def read_quiz_files(folder: Path) -> tuple[list[tuple[Path, QuizFile]], list[str
             problems.append(f"{path.name}: file name must look like s01_q1.json")
             continue
         try:
-            quiz = QuizFile.model_validate(json.loads(path.read_text(encoding="utf-8")))
+            quiz = QuizFile.model_validate(read_content_json(path))
         except json.JSONDecodeError as exc:
             problems.append(f"{path.name}: not valid JSON (line {exc.lineno}): {exc.msg}")
             continue

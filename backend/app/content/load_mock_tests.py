@@ -22,6 +22,7 @@ from pydantic import ValidationError
 from sqlalchemy import delete, exists, select
 from sqlalchemy.orm import Session
 
+from app.content.files import read_content_json
 from app.content.mock_schema import FILE_NAME, KnowledgeQuestion, MockTestFile
 from app.db import SessionLocal
 from app.models import AIExplanation, MockAttempt, MockTest, Question, ReadingPassage, StudySession, Unit, Word
@@ -36,7 +37,7 @@ def read_mock_files(folder: Path) -> tuple[list[tuple[Path, MockTestFile]], list
             problems.append(f"{path.name}: file name must look like s01_mock.json")
             continue
         try:
-            mock = MockTestFile.model_validate(json.loads(path.read_text(encoding="utf-8")))
+            mock = MockTestFile.model_validate(read_content_json(path))
         except json.JSONDecodeError as exc:
             problems.append(f"{path.name}: not valid JSON (line {exc.lineno}): {exc.msg}")
             continue

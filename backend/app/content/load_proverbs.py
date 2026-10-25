@@ -21,6 +21,7 @@ from pydantic import Field, ValidationError, field_validator, model_validator
 from sqlalchemy import select, update
 from sqlalchemy.orm import Session
 
+from app.content.files import read_content_json
 from app.content.schema import Ruby, Strict, Text, _burmese
 from app.db import SessionLocal
 from app.models import Proverb
@@ -53,7 +54,7 @@ class ProverbFile(Strict):
 
 def read_proverb_file(path: Path) -> tuple[ProverbFile | None, list[str]]:
     try:
-        return ProverbFile.model_validate(json.loads(path.read_text(encoding="utf-8"))), []
+        return ProverbFile.model_validate(read_content_json(path)), []
     except json.JSONDecodeError as exc:
         return None, [f"not valid JSON (line {exc.lineno}): {exc.msg}"]
     except ValidationError as exc:
