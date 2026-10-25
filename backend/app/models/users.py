@@ -1,8 +1,8 @@
 """Group 1: users and login tables. See docs/database-design.md."""
 
-from datetime import datetime, time
+from datetime import date, datetime, time
 
-from sqlalchemy import BigInteger, Boolean, CheckConstraint, DateTime, ForeignKey, Integer, Text, Time, func, text
+from sqlalchemy import BigInteger, Boolean, CheckConstraint, Date, DateTime, ForeignKey, Integer, Text, Time, func, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base
@@ -83,3 +83,19 @@ class NotificationSettings(Base):
     proverb_notification: Mapped[bool] = mapped_column(Boolean, server_default=text("true"))
     timezone: Mapped[str] = mapped_column(Text, server_default=text("'Asia/Tokyo'"))
     updated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), onupdate=func.now())
+
+
+class NotificationLog(Base):
+    """One row per notification sent: at most one of each kind per user per day.
+
+    The primary key makes this safe even if two servers (or two loops) run at the same time:
+    only the first one can add the row, and only that one sends.
+    """
+
+    __tablename__ = "notification_log"
+    __table_args__ = (CheckConstraint("kind IN ('daily_reminder')", name="kind"),)
+
+    user_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("users.id", ondelete="CASCADE"), primary_key=True)
+    kind: Mapped[str] = mapped_column(Text, primary_key=True)
+    local_date: Mapped[date] = mapped_column(Date, primary_key=True)  # the day in the user's own timezone
+    sent_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

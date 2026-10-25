@@ -1,10 +1,13 @@
 import os
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
 from app.api.v1 import api_router
 from app.core.cors import add_cors
 from app.core.errors import register_error_handlers
+from app.notifications.scheduler import start_reminder_loop
 
 # The order of this list is the order of the groups in /docs.
 TAGS = [
@@ -14,7 +17,16 @@ TAGS = [
     {"name": "4. AI and settings", "description": "Contract endpoints #27 to #37"},
 ]
 
-app = FastAPI(title="AI JLPT App API", openapi_tags=TAGS)
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
+    stop_reminders = start_reminder_loop()  # only runs when PUSH_MODE is log or expo
+    yield
+    if stop_reminders:
+        stop_reminders()
+
+
+app = FastAPI(title="AI JLPT App API", openapi_tags=TAGS, lifespan=lifespan)
 register_error_handlers(app)
 add_cors(app, os.environ.get("CORS_ORIGINS", ""))
 app.include_router(api_router, prefix="/api/v1")

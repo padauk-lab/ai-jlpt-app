@@ -13,11 +13,12 @@ from app.models.progress import (
     QuizAttemptQuestion,
     UnitProgress,
 )
-from app.models.users import Device, NotificationSettings, PasswordResetToken, RefreshToken, User
+from app.models.users import Device, NotificationLog, NotificationSettings, PasswordResetToken, RefreshToken, User
 
 __all__ = [
     # Group 1: users and login
     "Device",
+    "NotificationLog",
     "NotificationSettings",
     "PasswordResetToken",
     "RefreshToken",

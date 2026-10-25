@@ -67,7 +67,8 @@ users                         study_settings   (1 per user)
  ├── refresh_tokens            plans            (1 per user)
  ├── password_reset_tokens
  ├── devices
- └── notification_settings
+ ├── notification_settings
+ └── notification_log
 
 LEARNING CONTENT (same for everyone)
 sessions (20)
@@ -163,6 +164,17 @@ One row per user (#31, #32).
 | proverb_notification | boolean | NOT NULL, default true | |
 | timezone | text | NOT NULL, default `Asia/Tokyo` | IANA name |
 | updated_at | timestamptz | | |
+
+### `notification_log`
+Notifications already sent, so each one goes out at most once per user per day, even with two servers.
+Rows older than 7 days are deleted automatically.
+
+| Column | Type | Rules | Notes |
+|---|---|---|---|
+| user_id | bigint | primary key (with kind, local_date), → users, cascade | |
+| kind | text | primary key, `daily_reminder` | More kinds later (Proverb of the day) |
+| local_date | date | primary key | The day in the user's own timezone |
+| sent_at | timestamptz | NOT NULL | |
 
 ---
 

@@ -847,6 +847,7 @@ Response `200`:
   "timezone": "Asia/Tokyo"
 }
 ```
+- Daily reminder: when `daily_reminder` is on, the server sends one push notification a day at `reminder_time` in `timezone` (up to 30 minutes late if the server was busy, never later) to the phones registered with #33 (iOS and Android only). Its `data` is `{ "type": "daily_reminder" }`, so the app can open Home when it is tapped. No reminder on a day the user already studied (finished a unit, or started a quiz or mock test).
 
 ### 32. `PUT /me/notifications`
 Change notification settings.
