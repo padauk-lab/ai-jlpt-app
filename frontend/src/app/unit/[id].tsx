@@ -6,6 +6,7 @@ import { completeUnit, getUnit, saveWord, unsaveWord } from '@/api';
 import type { UnitDetail } from '@/api/types';
 import { OrnateFrame } from '@/components/OrnateFrame';
 import { BackIcon, NextIcon } from '@/components/ui/Icons';
+import Svg, { Path } from 'react-native-svg';
 import { Notice, useNotice } from '@/components/ui/Notice';
 import { FlipCard } from '@/components/unit/FlipCard';
 import { GrammarCard } from '@/components/unit/GrammarCard';
@@ -21,16 +22,29 @@ export default function UnitScreen() {
   const [tab, setTab] = useState<Tab>('words');
   const [index, setIndex] = useState(0);
   const [saved, setSaved] = useState<Set<number>>(new Set());
-  const [review, setReview] = useState<Set<number>>(new Set());
+  // Which words (and the grammar) the user has marked "studied". Kept only while the
+  // screen is open: if the app closes, the marks start again (no backend change).
+  const [studied, setStudied] = useState<Set<number>>(new Set());
+  const [grammarStudied, setGrammarStudied] = useState(false);
   const [finishing, setFinishing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const notice = useNotice();
 
   useEffect(() => {
+    // Start fresh for each unit (going from Unit 5 straight to Unit 6 reuses this screen).
+    setUnit(null);
+    setLoadError(null);
+    setTab('words');
+    setIndex(0);
+    setFinishing(false);
     getUnit(Number(id))
       .then((data) => {
         setUnit(data);
         setSaved(new Set(data.words.filter((w) => w.bookmarked).map((w) => w.id)));
+        // A finished unit is open for review: everything counts as studied.
+        const done = data.status === 'completed';
+        setStudied(new Set(done ? data.words.map((w) => w.id) : []));
+        setGrammarStudied(done);
       })
       .catch((error) => setLoadError(errorMessage(error)));
   }, [id]);
@@ -86,9 +100,8 @@ export default function UnitScreen() {
     }
   }
 
-  function toggleReview(wordId: number) {
-    // Only remembered while this screen is open (not in the contract yet).
-    setReview((current) => {
+  function toggleStudied(wordId: number) {
+    setStudied((current) => {
       const next = new Set(current);
       if (next.has(wordId)) next.delete(wordId);
       else next.add(wordId);
@@ -96,12 +109,25 @@ export default function UnitScreen() {
     });
   }
 
+  const isCompleted = unit.status === 'completed';
+  const studiedCount = unit.words.filter((w) => studied.has(w.id)).length;
+  const grammarDone = !unit.grammar || grammarStudied; // no grammar loaded yet: nothing to mark
+  const ready = studiedCount === total && grammarDone;
+
+  // #15 Mark as done, then go straight to what the backend says comes next.
   async function markDone() {
-    if (!unit) return;
+    if (!unit || !ready) return;
     setFinishing(true);
     try {
-      await completeUnit(unit.id);
-      router.back(); // Home reloads and shows the next stop unlocked
+      const result = await completeUnit(unit.id);
+      const next = result.next;
+      if (next?.type === 'unit') {
+        router.replace({ pathname: '/unit/[id]', params: { id: String(next.id) } });
+      } else if (next?.type === 'quiz') {
+        router.replace({ pathname: '/quiz/[id]', params: { id: String(next.id) } });
+      } else {
+        router.back(); // mock test (screen not built yet) or nothing next: back to the map
+      }
     } catch (error) {
       setFinishing(false);
       notice.show(errorMessage(error));
@@ -123,9 +149,14 @@ export default function UnitScreen() {
           </Text>
         </View>
         <View style={styles.tabs} accessibilityRole="tablist">
-          <TabButton label="ဝေါဟာရ" count={total} active={tab === 'words'} onPress={() => setTab('words')} />
+          <TabButton
+            label="ဝေါဟာရ"
+            count={`${toMyanmarDigits(studiedCount)}/${toMyanmarDigits(total)}`}
+            active={tab === 'words'}
+            onPress={() => setTab('words')}
+          />
           {unit.grammar && (
-            <TabButton label="သဒ္ဒါ" count={1} active={tab === 'grammar'} onPress={() => setTab('grammar')} />
+            <TabButton label="သဒ္ဒါ" count={grammarStudied ? '✓' : '—'} active={tab === 'grammar'} onPress={() => setTab('grammar')} />
           )}
         </View>
       </View>
@@ -136,7 +167,9 @@ export default function UnitScreen() {
             <Text style={styles.counter}>
               {index + 1} <Text style={styles.counterTotal}>/ {total}</Text>
             </Text>
-            <Text style={styles.muted}>ပြန်လေ့လာရန် {review.size}</Text>
+            <Text style={styles.muted}>
+              လေ့လာပြီး {toMyanmarDigits(studiedCount)}/{toMyanmarDigits(total)}
+            </Text>
           </View>
           <View style={styles.track}>
             <View style={[styles.fill, { width: `${((index + 1) / total) * 100}%` }]} />
@@ -146,6 +179,7 @@ export default function UnitScreen() {
             key={word.id}
             word={word}
             saved={saved.has(word.id)}
+            studied={studied.has(word.id)}
             onToggleSaved={() => toggleSaved(word.id)}
             onMoreExamples={showMoreExamples}
           />
@@ -160,14 +194,7 @@ export default function UnitScreen() {
             >
               <BackIcon color={colors.ink} size={20} />
             </Pressable>
-            <Pressable
-              onPress={() => toggleReview(word.id)}
-              accessibilityRole="button"
-              accessibilityState={{ selected: review.has(word.id) }}
-              style={[styles.reviewButton, review.has(word.id) && styles.reviewOn]}
-            >
-              <Text style={[styles.reviewText, review.has(word.id) && styles.reviewTextOn]}>ထပ်လေ့လာမည်</Text>
-            </Pressable>
+            <StudiedButton on={studied.has(word.id)} onPress={() => toggleStudied(word.id)} />
             <Pressable
               onPress={() => setIndex((i) => Math.min(total - 1, i + 1))}
               disabled={index === total - 1}
@@ -181,26 +208,73 @@ export default function UnitScreen() {
         </ScrollView>
       ) : (
         <ScrollView contentContainerStyle={styles.body}>
-          {unit.grammar && <GrammarCard grammar={unit.grammar} onMoreExamples={showMoreExamples} />}
+          {unit.grammar && (
+            <>
+              <GrammarCard grammar={unit.grammar} onMoreExamples={showMoreExamples} />
+              <StudiedButton on={grammarStudied} onPress={() => setGrammarStudied((on) => !on)} label="သဒ္ဒါ လေ့လာပြီး" />
+            </>
+          )}
         </ScrollView>
       )}
 
       <Notice message={notice.message} />
 
       <SafeAreaView edges={['bottom']} style={styles.doneBar}>
-        <Pressable
-          onPress={markDone}
-          disabled={finishing}
-          style={({ pressed }) => [styles.doneButton, (pressed || finishing) && { opacity: 0.85 }]}
-        >
-          <Text style={styles.doneText}>{finishing ? '…' : 'ယူနစ် ပြီးပါပြီ'}</Text>
-        </Pressable>
+        {isCompleted ? (
+          <>
+            <Text style={styles.doneNote}>ပြီးဆုံးပြီးသော ယူနစ် ၊ စိတ်ကြိုက် ပြန်လေ့လာနိုင်ပါတယ်</Text>
+            <Pressable onPress={() => router.back()} style={({ pressed }) => [styles.doneButton, pressed && { opacity: 0.85 }]}>
+              <Text style={styles.doneText}>မြေပုံသို့ ပြန်မည်</Text>
+            </Pressable>
+          </>
+        ) : (
+          <>
+            <View style={styles.doneProgress}>
+              <Text style={[styles.doneStep, studiedCount === total && styles.doneStepOn]}>
+                စကားလုံး {toMyanmarDigits(studiedCount)}/{toMyanmarDigits(total)}
+              </Text>
+              {unit.grammar && <Text style={[styles.doneStep, grammarStudied && styles.doneStepOn]}>+ သဒ္ဒါ {grammarStudied ? '✓' : ''}</Text>}
+            </View>
+            <Pressable
+              onPress={markDone}
+              disabled={!ready || finishing}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !ready || finishing }}
+              accessibilityHint={ready ? undefined : 'စကားလုံးနဲ့ သဒ္ဒါ အားလုံး လေ့လာပြီးမှ နှိပ်လို့ရပါမယ်'}
+              style={({ pressed }) => [styles.doneButton, !ready && styles.disabled, (pressed || finishing) && { opacity: 0.85 }]}
+            >
+              <Text style={styles.doneText}>{finishing ? '…' : 'ယူနစ် ပြီးပါပြီ'}</Text>
+            </Pressable>
+            {!ready && <Text style={styles.doneHint}>စကားလုံးနဲ့ သဒ္ဒါ အားလုံးကို "လေ့လာပြီး" လို့ မှတ်ပြီးမှ နှိပ်လို့ရပါမယ်</Text>}
+          </>
+        )}
       </SafeAreaView>
     </SafeAreaView>
   );
 }
 
-function TabButton({ label, count, active, onPress }: { label: string; count: number; active: boolean; onPress: () => void }) {
+// "Studied" (လေ့လာပြီး): tap to mark, tap again to unmark.
+function StudiedButton({ on, onPress, label = 'လေ့လာပြီး' }: { on: boolean; onPress: () => void; label?: string }) {
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: on }}
+      style={[styles.studiedButton, on && styles.studiedOn]}
+    >
+      <View style={[styles.studiedCheck, on && styles.studiedCheckOn]}>
+        {on && (
+          <Svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke={colors.ink} strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round">
+            <Path d="M5 12.5l4.5 4.5L19 7.5" />
+          </Svg>
+        )}
+      </View>
+      <Text style={[styles.studiedText, on && styles.studiedTextOn]}>{label}</Text>
+    </Pressable>
+  );
+}
+
+function TabButton({ label, count, active, onPress }: { label: string; count: string; active: boolean; onPress: () => void }) {
   return (
     <Pressable
       onPress={onPress}
@@ -350,28 +424,73 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.35,
   },
-  reviewButton: {
+  studiedButton: {
     flex: 1,
     height: 52,
-    borderRadius: 26,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: spacing.sm,
+    borderRadius: 26,
     borderWidth: 1.5,
     borderColor: colors.border,
     backgroundColor: colors.background,
   },
-  reviewOn: {
+  studiedOn: {
     borderColor: colors.goldDeep,
     backgroundColor: colors.goldSoft,
   },
-  reviewText: {
+  studiedCheck: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: colors.border,
+  },
+  studiedCheckOn: {
+    borderColor: colors.gold,
+    backgroundColor: colors.gold,
+  },
+  studiedText: {
     ...text.label,
     fontSize: 15,
     color: colors.ink,
   },
-  reviewTextOn: {
+  studiedTextOn: {
     color: '#7A5A12',
   },
+  doneProgress: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  doneStep: {
+    ...text.label,
+    fontSize: 13,
+    color: colors.inkMuted,
+  },
+  doneStepOn: {
+    color: '#7A5A12',
+  },
+  doneHint: {
+    ...text.small,
+    fontSize: 12,
+    lineHeight: 21,
+    marginTop: spacing.xs,
+    textAlign: 'center',
+    color: colors.inkMuted,
+  },
+  doneNote: {
+    ...text.small,
+    fontSize: 13,
+    marginBottom: spacing.sm,
+    textAlign: 'center',
+    color: colors.inkMuted,
+  },
+
   doneBar: {
     paddingHorizontal: 20,
     paddingTop: spacing.md,

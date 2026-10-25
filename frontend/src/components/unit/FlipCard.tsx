@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import type { Word } from '@/api/types';
 import { RubyText } from '@/components/RubyText';
+import Svg, { Path } from 'react-native-svg';
 import { BookmarkIcon, FlipIcon } from '@/components/ui/Icons';
 import { colors, fonts, radius, spacing, text } from '@/theme';
 import { Examples, MoreExamplesButton } from './Examples';
@@ -19,13 +20,14 @@ import { Examples, MoreExamplesButton } from './Examples';
 type Props = {
   word: Word;
   saved: boolean;
+  studied?: boolean; // shows a small gold check on both sides
   onToggleSaved: () => void;
   onMoreExamples: () => void;
 };
 
 // A memory card: the front shows only the word, the back shows everything.
 // Tapping turns it over with a 3D flip (instantly when Reduce Motion is on).
-export function FlipCard({ word, saved, onToggleSaved, onMoreExamples }: Props) {
+export function FlipCard({ word, saved, studied = false, onToggleSaved, onMoreExamples }: Props) {
   const [flipped, setFlipped] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const turn = useRef(new Animated.Value(0)).current;
@@ -66,6 +68,14 @@ export function FlipCard({ word, saved, onToggleSaved, onMoreExamples }: Props) 
     </Pressable>
   );
 
+  const studiedBadge = studied ? (
+    <View style={styles.studiedBadge} accessibilityLabel="လေ့လာပြီး">
+      <Svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke={colors.ink} strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round">
+        <Path d="M5 12.5l4.5 4.5L19 7.5" />
+      </Svg>
+    </View>
+  ) : null;
+
   return (
     <View style={styles.card}>
       <Animated.View
@@ -86,6 +96,7 @@ export function FlipCard({ word, saved, onToggleSaved, onMoreExamples }: Props) 
           </View>
         </Pressable>
         {bookmark}
+        {studiedBadge}
       </Animated.View>
 
       <Animated.View
@@ -120,6 +131,7 @@ export function FlipCard({ word, saved, onToggleSaved, onMoreExamples }: Props) 
           <MoreExamplesButton onPress={onMoreExamples} />
         </ScrollView>
         {bookmark}
+        {studiedBadge}
       </Animated.View>
     </View>
   );
@@ -175,6 +187,19 @@ const styles = StyleSheet.create({
   hintText: {
     ...text.small,
     color: colors.inkMuted,
+  },
+  studiedBadge: {
+    position: 'absolute',
+    top: 20,
+    left: 18,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+    backgroundColor: colors.gold,
   },
   bookmark: {
     position: 'absolute',
