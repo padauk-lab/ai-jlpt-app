@@ -118,7 +118,7 @@ class Passage(Strict):
 
 
 class MockTestFile(Strict):
-    session_number: Annotated[int, Field(ge=1, le=20)]
+    session_number: Annotated[int, Field(ge=1, le=10)]
     time_limit_minutes: Annotated[int, Field(ge=1, le=180)] = 30
     questions: Annotated[list[KnowledgeQuestion], Field(min_length=LANGUAGE_KNOWLEDGE_QUESTIONS, max_length=LANGUAGE_KNOWLEDGE_QUESTIONS)]
     passages: Annotated[list[Passage], Field(min_length=3, max_length=3)]

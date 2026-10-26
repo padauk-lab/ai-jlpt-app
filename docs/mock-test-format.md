@@ -15,7 +15,7 @@ Retakes use the same questions.
 
 | Field | Rule |
 |---|---|
-| `session_number` | 1 to 20, same as the file name |
+| `session_number` | 1 to 10, same as the file name |
 | `time_limit_minutes` | Optional, 1 to 180. Default 30 |
 | `questions` | Exactly 45 language knowledge questions, numbered 1 to 45 in order. Needs both vocabulary and grammar |
 | `passages` | Exactly 3, in this order: `"short"`, `"medium"`, `"long"`. Each has `text_ruby` and 1 to 10 questions |

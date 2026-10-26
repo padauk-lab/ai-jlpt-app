@@ -4,7 +4,7 @@ A GenAI JLPT study app for Burmese speakers, built by Padauk Lab.
 
 ## Features
 - Google login and first-time setup (level, score, exam date)
-- 20 sessions, 10 units each, 20 words and 1 grammar pattern per unit
+- 10 sessions, 10 units each, 20 words and 1 grammar pattern per unit (2,000 words)
 - Quizzes every 5 units and a mock test after each session
 - AI explanations, an Ask AI chatbot, and a personalized study plan
 - Burmese and Japanese interface

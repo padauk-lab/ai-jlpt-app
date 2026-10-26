@@ -70,7 +70,7 @@ users                         study_settings   (1 per user)
  └── notification_settings
 
 LEARNING CONTENT (same for everyone)
-sessions (20)
+sessions (10)
  ├── units (10 each)
  │    ├── words (20 each) ── examples
  │    └── grammar (1 each) ── examples
@@ -201,7 +201,7 @@ Prepared by ANK, loaded from `data/`. Same for every user.
 | Column | Type | Rules | Notes |
 |---|---|---|---|
 | id | bigint | primary key | |
-| number | smallint | NOT NULL, unique, 1 to 20 | |
+| number | smallint | NOT NULL, unique, 1 to 20 | The app uses 1 to 10 (content rules refuse session 11 and later) |
 
 ### `units`
 

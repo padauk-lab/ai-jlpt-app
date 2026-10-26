@@ -21,8 +21,8 @@ built with production practices.
 1. **Splash and login**: email, username and password, or Google. Users stay logged in for weeks.
 2. **First-time setup** (one screen, shown once): last JLPT level taken (N1, N2, not taken), score (0 to 180), and exam date (or "not decided yet").
 3. **Study plan**: the backend calculates units per day until the exam. The AI adds a short tip.
-4. **Dashboard**: overall progress, pass prediction, today's goal, continue button, Proverb of the day, and 20 sessions.
-5. **Sessions and units**: 20 sessions, 10 units each. Each unit has 20 words and 1 grammar pattern, each with Burmese meaning, readings above kanji, and 2 to 3 example sentences. Units unlock in order. A unit is done when the user taps "Mark as done".
+4. **Dashboard**: overall progress, pass prediction, today's goal, continue button, Proverb of the day, and 10 sessions.
+5. **Sessions and units**: 10 sessions, 10 units each (2,000 words, the N2 to N1 gap). Each unit has 20 words and 1 grammar pattern, each with Burmese meaning, readings above kanji, and 2 to 3 example sentences. Units unlock in order. A unit is done when the user taps "Mark as done".
 6. **Quiz**: every 5 units. 20 questions, instant green or red feedback, 70% to pass, unlimited retakes.
 7. **Mock test**: after each session. 45 language knowledge questions plus 3 readings (short, medium, long). One continuous strict 30-minute test. No pass mark. Only the first attempt counts toward the pass prediction.
 8. **Saved words**: users bookmark words to review later.

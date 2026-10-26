@@ -39,7 +39,7 @@ class BookmarkRequest(BaseModel):
 # --- Endpoints ---
 
 
-SESSIONS_TOTAL = 20
+SESSIONS_TOTAL = 10
 
 
 def _session_status(facts: unlock.SessionFacts) -> str:

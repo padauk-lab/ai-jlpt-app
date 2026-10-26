@@ -94,7 +94,7 @@ class Grammar(Strict):
 
 
 class UnitFile(Strict):
-    session_number: Annotated[int, Field(ge=1, le=20)]
+    session_number: Annotated[int, Field(ge=1, le=10)]
     unit_number: Annotated[int, Field(ge=1, le=10)]
     words: Annotated[list[Word], Field(min_length=20, max_length=20)]
     grammar: Grammar

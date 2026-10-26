@@ -257,10 +257,10 @@ Response `200`:
 {
   "exam_date": "2026-12-06",
   "days_left": 54,
-  "units_total": 200,
+  "units_total": 100,
   "units_done": 0,
-  "units_per_day": 4,
-  "finish_by": "2026-11-29",
+  "units_per_day": 3,
+  "finish_by": "2026-11-15",
   "ai_tip_my": "Burmese text: focus on reading practice on weekends.",
   "updated_at": "2026-10-13T09:30:00Z"
 }
@@ -307,7 +307,7 @@ Response `200`:
 - `overall_progress` and `progress`: 0 to 100.
 - `pass_prediction`: 0 to 100, or `null` until the first mock test is done.
 - `status`: `"completed"`, `"in_progress"`, `"available"` or `"locked"`.
-- `sessions` always has all 20, in order.
+- `sessions` always has all 10, in order.
 - A session's `id` is `null` while its content isn't loaded yet. Such a session is always `"locked"` with `progress` 0.
 - `overall_progress`: units done out of 200. `progress`: units done out of 10. Both rounded down, current round only.
 - Session `status`: `"completed"` once its mock test is submitted, `"in_progress"` when any unit or quiz is done, `"available"` when open but nothing is done, otherwise `"locked"`.
