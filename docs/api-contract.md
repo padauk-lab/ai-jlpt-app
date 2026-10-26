@@ -309,7 +309,7 @@ Response `200`:
 - `status`: `"completed"`, `"in_progress"`, `"available"` or `"locked"`.
 - `sessions` always has all 10, in order.
 - A session's `id` is `null` while its content isn't loaded yet. Such a session is always `"locked"` with `progress` 0.
-- `overall_progress`: units done out of 200. `progress`: units done out of 10. Both rounded down, current round only.
+- `overall_progress`: units done out of 100. `progress`: units done out of 10. Both rounded down, current round only.
 - Session `status`: `"completed"` once its mock test is submitted, `"in_progress"` when any unit or quiz is done, `"available"` when open but nothing is done, otherwise `"locked"`.
 - `today.units_done`: units marked as done since midnight Japan time. `today.units_goal`: `units_per_day` from the study plan (#10), or 3 before setup.
 - `continue`: the first unit the user can study now. `null` when the next step is a quiz or mock test, or nothing is open.
