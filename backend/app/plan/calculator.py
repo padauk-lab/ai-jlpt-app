@@ -17,7 +17,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 from math import ceil
 
-UNITS_TOTAL = 200  # 20 sessions x 10 units
+UNITS_TOTAL = 100  # 10 sessions x 10 units (2,000 words)
 DEFAULT_UNITS_PER_DAY = 3
 MAX_UNITS_PER_DAY = 20
 REVIEW_DAYS_N1 = 7

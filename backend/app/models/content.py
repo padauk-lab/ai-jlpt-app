@@ -14,7 +14,7 @@ Ruby = list[dict[str, Any]]
 
 
 class StudySession(Base):
-    """One of the 20 sessions. Named StudySession so it is not confused with a database session."""
+    """One of the 10 sessions (the database allows up to 20). Named StudySession so it is not confused with a database session."""
 
     __tablename__ = "sessions"
     __table_args__ = (CheckConstraint("number BETWEEN 1 AND 20", name="number_range"),)

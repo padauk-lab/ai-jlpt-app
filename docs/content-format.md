@@ -16,7 +16,7 @@ Use the wave dash 〜 for grammar patterns. If a full-width tilde ～ slips in, 
 
 | Field | Rule |
 |---|---|
-| `session_number` | 1 to 20, same as the file name |
+| `session_number` | 1 to 10, same as the file name |
 | `quiz_number` | 1 or 2, same as the file name |
 | `questions` | At least 20, at most 100. Suggested: 40, so retakes feel different |
 | `number` | 1, 2, 3 and so on, each used once. **Never give an old number to a different question**: the number is how the app keeps users' past answers |

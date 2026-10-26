@@ -35,14 +35,14 @@ def test_onboarding_creates_the_plan(client):
     assert response.status_code == 201, response.text
     body = response.json()
     assert body.pop("updated_at").endswith("Z")
-    # 54 days left. Not N1, so 14 review days: 200 units / 40 days = 5 per day, done by Nov 21.
+    # 54 days left. Not N1, so 14 review days: 100 units / 40 days = 3 per day (rounded up), done by Nov 15.
     assert body == {
         "exam_date": "2026-12-06",
         "days_left": 54,
-        "units_total": 200,
+        "units_total": 100,
         "units_done": 0,
-        "units_per_day": 5,
-        "finish_by": "2026-11-21",
+        "units_per_day": 3,
+        "finish_by": "2026-11-15",
         "ai_tip_my": None,
     }
 
@@ -59,9 +59,9 @@ def test_plan_shows_the_same_numbers_and_me_says_onboarding_done(client):
 def test_n1_gets_fewer_review_days(client):
     headers = login_header(client)
     body = onboard(client, headers, last_level="N1", last_score=95).json()
-    # 7 review days: 200 units / 47 days = 5 per day (rounded up).
-    assert body["units_per_day"] == 5
-    assert body["finish_by"] == "2026-11-21"
+    # 7 review days: 100 units / 47 days = 3 per day (rounded up).
+    assert body["units_per_day"] == 3
+    assert body["finish_by"] == "2026-11-15"
 
 
 def test_no_exam_date_uses_the_default_pace(client):

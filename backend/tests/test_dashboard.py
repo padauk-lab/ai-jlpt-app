@@ -25,7 +25,7 @@ def test_new_user(client, content):
     assert body["continue"] == {"session_id": content["s1"], "unit_id": content["units"][1], "label": "Session 1, Unit 1"}
 
     sessions = body["sessions"]
-    assert [s["number"] for s in sessions] == list(range(1, 21))  # always all 20, in order
+    assert [s["number"] for s in sessions] == list(range(1, 11))  # always all 10, in order
     assert sessions[0] == {"id": content["s1"], "number": 1, "progress": 0, "status": "available"}
     assert sessions[1] == {"id": content["s2"], "number": 2, "progress": 0, "status": "locked"}
     # Sessions whose content isn't loaded yet: locked and without an id.
@@ -36,7 +36,7 @@ def test_progress_and_continue_follow_the_units(client, content):
     headers = user_header(client)
     complete_units(client, headers, content, range(1, 4))
     body = dashboard(client, headers)
-    assert body["overall_progress"] == 1  # 3 of 200 units, rounded down
+    assert body["overall_progress"] == 3  # 3 of 100 units
     assert body["today"]["units_done"] == 3
     assert body["continue"]["unit_id"] == content["units"][4]
     assert body["continue"]["label"] == "Session 1, Unit 4"
@@ -69,7 +69,7 @@ def test_finished_session_opens_the_next_one(client, content):
     assert body["sessions"][0]["status"] == "completed"
     assert body["sessions"][1] == {"id": content["s2"], "number": 2, "progress": 0, "status": "available"}
     assert body["continue"] == {"session_id": content["s2"], "unit_id": content["s2_units"][1], "label": "Session 2, Unit 1"}
-    assert body["overall_progress"] == 5  # 10 of 200 units
+    assert body["overall_progress"] == 10  # 10 of 100 units
 
 
 def test_failed_quiz_counts_as_in_progress(client, content):
@@ -92,15 +92,15 @@ def test_today_counts_only_units_done_since_midnight_in_japan(client, content):
 
     body = dashboard(client, headers)
     assert body["today"]["units_done"] == 2
-    assert body["overall_progress"] == 1  # still counts all 3
+    assert body["overall_progress"] == 3  # still counts all 3
 
 
 def test_goal_comes_from_the_study_plan(client, content, monkeypatch):
     monkeypatch.setattr(service, "today", lambda: date(2026, 10, 13))
     headers = user_header(client)
-    assert onboard(client, headers).status_code == 201  # exam Dec 6: 5 units per day
+    assert onboard(client, headers).status_code == 201  # exam Dec 6: 3 units per day
     plan = client.get(f"{API}/plan", headers=headers).json()
-    assert dashboard(client, headers)["today"]["units_goal"] == plan["units_per_day"] == 5
+    assert dashboard(client, headers)["today"]["units_goal"] == plan["units_per_day"] == 3
 
 
 def test_progress_is_per_user_and_per_round(client, content):
@@ -125,7 +125,7 @@ def test_progress_is_per_user_and_per_round(client, content):
 def test_no_content_loaded_yet(client):
     body = dashboard(client, user_header(client))
     assert body["continue"] is None
-    assert len(body["sessions"]) == 20
+    assert len(body["sessions"]) == 10
     assert all(s["id"] is None and s["status"] == "locked" for s in body["sessions"])
 
 

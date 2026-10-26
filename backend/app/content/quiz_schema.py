@@ -49,7 +49,7 @@ class QuizQuestion(Strict):
 
 
 class QuizFile(Strict):
-    session_number: Annotated[int, Field(ge=1, le=20)]
+    session_number: Annotated[int, Field(ge=1, le=10)]
     quiz_number: Literal[1, 2]
     questions: Annotated[list[QuizQuestion], Field(min_length=MIN_QUESTIONS, max_length=MAX_QUESTIONS)]
 
