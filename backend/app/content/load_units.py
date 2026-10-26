@@ -20,6 +20,7 @@ from pydantic import ValidationError
 from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
+from app.content.files import read_content_json
 from app.content.schema import UnitFile
 from app.db import SessionLocal
 from app.models import Example, Grammar, StudySession, Unit, Word
@@ -37,7 +38,7 @@ def read_unit_files(folder: Path) -> tuple[list[tuple[Path, UnitFile]], list[str
             problems.append(f"{path.name}: file name must look like s01_u01.json")
             continue
         try:
-            unit = UnitFile.model_validate(json.loads(path.read_text(encoding="utf-8")))
+            unit = UnitFile.model_validate(read_content_json(path))
         except json.JSONDecodeError as exc:
             problems.append(f"{path.name}: not valid JSON (line {exc.lineno}): {exc.msg}")
             continue

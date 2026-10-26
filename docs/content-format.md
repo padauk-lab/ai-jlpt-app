@@ -12,6 +12,8 @@ so retakes get a different mix.
 
 ## Rules
 
+Use the wave dash 〜 for grammar patterns. If a full-width tilde ～ slips in, the loader changes it to 〜 automatically (in every file type), so you don't need to hunt for it.
+
 | Field | Rule |
 |---|---|
 | `session_number` | 1 to 20, same as the file name |
