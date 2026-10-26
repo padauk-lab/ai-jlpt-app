@@ -9,6 +9,7 @@ Limits are kept in this server's memory:
   When we run more than one process in production, move this to a shared store (for example Redis).
 """
 
+import os
 import time
 from collections import deque
 from collections.abc import Callable
@@ -89,9 +90,27 @@ def too_many_requests(wait_seconds: int) -> ApiError:
 
 
 def client_ip(request: Request) -> str:
-    # We use the direct connection address. We do NOT trust the X-Forwarded-For header,
-    # because anyone can fake it. When we put a proxy in front of the server, configure it there.
+    """The user's network address, for the per-network limits.
+
+    On our own computers (PROXY_HOPS not set): the direct connection address.
+    Online (Render), every request comes through Render's proxy, so the direct address is the proxy's,
+    the same for everyone. The proxy writes the real address into X-Forwarded-For. A user can put fake
+    addresses at the START of that header, but only the proxies can add at the END. So we count from
+    the end: PROXY_HOPS=1 means "the last address in the list, written by the one proxy we trust".
+    """
+    hops = _proxy_hops()
+    if hops:
+        forwarded = [part.strip() for part in request.headers.get("x-forwarded-for", "").split(",") if part.strip()]
+        if len(forwarded) >= hops:
+            return forwarded[-hops]
     return request.client.host if request.client else "unknown"
+
+
+def _proxy_hops() -> int:
+    value = os.environ.get("PROXY_HOPS", "0").strip() or "0"
+    if not value.isdigit():
+        raise RuntimeError("PROXY_HOPS must be a whole number: 0 on your own computer, 1 on Render")
+    return int(value)
 
 
 limiter = RateLimiter()
