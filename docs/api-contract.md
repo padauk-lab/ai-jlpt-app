@@ -169,6 +169,10 @@ Response `200`: same as register.
 Errors: `401` with message "Email or password is incorrect." It never says which one, so nobody can check which emails are registered.
 
 ### 4. `POST /auth/google`
+**LATER, not in the first version.** Our main target is iOS, and App Store rule 4.8 says an app with Google login
+must also offer Sign in with Apple. Google and Apple login will be added together later. Until then the app shows
+no Google button, and this endpoint is a placeholder.
+
 Log in or sign up with Google. **No login needed.**
 The app gets an ID token from Google sign-in and sends it here. The backend verifies it directly with Google.
 
@@ -182,7 +186,8 @@ Response `200`: same as register.
 Errors: `401` invalid or expired Google token.
 
 ### 5. `POST /auth/forgot-password`
-Send a password reset email. **No login needed.**
+Send a 6-digit reset code by email. **No login needed.**
+(A code, not a link: on phones, mail apps often don't open app links. The user types the code into the app.)
 
 Request:
 ```json
@@ -190,25 +195,28 @@ Request:
 ```
 Response `200`, **always the same**, even if the email is not registered:
 ```json
-{ "message": "If this email is registered, a reset link has been sent." }
+{ "message": "If this email is registered, a reset code has been sent." }
 ```
-- Limited to a few requests per hour per email and per device.
+- The code works once and expires after 15 minutes. Asking again replaces the old code.
+- Limited to 3 requests per hour per email and 10 per hour per network (then `429` with `Retry-After`).
+- The email is in Burmese and contains only the code.
 
 ### 6. `POST /auth/reset-password`
 Set a new password using the link from the email. **No login needed.**
 
 Request:
 ```json
-{ "reset_token": "token-from-email-link", "new_password": "my-new-password" }
+{ "email": "htet@example.com", "code": "482915", "new_password": "my-new-password" }
 ```
 Response `200`:
 ```json
 { "message": "Password updated. Please log in." }
 ```
-- The link works once and expires after 1 hour.
-- All existing logins for this user are signed out.
+- `code`: exactly 6 digits. `new_password`: 8 to 128 characters, the same rule as sign up.
+- All existing logins for this user are signed out. The app then shows the login screen.
+- 5 wrong codes per email in 15 minutes: `429`, and the code stops working (ask for a new one).
 
-Errors: `400` link expired or already used, `422` password too short.
+Errors: `400` `invalid_code` (wrong, expired or already used, always the same message), `422` invalid input, `429` too many wrong codes.
 
 ### 7. `POST /auth/refresh`
 Get a new access token quietly. **No login needed** (uses the refresh token).

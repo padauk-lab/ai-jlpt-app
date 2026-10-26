@@ -24,6 +24,9 @@ from app.core.errors import ApiError
 LOGIN_PER_IP = (30, 5 * 60)  # all login attempts from one network
 LOGIN_FAILS_PER_EMAIL = (5, 15 * 60)  # wrong passwords for one email; a successful login clears it
 REGISTER_PER_IP = (20, 60 * 60)  # sign-ups from one network
+FORGOT_PER_EMAIL = (3, 60 * 60)  # reset codes asked for one email (stops flooding someone's inbox)
+FORGOT_PER_IP = (10, 60 * 60)  # reset codes asked from one network
+RESET_FAILS_PER_EMAIL = (5, 15 * 60)  # wrong reset codes for one email; then the code stops working
 
 MAX_KEYS = 50_000  # memory guard: an attacker sending many different emails can't fill the memory
 

@@ -7,6 +7,7 @@ Security-critical file: change it only with tests, and get a review from HP.
 """
 
 import hashlib
+import hmac
 import os
 import secrets
 from datetime import UTC, datetime, timedelta
@@ -104,3 +105,9 @@ def hash_refresh_token(token: str) -> str:
 
 def refresh_token_expiry() -> datetime:
     return datetime.now(UTC) + timedelta(days=REFRESH_TOKEN_DAYS)
+
+
+def keyed_hash(value: str) -> str:
+    """HMAC-SHA256 with JWT_SECRET. Used for short secrets like reset codes: without the secret,
+    a stored hash can't be checked against guesses, even though a 6-digit code has few possibilities."""
+    return hmac.new(_jwt_secret().encode(), value.encode(), hashlib.sha256).hexdigest()

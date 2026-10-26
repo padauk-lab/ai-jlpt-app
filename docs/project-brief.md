@@ -18,7 +18,7 @@ built with production practices.
 
 ## How the app works, in the order a user meets it
 
-1. **Splash and login**: email, username and password, or Google. Users stay logged in for weeks.
+1. **Splash and login**: email, username and password. Users stay logged in for weeks. "Forgot password" sends a 6-digit code by email. (Google login comes later, together with Sign in with Apple.)
 2. **First-time setup** (one screen, shown once): last JLPT level taken (N1, N2, not taken), score (0 to 180), and exam date (or "not decided yet").
 3. **Study plan**: the backend calculates units per day until the exam. The AI adds a short tip.
 4. **Dashboard**: overall progress, pass prediction, today's goal, continue button, Proverb of the day, and 20 sessions.
