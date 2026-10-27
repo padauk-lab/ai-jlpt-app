@@ -9,6 +9,8 @@ Limits are kept in this server's memory:
   When we run more than one process in production, move this to a shared store (for example Redis).
 """
 
+import ipaddress
+import logging
 import os
 import time
 from collections import deque
@@ -19,6 +21,8 @@ from threading import Lock
 from fastapi import Request
 
 from app.core.errors import ApiError
+
+logger = logging.getLogger(__name__)
 
 # (max attempts, window in seconds)
 LOGIN_PER_IP = (30, 5 * 60)  # all login attempts from one network
@@ -95,24 +99,49 @@ def too_many_requests(wait_seconds: int) -> ApiError:
 def client_ip(request: Request) -> str:
     """The user's network address, for the per-network limits.
 
-    On our own computers (PROXY_HOPS not set): the direct connection address.
-    Online (Render), every request comes through Render's proxy, so the direct address is the proxy's,
-    the same for everyone. The proxy writes the real address into X-Forwarded-For. A user can put fake
-    addresses at the START of that header, but only the proxies can add at the END. So we count from
-    the end: PROXY_HOPS=1 means "the last address in the list, written by the one proxy we trust".
+    On our own computers (nothing set): the direct connection address.
+    Online, every request comes through proxies (on Render: Cloudflare, then Render), so the direct
+    address is a proxy's. Two ways to find the real one:
+    - CLIENT_IP_HEADER: a header that the first proxy always writes itself (for example
+      "cf-connecting-ip" from Cloudflare). Only use a header the proxy overwrites, never one a user
+      could send.
+    - PROXY_HOPS: count from the END of X-Forwarded-For. A user can put fake addresses at the START,
+      but only the proxies add at the end. PROXY_HOPS=2 means "the second address from the end".
+    DEBUG_CLIENT_IP=1 writes what the proxies sent to the log, to find the right setting. Turn it off after.
     """
-    hops = _proxy_hops()
-    if hops:
+    header = os.environ.get("CLIENT_IP_HEADER", "").strip().lower()
+    chosen = None
+    if header:
+        chosen = _valid_ip(request.headers.get(header, "").split(",")[0])
+    if chosen is None:
+        hops = _proxy_hops()
         forwarded = [part.strip() for part in request.headers.get("x-forwarded-for", "").split(",") if part.strip()]
-        if len(forwarded) >= hops:
-            return forwarded[-hops]
-    return request.client.host if request.client else "unknown"
+        if hops and len(forwarded) >= hops:
+            chosen = _valid_ip(forwarded[-hops])
+    if chosen is None:
+        chosen = request.client.host if request.client else "unknown"
+    if os.environ.get("DEBUG_CLIENT_IP", "").strip() == "1":
+        logger.warning(
+            "DEBUG_CLIENT_IP x-forwarded-for=%r cf-connecting-ip=%r true-client-ip=%r x-real-ip=%r direct=%r chosen=%r",
+            request.headers.get("x-forwarded-for"), request.headers.get("cf-connecting-ip"),
+            request.headers.get("true-client-ip"), request.headers.get("x-real-ip"),
+            request.client.host if request.client else None, chosen,
+        )
+    return chosen
+
+
+def _valid_ip(value: str) -> str | None:
+    """The address if it really is one (IPv4 or IPv6), else None. Junk in a header is never trusted."""
+    try:
+        return str(ipaddress.ip_address(value.strip()))
+    except ValueError:
+        return None
 
 
 def _proxy_hops() -> int:
     value = os.environ.get("PROXY_HOPS", "0").strip() or "0"
     if not value.isdigit():
-        raise RuntimeError("PROXY_HOPS must be a whole number: 0 on your own computer, 1 on Render")
+        raise RuntimeError("PROXY_HOPS must be a whole number: 0 on your own computer")
     return int(value)
 
 
