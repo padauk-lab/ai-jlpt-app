@@ -8,7 +8,7 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 
 def _database_url() -> str:
-    url = os.environ.get("DATABASE_URL")
+    url = os.environ.get("DATABASE_URL", "").strip()  # a space copied by mistake must not break it
     if not url:
         raise RuntimeError("DATABASE_URL is not set. Copy .env.example to .env and fill it in.")
     # Tell SQLAlchemy to use the psycopg (version 3) driver. Some hosts write "postgres://".

@@ -56,3 +56,75 @@ def test_bad_setting_stops_with_a_clear_message(monkeypatch):
 def test_database_urls_from_any_host_work(monkeypatch, given, expected):
     monkeypatch.setenv("DATABASE_URL", given)
     assert _database_url() == expected
+
+
+def test_spaces_around_the_database_url_are_ignored(monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", "  postgresql://u:p@db/jlpt \n")
+    assert _database_url() == "postgresql+psycopg://u:p@db/jlpt"
+
+
+# --- CLIENT_IP_HEADER: a header the first proxy (Cloudflare) writes itself ---
+
+
+def cf_request(cf: str | None, forwarded: str = "6.6.6.6, 203.0.113.5, 198.51.100.1", peer: str = "10.9.8.7") -> Request:
+    headers = [(b"x-forwarded-for", forwarded.encode())]
+    if cf is not None:
+        headers.append((b"cf-connecting-ip", cf.encode()))
+    return Request({"type": "http", "headers": headers, "client": (peer, 1234)})
+
+
+@pytest.fixture
+def no_ip_settings(monkeypatch):
+    for name in ("CLIENT_IP_HEADER", "PROXY_HOPS", "DEBUG_CLIENT_IP"):
+        monkeypatch.delenv(name, raising=False)
+
+
+def test_client_ip_header_wins_when_set(monkeypatch, no_ip_settings):
+    monkeypatch.setenv("CLIENT_IP_HEADER", "CF-Connecting-IP")
+    monkeypatch.setenv("PROXY_HOPS", "1")
+    assert client_ip(cf_request("203.0.113.9")) == "203.0.113.9"
+
+
+def test_without_the_setting_the_header_is_never_trusted(monkeypatch, no_ip_settings):
+    assert client_ip(cf_request("203.0.113.9")) == "10.9.8.7"  # anyone could send that header
+
+
+@pytest.mark.parametrize("bad", [None, "", "not-an-address", "1.2.3.4.5"])
+def test_missing_or_junk_header_falls_back_to_proxy_hops(monkeypatch, no_ip_settings, bad):
+    monkeypatch.setenv("CLIENT_IP_HEADER", "cf-connecting-ip")
+    monkeypatch.setenv("PROXY_HOPS", "2")
+    assert client_ip(cf_request(bad)) == "203.0.113.5"
+
+
+def test_ipv6_addresses_work(monkeypatch, no_ip_settings):
+    monkeypatch.setenv("CLIENT_IP_HEADER", "cf-connecting-ip")
+    assert client_ip(cf_request("2001:db8::1")) == "2001:db8::1"
+
+
+def test_debug_log_shows_what_the_proxies_sent(monkeypatch, no_ip_settings, caplog):
+    import logging
+
+    from app.core import rate_limit
+
+    monkeypatch.setattr(rate_limit.logger, "disabled", False)
+    monkeypatch.setenv("DEBUG_CLIENT_IP", "1")
+    with caplog.at_level(logging.WARNING, logger="app.core.rate_limit"):
+        client_ip(cf_request("203.0.113.9"))
+    assert "x-forwarded-for='6.6.6.6, 203.0.113.5, 198.51.100.1'" in caplog.text
+    assert "cf-connecting-ip='203.0.113.9'" in caplog.text
+
+
+def test_no_debug_log_normally(monkeypatch, no_ip_settings, caplog):
+    import logging
+
+    with caplog.at_level(logging.WARNING, logger="app.core.rate_limit"):
+        client_ip(cf_request("203.0.113.9"))
+    assert "DEBUG_CLIENT_IP" not in caplog.text
+
+
+# --- /health answers uptime checkers ---
+
+
+def test_health_answers_get_and_head(client):
+    assert client.get("/health").json() == {"status": "ok"}
+    assert client.head("/health").status_code == 200

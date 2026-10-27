@@ -32,6 +32,7 @@ add_cors(app, os.environ.get("CORS_ORIGINS", ""))
 app.include_router(api_router, prefix="/api/v1")
 
 
-@app.get("/health")
+# GET and HEAD: uptime checkers (UptimeRobot) often send HEAD ("are you there?", no body needed).
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health() -> dict[str, str]:
     return {"status": "ok"}

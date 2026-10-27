@@ -37,7 +37,8 @@ No credit card is needed for any of them.
 |---|---|
 | `DATABASE_URL` | the Neon connection string |
 | `JWT_SECRET` | a new one: `python3 -c "import secrets; print(secrets.token_urlsafe(48))"` |
-| `PROXY_HOPS` | `1` |
+| `PROXY_HOPS` | `2` (see step 5) |
+| `CLIENT_IP_HEADER` | see step 5 |
 | `LLM_API_KEY` | the Gemini key (only if the AI buttons should work) |
 | `LLM_MODEL` | `gemini-3.8-flash` |
 | `AI_EXAMPLES_DAILY_LIMIT` | `50` |
@@ -76,7 +77,22 @@ for i in $(seq 1 31); do curl -s -o /dev/null -w "%{http_code} " -X POST https:/
 
 - Good: the first 30 print `401` and the last one prints `429` (the fake addresses didn't give extra tries).
 - Then a teammate on **another network** logs in normally within 5 minutes: it must work (each network has its own limit).
-- If all 31 print `401`, or the teammate gets `429`: tell HP, `PROXY_HOPS` needs another value.
+- If all 31 print `401`, or the teammate gets `429`: the backend reads the wrong address. Find the right one:
+
+### Find each user's real address
+
+On Render, a request passes Cloudflare, then Render, then our backend. Each proxy can add addresses.
+
+1. In Render's Environment page, add `DEBUG_CLIENT_IP` = `1` and save (Render restarts).
+2. Send one test request with fake values:
+   ```
+   curl -s -o /dev/null -X POST https://<your-service>.onrender.com/api/v1/auth/login -H "Content-Type: application/json" -H "X-Forwarded-For: 6.6.6.6" -H "CF-Connecting-IP: 7.7.7.7" -d '{"email":"debug@example.com","password":"wrong-password"}'
+   ```
+3. In Render's Logs, find the line starting with `DEBUG_CLIENT_IP`. Find your own address in it
+   (search "what is my IP" in a browser) and see where it is:
+   - In `cf-connecting-ip` (and not `7.7.7.7`): set `CLIENT_IP_HEADER` = `cf-connecting-ip`. Best choice.
+   - In `x-forwarded-for`: count its place from the END and set `PROXY_HOPS` to that number.
+4. **Delete `DEBUG_CLIENT_IP`** (it writes users' addresses to the log), then run the 31-request test again.
 
 ## 6. The app
 
