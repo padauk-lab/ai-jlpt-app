@@ -37,8 +37,8 @@ No credit card is needed for any of them.
 |---|---|
 | `DATABASE_URL` | the Neon connection string |
 | `JWT_SECRET` | a new one: `python3 -c "import secrets; print(secrets.token_urlsafe(48))"` |
-| `PROXY_HOPS` | `2` (see step 5) |
-| `CLIENT_IP_HEADER` | see step 5 |
+| `CLIENT_IP_HEADER` | `cf-connecting-ip` (Cloudflare writes it and refuses fake ones, checked on Oct 27, 2026) |
+| `PROXY_HOPS` | `3` (backup only: on Render the list is fake values, user, Cloudflare, Render) |
 | `LLM_API_KEY` | the Gemini key (only if the AI buttons should work) |
 | `LLM_MODEL` | `gemini-3.8-flash` |
 | `AI_EXAMPLES_DAILY_LIMIT` | `50` |
@@ -81,16 +81,20 @@ for i in $(seq 1 31); do curl -s -o /dev/null -w "%{http_code} " -X POST https:/
 
 ### Find each user's real address
 
+Only needed if the test above fails again (for example if Render changes its setup). Measured on Oct 27, 2026:
+`x-forwarded-for` = (anything the user sent), user, Cloudflare, Render, and `cf-connecting-ip` = user.
+A request that sends its own `CF-Connecting-IP` is refused by Cloudflare with 403.
+
 On Render, a request passes Cloudflare, then Render, then our backend. Each proxy can add addresses.
 
 1. In Render's Environment page, add `DEBUG_CLIENT_IP` = `1` and save (Render restarts).
 2. Send one test request with fake values:
    ```
-   curl -s -o /dev/null -X POST https://<your-service>.onrender.com/api/v1/auth/login -H "Content-Type: application/json" -H "X-Forwarded-For: 6.6.6.6" -H "CF-Connecting-IP: 7.7.7.7" -d '{"email":"debug@example.com","password":"wrong-password"}'
+   curl -s -o /dev/null -X POST https://<your-service>.onrender.com/api/v1/auth/login -H "Content-Type: application/json" -H "X-Forwarded-For: 6.6.6.6" -d '{"email":"debug@example.com","password":"wrong-password"}'
    ```
 3. In Render's Logs, find the line starting with `DEBUG_CLIENT_IP`. Find your own address in it
    (search "what is my IP" in a browser) and see where it is:
-   - In `cf-connecting-ip` (and not `7.7.7.7`): set `CLIENT_IP_HEADER` = `cf-connecting-ip`. Best choice.
+   - In `cf-connecting-ip`: set `CLIENT_IP_HEADER` = `cf-connecting-ip`. Best choice.
    - In `x-forwarded-for`: count its place from the END and set `PROXY_HOPS` to that number.
 4. **Delete `DEBUG_CLIENT_IP`** (it writes users' addresses to the log), then run the 31-request test again.
 
