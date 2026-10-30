@@ -13,6 +13,10 @@ const MESSAGES: Record<string, string> = {
   session_locked: 'ဒီအပိုင်းက သော့ခတ်ထားဆဲပါ။',
   quiz_locked: 'ဒီစာမေးပွဲငယ်က သော့ခတ်ထားဆဲပါ။',
   onboarding_not_done: 'အရင်ဆုံး မေးခွန်း ၃ ခု ဖြေပေးပါ။',
+  already_answered: 'ဒီမေးခွန်းကို ဖြေပြီးသားပါ။',
+  attempt_finished: 'ဒီစာမေးပွဲငယ် ပြီးသွားပါပြီ။',
+  attempt_not_finished: 'စာမေးပွဲငယ်ကို အရင် ပြီးအောင် ဖြေပါ။',
+  not_answered_yet: 'အရင် ဖြေပြီးမှ ရှင်းလင်းချက် ကြည့်လို့ရပါမယ်။',
   ai_unavailable: 'AI ဆရာ ခဏ အလုပ်များနေပါတယ်။ နောက်မှ ပြန်ကြိုးစားပါ။',
 };
 
