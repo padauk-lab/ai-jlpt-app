@@ -79,3 +79,18 @@ def client() -> TestClient:
     from app.main import app
 
     return TestClient(app, raise_server_exceptions=False)
+
+
+@pytest.fixture(autouse=True)
+def no_real_ai_tips(monkeypatch) -> Iterator[None]:
+    """Plans never call the real AI in tests: the study tip "fails" unless a test sets its own fake."""
+    from app.ai.llm import AIUnavailableError
+    from app.plan import tip
+
+    def no_ai(plan, last_level):
+        raise AIUnavailableError("no AI in tests")
+
+    monkeypatch.setattr(tip, "ai_tip", no_ai)
+    tip.reset_for_tests()
+    yield
+    tip.reset_for_tests()
