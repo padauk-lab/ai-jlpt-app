@@ -24,6 +24,7 @@ from app.models import Bookmark, Example, Grammar, Plan, StudySession, Unit, Uni
 from app.plan import service
 from app.plan.calculator import DEFAULT_UNITS_PER_DAY, UNITS_TOTAL
 from app.progress import unlock
+from app.progress.prediction import load_prediction
 
 router = APIRouter(tags=["2. Dashboard, sessions and units"])
 
@@ -92,10 +93,11 @@ def get_dashboard(user: CurrentUser, db: DbSession) -> dict[str, Any]:
                     break
 
     plan = db.get(Plan, user.id)
+    prediction = load_prediction(db, user)
     return {
         "overall_progress": service.count_units_done(db, user) * 100 // UNITS_TOTAL,
-        # Needs the mock tests (#23 to #26) and the agreed formula. Until then: null, as the contract allows.
-        "pass_prediction": None,
+        "pass_prediction": prediction.value if prediction else None,
+        "pass_prediction_warning": prediction.warning if prediction else None,
         "today": {
             "units_done": _units_done_today(db, user),
             "units_goal": plan.units_per_day if plan is not None else DEFAULT_UNITS_PER_DAY,

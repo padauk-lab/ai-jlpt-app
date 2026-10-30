@@ -3,7 +3,7 @@
 Owner: HP (Backend). For: the content team (ANK and helpers) and their AI tools.
 
 Each session ends with one **mock test** in the JLPT N1 Language Knowledge format:
-**45 vocabulary and grammar questions**, plus **3 reading passages** (short, medium, long) with their own questions.
+**45 vocabulary and grammar questions**, plus **3 reading passages** (short, medium, long) with 1, 3 and 4 questions.
 It is timed by the server (30 minutes by default). There is no feedback until the user submits.
 Retakes use the same questions.
 
@@ -18,8 +18,8 @@ Retakes use the same questions.
 | `session_number` | 1 to 10, same as the file name |
 | `time_limit_minutes` | Optional, 1 to 180. Default 30 |
 | `questions` | Exactly 45 language knowledge questions, numbered 1 to 45 in order. Needs both vocabulary and grammar |
-| `passages` | Exactly 3, in this order: `"short"`, `"medium"`, `"long"`. Each has `text_ruby` and 1 to 10 questions |
-| Reading question numbers | Continue after 45 in order: 46, 47, 48 and so on, across the 3 passages |
+| `passages` | Exactly 3, in this order: `"short"`, `"medium"`, `"long"`. Each has `text_ruby` and 1 to 10 questions. **Use 1, 3 and 4 questions** (short, medium, long: 8 in total), as in the real N1 |
+| Reading question numbers | Continue after 45 in order: 46 (short), 47 to 49 (medium), 50 to 53 (long) |
 
 **Language knowledge questions** use the same fields and rules as quiz questions (see `docs/content-format.md`):
 `number`, `part`, `type`, `prompt_ruby`, `underline`, `options`, `correct_option_id`. Differences:
@@ -100,3 +100,11 @@ docker compose run --rm -v "$PWD/data":/data:ro backend python -m app.content.lo
 
 - Fixing text, options or answers is fine. Keep the `number`. Saved "Why?" explanations for changed questions are cleared. If a passage's text changes, all of its questions lose them.
 - Once anyone has started the mock test, questions can be fixed but not removed.
+
+## How the mock test feeds the pass prediction
+
+Agreed by HP and ANK (Oct 2026). Code: `backend/app/progress/prediction.py`.
+- Only the first attempt of each mock test counts, and only the latest 2 tests (the newer one weighs 60%).
+- Score = 70% language knowledge + 30% reading. A 60% score means a 50% chance, each point moves it by 2.5, kept between 5 and 95.
+- Language knowledge or reading under 32% (about 19 of 60, the real section minimum) caps the chance at 15%.
+- Listening is not part of the app, so it is not part of the prediction.

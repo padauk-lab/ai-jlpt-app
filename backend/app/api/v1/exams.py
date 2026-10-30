@@ -39,6 +39,7 @@ from app.models import (
 )
 from app.progress import mock as mock_clock
 from app.progress import unlock
+from app.progress.prediction import load_prediction
 
 router = APIRouter(tags=["3. Quiz and mock test"])
 
@@ -297,7 +298,7 @@ def _start_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
     }
 
 
-def _result_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
+def _result_json(db: DbSession, user: User, attempt: MockAttempt) -> dict[str, Any]:
     questions = _mock_questions(db, attempt.mock_test_id)
     answers = _mock_answers(db, attempt)
     parts: dict[str, list[int]] = {}
@@ -318,6 +319,7 @@ def _result_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
             "correct_option_id": q.correct_option_id,  # allowed now: the test is submitted
             "is_correct": is_correct,
         })
+    prediction = load_prediction(db, user)
     limit = int((attempt.ends_at - attempt.started_at).total_seconds())
     used = int((attempt.submitted_at - attempt.started_at).total_seconds())
     return {
@@ -330,8 +332,9 @@ def _result_json(db: DbSession, attempt: MockAttempt) -> dict[str, Any]:
         "parts": [
             {"part": part, "correct": parts[part][0], "total": parts[part][1]} for part in PART_ORDER if part in parts
         ],
-        # The prediction formula is still an open decision (HP and ANK). Until then: null.
-        "pass_prediction": None,
+        # The user's current prediction. Only first attempts count, so a retake leaves it unchanged.
+        "pass_prediction": prediction.value if prediction else None,
+        "pass_prediction_warning": prediction.warning if prediction else None,
         "counts_for_prediction": attempt.counts_for_prediction,
         "questions": review,
     }
@@ -430,7 +433,7 @@ def submit_mock_test(attempt_id: PathId, user: CurrentUser, db: DbSession) -> di
         mock_clock.submit(db, attempt, "user", mock_clock.now())
     # If the time had run out, the server already submitted it ("timeout"): just show that result.
     db.commit()
-    return _result_json(db, attempt)
+    return _result_json(db, user, attempt)
 
 
 @router.get("/mock-attempts/{attempt_id}/result", summary="#26 Mock test result and review")
@@ -439,4 +442,4 @@ def get_mock_result(attempt_id: PathId, user: CurrentUser, db: DbSession) -> dic
     db.commit()
     if attempt.submitted_at is None:
         raise ApiError(400, "not_submitted", "This mock test is not submitted yet.")
-    return _result_json(db, attempt)
+    return _result_json(db, user, attempt)

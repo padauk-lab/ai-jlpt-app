@@ -215,7 +215,8 @@ def test_submit_scores_on_the_server(client, mock, clock):
         {"part": "grammar", "correct": 1, "total": 2},
         {"part": "reading", "correct": 1, "total": 2},
     ]
-    assert body["pass_prediction"] is None
+    assert body["pass_prediction"] == 25  # LK 50%, reading 50%: score 50, 10 points under 60
+    assert body["pass_prediction_warning"] is None
     assert body["counts_for_prediction"] is True
 
     review = {item["number"]: item for item in body["questions"]}
