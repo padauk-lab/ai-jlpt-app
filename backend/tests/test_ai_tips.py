@@ -100,3 +100,6 @@ def test_unknown_level_is_refused(monkeypatch):
     with pytest.raises(ValueError):
         tips.plan_tip(make_plan(), "N3")
     assert sent == {}  # the AI was never called
+
+def test_prompt_is_not_empty():
+    assert len(tips.PROMPT) > 50
