@@ -2,20 +2,26 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
-import { answerQuestion, explainAnswer, finishQuiz, resetFakeQuiz, startQuiz } from '@/api';
+import { ApiError, answerQuestion, explainAnswer, finishQuiz, startQuiz } from '@/api';
 import type { AnswerResult, Explanation, QuizAttempt, QuizFinish, QuizOption } from '@/api/types';
 import { PromptText } from '@/components/quiz/PromptText';
 import { QuizProgress } from '@/components/quiz/QuizProgress';
 import { QuizResult } from '@/components/quiz/QuizResult';
 import { CloseIcon, SparkIcon } from '@/components/ui/Icons';
+import { Notice, useNotice } from '@/components/ui/Notice';
 import Svg, { Path } from 'react-native-svg';
 import { colors, fonts, spacing, text } from '@/theme';
+import { errorMessage } from '@/utils/errors';
 
 // Question types from the contract, with a Burmese name and the JLPT name.
+// The JLPT N1 question types used by the quizzes (backend: question_parts.py).
 const TYPE_LABELS: Record<string, [string, string]> = {
   kanji_reading: ['ခန်းဂျီ အသံထွက်', '漢字読み'],
-  context: ['စကားလုံး အသုံး', '文脈規定'],
-  grammar: ['သဒ္ဒါ', '文法'],
+  context: ['ဝါကျနဲ့ ကိုက်တဲ့ စကားလုံး', '文脈規定'],
+  paraphrase: ['အဓိပ္ပာယ်တူ စကားလုံး', '言い換え類義'],
+  usage: ['စကားလုံး အသုံးပြုပုံ', '用法'],
+  grammar_form: ['သဒ္ဒါ ပုံစံ', '文法形式の判断'],
+  sentence_order: ['ဝါကျ စီခြင်း', '文の組み立て'],
 };
 
 export default function QuizScreen() {
@@ -26,15 +32,23 @@ export default function QuizScreen() {
   const [explanation, setExplanation] = useState<Explanation | null>(null);
   const [explaining, setExplaining] = useState(false);
   const [finished, setFinished] = useState<QuizFinish | null>(null);
+  const [problem, setProblem] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const notice = useNotice();
 
   const begin = useCallback(async () => {
-    resetFakeQuiz();
     setAttempt(null);
     setIndex(0);
     setResult(null);
     setExplanation(null);
     setFinished(null);
-    setAttempt(await startQuiz(Number(id)));
+    setProblem(null);
+    try {
+      setAttempt(await startQuiz(Number(id)));
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 404) setProblem('ဒီစာမေးပွဲငယ်မှာ မေးခွန်းတွေ မထည့်ရသေးပါ။');
+      else setProblem(errorMessage(error));
+    }
   }, [id]);
 
   useEffect(() => {
@@ -44,7 +58,16 @@ export default function QuizScreen() {
   if (!attempt) {
     return (
       <SafeAreaView style={styles.center}>
-        <ActivityIndicator color={colors.ink} />
+        {problem ? (
+          <>
+            <Text style={styles.problemText}>{problem}</Text>
+            <Pressable onPress={() => router.back()} style={styles.primaryButton}>
+              <Text style={styles.primaryText}>မြေပုံသို့ ပြန်မည်</Text>
+            </Pressable>
+          </>
+        ) : (
+          <ActivityIndicator color={colors.ink} />
+        )}
       </SafeAreaView>
     );
   }
@@ -68,21 +91,37 @@ export default function QuizScreen() {
   const answered = result !== null;
 
   async function choose(option: QuizOption['id']) {
-    if (answered || !attempt) return;
-    const res = await answerQuestion(attempt.attempt_id, question.id, option);
-    setResult(res);
+    if (answered || busy || !attempt) return;
+    setBusy(true);
+    try {
+      setResult(await answerQuestion(attempt.attempt_id, question.id, option));
+    } catch (error) {
+      notice.show(errorMessage(error));
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function why() {
     if (!result) return;
     setExplaining(true);
-    setExplanation(await explainAnswer(question.id, result.selected_option_id));
-    setExplaining(false);
+    try {
+      setExplanation(await explainAnswer(question.id, result.selected_option_id));
+    } catch (error) {
+      notice.show(errorMessage(error)); // e.g. 503: the AI is busy, try again later
+    } finally {
+      setExplaining(false);
+    }
   }
 
   function next() {
     if (index + 1 >= total) {
-      if (attempt) finishQuiz(attempt.attempt_id).then(setFinished);
+      if (!attempt) return;
+      setBusy(true);
+      finishQuiz(attempt.attempt_id)
+        .then(setFinished)
+        .catch((error) => notice.show(errorMessage(error)))
+        .finally(() => setBusy(false));
       return;
     }
     setIndex(index + 1);
@@ -174,6 +213,7 @@ export default function QuizScreen() {
           </Pressable>
         </View>
       )}
+      <Notice message={notice.message} />
     </SafeAreaView>
   );
 }
@@ -195,6 +235,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: spacing.lg,
+    padding: spacing.xl,
+  },
+  problemText: {
+    ...text.body,
+    color: colors.ink,
+    textAlign: 'center',
   },
   topRow: {
     flexDirection: 'row',

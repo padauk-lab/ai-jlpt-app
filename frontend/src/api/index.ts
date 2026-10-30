@@ -20,19 +20,12 @@ import type {
   UnitDetail,
 } from './types';
 import { request } from './client';
-import quizAttemptFake from './fake/quiz-5-attempt.json';
-import quizServerFake from './fake/quiz-5-server.json';
 
 export type * from './types';
 export { ApiError } from './client';
 export { getMe, login, logout, register } from './auth';
 
-// REAL: these call HP's backend (contract #9 to #18).
-// FAKE: quiz (#19 to #22) and "Why?" (#28) still use the example data in ./fake,
-// because the backend has no quiz questions loaded yet. Switch them when it does.
-function fake<T>(data: unknown, delayMs = 0): Promise<T> {
-  return new Promise((resolve) => setTimeout(() => resolve(data as T), delayMs));
-}
+// Every function here calls HP's backend. Field names follow docs/api-contract.md.
 
 // #11 GET /dashboard
 export function getDashboard(): Promise<Dashboard> {
@@ -75,111 +68,35 @@ export function unsaveWord(wordId: number): Promise<void> {
   return request<void>(`/bookmarks/${wordId}`, { method: 'DELETE' });
 }
 
-// #19 POST /quizzes/{id}/attempts
-export function startQuiz(_quizId: number): Promise<QuizAttempt> {
-  return fake<QuizAttempt>(quizAttemptFake);
+// #19 POST /quizzes/{id}/attempts  (no correct answers are sent here)
+export function startQuiz(quizId: number): Promise<QuizAttempt> {
+  return request<QuizAttempt>(`/quizzes/${quizId}/attempts`, { method: 'POST' });
 }
 
-// #20 POST /quiz-attempts/{id}/answers
-// The fake "server" checks the answer and remembers it, just like the real one will.
-const PASS_MARK = 70;
-let picks: Record<number, QuizOption['id']> = {};
-let bestScore = 0;
-
-function fakeAnswers() {
-  return quizServerFake.answers as Record<string, QuizOption['id']>;
-}
-
-function countCorrect() {
-  const answers = fakeAnswers();
-  return Object.entries(picks).filter(([id, pick]) => answers[id] === pick).length;
-}
-
-export function answerQuestion(
-  _attemptId: number,
-  questionId: number,
-  selected: QuizOption['id'],
-): Promise<AnswerResult> {
-  const correct = fakeAnswers()[String(questionId)];
-  picks[questionId] = selected;
-  return fake<AnswerResult>({
-    question_id: questionId,
-    is_correct: selected === correct,
-    selected_option_id: selected,
-    correct_option_id: correct,
-    answered: Object.keys(picks).length,
-    correct_so_far: countCorrect(),
+// #20 POST /quiz-attempts/{id}/answers  (instant feedback; each question once)
+export function answerQuestion(attemptId: number, questionId: number, selected: QuizOption['id']): Promise<AnswerResult> {
+  return request<AnswerResult>(`/quiz-attempts/${attemptId}/answers`, {
+    method: 'POST',
+    body: { question_id: questionId, selected_option_id: selected },
   });
-}
-
-export function resetFakeQuiz() {
-  picks = {};
 }
 
 // #21 POST /quiz-attempts/{id}/finish  (unanswered questions count as wrong)
 export function finishQuiz(attemptId: number): Promise<QuizFinish> {
-  const answers = fakeAnswers();
-  const questions = (quizAttemptFake as QuizAttempt).questions;
-  const correct = countCorrect();
-  const score = Math.round((correct / questions.length) * 100);
-  bestScore = Math.max(bestScore, score);
-  return fake<QuizFinish>({
-    attempt_id: attemptId,
-    score,
-    correct,
-    total: questions.length,
-    passed: score >= PASS_MARK,
-    pass_mark: PASS_MARK,
-    best_score: bestScore,
-    wrong_questions: questions.map((q) => q.id).filter((id) => picks[id] !== answers[String(id)]),
-  });
+  return request<QuizFinish>(`/quiz-attempts/${attemptId}/finish`, { method: 'POST' });
 }
 
-// #22 GET /quiz-attempts/{id}  (after finishing, the correct answers may be shown)
+// #22 GET /quiz-attempts/{id}  (review: only after finishing)
 export function getQuizReview(attemptId: number): Promise<QuizReview> {
-  const answers = fakeAnswers();
-  const questions = (quizAttemptFake as QuizAttempt).questions.map((q) => {
-    const selected = picks[q.id] ?? null;
-    const correct = answers[String(q.id)];
-    return {
-      id: q.id,
-      number: q.number,
-      prompt_ruby: q.prompt_ruby,
-      options: q.options,
-      selected_option_id: selected,
-      correct_option_id: correct,
-      is_correct: selected === correct,
-    };
-  });
-  const score = Math.round((questions.filter((q) => q.is_correct).length / questions.length) * 100);
-  return fake<QuizReview>({
-    attempt_id: attemptId,
-    score,
-    passed: score >= PASS_MARK,
-    finished_at: new Date().toISOString(),
-    questions,
-  });
+  return request<QuizReview>(`/quiz-attempts/${attemptId}`);
 }
 
-// #28 POST /ai/explain
-type FakeExplanation = { why_correct_my: string; options: Partial<Record<QuizOption['id'], string>> };
+// #28 POST /ai/explain  ("Why?": only for questions the user has already answered)
 export function explainAnswer(questionId: number, selected: QuizOption['id']): Promise<Explanation> {
-  const answers = quizServerFake.answers as Record<string, QuizOption['id']>;
-  const all = quizServerFake.explanations as Record<string, FakeExplanation>;
-  const correct = answers[String(questionId)];
-  const item = all[String(questionId)];
-  const others = { ...item.options };
-  delete others[selected];
-  return fake<Explanation>(
-    {
-      question_id: questionId,
-      correct_option_id: correct,
-      why_correct_my: item.why_correct_my,
-      why_selected_wrong_my: selected === correct ? null : (item.options[selected] ?? null),
-      other_options_my: others,
-    },
-    600,
-  );
+  return request<Explanation>('/ai/explain', {
+    method: 'POST',
+    body: { question_id: questionId, selected_option_id: selected },
+  });
 }
 
 // #9 POST /onboarding  (returns the new plan, same shape as #10)
