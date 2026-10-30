@@ -1,6 +1,6 @@
 """Study plan with the database: save the plan and build the JSON the app sees.
 
-Used by #9 POST /onboarding and #10 GET /plan (later also #29 and #37).
+Used by #9 POST /onboarding, #10 GET /plan, #29 study settings and #37 reset.
 The math itself lives in calculator.py and has no database, so it stays easy to test.
 """
 
@@ -11,6 +11,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.models import Plan, StudySettings, UnitProgress, User
+from app.plan import tip
 from app.plan.calculator import UNITS_TOTAL, calculate_plan
 
 # "Today" is the date in Japan, where the JLPT is held. Japan has no summer time, so a fixed +9 is exact.
@@ -56,6 +57,24 @@ def plan_json(db: Session, user: User, settings: StudySettings, plan: Plan) -> d
         "units_done": count_units_done(db, user),
         "units_per_day": plan.units_per_day,
         "finish_by": plan.finish_by.isoformat() if plan.finish_by else None,
-        "ai_tip_my": plan.ai_tip_my,  # empty until the AI tip is connected (SWYH)
+        "ai_tip_my": plan.ai_tip_my,  # the AI's Burmese tip, or null (see tip.py)
         "updated_at": _utc_text(plan.updated_at),
     }
+
+
+def plan_json_with_new_tip(db: Session, user: User, settings: StudySettings, plan: Plan) -> dict[str, Any]:
+    """For #9, #29 and #37: call after db.commit() and db.refresh(plan). Writes a new tip for the new plan,
+    waiting a few seconds for it (the app shows the loading cart meanwhile)."""
+    data = plan_json(db, user, settings, plan)
+    new_tip = tip.request_tip(user.id, data, settings.last_level, plan.updated_at, wait=True)
+    if new_tip:
+        data["ai_tip_my"] = new_tip
+    return data
+
+
+def plan_json_for_reading(db: Session, user: User, settings: StudySettings, plan: Plan) -> dict[str, Any]:
+    """For #10: the plan as saved. If it has no tip yet, ask for one in the background (at most hourly)."""
+    data = plan_json(db, user, settings, plan)
+    if plan.ai_tip_my is None and tip.may_retry(user.id):
+        tip.request_tip(user.id, data, settings.last_level, plan.updated_at, wait=False)
+    return data

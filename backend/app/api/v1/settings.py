@@ -225,7 +225,7 @@ def update_study_settings(body: OnboardingRequest, user: CurrentUser, db: DbSess
     plan.ai_tip_my = None  # the old tip was written for the old settings
     db.commit()
     db.refresh(plan)
-    return service.plan_json(db, user, settings, plan)
+    return service.plan_json_with_new_tip(db, user, settings, plan)
 
 
 @router.put("/me", summary="#30 Change username")
@@ -332,6 +332,7 @@ def reset_progress(body: ResetProgressRequest, user: CurrentUser, db: DbSession)
     # Nothing is deleted: old progress stays in the old round, as history.
     locked_user.current_round += 1
     plan = service.save_plan(db, locked_user, settings)
+    plan.ai_tip_my = None  # a new round starts from zero, so the old tip no longer fits
     db.commit()
     db.refresh(plan)
-    return {"round": locked_user.current_round, "plan": service.plan_json(db, locked_user, settings, plan)}
+    return {"round": locked_user.current_round, "plan": service.plan_json_with_new_tip(db, locked_user, settings, plan)}

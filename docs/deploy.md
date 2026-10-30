@@ -44,7 +44,8 @@ No credit card is needed for any of them.
 | `AI_EXAMPLES_DAILY_LIMIT` | `50` |
 | `EMAIL_MODE` | `log` for now (reset codes appear in Render's log, which only HP can see) |
 
-   `CORS_ORIGINS` stays empty: the phone app doesn't need it.
+   Also add `CORS_ORIGINS` = `http://localhost:8081`, so the team can test the web version of the app
+   (Expo web on their own computer) against the online server. The phone app doesn't need it.
 4. **Create**. The first build takes a few minutes. On every start, the backend sets up the database tables by itself (`alembic upgrade head`).
 5. Open `https://<your-service>.onrender.com/health`. It should show `{"status":"ok"}`.
 
