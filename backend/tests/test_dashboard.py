@@ -20,7 +20,8 @@ def dashboard(client, headers) -> dict:
 def test_new_user(client, content):
     body = dashboard(client, user_header(client))
     assert body["overall_progress"] == 0
-    assert body["pass_prediction"] is None
+    assert body["pass_prediction"] is None  # no mock test yet
+    assert body["pass_prediction_warning"] is None
     assert body["today"] == {"units_done": 0, "units_goal": 3}  # no setup yet: the default pace
     assert body["continue"] == {"session_id": content["s1"], "unit_id": content["units"][1], "label": "Session 1, Unit 1"}
 

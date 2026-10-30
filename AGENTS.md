@@ -7,7 +7,8 @@ Humans should read it too.
 
 AI JLPT App by Padauk Lab: a study app for **JLPT N1 only**, for **Burmese speakers**.
 Users study 10 sessions (10 units each, 20 words and 1 grammar pattern per unit), take a quiz every 5 units,
-and a mock test after each session. AI is used through two buttons only: "More examples" and "Why?".
+and a mock test after each session. The user gets AI help through two buttons only: "More examples" and "Why?"
+(no chat). The AI also writes one short tip on the study plan screen.
 The app runs on iOS, Android and web.
 
 ## Tech stack

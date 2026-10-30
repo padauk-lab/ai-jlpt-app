@@ -1,13 +1,14 @@
 # AI JLPT App, API Contract
 
-Version: 0.7 (draft for team review)
-Date: 2026-10-23
+Version: 0.8 (draft for team review)
+Date: 2026-10-30
 Changes in 0.2: removed #8 `GET /exam-dates`. The user picks any future exam date.
 Changes in 0.3: decided how the study plan pace is calculated (#10).
 Changes in 0.4: clarified #9 and #10 (score needed for N1 and N2, "today" is Japan time, `ai_tip_my` can be `null`).
 Changes in 0.5: rate limits for log in and sign up (429 with a `Retry-After` header).
 Changes in 0.6: clarified #11 (how progress, status and `continue` are worked out, and `id` is `null` for sessions whose content isn't loaded yet).
 Changes in 0.7: #34 returns new tokens for this device, because every device (this one too) is signed out.
+Changes in 0.8: forgot password uses a 6-digit email code (#5, #6), and Google login (#4) waits for the public release. 10 sessions instead of 20 (#10, #11). Daily study reminder (note under #31). The pass prediction formula is decided, and #11 and #26 get a new field `pass_prediction_warning`.
 Owner: HP (Backend)
 Reviewers: LMHP (Frontend), SWYH (AI), ANK (Data)
 
@@ -303,6 +304,7 @@ Response `200`:
 {
   "overall_progress": 32,
   "pass_prediction": 68,
+  "pass_prediction_warning": null,
   "today": { "units_done": 2, "units_goal": 4 },
   "continue": { "session_id": 3, "unit_id": 25, "label": "Session 3, Unit 5" },
   "sessions": [
@@ -314,7 +316,8 @@ Response `200`:
 }
 ```
 - `overall_progress` and `progress`: 0 to 100.
-- `pass_prediction`: 0 to 100, or `null` until the first mock test is done.
+- `pass_prediction`: 5 to 95, or `null` until the first mock test is done (current round). How it is calculated: see "Pass prediction" under Section 3.
+- `pass_prediction_warning`: `null`, `"language_knowledge_low"`, `"reading_low"` or `"both_low"`. When not `null`, the app shows a Burmese note that one section is too weak: the real N1 needs at least 19 of 60 in every section, so the prediction is capped at 15.
 - `status`: `"completed"`, `"in_progress"`, `"available"` or `"locked"`.
 - `sessions` always has all 10, in order.
 - A session's `id` is `null` while its content isn't loaded yet. Such a session is always `"locked"` with `progress` 0.
@@ -512,6 +515,13 @@ Screens: Quiz, Quiz result, Mock test, Mock test result and review.
 - **Retakes allowed** any time after the first attempt, for review. Each retake uses the same questions.
 - **Only the first attempt** of each mock test counts toward the pass prediction. Retakes do not change it, because the questions are already known.
 - To get a new prediction, the user resets all progress in Settings (#37) and goes through every session, quiz and mock test again. After a reset, the first attempt of each mock test counts again.
+
+**Pass prediction** (agreed by HP and ANK, code: `backend/app/progress/prediction.py`):
+- Uses the first attempts of the **latest 2** mock tests in the current round. With 2 tests, the newer one weighs 60% and the older 40%, for Language Knowledge (vocabulary + grammar) and Reading separately.
+- Score = 70% Language Knowledge + 30% Reading.
+- A 60% score means 50. Each point above or below moves it by 2.5. Kept between 5 and 95.
+- Language Knowledge or Reading under 32% (about 19 of 60, the real section minimum): at most 15, and `pass_prediction_warning` says which section.
+- Listening is not part of the app, so it is not part of the prediction. The app shows a short note about that next to the prediction.
 
 ### 19. `POST /quizzes/{id}/attempts`
 Start a quiz. No request body.
@@ -725,6 +735,7 @@ Response `200`:
     { "part": "reading", "correct": 4, "total": 6 }
   ],
   "pass_prediction": 70,
+  "pass_prediction_warning": null,
   "counts_for_prediction": true,
   "questions": [
     {
@@ -750,7 +761,7 @@ Response `200`:
 - Unanswered questions have `selected_option_id: null`.
 - The "Why?" button on each question uses #28.
 - Part totals depend on the template. The numbers above are an example.
-- `pass_prediction` is `null` until the prediction formula is decided (open decision).
+- `pass_prediction` and `pass_prediction_warning`: the user's current prediction, the same as on the Dashboard (#11).
 - A test submitted by `"timeout"` has `submitted_at` = `ends_at`, even if the server noticed later.
 
 Errors: `400` not submitted yet, `403` not your attempt.
@@ -994,8 +1005,8 @@ Errors: `422` missing confirmation.
 
 ## Open questions
 
-1. **Pass prediction formula**: how mock test scores turn into a 0 to 100 prediction. HP and ANK to propose.
-2. **Mock test part split**: exact number of vocabulary, grammar and reading questions per template. ANK to confirm against the official N1 format.
+1. **Pass prediction formula**: decided in v0.8, see "Pass prediction" under Section 3.
+2. **Mock test part split**: decided in v0.8: 45 language knowledge questions, and reading 1, 3 and 4 questions (short, medium, long). See `docs/mock-test-format.md`.
 3. **Plan pace by level**: decided in v0.3, see #10. The score does not change the pace yet; we tune it after real users try it.
 4. **LLM choice**: which AI model to use. SWYH to propose.
 5. **Daily AI limit**: is 50 "More examples" per day right? Team to decide after testing.
