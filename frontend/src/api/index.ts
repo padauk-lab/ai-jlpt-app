@@ -9,6 +9,7 @@ import type {
   QuizAttempt,
   QuizFinish,
   Me,
+  MoreExamples,
   NotificationSettings,
   QuizOption,
   QuizReview,
@@ -97,6 +98,11 @@ export function explainAnswer(questionId: number, selected: QuizOption['id']): P
     method: 'POST',
     body: { question_id: questionId, selected_option_id: selected },
   });
+}
+
+// #27 POST /ai/examples  ("More examples": 3 new AI sentences; daily limit, 429 when reached)
+export function moreExamples(itemType: 'word' | 'grammar', itemId: number): Promise<MoreExamples> {
+  return request<MoreExamples>('/ai/examples', { method: 'POST', body: { item_type: itemType, item_id: itemId } });
 }
 
 // #9 POST /onboarding  (returns the new plan, same shape as #10)
