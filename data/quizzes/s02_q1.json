@@ -1,0 +1,1346 @@
+{
+  "session_number": 2,
+  "quiz_number": 1,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "会議で、改革案の"
+        },
+        {
+          "text": "骨子"
+        },
+        {
+          "text": "がまとまった。"
+        }
+      ],
+      "underline": "骨子",
+      "options": [
+        {
+          "id": "a",
+          "text": "こつし"
+        },
+        {
+          "id": "b",
+          "text": "こっか"
+        },
+        {
+          "id": "c",
+          "text": "こっし"
+        },
+        {
+          "id": "d",
+          "text": "ほねし"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "審査の結果が"
+        },
+        {
+          "text": "恣意"
+        },
+        {
+          "text": "的に決められたのではないかと、疑問の声が上がった。"
+        }
+      ],
+      "underline": "恣意",
+      "options": [
+        {
+          "id": "a",
+          "text": "じし"
+        },
+        {
+          "id": "b",
+          "text": "じい"
+        },
+        {
+          "id": "c",
+          "text": "しい"
+        },
+        {
+          "id": "d",
+          "text": "しき"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "留学を（　）に、環境問題に関心を持つようになった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "由来"
+        },
+        {
+          "id": "b",
+          "text": "契機"
+        },
+        {
+          "id": "c",
+          "text": "動機"
+        },
+        {
+          "id": "d",
+          "text": "要因"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "彼はこの研究に、十年もの歳月を（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "費やした"
+        },
+        {
+          "id": "b",
+          "text": "補った"
+        },
+        {
+          "id": "c",
+          "text": "脅かした"
+        },
+        {
+          "id": "d",
+          "text": "担った"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 1,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "論文の"
+        },
+        {
+          "text": "要旨"
+        },
+        {
+          "text": "を三百字でまとめてください。"
+        }
+      ],
+      "underline": "要旨",
+      "options": [
+        {
+          "id": "a",
+          "text": "主な内容"
+        },
+        {
+          "id": "b",
+          "text": "参考文献"
+        },
+        {
+          "id": "c",
+          "text": "感想"
+        },
+        {
+          "id": "d",
+          "text": "書き出し"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "補う"
+        }
+      ],
+      "underline": "補う",
+      "options": [
+        {
+          "id": "a",
+          "text": "昨日買った本を、もう全部補ってしまった。"
+        },
+        {
+          "id": "b",
+          "text": "彼は毎朝、駅まで走って電車に補っている。"
+        },
+        {
+          "id": "c",
+          "text": "先生の質問に、手を挙げて補った。"
+        },
+        {
+          "id": "d",
+          "text": "不足しがちな栄養を、サプリメントで補っている。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "本日（　）、当店は閉店いたします。長い間ありがとうございました。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に至っては"
+        },
+        {
+          "id": "b",
+          "text": "をめぐって"
+        },
+        {
+          "id": "c",
+          "text": "をよそに"
+        },
+        {
+          "id": "d",
+          "text": "をもって"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 8,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "本日の会議は、＿＿ ＿＿ ★ ＿＿ いたします。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "終了"
+        },
+        {
+          "id": "c",
+          "text": "これ"
+        },
+        {
+          "id": "d",
+          "text": "もって"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "新しい法律は、来年四月に"
+        },
+        {
+          "text": "施行"
+        },
+        {
+          "text": "される。"
+        }
+      ],
+      "underline": "施行",
+      "options": [
+        {
+          "id": "a",
+          "text": "しごう"
+        },
+        {
+          "id": "b",
+          "text": "しこう"
+        },
+        {
+          "id": "c",
+          "text": "せぎょう"
+        },
+        {
+          "id": "d",
+          "text": "しぎょう"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "裁判所は、原告の訴えを"
+        },
+        {
+          "text": "棄却"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "棄却",
+      "options": [
+        {
+          "id": "a",
+          "text": "ききゃく"
+        },
+        {
+          "id": "b",
+          "text": "きかく"
+        },
+        {
+          "id": "c",
+          "text": "ききょく"
+        },
+        {
+          "id": "d",
+          "text": "きょきゃく"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "長年争ってきた両社は、ついに（　）し、握手を交わした。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "和解"
+        },
+        {
+          "id": "b",
+          "text": "控訴"
+        },
+        {
+          "id": "c",
+          "text": "提訴"
+        },
+        {
+          "id": "d",
+          "text": "時効"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "政府は、輸入品にかかる関税を（　）することを決めた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "擁護"
+        },
+        {
+          "id": "b",
+          "text": "施行"
+        },
+        {
+          "id": "c",
+          "text": "失効"
+        },
+        {
+          "id": "d",
+          "text": "撤廃"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "連絡がないまま時間が過ぎ、不安が"
+        },
+        {
+          "text": "募った"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "募った",
+      "options": [
+        {
+          "id": "a",
+          "text": "少し和らいだ"
+        },
+        {
+          "id": "b",
+          "text": "表に出た"
+        },
+        {
+          "id": "c",
+          "text": "ますます大きくなった"
+        },
+        {
+          "id": "d",
+          "text": "急に消えた"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "施す"
+        }
+      ],
+      "underline": "施す",
+      "options": [
+        {
+          "id": "a",
+          "text": "雨が降ってきたので、急いで窓を施した。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、犬を公園に施している。"
+        },
+        {
+          "id": "c",
+          "text": "新しい靴を施して、出かけた。"
+        },
+        {
+          "id": "d",
+          "text": "医師は、けが人に応急処置を施した。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 15,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "クラスの半分が遅刻し、田中君（　）昼まで来なかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあって"
+        },
+        {
+          "id": "b",
+          "text": "をもって"
+        },
+        {
+          "id": "c",
+          "text": "に至っては"
+        },
+        {
+          "id": "d",
+          "text": "に即して"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 16,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "家族はみな反対で、＿＿ ＿＿ ★ ＿＿ 口もきいてくれない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に"
+        },
+        {
+          "id": "b",
+          "text": "父"
+        },
+        {
+          "id": "c",
+          "text": "至っては"
+        },
+        {
+          "id": "d",
+          "text": "一週間も"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "家を"
+        },
+        {
+          "text": "担保"
+        },
+        {
+          "text": "に、銀行からお金を借りた。"
+        }
+      ],
+      "underline": "担保",
+      "options": [
+        {
+          "id": "a",
+          "text": "たんほ"
+        },
+        {
+          "id": "b",
+          "text": "だんぽ"
+        },
+        {
+          "id": "c",
+          "text": "たんぽ"
+        },
+        {
+          "id": "d",
+          "text": "たんぼ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "ニュースが流れると、その会社の株価は"
+        },
+        {
+          "text": "暴落"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "暴落",
+      "options": [
+        {
+          "id": "a",
+          "text": "ばくらく"
+        },
+        {
+          "id": "b",
+          "text": "ほうらく"
+        },
+        {
+          "id": "c",
+          "text": "ぼうろく"
+        },
+        {
+          "id": "d",
+          "text": "ぼうらく"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "業績不振のため、その会社は海外市場から（　）することになった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "撤退"
+        },
+        {
+          "id": "b",
+          "text": "流通"
+        },
+        {
+          "id": "c",
+          "text": "参入"
+        },
+        {
+          "id": "d",
+          "text": "提携"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "子どものころから、パイロットに（　）いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "潜んで"
+        },
+        {
+          "id": "b",
+          "text": "憧れて"
+        },
+        {
+          "id": "c",
+          "text": "衰えて"
+        },
+        {
+          "id": "d",
+          "text": "退けて"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "原油価格が"
+        },
+        {
+          "text": "高騰して"
+        },
+        {
+          "text": "いる。"
+        }
+      ],
+      "underline": "高騰して",
+      "options": [
+        {
+          "id": "a",
+          "text": "激しく上下して"
+        },
+        {
+          "id": "b",
+          "text": "大幅に上がって"
+        },
+        {
+          "id": "c",
+          "text": "変わらないで"
+        },
+        {
+          "id": "d",
+          "text": "少しずつ下がって"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "遮る"
+        }
+      ],
+      "underline": "遮る",
+      "options": [
+        {
+          "id": "a",
+          "text": "明日は早いので、今夜は早めに遮ることにした。"
+        },
+        {
+          "id": "b",
+          "text": "彼は私の話を遮って、自分の意見を述べ始めた。"
+        },
+        {
+          "id": "c",
+          "text": "毎日、駅前の店で昼ご飯を遮っている。"
+        },
+        {
+          "id": "d",
+          "text": "子どもの成長を、親は温かく遮っている。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 23,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "子どもたちの幸せを、願って（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ちがいない"
+        },
+        {
+          "id": "b",
+          "text": "とまらない"
+        },
+        {
+          "id": "c",
+          "text": "すまない"
+        },
+        {
+          "id": "d",
+          "text": "やまない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 24,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "私は、世界に ＿＿ ＿＿ ★ ＿＿ やまない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "平和が"
+        },
+        {
+          "id": "b",
+          "text": "願って"
+        },
+        {
+          "id": "c",
+          "text": "訪れる"
+        },
+        {
+          "id": "d",
+          "text": "ことを"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "仕事と家庭の間で、彼女は"
+        },
+        {
+          "text": "葛藤"
+        },
+        {
+          "text": "していた。"
+        }
+      ],
+      "underline": "葛藤",
+      "options": [
+        {
+          "id": "a",
+          "text": "かっどう"
+        },
+        {
+          "id": "b",
+          "text": "かっとう"
+        },
+        {
+          "id": "c",
+          "text": "かつとう"
+        },
+        {
+          "id": "d",
+          "text": "がっとう"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 26,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "彼は、不正に対して強い"
+        },
+        {
+          "text": "嫌悪"
+        },
+        {
+          "text": "を感じた。"
+        }
+      ],
+      "underline": "嫌悪",
+      "options": [
+        {
+          "id": "a",
+          "text": "げんお"
+        },
+        {
+          "id": "b",
+          "text": "けんわる"
+        },
+        {
+          "id": "c",
+          "text": "けんお"
+        },
+        {
+          "id": "d",
+          "text": "けんあく"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 27,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "彼は大きな賞を受けても、（　）な態度を崩さなかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "怠惰"
+        },
+        {
+          "id": "b",
+          "text": "謙虚"
+        },
+        {
+          "id": "c",
+          "text": "焦燥"
+        },
+        {
+          "id": "d",
+          "text": "憤慨"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 28,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "彼は、けがをした足を（　）ながら歩いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "滅ぼし"
+        },
+        {
+          "id": "b",
+          "text": "崇め"
+        },
+        {
+          "id": "c",
+          "text": "揺らぎ"
+        },
+        {
+          "id": "d",
+          "text": "庇い"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 29,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "突然の知らせに、彼は明らかに"
+        },
+        {
+          "text": "動揺して"
+        },
+        {
+          "text": "いた。"
+        }
+      ],
+      "underline": "動揺して",
+      "options": [
+        {
+          "id": "a",
+          "text": "落ち着きを失って"
+        },
+        {
+          "id": "b",
+          "text": "退屈して"
+        },
+        {
+          "id": "c",
+          "text": "喜んで"
+        },
+        {
+          "id": "d",
+          "text": "疲れて"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 30,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 4,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "揺らぐ"
+        }
+      ],
+      "underline": "揺らぐ",
+      "options": [
+        {
+          "id": "a",
+          "text": "冷めたスープを、もう一度揺らいだ。"
+        },
+        {
+          "id": "b",
+          "text": "その事件で、政府への信頼が大きく揺らいだ。"
+        },
+        {
+          "id": "c",
+          "text": "彼は友人に、長い手紙を揺らいだ。"
+        },
+        {
+          "id": "d",
+          "text": "母は毎朝、庭で布団を揺らいでいる。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "客に対するあの店員の態度は、失礼（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "極まりない"
+        },
+        {
+          "id": "b",
+          "text": "に至っては"
+        },
+        {
+          "id": "c",
+          "text": "までもない"
+        },
+        {
+          "id": "d",
+          "text": "にかたくない"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "こんな夜中に ＿＿ ★ ＿＿ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "歌うなんて"
+        },
+        {
+          "id": "b",
+          "text": "迷惑"
+        },
+        {
+          "id": "c",
+          "text": "極まりない"
+        },
+        {
+          "id": "d",
+          "text": "大声で"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 33,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "このままでは、地下水の"
+        },
+        {
+          "text": "枯渇"
+        },
+        {
+          "text": "は避けられない。"
+        }
+      ],
+      "underline": "枯渇",
+      "options": [
+        {
+          "id": "a",
+          "text": "こかつ"
+        },
+        {
+          "id": "b",
+          "text": "こうかつ"
+        },
+        {
+          "id": "c",
+          "text": "かかつ"
+        },
+        {
+          "id": "d",
+          "text": "こがつ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 34,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "競争に負けた企業は、市場から"
+        },
+        {
+          "text": "淘汰"
+        },
+        {
+          "text": "される。"
+        }
+      ],
+      "underline": "淘汰",
+      "options": [
+        {
+          "id": "a",
+          "text": "ようた"
+        },
+        {
+          "id": "b",
+          "text": "どうた"
+        },
+        {
+          "id": "c",
+          "text": "とうた"
+        },
+        {
+          "id": "d",
+          "text": "とうだ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 35,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "この鳥の数は、すでに百羽を下回った。このままでは（　）してしまうおそれがある。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "絶滅"
+        },
+        {
+          "id": "b",
+          "text": "繁殖"
+        },
+        {
+          "id": "c",
+          "text": "生息"
+        },
+        {
+          "id": "d",
+          "text": "循環"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 36,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "彼は万全の準備をして、決勝戦に（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "唱えた"
+        },
+        {
+          "id": "b",
+          "text": "惜しんだ"
+        },
+        {
+          "id": "c",
+          "text": "臨んだ"
+        },
+        {
+          "id": "d",
+          "text": "慈しんだ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 37,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "この橋は、"
+        },
+        {
+          "text": "老朽化が進んでいる"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "老朽化が進んでいる",
+      "options": [
+        {
+          "id": "a",
+          "text": "利用者が減ってきている"
+        },
+        {
+          "id": "b",
+          "text": "新しく作り直されている"
+        },
+        {
+          "id": "c",
+          "text": "周りの環境が変わってきている"
+        },
+        {
+          "id": "d",
+          "text": "古くなって傷んできている"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 38,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "惜しむ"
+        }
+      ],
+      "underline": "惜しむ",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、病院で薬を惜しんでもらった。"
+        },
+        {
+          "id": "b",
+          "text": "彼は寝る時間も惜しんで、研究に打ち込んだ。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、家の前の道を惜しんでいる。"
+        },
+        {
+          "id": "d",
+          "text": "試験に合格したので、家族みんなで惜しんだ。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "台風の接近により、イベントは中止（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を禁じ得なかった"
+        },
+        {
+          "id": "b",
+          "text": "にかたくなかった"
+        },
+        {
+          "id": "c",
+          "text": "を余儀なくされた"
+        },
+        {
+          "id": "d",
+          "text": "をもってした"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "大雨のため、＿＿ ＿＿ ★ ＿＿ された。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "翌日への"
+        },
+        {
+          "id": "b",
+          "text": "延期を"
+        },
+        {
+          "id": "c",
+          "text": "余儀なく"
+        },
+        {
+          "id": "d",
+          "text": "試合は"
+        }
+      ],
+      "correct_option_id": "b"
+    }
+  ]
+}
