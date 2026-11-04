@@ -9,6 +9,7 @@ import { StudyForm } from '@/components/setup/StudyForm';
 import { Message, ScreenHeader } from '@/components/settings/SettingsUI';
 import { colors, spacing } from '@/theme';
 import { errorMessage } from '@/utils/errors';
+import { withMinimumTime } from '@/utils/minimumTime';
 
 // Change study setup (#29). Saving recalculates the plan, so the app warns first (contract).
 export default function StudySettingsScreen() {
@@ -28,7 +29,7 @@ export default function StudySettingsScreen() {
     setProblem(null);
     setSaving(true);
     try {
-      await updateStudySettings(answers);
+      await withMinimumTime(updateStudySettings(answers));
       router.replace('/plan'); // show the new plan
     } catch (error) {
       setSaving(false);
