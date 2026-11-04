@@ -24,6 +24,15 @@ type FieldErrors = { username?: string; email?: string; password?: string };
 
 const USERNAME_RULE = /^[A-Za-z0-9_]{3,20}$/;
 
+// Google login is off in the first version. App Store rule 4.8: an app that offers
+// Google login must also offer Sign in with Apple, so we'll add both together later.
+// To bring it back, set this to true.
+const SHOW_GOOGLE_LOGIN = false;
+
+// The "forgot password" link stays hidden until HP's reset by email (contract #5, #6)
+// is ready, so users never see a link that does nothing. Then set this to true.
+const SHOW_FORGOT_PASSWORD = false;
+
 export default function LoginScreen() {
   const [mode, setMode] = useState<Mode>('login');
   const [username, setUsername] = useState('');
@@ -128,7 +137,7 @@ export default function LoginScreen() {
         <View style={styles.field}>
           <View style={styles.labelRow}>
             <Text style={styles.label}>စကားဝှက်</Text>
-            {!isRegister && (
+            {!isRegister && SHOW_FORGOT_PASSWORD && (
               <Pressable onPress={() => {}} hitSlop={8}>
                 <Text style={styles.link}>မေ့နေပါသလား</Text>
               </Pressable>
@@ -167,19 +176,23 @@ export default function LoginScreen() {
           )}
         </Pressable>
 
-        <View style={styles.dividerRow}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.hint}>သို့မဟုတ်</Text>
-          <View style={styles.dividerLine} />
-        </View>
+        {SHOW_GOOGLE_LOGIN && (
+          <>
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.hint}>သို့မဟုတ်</Text>
+              <View style={styles.dividerLine} />
+            </View>
 
-        {/* Later: replace with Google's official sign-in button. */}
-        <Pressable
-          onPress={() => {}}
-          style={({ pressed }) => [styles.secondaryButton, pressed && styles.pressed]}
-        >
-          <Text style={styles.secondaryButtonText}>Google ဖြင့် ဝင်မည်</Text>
-        </Pressable>
+            {/* Later: replace with Google's official sign-in button. */}
+            <Pressable
+              onPress={() => {}}
+              style={({ pressed }) => [styles.secondaryButton, pressed && styles.pressed]}
+            >
+              <Text style={styles.secondaryButtonText}>Google ဖြင့် ဝင်မည်</Text>
+            </Pressable>
+          </>
+        )}
 
         <Text style={styles.terms}>
           ဆက်လက်ဆောင်ရွက်ခြင်းဖြင့် အသုံးပြုမှုစည်းမျဉ်းများ ကို လက်ခံပြီးဖြစ်ပါသည်။
