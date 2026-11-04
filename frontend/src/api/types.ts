@@ -217,11 +217,12 @@ export type NotificationSettings = {
 // #37 POST /me/reset-progress
 export type ResetResult = { round: number; plan: StudyPlan };
 
+// #27 POST /ai/examples
 export type AiItemType = 'word' | 'grammar';
 
-export interface MoreExamplesResponse {
+export type MoreExamples = {
   item_type: AiItemType;
   item_id: number;
-  examples: Example[];      // same shape as GET /units/{id} examples
+  examples: Example[];
   remaining_today: number;
 };

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { fetchMoreExamples } from '@/api';
+import { moreExamples } from '@/api';
 import { ApiError } from '@/api/client';
 import type { AiItemType, Example } from '@/api/types';
 
@@ -27,7 +27,7 @@ export function useMoreExamples() {
     setErrors((e) => ({ ...e, [key]: undefined }));
 
     try {
-      const res = await fetchMoreExamples(type, id);
+      const res = await moreExamples(type, id);
       setExtra((prev) => ({ ...prev, [key]: [...(prev[key] ?? []), ...res.examples] }));
       setRemaining(res.remaining_today);
     } catch (err) {

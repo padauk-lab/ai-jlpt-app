@@ -9,6 +9,7 @@ import { Logo } from '@/components/Logo';
 import { StudyForm } from '@/components/setup/StudyForm';
 import { colors, fonts, spacing, text } from '@/theme';
 import { errorMessage } from '@/utils/errors';
+import { withMinimumTime } from '@/utils/minimumTime';
 
 // First-time setup (#9): last level, score and exam date.
 export default function SetupScreen() {
@@ -19,7 +20,7 @@ export default function SetupScreen() {
     setProblem(null);
     setSubmitting(true);
     try {
-      await submitOnboarding(answers);
+      await withMinimumTime(submitOnboarding(answers));
       router.replace('/plan');
     } catch (error) {
       if (error instanceof ApiError && error.code === 'onboarding_already_done') {
