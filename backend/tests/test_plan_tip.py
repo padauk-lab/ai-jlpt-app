@@ -45,7 +45,7 @@ def get_plan(client, headers):
 
 def wait_for_background():
     """Let any tip that is still being written finish."""
-    for future in list(tip._running.values()):
+    for _version, future in list(tip._running.values()):
         future.result(timeout=5)
 
 
@@ -172,3 +172,18 @@ def test_saving_the_tip_does_not_change_updated_at(client, ai, monkeypatch):
     plan = get_plan(client, headers)
     assert plan["ai_tip_my"] == TIP
     assert plan["updated_at"] == first
+
+
+def test_changing_the_plan_while_a_tip_is_written_still_gets_a_tip(client, ai, monkeypatch):
+    """Found by LMHP: setup, then a quick settings change while the first tip is still being written."""
+    monkeypatch.setattr(tip, "TIP_WAIT_SECONDS", 0.1)
+    headers = login_header(client)
+    ai.delay, ai.answer = 0.6, "အဟောင်း"
+    onboard(client, headers)  # the first tip is still being written
+    ai.answer = "အသစ်"
+    body = {"last_level": "N1", "last_score": 90, "exam_date": "2026-12-06"}
+    client.put(f"{API}/me/study-settings", json=body, headers=headers)  # a new plan, so a new job
+    wait_for_background()
+    time.sleep(0.7)  # let the first, older job finish too
+    assert get_plan(client, headers)["ai_tip_my"] == "အသစ်"  # the new plan got its tip, the old one was thrown away
+    assert len(ai.calls) == 2

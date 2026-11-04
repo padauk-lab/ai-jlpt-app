@@ -31,7 +31,7 @@ RETRY_AFTER_SECONDS = 60 * 60
 
 _pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="plan-tip")
 _lock = Lock()
-_running: dict[int, Future] = {}  # user id -> tip being written
+_running: dict[int, tuple[datetime, Future]] = {}  # user id -> (plan version, tip being written)
 _last_try: dict[int, float] = {}  # user id -> when we last asked the AI (time.monotonic)
 
 
@@ -61,11 +61,15 @@ def _write_and_save(user_id: int, plan_json: dict[str, Any], last_level: str, pl
 def request_tip(user_id: int, plan_json: dict[str, Any], last_level: str, plan_version: datetime, wait: bool) -> str | None:
     """Start writing a tip (once per user at a time). With wait=True, wait up to TIP_WAIT_SECONDS for it."""
     with _lock:
-        future = _running.get(user_id)
-        if future is None or future.done():
+        running = _running.get(user_id)
+        # Reuse a job only if it is still writing a tip for THIS version of the plan. A job for an
+        # older version keeps running, but its tip is thrown away when it tries to save (see above).
+        if running is not None and running[0] == plan_version and not running[1].done():
+            future = running[1]
+        else:
             _last_try[user_id] = time.monotonic()
             future = _pool.submit(_write_and_save, user_id, plan_json, last_level, plan_version)
-            _running[user_id] = future
+            _running[user_id] = (plan_version, future)
     if not wait:
         return None
     try:
@@ -77,8 +81,8 @@ def request_tip(user_id: int, plan_json: dict[str, Any], last_level: str, plan_v
 def may_retry(user_id: int) -> bool:
     """True if this user's tip may be asked for again (not asked in the last hour, none running)."""
     with _lock:
-        future = _running.get(user_id)
-        if future is not None and not future.done():
+        running = _running.get(user_id)
+        if running is not None and not running[1].done():
             return False
         last = _last_try.get(user_id)
         return last is None or time.monotonic() - last >= RETRY_AFTER_SECONDS

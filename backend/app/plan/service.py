@@ -40,6 +40,9 @@ def save_plan(db: Session, user: User, settings: StudySettings) -> Plan:
         db.add(plan)
     plan.units_per_day = numbers.units_per_day
     plan.finish_by = numbers.finish_by
+    # Always a new version, even when the numbers stay the same: the settings behind the plan (and so
+    # its tip) may have changed. The AI tip checks this time to never land on a newer plan.
+    plan.updated_at = func.now()
     return plan
 
 
