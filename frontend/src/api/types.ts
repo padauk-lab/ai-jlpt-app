@@ -216,3 +216,12 @@ export type NotificationSettings = {
 
 // #37 POST /me/reset-progress
 export type ResetResult = { round: number; plan: StudyPlan };
+
+export type AiItemType = 'word' | 'grammar';
+
+export interface MoreExamplesResponse {
+  item_type: AiItemType;
+  item_id: number;
+  examples: Example[];      // same shape as GET /units/{id} examples
+  remaining_today: number;
+};

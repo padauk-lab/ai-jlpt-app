@@ -1,9 +1,11 @@
 // The ONLY place in the app that gets data. Screens call these functions
 // and never know whether the data is fake or comes from the backend.
 import type {
+  AiItemType,
   AnswerResult,
   Dashboard,
   Explanation,
+  MoreExamplesResponse,
   OnboardingRequest,
   Proverb,
   QuizAttempt,
@@ -89,6 +91,17 @@ export function finishQuiz(attemptId: number): Promise<QuizFinish> {
 // #22 GET /quiz-attempts/{id}  (review: only after finishing)
 export function getQuizReview(attemptId: number): Promise<QuizReview> {
   return request<QuizReview>(`/quiz-attempts/${attemptId}`);
+}
+
+// #27 POST /ai/examples
+export function fetchMoreExamples(
+  itemType: AiItemType,
+  itemId: number,
+): Promise<MoreExamplesResponse> {
+  return request('/ai/examples', {
+    method: 'POST',
+    body: { item_type: itemType, item_id: itemId },
+  });
 }
 
 // #28 POST /ai/explain  ("Why?": only for questions the user has already answered)
