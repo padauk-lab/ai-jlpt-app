@@ -33,6 +33,8 @@ app.include_router(api_router, prefix="/api/v1")
 
 
 # GET and HEAD: uptime checkers (UptimeRobot) often send HEAD ("are you there?", no body needed).
-@app.api_route("/health", methods=["GET", "HEAD"])
+# HEAD is kept out of the API docs, so the docs list /health once (no duplicate operation id warning).
+@app.head("/health", include_in_schema=False)
+@app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
