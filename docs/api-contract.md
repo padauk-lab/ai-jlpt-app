@@ -278,7 +278,7 @@ Response `200`:
 - The numbers are calculated by backend code. The AI only writes `ai_tip_my`.
 - How: units left ÷ study days, rounded up, between 1 and 20 units per day. The last days before the exam stay free for review and mock tests: 7 days if the user already took N1, 14 days otherwise (never more than a third of the time left). Code: `backend/app/plan/calculator.py`.
 - No exam date: `exam_date`, `days_left` and `finish_by` are `null`, and `units_per_day` is the default pace of 3.
-- `ai_tip_my` is `null` until the AI tip is ready. The app hides the tip box when it is `null`.
+- `ai_tip_my`: one short Burmese tip written by the AI (never with numbers), or `null`. The app hides the tip box when it is `null`. A new tip is written when the plan is made or changed (#9, #29, #37). The answer waits at most about 8 seconds for it; if the AI is slower or fails, the plan comes without the tip, and the tip shows the next time the plan is opened.
 
 Errors: `404` onboarding not done yet.
 

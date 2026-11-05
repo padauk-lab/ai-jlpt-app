@@ -112,7 +112,7 @@ def save_onboarding(body: OnboardingRequest, user: CurrentUser, db: DbSession) -
     locked_user.onboarding_completed = True
     db.commit()
     db.refresh(plan)  # load updated_at, which the database sets
-    return service.plan_json(db, locked_user, settings, plan)
+    return service.plan_json_with_new_tip(db, locked_user, settings, plan)
 
 
 @router.get("/plan", summary="#10 Current study plan")
@@ -121,7 +121,7 @@ def get_plan(user: CurrentUser, db: DbSession) -> dict[str, Any]:
     plan = db.get(Plan, user.id)
     if settings is None or plan is None:
         raise ApiError(404, "onboarding_not_done", "Please finish the setup first.")
-    return service.plan_json(db, user, settings, plan)
+    return service.plan_json_for_reading(db, user, settings, plan)
 
 # #5 and #6 (forgot password) live in their own file. They are added to this router,
 # so /docs lists them in the Onboarding group next to the other log in endpoints.
