@@ -22,8 +22,16 @@ class AIUnavailableError(Exception):
     """The AI did not give a usable answer. The route returns 503 "Try again later"."""
 
 
+def _setting(name: str) -> str:
+    """Read an AI setting. A missing one means the AI is off (503), not a server crash (500)."""
+    value = os.environ.get(name, "").strip()
+    if not value:
+        raise AIUnavailableError(f"{name} is not set")
+    return value
+
+
 def model_name() -> str:
-    return os.environ["LLM_MODEL"]
+    return _setting("LLM_MODEL")
 
 
 def generate_json(system: str, user: str) -> str:
@@ -36,7 +44,7 @@ def generate_json(system: str, user: str) -> str:
     req = urllib.request.Request(
         GEMINI_URL.format(model=model_name()),
         data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json", "x-goog-api-key": os.environ["LLM_API_KEY"]},
+        headers={"Content-Type": "application/json", "x-goog-api-key": _setting("LLM_API_KEY")},
     )
     for attempt in range(RETRIES):
         try:
