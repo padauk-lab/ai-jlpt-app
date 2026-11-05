@@ -1,3 +1,4 @@
+import { useMoreExamples } from '@/hooks/useMoreExamples';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -28,6 +29,7 @@ export default function UnitScreen() {
   const [grammarStudied, setGrammarStudied] = useState(false);
   const [finishing, setFinishing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const more = useMoreExamples();
   const notice = useNotice();
 
   useEffect(() => {
@@ -134,8 +136,6 @@ export default function UnitScreen() {
     }
   }
 
-  const showMoreExamples = () => notice.show('AI ဥပမာများ မကြာမီ ရပါမယ်');
-
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
       <View style={styles.header}>
@@ -177,11 +177,14 @@ export default function UnitScreen() {
 
           <FlipCard
             key={word.id}
-            word={word}
+            word={{ ...word, examples: [...word.examples, ...more.examplesFor('word', word.id)] }}
             saved={saved.has(word.id)}
             studied={studied.has(word.id)}
             onToggleSaved={() => toggleSaved(word.id)}
-            onMoreExamples={showMoreExamples}
+            onMoreExamples={() => more.load('word', word.id)}
+            moreLoading={more.isLoading('word', word.id)}
+            moreRemaining={more.remaining}
+            moreError={more.errorFor('word', word.id)}
           />
 
           <View style={styles.navRow}>
@@ -210,7 +213,16 @@ export default function UnitScreen() {
         <ScrollView contentContainerStyle={styles.body}>
           {unit.grammar && (
             <>
-              <GrammarCard grammar={unit.grammar} onMoreExamples={showMoreExamples} />
+              <GrammarCard
+                grammar={{
+                  ...unit.grammar,
+                  examples: [...unit.grammar.examples, ...more.examplesFor('grammar', unit.grammar.id)],
+                }}
+                onMoreExamples={() => more.load('grammar', unit.grammar!.id)}
+                moreLoading={more.isLoading('grammar', unit.grammar.id)}
+                moreRemaining={more.remaining}
+                moreError={more.errorFor('grammar', unit.grammar.id)}
+              />
               <StudiedButton on={grammarStudied} onPress={() => setGrammarStudied((on) => !on)} label="သဒ္ဒါ လေ့လာပြီး" />
             </>
           )}

@@ -218,8 +218,10 @@ export type NotificationSettings = {
 export type ResetResult = { round: number; plan: StudyPlan };
 
 // #27 POST /ai/examples
+export type AiItemType = 'word' | 'grammar';
+
 export type MoreExamples = {
-  item_type: 'word' | 'grammar';
+  item_type: AiItemType;
   item_id: number;
   examples: Example[];
   remaining_today: number;

@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { Example } from '@/api/types';
 import { RubyText } from '@/components/RubyText';
 import { SparkIcon } from '@/components/ui/Icons';
@@ -19,12 +19,39 @@ export function Examples({ examples }: { examples: Example[] }) {
 }
 
 // "More examples" (#27). It asks the AI, so it is marked with a sparkle.
-export function MoreExamplesButton({ onPress }: { onPress: () => void }) {
+type MoreExamplesButtonProps = {
+  onPress: () => void;
+  loading?: boolean;
+  remaining?: number | null;
+  error?: string;
+};
+
+export function MoreExamplesButton({
+  onPress,
+  loading = false,
+  remaining = null,
+  error,
+}: MoreExamplesButtonProps) {
+  const outOfLimit = remaining === 0;
+  const showCount = remaining !== null && remaining <= 5;
+
   return (
-    <Pressable onPress={onPress} style={({ pressed }) => [styles.more, pressed && { opacity: 0.8 }]}>
-      <SparkIcon color={colors.lacquer} />
-      <Text style={styles.moreText}>ဥပမာ ထပ်ကြည့်မည်</Text>
-    </Pressable>
+    <View style={styles.moreWrap}>
+      <Pressable
+        onPress={onPress}
+        disabled={loading || outOfLimit}
+        accessibilityRole="button"
+        accessibilityState={{ busy: loading, disabled: loading || outOfLimit }}
+        style={({ pressed }) => [styles.more, pressed && { opacity: 0.8 }, outOfLimit && { opacity: 0.4 }]}
+      >
+        {loading
+          ? <ActivityIndicator size="small" color={colors.lacquer} />
+          : <SparkIcon color={colors.lacquer} />}
+        <Text style={styles.moreText}>ဥပမာ ထပ်ကြည့်မည်</Text>
+      </Pressable>
+      {showCount && <Text style={styles.moreMeta}>ယနေ့ ကျန် {remaining} ကြိမ်</Text>}
+      {error && <Text style={styles.moreError}>{error}</Text>}
+    </View>
   );
 }
 
@@ -58,5 +85,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 22,
     color: colors.lacquer,
+  },
+  moreWrap: {
+    gap: 4,
+  },
+  moreMeta: {
+    ...text.small,
+    color: colors.inkMuted,
+  },
+  moreError: {
+    ...text.small,
+    color: colors.wrong,
   },
 });

@@ -5,7 +5,15 @@ import { colors, fonts, radius, spacing, text } from '@/theme';
 import { Examples, MoreExamplesButton } from './Examples';
 
 // The grammar pattern of the unit (contract #14, "grammar").
-export function GrammarCard({ grammar, onMoreExamples }: { grammar: Grammar; onMoreExamples: () => void }) {
+type Props = {
+  grammar: Grammar;
+  onMoreExamples: () => void;
+  moreLoading?: boolean;
+  moreRemaining?: number | null;
+  moreError?: string;
+};
+
+export function GrammarCard({ grammar, onMoreExamples, moreLoading, moreRemaining, moreError }: Props) {  
   return (
     <View style={styles.card}>
       <Text style={styles.pattern}>{grammar.pattern}</Text>
@@ -32,7 +40,12 @@ export function GrammarCard({ grammar, onMoreExamples }: { grammar: Grammar; onM
       <View style={styles.dotted} />
       <Text style={styles.sectionLabel}>ဥပမာ</Text>
       <Examples examples={grammar.examples} />
-      <MoreExamplesButton onPress={onMoreExamples} />
+      <MoreExamplesButton
+        onPress={onMoreExamples}
+        loading={moreLoading}
+        remaining={moreRemaining}
+        error={moreError}
+      />
     </View>
   );
 }

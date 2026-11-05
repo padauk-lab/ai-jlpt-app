@@ -23,11 +23,14 @@ type Props = {
   studied?: boolean; // shows a small gold check on both sides
   onToggleSaved: () => void;
   onMoreExamples: () => void;
+  moreLoading?: boolean;
+  moreRemaining?: number | null;
+  moreError?: string;
 };
 
 // A memory card: the front shows only the word, the back shows everything.
 // Tapping turns it over with a 3D flip (instantly when Reduce Motion is on).
-export function FlipCard({ word, saved, studied = false, onToggleSaved, onMoreExamples }: Props) {
+export function FlipCard({ word, saved, studied = false, onToggleSaved, onMoreExamples, moreLoading, moreRemaining, moreError }: Props) {
   const [flipped, setFlipped] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const turn = useRef(new Animated.Value(0)).current;
@@ -128,7 +131,12 @@ export function FlipCard({ word, saved, studied = false, onToggleSaved, onMoreEx
 
           <View style={styles.dotted} />
           <Examples examples={word.examples} />
-          <MoreExamplesButton onPress={onMoreExamples} />
+                    <MoreExamplesButton
+            onPress={onMoreExamples}
+            loading={moreLoading}
+            remaining={moreRemaining}
+            error={moreError}
+          />
         </ScrollView>
         {bookmark}
         {studiedBadge}
