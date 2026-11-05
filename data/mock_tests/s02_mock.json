@@ -1,0 +1,1719 @@
+{
+  "session_number": 2,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "今回の事故は、運転手の不注意に"
+        },
+        {
+          "text": "起因"
+        },
+        {
+          "text": "するものだった。"
+        }
+      ],
+      "underline": "起因",
+      "options": [
+        {
+          "id": "a",
+          "text": "けいいん"
+        },
+        {
+          "id": "b",
+          "text": "きいん"
+        },
+        {
+          "id": "c",
+          "text": "きゅういん"
+        },
+        {
+          "id": "d",
+          "text": "きえん"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "規則を破った社員は、"
+        },
+        {
+          "text": "懲戒"
+        },
+        {
+          "text": "処分を受けた。"
+        }
+      ],
+      "underline": "懲戒",
+      "options": [
+        {
+          "id": "a",
+          "text": "とうかい"
+        },
+        {
+          "id": "b",
+          "text": "ちょうかい"
+        },
+        {
+          "id": "c",
+          "text": "ちょうけい"
+        },
+        {
+          "id": "d",
+          "text": "しょうかい"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "その企業は、海外の会社を"
+        },
+        {
+          "text": "買収"
+        },
+        {
+          "text": "して事業を広げた。"
+        }
+      ],
+      "underline": "買収",
+      "options": [
+        {
+          "id": "a",
+          "text": "かいしゅう"
+        },
+        {
+          "id": "b",
+          "text": "まいしゅう"
+        },
+        {
+          "id": "c",
+          "text": "ばいしゅう"
+        },
+        {
+          "id": "d",
+          "text": "ばいしゅ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "川が運んだ土砂が、河口に"
+        },
+        {
+          "text": "堆積"
+        },
+        {
+          "text": "している。"
+        }
+      ],
+      "underline": "堆積",
+      "options": [
+        {
+          "id": "a",
+          "text": "ついせき"
+        },
+        {
+          "id": "b",
+          "text": "すいせき"
+        },
+        {
+          "id": "c",
+          "text": "たいしゃく"
+        },
+        {
+          "id": "d",
+          "text": "たいせき"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 7,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "大臣は、専門家の会議に今後の方針を"
+        },
+        {
+          "text": "諮問"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "諮問",
+      "options": [
+        {
+          "id": "a",
+          "text": "しぶん"
+        },
+        {
+          "id": "b",
+          "text": "しもん"
+        },
+        {
+          "id": "c",
+          "text": "じもん"
+        },
+        {
+          "id": "d",
+          "text": "ともん"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 9,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、恩師の"
+        },
+        {
+          "text": "薫陶"
+        },
+        {
+          "text": "を受けて研究者になった。"
+        }
+      ],
+      "underline": "薫陶",
+      "options": [
+        {
+          "id": "a",
+          "text": "くんどう"
+        },
+        {
+          "id": "b",
+          "text": "けいとう"
+        },
+        {
+          "id": "c",
+          "text": "じゅうとう"
+        },
+        {
+          "id": "d",
+          "text": "くんとう"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "この計画は、予算が確保されることを（　）としている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "前提"
+        },
+        {
+          "id": "b",
+          "text": "動機"
+        },
+        {
+          "id": "c",
+          "text": "要因"
+        },
+        {
+          "id": "d",
+          "text": "帰結"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "その会社は、国内の市場をほぼ（　）している。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "独占"
+        },
+        {
+          "id": "b",
+          "text": "合併"
+        },
+        {
+          "id": "c",
+          "text": "参入"
+        },
+        {
+          "id": "d",
+          "text": "流通"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼は、いつまでも過去の成功に（　）している。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "焦燥"
+        },
+        {
+          "id": "b",
+          "text": "献身"
+        },
+        {
+          "id": "c",
+          "text": "忍耐"
+        },
+        {
+          "id": "d",
+          "text": "執着"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "毎年この時期に社員旅行を行うのが、わが社の（　）となっている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "前提"
+        },
+        {
+          "id": "b",
+          "text": "系譜"
+        },
+        {
+          "id": "c",
+          "text": "由来"
+        },
+        {
+          "id": "d",
+          "text": "慣例"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 8,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "この祭りの（　）は、江戸時代にさかのぼると言われている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "遺跡"
+        },
+        {
+          "id": "b",
+          "text": "起源"
+        },
+        {
+          "id": "c",
+          "text": "民俗"
+        },
+        {
+          "id": "d",
+          "text": "風俗"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、（　）の時代を生き抜いた作家だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "起伏"
+        },
+        {
+          "id": "b",
+          "text": "推移"
+        },
+        {
+          "id": "c",
+          "text": "激動"
+        },
+        {
+          "id": "d",
+          "text": "勝算"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "彼は持ち前の（　）で、小さな店を大きな会社に育て上げた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "才覚"
+        },
+        {
+          "id": "b",
+          "text": "品格"
+        },
+        {
+          "id": "c",
+          "text": "風格"
+        },
+        {
+          "id": "d",
+          "text": "矜持"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "彼は、批判された同僚を"
+        },
+        {
+          "text": "擁護した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "擁護した",
+      "options": [
+        {
+          "id": "a",
+          "text": "かばった"
+        },
+        {
+          "id": "b",
+          "text": "無視した"
+        },
+        {
+          "id": "c",
+          "text": "責めた"
+        },
+        {
+          "id": "d",
+          "text": "励ました"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "不公平な決定に、社員たちは"
+        },
+        {
+          "text": "憤慨した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "憤慨した",
+      "options": [
+        {
+          "id": "a",
+          "text": "あきらめた"
+        },
+        {
+          "id": "b",
+          "text": "驚いた"
+        },
+        {
+          "id": "c",
+          "text": "ひどく腹を立てた"
+        },
+        {
+          "id": "d",
+          "text": "がっかりした"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 6,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "彼は"
+        },
+        {
+          "text": "堅実な"
+        },
+        {
+          "text": "経営で、会社を成長させた。"
+        }
+      ],
+      "underline": "堅実な",
+      "options": [
+        {
+          "id": "a",
+          "text": "自由で明るい"
+        },
+        {
+          "id": "b",
+          "text": "手がたく確実な"
+        },
+        {
+          "id": "c",
+          "text": "大胆で新しい"
+        },
+        {
+          "id": "d",
+          "text": "厳しく冷たい"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 7,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "大臣は、記者会見で"
+        },
+        {
+          "text": "釈明した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "釈明した",
+      "options": [
+        {
+          "id": "a",
+          "text": "事情を説明して理解を求めた"
+        },
+        {
+          "id": "b",
+          "text": "質問に答えるのを断った"
+        },
+        {
+          "id": "c",
+          "text": "新しい方針を発表した"
+        },
+        {
+          "id": "d",
+          "text": "責任をとって辞めた"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 10,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "この港町は、かつて貿易で"
+        },
+        {
+          "text": "繁栄した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "繁栄した",
+      "options": [
+        {
+          "id": "a",
+          "text": "知られた"
+        },
+        {
+          "id": "b",
+          "text": "始まった"
+        },
+        {
+          "id": "c",
+          "text": "栄えた"
+        },
+        {
+          "id": "d",
+          "text": "苦しんだ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "景気の"
+        },
+        {
+          "text": "低迷が続いている"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "低迷が続いている",
+      "options": [
+        {
+          "id": "a",
+          "text": "悪い状態から抜け出せないでいる"
+        },
+        {
+          "id": "b",
+          "text": "先が予想できなくなっている"
+        },
+        {
+          "id": "c",
+          "text": "急に良くなってきている"
+        },
+        {
+          "id": "d",
+          "text": "大きく変わり続けている"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "担う"
+        }
+      ],
+      "underline": "担う",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼は毎朝、コーヒーを担っている。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、駅前のパン屋で朝ご飯を担っている。"
+        },
+        {
+          "id": "c",
+          "text": "これからの社会を担っていくのは、若い世代だ。"
+        },
+        {
+          "id": "d",
+          "text": "友達に借りた本を、今日担った。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "妬む"
+        }
+      ],
+      "underline": "妬む",
+      "options": [
+        {
+          "id": "a",
+          "text": "試験の結果を、先生に妬んでもらった。"
+        },
+        {
+          "id": "b",
+          "text": "彼は、同僚の出世を妬んでいた。"
+        },
+        {
+          "id": "c",
+          "text": "寒いので、ストーブで部屋を妬んだ。"
+        },
+        {
+          "id": "d",
+          "text": "母は毎朝、玄関を妬んでいる。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "潜む"
+        }
+      ],
+      "underline": "潜む",
+      "options": [
+        {
+          "id": "a",
+          "text": "先生の質問に、大きな声で潜んだ。"
+        },
+        {
+          "id": "b",
+          "text": "彼は毎日、駅まで潜んでいる。"
+        },
+        {
+          "id": "c",
+          "text": "昨日買った野菜を、冷蔵庫に潜んだ。"
+        },
+        {
+          "id": "d",
+          "text": "その計画には、大きな危険が潜んでいる。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "唱える"
+        }
+      ],
+      "underline": "唱える",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、犬にえさを唱えている。"
+        },
+        {
+          "id": "b",
+          "text": "彼は重い荷物を、両手で唱えた。"
+        },
+        {
+          "id": "c",
+          "text": "暑いので、窓を唱えておいた。"
+        },
+        {
+          "id": "d",
+          "text": "新しい理論を唱えた学者は、初めは批判を浴びた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 8,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "憂う"
+        }
+      ],
+      "underline": "憂う",
+      "options": [
+        {
+          "id": "a",
+          "text": "夏休みに、家族で海へ憂った。"
+        },
+        {
+          "id": "b",
+          "text": "新しいかばんを、駅で憂ってしまった。"
+        },
+        {
+          "id": "c",
+          "text": "国の将来を憂う声が、高まっている。"
+        },
+        {
+          "id": "d",
+          "text": "料理に砂糖を少し憂うと、おいしくなる。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 9,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "賜る"
+        }
+      ],
+      "underline": "賜る",
+      "options": [
+        {
+          "id": "a",
+          "text": "遅刻しないよう、早めに家を賜った。"
+        },
+        {
+          "id": "b",
+          "text": "雨が降ってきたので、急いで窓を賜った。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、犬を公園で賜っている。"
+        },
+        {
+          "id": "d",
+          "text": "皆様から温かいご支援を賜り、心より感謝申し上げます。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "これ（　）、本日の説明会を終わります。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に即して"
+        },
+        {
+          "id": "b",
+          "text": "に至っては"
+        },
+        {
+          "id": "c",
+          "text": "をもって"
+        },
+        {
+          "id": "d",
+          "text": "とあって"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "最近の若者は新聞を読まないと言われるが、弟（　）テレビのニュースさえ見ない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を踏まえて"
+        },
+        {
+          "id": "b",
+          "text": "に至っては"
+        },
+        {
+          "id": "c",
+          "text": "までもなく"
+        },
+        {
+          "id": "d",
+          "text": "をもって"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼は、亡くなった母を今も愛して（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "すまない"
+        },
+        {
+          "id": "b",
+          "text": "くれない"
+        },
+        {
+          "id": "c",
+          "text": "やまない"
+        },
+        {
+          "id": "d",
+          "text": "いけない"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "連絡もせずに約束を破るなんて、無責任（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "極まりない"
+        },
+        {
+          "id": "b",
+          "text": "をもって"
+        },
+        {
+          "id": "c",
+          "text": "に至っては"
+        },
+        {
+          "id": "d",
+          "text": "までもない"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "工場の火災で、生産の一時停止（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に即した"
+        },
+        {
+          "id": "b",
+          "text": "を余儀なくされた"
+        },
+        {
+          "id": "c",
+          "text": "とあった"
+        },
+        {
+          "id": "d",
+          "text": "を踏まえた"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "専門家の意見（　）、新しい対策が決定された。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "といえども"
+        },
+        {
+          "id": "b",
+          "text": "に至っては"
+        },
+        {
+          "id": "c",
+          "text": "を踏まえて"
+        },
+        {
+          "id": "d",
+          "text": "までもなく"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "セール初日（　）、店は朝から大勢の客でにぎわっていた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に至っては"
+        },
+        {
+          "id": "b",
+          "text": "といえども"
+        },
+        {
+          "id": "c",
+          "text": "をもって"
+        },
+        {
+          "id": "d",
+          "text": "とあって"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "この映画は、事実（　）作られている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を余儀なくされ"
+        },
+        {
+          "id": "b",
+          "text": "に即して"
+        },
+        {
+          "id": "c",
+          "text": "極まりなく"
+        },
+        {
+          "id": "d",
+          "text": "とあって"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "子ども（　）、ルールは守らなければならない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に至っては"
+        },
+        {
+          "id": "b",
+          "text": "といえども"
+        },
+        {
+          "id": "c",
+          "text": "を踏まえて"
+        },
+        {
+          "id": "d",
+          "text": "とあって"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "わざわざ確認する（　）。答えは明らかだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に至らない"
+        },
+        {
+          "id": "b",
+          "text": "極まりない"
+        },
+        {
+          "id": "c",
+          "text": "までもない"
+        },
+        {
+          "id": "d",
+          "text": "にかたくない"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "本日の営業は、午後八時（　）終了とさせていただきます。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあって"
+        },
+        {
+          "id": "b",
+          "text": "をよそに"
+        },
+        {
+          "id": "c",
+          "text": "をもって"
+        },
+        {
+          "id": "d",
+          "text": "に即して"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "彼の運転は危険（　）、見ているほうがはらはらする。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に即して"
+        },
+        {
+          "id": "b",
+          "text": "までもなく"
+        },
+        {
+          "id": "c",
+          "text": "といえども"
+        },
+        {
+          "id": "d",
+          "text": "極まりなく"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "久しぶりの晴天（　）、公園は家族連れでいっぱいだった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までもなく"
+        },
+        {
+          "id": "b",
+          "text": "をもって"
+        },
+        {
+          "id": "c",
+          "text": "に至っては"
+        },
+        {
+          "id": "d",
+          "text": "とあって"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "いくら親しい友人（　）、言っていいことと悪いことがある。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "をもって"
+        },
+        {
+          "id": "b",
+          "text": "といえども"
+        },
+        {
+          "id": "c",
+          "text": "とあって"
+        },
+        {
+          "id": "d",
+          "text": "に即して"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "言う（　）が、試験中の私語は厳禁だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "極まりない"
+        },
+        {
+          "id": "b",
+          "text": "を余儀なくされる"
+        },
+        {
+          "id": "c",
+          "text": "までもない"
+        },
+        {
+          "id": "d",
+          "text": "に至っている"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "どの店も値上げをしたが、＿＿ ＿＿ ★ ＿＿ 二倍になった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "あの"
+        },
+        {
+          "id": "b",
+          "text": "店"
+        },
+        {
+          "id": "c",
+          "text": "値段が"
+        },
+        {
+          "id": "d",
+          "text": "に至っては"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "私たちは、皆様の ＿＿ ★ ＿＿ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "願って"
+        },
+        {
+          "id": "b",
+          "text": "心より"
+        },
+        {
+          "id": "c",
+          "text": "ご活躍を"
+        },
+        {
+          "id": "d",
+          "text": "やみません"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "資金不足により、＿＿ ＿＿ ★ ＿＿ された。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "計画は"
+        },
+        {
+          "id": "b",
+          "text": "大幅な"
+        },
+        {
+          "id": "c",
+          "text": "余儀なく"
+        },
+        {
+          "id": "d",
+          "text": "見直しを"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "前回の会議での ＿＿ ★ ＿＿ ＿＿ 作成した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "新しい"
+        },
+        {
+          "id": "b",
+          "text": "議論を"
+        },
+        {
+          "id": "c",
+          "text": "踏まえて"
+        },
+        {
+          "id": "d",
+          "text": "案を"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "この学校では、生徒の ＿＿ ＿＿ ★ ＿＿ 行われている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "即した"
+        },
+        {
+          "id": "b",
+          "text": "実態"
+        },
+        {
+          "id": "c",
+          "text": "指導が"
+        },
+        {
+          "id": "d",
+          "text": "に"
+        }
+      ],
+      "correct_option_id": "a"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "失敗の要因を探るとき、私たちはつい一つの原因に結論を求めがちだ。しかし、多くの失敗は、いくつもの小さな問題が重なった結果として起こる。ある部署で納期が遅れたとしても、それは担当者の怠慢だけに起因するとは限らない。人手不足や無理な計画、情報共有の遅れなど、背景にはさまざまな事情が潜んでいることが多い。一人を責めて終わりにするのではなく、仕組み全体を見直すことこそが、同じ失敗を防ぐ近道である。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "小さな問題は、大きな失敗とは関係がない。"
+            },
+            {
+              "id": "b",
+              "text": "失敗の原因は、組織の仕組み全体から考えるべきだ。"
+            },
+            {
+              "id": "c",
+              "text": "納期の遅れは、人手不足だけが原因である。"
+            },
+            {
+              "id": "d",
+              "text": "失敗の責任は、担当者が一人でとるべきだ。"
+            }
+          ],
+          "correct_option_id": "b"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "駅前の商店街が低迷し始めたのは、二十年ほど前、郊外に大型ショッピングセンターができてからだ。品ぞろえでも価格でも太刀打ちできず、店は一軒、また一軒と閉まっていった。\n転機となったのは、商店街の若手店主たちが始めた小さな試みだった。彼らは、大型店と同じ土俵で勝負することをやめ、それぞれの店の得意分野を生かした「相談できる店」を目指したのである。魚屋は旬の魚の食べ方を教え、八百屋は野菜の保存方法を伝え、電器店は高齢者の家を訪ねて機械の使い方を説明した。\nさらに、店同士が提携し、一つの店で買い物をすると他の店で割引が受けられる仕組みも作った。客は一軒で用事を済ませるのではなく、商店街を歩いて回るようになった。\nその結果、売り上げは少しずつ回復し、空き店舗に新しい店が入るようにもなった。大型店に負けない強みは、価格や便利さではなく、人と人との顔の見えるつながりにあった。商店街の人々は、そう語っている。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "商店街が低迷した原因は何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "郊外に大型店ができ、客を奪われたから"
+            },
+            {
+              "id": "b",
+              "text": "店の品ぞろえが昔と変わってしまったから"
+            },
+            {
+              "id": "c",
+              "text": "若手の店主が少なかったから"
+            },
+            {
+              "id": "d",
+              "text": "駅前に住む人が急に減ったから"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "若手店主たちは、どのような店を目指したか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "大型店より安く商品を売る店"
+            },
+            {
+              "id": "b",
+              "text": "一軒で何でもそろう店"
+            },
+            {
+              "id": "c",
+              "text": "品ぞろえの多さで勝負する店"
+            },
+            {
+              "id": "d",
+              "text": "客の相談に乗り、役に立つ情報を伝える店"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "商店街の人々は、自分たちの強みは何だと考えているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "店と客が顔を合わせてつながること"
+            },
+            {
+              "id": "b",
+              "text": "駅から近くて便利なこと"
+            },
+            {
+              "id": "c",
+              "text": "新しい店が次々に増えていること"
+            },
+            {
+              "id": "d",
+              "text": "大型店より価格が安いこと"
+            }
+          ],
+          "correct_option_id": "a"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "「あの人には才能がある」という言葉を、私たちはよく使う。スポーツ選手や音楽家、職人など、ある分野で優れた成果を上げる人を見ると、生まれつきの資質に恵まれていたのだろうと考えがちだ。しかし、本当にそうなのだろうか。\n私は以前、ある伝統工芸の職人を取材したことがある。七十歳を過ぎた今も現役で働くその職人は、業界では名人と呼ばれている。ところが本人は、「自分には特別な才能などなかった」と言う。若いころは手先が不器用で、同期の弟子たちの中でいちばん仕事が遅かったそうだ。師匠から厳しく叱られ、何度もやめようと思ったという。\nそれでも彼が続けられたのは、毎日欠かさず道具の手入れをし、ほかの職人の仕事を観察し、自分の失敗を記録し続けたからだ。「できないことを一つずつできるようにしていった。それだけです」と彼は笑った。長い年月をかけた研鑽の積み重ねが、やがて誰にもまねのできない技術になったのである。\nもちろん、人によって向き不向きがあることは否定できない。同じ努力をしても、上達の速さには差がある。しかし、最初の差が最後まで続くとは限らない。早くから器用にこなせる人ほど、かえって工夫することをやめてしまう場合もある。逆に、うまくいかない経験を重ねた人は、なぜうまくいかないのかを考える習慣を身につけていく。その習慣こそが、長い目で見れば大きな力になるのだ。\n気になるのは、「才能」という言葉が、挑戦をあきらめる理由として使われることだ。「自分には才能がないから」と言って、始める前から手を引いてしまう人は少なくない。だが、才能があるかどうかは、ある程度続けてみなければわからない。最初から結果を求めすぎると、成長の芽を自分でつんでしまうことになる。\n名人の言葉を思い出すたびに、私は考える。才能とは、生まれつき与えられるものではなく、続けることによって少しずつ形づくられていくものなのかもしれない、と。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "職人は、若いころの自分についてどのように話しているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "手先が不器用で、仕事が遅いほうだった。"
+            },
+            {
+              "id": "b",
+              "text": "同期の中でいちばん早く技術を身につけた。"
+            },
+            {
+              "id": "c",
+              "text": "師匠に才能を認められていた。"
+            },
+            {
+              "id": "d",
+              "text": "一度も仕事をやめようと思わなかった。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "筆者によると、早くから器用にこなせる人には、どのようなことが起こる場合があるか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "工夫をしなくなってしまう。"
+            },
+            {
+              "id": "b",
+              "text": "他人の仕事を観察するようになる。"
+            },
+            {
+              "id": "c",
+              "text": "失敗を記録する習慣が身につく。"
+            },
+            {
+              "id": "d",
+              "text": "努力をしても上達しなくなる。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "筆者が「気になる」と述べているのは、どのようなことか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "才能がないことを理由に、挑戦する前にあきらめる人がいること"
+            },
+            {
+              "id": "b",
+              "text": "才能という言葉が、あまり使われなくなったこと"
+            },
+            {
+              "id": "c",
+              "text": "職人の技術が、若い世代に伝わらないこと"
+            },
+            {
+              "id": "d",
+              "text": "才能のある人が、努力をしなくなること"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "才能について、筆者はどのように考えているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "続けることによって、少しずつ作られていくものかもしれない。"
+            },
+            {
+              "id": "b",
+              "text": "努力よりも、向き不向きのほうが重要だ。"
+            },
+            {
+              "id": "c",
+              "text": "生まれつきの資質で、ほとんど決まってしまう。"
+            },
+            {
+              "id": "d",
+              "text": "早く結果を出せる人だけが持っているものだ。"
+            }
+          ],
+          "correct_option_id": "a"
+        }
+      ]
+    }
+  ]
+}
