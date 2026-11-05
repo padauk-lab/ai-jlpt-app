@@ -213,7 +213,7 @@ Prepared by ANK, loaded from `data/`. Same for every user.
 | Column | Type | Rules | Notes |
 |---|---|---|---|
 | id | bigint | primary key | |
-| number | smallint | NOT NULL, unique, 1 to 20 | The app uses 1 to 10 (content rules refuse session 11 and later) |
+| number | smallint | NOT NULL, unique, 1 to 10 | |
 
 ### `units`
 

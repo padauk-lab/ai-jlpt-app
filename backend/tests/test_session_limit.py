@@ -31,3 +31,21 @@ def test_session_10_is_the_last(schema, make):
     data["session_number"] = 11
     with pytest.raises(ValidationError):
         schema.model_validate(data)
+
+
+def test_the_database_refuses_session_11():
+    from sqlalchemy.exc import IntegrityError
+
+    from app.db import SessionLocal
+    from app.models import StudySession
+
+    with SessionLocal() as db:
+        db.add(StudySession(number=11))
+        with pytest.raises(IntegrityError):
+            db.flush()
+        db.rollback()
+
+
+def test_health_is_in_the_docs_once(client):
+    paths = client.get("/openapi.json").json()["paths"]
+    assert list(paths["/health"]) == ["get"]
