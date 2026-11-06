@@ -1,0 +1,1346 @@
+{
+  "session_number": 7,
+  "quiz_number": 1,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "人の意見を聞かない"
+        },
+        {
+          "text": "狭量"
+        },
+        {
+          "text": "な態度は、周りの反感を買う。"
+        }
+      ],
+      "underline": "狭量",
+      "options": [
+        {
+          "id": "a",
+          "text": "きょうりょう"
+        },
+        {
+          "id": "b",
+          "text": "せまりょう"
+        },
+        {
+          "id": "c",
+          "text": "きょうりょ"
+        },
+        {
+          "id": "d",
+          "text": "こうりょう"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "祖母は、いつも"
+        },
+        {
+          "text": "柔和"
+        },
+        {
+          "text": "な笑顔で迎えてくれる。"
+        }
+      ],
+      "underline": "柔和",
+      "options": [
+        {
+          "id": "a",
+          "text": "にゅうわ"
+        },
+        {
+          "id": "b",
+          "text": "じゅわ"
+        },
+        {
+          "id": "c",
+          "text": "にゅうな"
+        },
+        {
+          "id": "d",
+          "text": "じゅうわ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼は（　）な性格で、机の上はいつもきれいに片付いている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "勝気"
+        },
+        {
+          "id": "b",
+          "text": "几帳面"
+        },
+        {
+          "id": "c",
+          "text": "大雑把"
+        },
+        {
+          "id": "d",
+          "text": "呑気"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "痛みに耐えて最後まで走り抜くとは、彼は本当に（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "内気だ"
+        },
+        {
+          "id": "b",
+          "text": "我慢強い"
+        },
+        {
+          "id": "c",
+          "text": "短気だ"
+        },
+        {
+          "id": "d",
+          "text": "せっかちだ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 1,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "その子は、幼いのに"
+        },
+        {
+          "text": "健気に"
+        },
+        {
+          "text": "家の手伝いをしている。"
+        }
+      ],
+      "underline": "健気に",
+      "options": [
+        {
+          "id": "a",
+          "text": "ゆっくりと"
+        },
+        {
+          "id": "b",
+          "text": "楽しそうに"
+        },
+        {
+          "id": "c",
+          "text": "一生懸命に"
+        },
+        {
+          "id": "d",
+          "text": "嫌そうに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "尊大"
+        }
+      ],
+      "underline": "尊大",
+      "options": [
+        {
+          "id": "a",
+          "text": "この部屋は、尊大で日当たりがいい。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、尊大なコーヒーを飲んでいる。"
+        },
+        {
+          "id": "c",
+          "text": "彼は社長になってから、尊大な態度をとるようになった。"
+        },
+        {
+          "id": "d",
+          "text": "彼女は、毎日尊大を着て出かける。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 7,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "あの事故のことは、思い出す（　）恐ろしい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "手前"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "つ"
+        },
+        {
+          "id": "d",
+          "text": "たりとも"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 8,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "あの地震のことは、＿＿ ＿＿ ★ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "出来事だ"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "恐ろしい"
+        },
+        {
+          "id": "d",
+          "text": "想像する"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "裁判で、証人が"
+        },
+        {
+          "text": "陳述"
+        },
+        {
+          "text": "を行った。"
+        }
+      ],
+      "underline": "陳述",
+      "options": [
+        {
+          "id": "a",
+          "text": "ちんじゅつ"
+        },
+        {
+          "id": "b",
+          "text": "じんじゅつ"
+        },
+        {
+          "id": "c",
+          "text": "ちんじつ"
+        },
+        {
+          "id": "d",
+          "text": "ていじゅつ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "彼は巧みな"
+        },
+        {
+          "text": "弁舌"
+        },
+        {
+          "text": "で、聴衆を引きつけた。"
+        }
+      ],
+      "underline": "弁舌",
+      "options": [
+        {
+          "id": "a",
+          "text": "べんせつ"
+        },
+        {
+          "id": "b",
+          "text": "べんぜつ"
+        },
+        {
+          "id": "c",
+          "text": "はんぜつ"
+        },
+        {
+          "id": "d",
+          "text": "べんした"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "「忙しい」というのが、父の（　）だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "口外"
+        },
+        {
+          "id": "b",
+          "text": "口出し"
+        },
+        {
+          "id": "c",
+          "text": "口数"
+        },
+        {
+          "id": "d",
+          "text": "口癖"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "彼は、自分は悪くないと最後まで（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "言い張った"
+        },
+        {
+          "id": "b",
+          "text": "言い渡した"
+        },
+        {
+          "id": "c",
+          "text": "口外した"
+        },
+        {
+          "id": "d",
+          "text": "口走った"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "その計画に、"
+        },
+        {
+          "text": "異論"
+        },
+        {
+          "text": "はありません。"
+        }
+      ],
+      "underline": "異論",
+      "options": [
+        {
+          "id": "a",
+          "text": "質問"
+        },
+        {
+          "id": "b",
+          "text": "費用"
+        },
+        {
+          "id": "c",
+          "text": "興味"
+        },
+        {
+          "id": "d",
+          "text": "反対の意見"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "口走る"
+        }
+      ],
+      "underline": "口走る",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、駅まで口走っている。"
+        },
+        {
+          "id": "b",
+          "text": "料理に塩を少し口走った。"
+        },
+        {
+          "id": "c",
+          "text": "寒いので、窓を口走った。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、怒りのあまり余計なことを口走ってしまった。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 15,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "試験まであと一週間だ。一日（　）無駄にできない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "たりとも"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "手前"
+        },
+        {
+          "id": "d",
+          "text": "つ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 16,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "この仕事では、＿＿ ＿＿ ★ ＿＿ 許されない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ミス"
+        },
+        {
+          "id": "b",
+          "text": "たりとも"
+        },
+        {
+          "id": "c",
+          "text": "一つ"
+        },
+        {
+          "id": "d",
+          "text": "は"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "一週間分の夕食の"
+        },
+        {
+          "text": "献立"
+        },
+        {
+          "text": "を考えた。"
+        }
+      ],
+      "underline": "献立",
+      "options": [
+        {
+          "id": "a",
+          "text": "こんりつ"
+        },
+        {
+          "id": "b",
+          "text": "けんりつ"
+        },
+        {
+          "id": "c",
+          "text": "けんだて"
+        },
+        {
+          "id": "d",
+          "text": "こんだて"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "そばに、ねぎやわさびなどの"
+        },
+        {
+          "text": "薬味"
+        },
+        {
+          "text": "を添えた。"
+        }
+      ],
+      "underline": "薬味",
+      "options": [
+        {
+          "id": "a",
+          "text": "やくあじ"
+        },
+        {
+          "id": "b",
+          "text": "やっみ"
+        },
+        {
+          "id": "c",
+          "text": "やくみ"
+        },
+        {
+          "id": "d",
+          "text": "くすりあじ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "料理を始める前に、材料の（　）をしておく。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "献立"
+        },
+        {
+          "id": "b",
+          "text": "下ごしらえ"
+        },
+        {
+          "id": "c",
+          "text": "吸い物"
+        },
+        {
+          "id": "d",
+          "text": "隠し味"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "ねぎを細かく（　）、スープに入れた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "刻んで"
+        },
+        {
+          "id": "b",
+          "text": "茹でて"
+        },
+        {
+          "id": "c",
+          "text": "漬けて"
+        },
+        {
+          "id": "d",
+          "text": "煮詰まって"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "シチューを、弱火で一時間"
+        },
+        {
+          "text": "煮込んだ"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "煮込んだ",
+      "options": [
+        {
+          "id": "a",
+          "text": "焼いた"
+        },
+        {
+          "id": "b",
+          "text": "混ぜた"
+        },
+        {
+          "id": "c",
+          "text": "冷やした"
+        },
+        {
+          "id": "d",
+          "text": "じっくり煮た"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "捌く"
+        }
+      ],
+      "underline": "捌く",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、学校を捌いた。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、駅まで自転車で捌いている。"
+        },
+        {
+          "id": "c",
+          "text": "友達の誕生日に、手紙を捌いた。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、大きな魚を手際よく捌いた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 23,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "二人は、抜き（　）抜かれつの接戦を続けた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ながら"
+        },
+        {
+          "id": "b",
+          "text": "ても"
+        },
+        {
+          "id": "c",
+          "text": "つ"
+        },
+        {
+          "id": "d",
+          "text": "たり"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 24,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼は ＿＿ ＿＿ ★ ＿＿ していた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "駅の"
+        },
+        {
+          "id": "b",
+          "text": "行きつ"
+        },
+        {
+          "id": "c",
+          "text": "戻りつ"
+        },
+        {
+          "id": "d",
+          "text": "前を"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "走っている途中で、足が"
+        },
+        {
+          "text": "痙攣"
+        },
+        {
+          "text": "を起こした。"
+        }
+      ],
+      "underline": "痙攣",
+      "options": [
+        {
+          "id": "a",
+          "text": "けいれ"
+        },
+        {
+          "id": "b",
+          "text": "けいらん"
+        },
+        {
+          "id": "c",
+          "text": "きょうれん"
+        },
+        {
+          "id": "d",
+          "text": "けいれん"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 26,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "転んで、ひざを"
+        },
+        {
+          "text": "打撲"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "打撲",
+      "options": [
+        {
+          "id": "a",
+          "text": "うちぼく"
+        },
+        {
+          "id": "b",
+          "text": "だぼう"
+        },
+        {
+          "id": "c",
+          "text": "だぼく"
+        },
+        {
+          "id": "d",
+          "text": "だはく"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 27,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "転んで、足の骨を（　）した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "骨折"
+        },
+        {
+          "id": "b",
+          "text": "打撲"
+        },
+        {
+          "id": "c",
+          "text": "捻挫"
+        },
+        {
+          "id": "d",
+          "text": "痙攣"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 28,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "長い時間正座をしていたら、足が（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "漬けた"
+        },
+        {
+          "id": "b",
+          "text": "しびれた"
+        },
+        {
+          "id": "c",
+          "text": "炒めた"
+        },
+        {
+          "id": "d",
+          "text": "刻んだ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 29,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "恥ずかしくて、顔が"
+        },
+        {
+          "text": "火照った"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "火照った",
+      "options": [
+        {
+          "id": "a",
+          "text": "痛くなった"
+        },
+        {
+          "id": "b",
+          "text": "熱くなった"
+        },
+        {
+          "id": "c",
+          "text": "かゆくなった"
+        },
+        {
+          "id": "d",
+          "text": "青くなった"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 30,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 4,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "むくむ"
+        }
+      ],
+      "underline": "むくむ",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達に、手紙をむくんだ。"
+        },
+        {
+          "id": "b",
+          "text": "一日中立ち仕事をしたら、足がむくんでしまった。"
+        },
+        {
+          "id": "c",
+          "text": "試験に合格して、とてもむくんだ。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、新聞をむくんでから出かける。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "みんなの前で約束した（　）、今さらやめるわけにはいかない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "手前"
+        },
+        {
+          "id": "b",
+          "text": "とは"
+        },
+        {
+          "id": "c",
+          "text": "だに"
+        },
+        {
+          "id": "d",
+          "text": "たりとも"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "子どもに ＿＿ ★ ＿＿ ＿＿ 守らないわけにはいかない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "注意した"
+        },
+        {
+          "id": "b",
+          "text": "ルールを"
+        },
+        {
+          "id": "c",
+          "text": "手前"
+        },
+        {
+          "id": "d",
+          "text": "自分も"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 33,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "昨年の決勝で負けた相手に、"
+        },
+        {
+          "text": "雪辱"
+        },
+        {
+          "text": "を果たした。"
+        }
+      ],
+      "underline": "雪辱",
+      "options": [
+        {
+          "id": "a",
+          "text": "せつじょく"
+        },
+        {
+          "id": "b",
+          "text": "せつぞく"
+        },
+        {
+          "id": "c",
+          "text": "せつにく"
+        },
+        {
+          "id": "d",
+          "text": "ゆきじょく"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 34,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "チームは、一点差で"
+        },
+        {
+          "text": "惜敗"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "惜敗",
+      "options": [
+        {
+          "id": "a",
+          "text": "しゃくはい"
+        },
+        {
+          "id": "b",
+          "text": "せっぱい"
+        },
+        {
+          "id": "c",
+          "text": "せきばい"
+        },
+        {
+          "id": "d",
+          "text": "せきはい"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 35,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "九回裏に二点を取り、見事に（　）勝ちした。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "延長戦"
+        },
+        {
+          "id": "b",
+          "text": "先制"
+        },
+        {
+          "id": "c",
+          "text": "逆転"
+        },
+        {
+          "id": "d",
+          "text": "圧勝"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 36,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "日本チームは、決勝で惜しくも（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "連覇した"
+        },
+        {
+          "id": "b",
+          "text": "敗れた"
+        },
+        {
+          "id": "c",
+          "text": "勝った"
+        },
+        {
+          "id": "d",
+          "text": "退場した"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 37,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼は、選挙で"
+        },
+        {
+          "text": "圧勝した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "圧勝した",
+      "options": [
+        {
+          "id": "a",
+          "text": "大差で勝った"
+        },
+        {
+          "id": "b",
+          "text": "引き分けた"
+        },
+        {
+          "id": "c",
+          "text": "負けた"
+        },
+        {
+          "id": "d",
+          "text": "ぎりぎりで勝った"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 38,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "反則"
+        }
+      ],
+      "underline": "反則",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、反則を飲んだ。"
+        },
+        {
+          "id": "b",
+          "text": "母は、夕食に反則を作った。"
+        },
+        {
+          "id": "c",
+          "text": "彼は反則を繰り返し、試合から退場させられた。"
+        },
+        {
+          "id": "d",
+          "text": "寒いので、反則を着て出かけた。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "富士山の頂上から見た景色の美しさ（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "たりとも"
+        },
+        {
+          "id": "b",
+          "text": "手前"
+        },
+        {
+          "id": "c",
+          "text": "だに"
+        },
+        {
+          "id": "d",
+          "text": "といったらない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "優勝が決まった瞬間の ＿＿ ＿＿ ★ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "うれしさ"
+        },
+        {
+          "id": "b",
+          "text": "ない"
+        },
+        {
+          "id": "c",
+          "text": "と"
+        },
+        {
+          "id": "d",
+          "text": "いったら"
+        }
+      ],
+      "correct_option_id": "d"
+    }
+  ]
+}
