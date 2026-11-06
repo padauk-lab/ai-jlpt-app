@@ -1,0 +1,1719 @@
+{
+  "session_number": 5,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "彼は、お金に目がくらんで"
+        },
+        {
+          "text": "堕落"
+        },
+        {
+          "text": "してしまった。"
+        }
+      ],
+      "underline": "堕落",
+      "options": [
+        {
+          "id": "a",
+          "text": "だらく"
+        },
+        {
+          "id": "b",
+          "text": "たらく"
+        },
+        {
+          "id": "c",
+          "text": "ついらく"
+        },
+        {
+          "id": "d",
+          "text": "だかく"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "検察は、その男を詐欺の罪で"
+        },
+        {
+          "text": "起訴"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "起訴",
+      "options": [
+        {
+          "id": "a",
+          "text": "きしょ"
+        },
+        {
+          "id": "b",
+          "text": "きそ"
+        },
+        {
+          "id": "c",
+          "text": "おきそ"
+        },
+        {
+          "id": "d",
+          "text": "きぞ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "新しい橋の工事が、来月"
+        },
+        {
+          "text": "着工"
+        },
+        {
+          "text": "する。"
+        }
+      ],
+      "underline": "着工",
+      "options": [
+        {
+          "id": "a",
+          "text": "ちゃっこう"
+        },
+        {
+          "id": "b",
+          "text": "ちゃくこう"
+        },
+        {
+          "id": "c",
+          "text": "じゃっこう"
+        },
+        {
+          "id": "d",
+          "text": "ちゃっく"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "第三者が"
+        },
+        {
+          "text": "仲裁"
+        },
+        {
+          "text": "に入り、争いは解決した。"
+        }
+      ],
+      "underline": "仲裁",
+      "options": [
+        {
+          "id": "a",
+          "text": "なかさい"
+        },
+        {
+          "id": "b",
+          "text": "ちゅうざい"
+        },
+        {
+          "id": "c",
+          "text": "ちゅさい"
+        },
+        {
+          "id": "d",
+          "text": "ちゅうさい"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "社長が、新入社員に"
+        },
+        {
+          "text": "祝辞"
+        },
+        {
+          "text": "を述べた。"
+        }
+      ],
+      "underline": "祝辞",
+      "options": [
+        {
+          "id": "a",
+          "text": "しゅくし"
+        },
+        {
+          "id": "b",
+          "text": "いわいじ"
+        },
+        {
+          "id": "c",
+          "text": "しゅうじ"
+        },
+        {
+          "id": "d",
+          "text": "しゅくじ"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "軍が出動して、暴動を"
+        },
+        {
+          "text": "鎮圧"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "鎮圧",
+      "options": [
+        {
+          "id": "a",
+          "text": "ちんあつ"
+        },
+        {
+          "id": "b",
+          "text": "ていあつ"
+        },
+        {
+          "id": "c",
+          "text": "じんあつ"
+        },
+        {
+          "id": "d",
+          "text": "ちんあい"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "大切なことなので、（　）に判断してください。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "軽率"
+        },
+        {
+          "id": "b",
+          "text": "粛々"
+        },
+        {
+          "id": "c",
+          "text": "卑劣"
+        },
+        {
+          "id": "d",
+          "text": "慎重"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "許可なくごみを山に捨てるのは（　）だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "冤罪"
+        },
+        {
+          "id": "b",
+          "text": "判例"
+        },
+        {
+          "id": "c",
+          "text": "量刑"
+        },
+        {
+          "id": "d",
+          "text": "違法"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "月の（　）は、地球の約六分の一だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "軌道"
+        },
+        {
+          "id": "b",
+          "text": "衛星"
+        },
+        {
+          "id": "c",
+          "text": "重力"
+        },
+        {
+          "id": "d",
+          "text": "天体"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "猫は（　）な動物で、呼んでも来ないことが多い。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "気さく"
+        },
+        {
+          "id": "b",
+          "text": "気長"
+        },
+        {
+          "id": "c",
+          "text": "気まぐれ"
+        },
+        {
+          "id": "d",
+          "text": "気品"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "一度の（　）であきらめず、何度でも挑戦しよう。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "達成"
+        },
+        {
+          "id": "b",
+          "text": "抱負"
+        },
+        {
+          "id": "c",
+          "text": "挫折"
+        },
+        {
+          "id": "d",
+          "text": "奮起"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "（　）で、近くの木が真っ二つに裂けた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "長雨"
+        },
+        {
+          "id": "b",
+          "text": "霜"
+        },
+        {
+          "id": "c",
+          "text": "濃霧"
+        },
+        {
+          "id": "d",
+          "text": "落雷"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "戦いに敗れた軍は、ついに（　）した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "侵攻"
+        },
+        {
+          "id": "b",
+          "text": "占領"
+        },
+        {
+          "id": "c",
+          "text": "降伏"
+        },
+        {
+          "id": "d",
+          "text": "鎮圧"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "このビルは、"
+        },
+        {
+          "text": "外観"
+        },
+        {
+          "text": "がとても美しい。"
+        }
+      ],
+      "underline": "外観",
+      "options": [
+        {
+          "id": "a",
+          "text": "外から見た様子"
+        },
+        {
+          "id": "b",
+          "text": "周りの景色"
+        },
+        {
+          "id": "c",
+          "text": "屋上"
+        },
+        {
+          "id": "d",
+          "text": "中の作り"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "二人の結婚の話は、"
+        },
+        {
+          "text": "破談に"
+        },
+        {
+          "text": "なった。"
+        }
+      ],
+      "underline": "破談に",
+      "options": [
+        {
+          "id": "a",
+          "text": "話題に"
+        },
+        {
+          "id": "b",
+          "text": "秘密に"
+        },
+        {
+          "id": "c",
+          "text": "取りやめに"
+        },
+        {
+          "id": "d",
+          "text": "決まり"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 7,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、学習への"
+        },
+        {
+          "text": "意欲"
+        },
+        {
+          "text": "が高い。"
+        }
+      ],
+      "underline": "意欲",
+      "options": [
+        {
+          "id": "a",
+          "text": "不安"
+        },
+        {
+          "id": "b",
+          "text": "やる気"
+        },
+        {
+          "id": "c",
+          "text": "時間"
+        },
+        {
+          "id": "d",
+          "text": "費用"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼は、結婚式で歌を"
+        },
+        {
+          "text": "披露した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "披露した",
+      "options": [
+        {
+          "id": "a",
+          "text": "人前で見せた"
+        },
+        {
+          "id": "b",
+          "text": "練習した"
+        },
+        {
+          "id": "c",
+          "text": "作った"
+        },
+        {
+          "id": "d",
+          "text": "録音した"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 9,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "運動会の当日は、"
+        },
+        {
+          "text": "晴天"
+        },
+        {
+          "text": "に恵まれた。"
+        }
+      ],
+      "underline": "晴天",
+      "options": [
+        {
+          "id": "a",
+          "text": "大勢の客"
+        },
+        {
+          "id": "b",
+          "text": "よく晴れた天気"
+        },
+        {
+          "id": "c",
+          "text": "静かな環境"
+        },
+        {
+          "id": "d",
+          "text": "涼しい風"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "会議が長引き、夜まで会社に"
+        },
+        {
+          "text": "拘束された"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "拘束された",
+      "options": [
+        {
+          "id": "a",
+          "text": "守られた"
+        },
+        {
+          "id": "b",
+          "text": "自由に動けなくされた"
+        },
+        {
+          "id": "c",
+          "text": "評価された"
+        },
+        {
+          "id": "d",
+          "text": "歓迎された"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "罰する"
+        }
+      ],
+      "underline": "罰する",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、薬を罰した。"
+        },
+        {
+          "id": "b",
+          "text": "法律に違反した者は、厳しく罰せられる。"
+        },
+        {
+          "id": "c",
+          "text": "友達の誕生日を、みんなで罰した。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、花に水を罰している。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "塗る"
+        }
+      ],
+      "underline": "塗る",
+      "options": [
+        {
+          "id": "a",
+          "text": "古い壁を、白いペンキで塗った。"
+        },
+        {
+          "id": "b",
+          "text": "熱があったので、学校を塗った。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、駅まで塗って歩く。"
+        },
+        {
+          "id": "d",
+          "text": "友達に、電話を塗った。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "詰める"
+        }
+      ],
+      "underline": "詰める",
+      "options": [
+        {
+          "id": "a",
+          "text": "かばんに荷物を詰めて、旅行に出かけた。"
+        },
+        {
+          "id": "b",
+          "text": "雨がやんで、空が詰めた。"
+        },
+        {
+          "id": "c",
+          "text": "夜空に、星が詰めている。"
+        },
+        {
+          "id": "d",
+          "text": "彼は毎朝、公園を詰めている。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 7,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "成し遂げる"
+        }
+      ],
+      "underline": "成し遂げる",
+      "options": [
+        {
+          "id": "a",
+          "text": "新しい靴を、駅で成し遂げた。"
+        },
+        {
+          "id": "b",
+          "text": "寒いので、窓を成し遂げた。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、コーヒーを成し遂げてから出かける。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、十年かけて大きな研究を成し遂げた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 9,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "曇る"
+        }
+      ],
+      "underline": "曇る",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼は、友達に手紙を曇った。"
+        },
+        {
+          "id": "b",
+          "text": "湯気で、眼鏡が曇ってしまった。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、犬を公園で曇っている。"
+        },
+        {
+          "id": "d",
+          "text": "料理に砂糖を少し曇った。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 4,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "輝く"
+        }
+      ],
+      "underline": "輝く",
+      "options": [
+        {
+          "id": "a",
+          "text": "母は毎朝、弁当を輝いている。"
+        },
+        {
+          "id": "b",
+          "text": "試験の結果を、先生に輝いた。"
+        },
+        {
+          "id": "c",
+          "text": "彼女の目は、喜びで輝いていた。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、駅まで走って輝いた。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "美術館の中で、作品に手を触れる（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に足る"
+        },
+        {
+          "id": "b",
+          "text": "べからず"
+        },
+        {
+          "id": "c",
+          "text": "ものを"
+        },
+        {
+          "id": "d",
+          "text": "ずとも"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "このあたりは、コンビニ（　）、自動販売機さえない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあれば"
+        },
+        {
+          "id": "b",
+          "text": "を限りに"
+        },
+        {
+          "id": "c",
+          "text": "にもまして"
+        },
+        {
+          "id": "d",
+          "text": "はおろか"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼の話は、まったく信用する（　）ものではない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあれば"
+        },
+        {
+          "id": "b",
+          "text": "を限りに"
+        },
+        {
+          "id": "c",
+          "text": "ともなく"
+        },
+        {
+          "id": "d",
+          "text": "に足る"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "長年続いたこの番組も、今月（　）終了する。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあれば"
+        },
+        {
+          "id": "b",
+          "text": "はおろか"
+        },
+        {
+          "id": "c",
+          "text": "を限りに"
+        },
+        {
+          "id": "d",
+          "text": "にもまして"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "お客様のご要望（　）、どんなことでもいたします。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "はおろか"
+        },
+        {
+          "id": "b",
+          "text": "ずとも"
+        },
+        {
+          "id": "c",
+          "text": "とあれば"
+        },
+        {
+          "id": "d",
+          "text": "を限りに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "聞く（　）聞いていたラジオから、懐かしい曲が流れてきた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ずとも"
+        },
+        {
+          "id": "b",
+          "text": "んがため"
+        },
+        {
+          "id": "c",
+          "text": "ともなく"
+        },
+        {
+          "id": "d",
+          "text": "べからず"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "彼は、記録を破ら（　）、毎日厳しい練習を続けた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "んがため"
+        },
+        {
+          "id": "b",
+          "text": "ずとも"
+        },
+        {
+          "id": "c",
+          "text": "ともなく"
+        },
+        {
+          "id": "d",
+          "text": "ものを"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "何（　）健康が一番大切だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "にもまして"
+        },
+        {
+          "id": "b",
+          "text": "を限りに"
+        },
+        {
+          "id": "c",
+          "text": "とあれば"
+        },
+        {
+          "id": "d",
+          "text": "はおろか"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "説明され（　）、使い方はすぐにわかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "んがため"
+        },
+        {
+          "id": "b",
+          "text": "ものを"
+        },
+        {
+          "id": "c",
+          "text": "ともなく"
+        },
+        {
+          "id": "d",
+          "text": "ずとも"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "一言謝れば許してあげた（　）、彼は最後まで謝らなかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ともなく"
+        },
+        {
+          "id": "b",
+          "text": "にもまして"
+        },
+        {
+          "id": "c",
+          "text": "ものを"
+        },
+        {
+          "id": "d",
+          "text": "ずとも"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "忙しくて、旅行（　）、近所の公園に行く時間もない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "にもまして"
+        },
+        {
+          "id": "b",
+          "text": "はおろか"
+        },
+        {
+          "id": "c",
+          "text": "を限りに"
+        },
+        {
+          "id": "d",
+          "text": "とあれば"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "彼は、その試合（　）現役を引退した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあれば"
+        },
+        {
+          "id": "b",
+          "text": "にもまして"
+        },
+        {
+          "id": "c",
+          "text": "を限りに"
+        },
+        {
+          "id": "d",
+          "text": "はおろか"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "考える（　）考えているうちに、いい案が浮かんだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ものを"
+        },
+        {
+          "id": "b",
+          "text": "ともなく"
+        },
+        {
+          "id": "c",
+          "text": "べからず"
+        },
+        {
+          "id": "d",
+          "text": "ずとも"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "今年の新入社員は、例年（　）優秀だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ずとも"
+        },
+        {
+          "id": "b",
+          "text": "はおろか"
+        },
+        {
+          "id": "c",
+          "text": "とあれば"
+        },
+        {
+          "id": "d",
+          "text": "にもまして"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "黙っていればわからなかった（　）、自分から話してしまった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ものを"
+        },
+        {
+          "id": "b",
+          "text": "ともなく"
+        },
+        {
+          "id": "c",
+          "text": "ずとも"
+        },
+        {
+          "id": "d",
+          "text": "にもまして"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "＿＿ ＿＿ ★ ＿＿ 。（工事現場の看板）"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "べからず"
+        },
+        {
+          "id": "b",
+          "text": "立ち入る"
+        },
+        {
+          "id": "c",
+          "text": "以外"
+        },
+        {
+          "id": "d",
+          "text": "関係者"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "彼は、＿＿ ★ ＿＿ ＿＿ だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "に"
+        },
+        {
+          "id": "b",
+          "text": "人物"
+        },
+        {
+          "id": "c",
+          "text": "尊敬する"
+        },
+        {
+          "id": "d",
+          "text": "足る"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "家族の ＿＿ ＿＿ ★ ＿＿ やり遂げてみせる。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とあれば"
+        },
+        {
+          "id": "b",
+          "text": "どんな仕事でも"
+        },
+        {
+          "id": "c",
+          "text": "ため"
+        },
+        {
+          "id": "d",
+          "text": "幸せの"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "勝た ＿＿ ★ ＿＿ ＿＿ 、選手たちは厳しい練習に耐えた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ため"
+        },
+        {
+          "id": "b",
+          "text": "が"
+        },
+        {
+          "id": "c",
+          "text": "に"
+        },
+        {
+          "id": "d",
+          "text": "ん"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "そんなに ＿＿ ★ ＿＿ ＿＿ 、答えはもうわかっている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "何度も"
+        },
+        {
+          "id": "b",
+          "text": "ず"
+        },
+        {
+          "id": "c",
+          "text": "説明され"
+        },
+        {
+          "id": "d",
+          "text": "とも"
+        }
+      ],
+      "correct_option_id": "c"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "子どもに勉強をさせようとして、親が細かく指示を出しすぎることがある。しかし、言われたことだけをこなす習慣が身につくと、子どもは自分で考えて行動する力を育てにくい。大切なのは、目標を一緒に決めたうえで、やり方は子どもに任せることだ。失敗しても、それを責めるのではなく、次にどうするかを一緒に考えればいい。自分で選び、自分で責任を持つ経験こそが、自律した人間を育てるのである。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "子どもにやり方を任せ、自分で考える経験をさせるべきだ。"
+            },
+            {
+              "id": "b",
+              "text": "子どもが失敗したら、厳しく注意するべきだ。"
+            },
+            {
+              "id": "c",
+              "text": "目標は、子どもが一人で決めるべきだ。"
+            },
+            {
+              "id": "d",
+              "text": "子どもには、親が細かく指示を出したほうがいい。"
+            }
+          ],
+          "correct_option_id": "a"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "都会で暮らしていると、夜空を見上げても星はほとんど見えない。街の明かりが空を照らし、暗い星の光をかき消してしまうからだ。こうした現象は「光害」と呼ばれている。\n先日、私は山奥にある小さな村を訪れた。そこは、国内でも有数の、星がよく見える場所として知られている。夜になると、空一面に無数の星が瞬き、天の川がはっきりと見えた。都会の空しか知らなかった私は、言葉を失うほど感動した。\nこの村では、星空を守るために、住民が協力して街灯の向きを下に変えたり、夜遅くには不要な明かりを消したりしている。最初は「暗くて危ない」と反対する声もあったそうだ。しかし、星空を目当てに訪れる観光客が増え、村に活気が戻ってきたことで、今では多くの住民がこの取り組みを誇りに思っているという。\n明かりは、私たちの生活を便利で安全なものにしてくれる。しかし、明るさを追い求めるあまり、失ってしまったものもあるのではないだろうか。夜空を見上げながら、私はそんなことを考えていた。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "都会で星がほとんど見えないのはなぜか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "高い建物が、空をさえぎっているから"
+            },
+            {
+              "id": "b",
+              "text": "都会の空気が汚れているから"
+            },
+            {
+              "id": "c",
+              "text": "街の明かりが、星の光を見えにくくしているから"
+            },
+            {
+              "id": "d",
+              "text": "都会の人が、夜空を見上げなくなったから"
+            }
+          ],
+          "correct_option_id": "c"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "村の住民が星空を守るために行っていることはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "街灯の向きを変えたり、夜遅くに明かりを消したりしている。"
+            },
+            {
+              "id": "b",
+              "text": "夜は外出しないようにしている。"
+            },
+            {
+              "id": "c",
+              "text": "観光客の数を制限している。"
+            },
+            {
+              "id": "d",
+              "text": "新しい天文台を建てている。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "村の取り組みについて、住民の気持ちはどう変わったか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "観光客が増えすぎて、困っている人が多い。"
+            },
+            {
+              "id": "b",
+              "text": "初めは反対もあったが、今は多くの人が誇りに思っている。"
+            },
+            {
+              "id": "c",
+              "text": "初めは賛成していたが、今は反対する人が多い。"
+            },
+            {
+              "id": "d",
+              "text": "初めから全員が賛成していた。"
+            }
+          ],
+          "correct_option_id": "b"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "仕事で交渉の場に立つと、多くの人は「どうすれば相手に勝てるか」を考える。自分の要求をできるだけ通し、相手の要求はできるだけ退ける。それが上手な交渉だと思われがちだ。しかし、長年さまざまな企業との交渉に携わってきた私は、その考え方に疑問を持っている。\n若いころ、私はある取引先との交渉で、相手に大幅な値下げを受け入れさせたことがある。上司にはほめられ、私自身も得意になっていた。ところが、その取引先は翌年、私たちとの契約を更新しなかった。後で聞いたところによると、無理な条件を押しつけられたことに、先方は強い不満を抱いていたという。一度の交渉で得をしても、相手との信頼関係を失えば、結局は大きな損になる。そのとき私は、交渉の目的を取り違えていたことに気づいた。\nそれ以来、私は交渉の前に、相手が本当に求めているものは何かを考えるようにしている。表に出ている要求の裏には、別の事情が隠れていることが多い。たとえば、価格にこだわっているように見える相手が、実は支払いの時期を気にしていることもある。相手の事情がわかれば、価格を下げずに支払いの条件を変えるなど、お互いが納得できる案を探すことができる。\nもちろん、すべての交渉がうまくいくわけではない。どうしても譲れない点もあるし、相手が一歩も引かないこともある。そうしたときには、無理にまとめようとせず、交渉を打ち切る勇気も必要だ。合意しないことも、一つの立派な結論なのである。\n交渉とは、相手を打ち負かすための戦いではない。お互いの利益を探り、長く続く関係を築くための話し合いだ。そう考えるようになってから、私の交渉は以前よりも時間がかかるようになった。しかし、取引先との関係は、ずっと良いものになったと感じている。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "筆者が若いころの交渉を失敗だったと考えているのはなぜか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "上司の指示に従わずに交渉を進めたから"
+            },
+            {
+              "id": "b",
+              "text": "交渉に時間をかけすぎて、契約が遅れたから"
+            },
+            {
+              "id": "c",
+              "text": "値下げを受け入れさせることができなかったから"
+            },
+            {
+              "id": "d",
+              "text": "相手に無理な条件を押しつけたため、信頼を失ったから"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、交渉の前にどのようなことをするようにしているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "上司と値下げの限度を決めておく。"
+            },
+            {
+              "id": "b",
+              "text": "相手の会社の弱点を調べる。"
+            },
+            {
+              "id": "c",
+              "text": "自分の要求を、できるだけ多く用意する。"
+            },
+            {
+              "id": "d",
+              "text": "相手が本当に求めているものは何かを考える。"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、交渉がまとまらないときについてどう考えているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "上司に任せたほうがいい。"
+            },
+            {
+              "id": "b",
+              "text": "無理にまとめず、交渉をやめることも一つの結論だ。"
+            },
+            {
+              "id": "c",
+              "text": "どんな条件でも、必ず合意するべきだ。"
+            },
+            {
+              "id": "d",
+              "text": "相手が引くまで、交渉を続けるべきだ。"
+            }
+          ],
+          "correct_option_id": "b"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "筆者が最も言いたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "値下げを求められたら、すぐに応じるべきだ。"
+            },
+            {
+              "id": "b",
+              "text": "交渉では、相手に勝つことが最も大切だ。"
+            },
+            {
+              "id": "c",
+              "text": "交渉には、できるだけ時間をかけないほうがいい。"
+            },
+            {
+              "id": "d",
+              "text": "交渉は、お互いの利益を探り、長い関係を築くための話し合いだ。"
+            }
+          ],
+          "correct_option_id": "d"
+        }
+      ]
+    }
+  ]
+}

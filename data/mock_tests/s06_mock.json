@@ -1,0 +1,1719 @@
+{
+  "session_number": 6,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "今月の家計の"
+        },
+        {
+          "text": "収支"
+        },
+        {
+          "text": "を計算した。"
+        }
+      ],
+      "underline": "収支",
+      "options": [
+        {
+          "id": "a",
+          "text": "おさし"
+        },
+        {
+          "id": "b",
+          "text": "しゅし"
+        },
+        {
+          "id": "c",
+          "text": "しゅうし"
+        },
+        {
+          "id": "d",
+          "text": "しゅうじ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "風邪をひいたのか、"
+        },
+        {
+          "text": "悪寒"
+        },
+        {
+          "text": "がする。"
+        }
+      ],
+      "underline": "悪寒",
+      "options": [
+        {
+          "id": "a",
+          "text": "あっかん"
+        },
+        {
+          "id": "b",
+          "text": "わるさむ"
+        },
+        {
+          "id": "c",
+          "text": "あくかん"
+        },
+        {
+          "id": "d",
+          "text": "おかん"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "学生でなくても、この授業を"
+        },
+        {
+          "text": "聴講"
+        },
+        {
+          "text": "できる。"
+        }
+      ],
+      "underline": "聴講",
+      "options": [
+        {
+          "id": "a",
+          "text": "ていこう"
+        },
+        {
+          "id": "b",
+          "text": "ちょうごう"
+        },
+        {
+          "id": "c",
+          "text": "ちょうこう"
+        },
+        {
+          "id": "d",
+          "text": "ちょうこ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "新聞社の"
+        },
+        {
+          "text": "特派員"
+        },
+        {
+          "text": "として、ロンドンに赴任した。"
+        }
+      ],
+      "underline": "特派員",
+      "options": [
+        {
+          "id": "a",
+          "text": "とくばいん"
+        },
+        {
+          "id": "b",
+          "text": "とくはん"
+        },
+        {
+          "id": "c",
+          "text": "とくはいん"
+        },
+        {
+          "id": "d",
+          "text": "とっぱいん"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 7,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "戦争は、人々の心に深い"
+        },
+        {
+          "text": "憎悪"
+        },
+        {
+          "text": "を残した。"
+        }
+      ],
+      "underline": "憎悪",
+      "options": [
+        {
+          "id": "a",
+          "text": "にくお"
+        },
+        {
+          "id": "b",
+          "text": "ぞうあく"
+        },
+        {
+          "id": "c",
+          "text": "ぞうお"
+        },
+        {
+          "id": "d",
+          "text": "そうお"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "祖父の葬儀には、遠い"
+        },
+        {
+          "text": "縁者"
+        },
+        {
+          "text": "まで集まった。"
+        }
+      ],
+      "underline": "縁者",
+      "options": [
+        {
+          "id": "a",
+          "text": "えんもの"
+        },
+        {
+          "id": "b",
+          "text": "ふちしゃ"
+        },
+        {
+          "id": "c",
+          "text": "えんしゃ"
+        },
+        {
+          "id": "d",
+          "text": "えんじゃ"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "（　）が続き、商店街の多くの店が閉店した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "不景気"
+        },
+        {
+          "id": "b",
+          "text": "黒字"
+        },
+        {
+          "id": "c",
+          "text": "好景気"
+        },
+        {
+          "id": "d",
+          "text": "急騰"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "祖父は、腰痛という（　）を抱えている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "臨床"
+        },
+        {
+          "id": "b",
+          "text": "副作用"
+        },
+        {
+          "id": "c",
+          "text": "予防"
+        },
+        {
+          "id": "d",
+          "text": "持病"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "大学の（　）は、九十分で一コマだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "学説"
+        },
+        {
+          "id": "b",
+          "text": "学位"
+        },
+        {
+          "id": "c",
+          "text": "講義"
+        },
+        {
+          "id": "d",
+          "text": "博識"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "米や麦などの（　）は、主食として食べられている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "害虫"
+        },
+        {
+          "id": "b",
+          "text": "穀物"
+        },
+        {
+          "id": "c",
+          "text": "堆肥"
+        },
+        {
+          "id": "d",
+          "text": "苗床"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "試合に勝った監督は、一日中（　）だった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "憂鬱"
+        },
+        {
+          "id": "b",
+          "text": "上機嫌"
+        },
+        {
+          "id": "c",
+          "text": "失意"
+        },
+        {
+          "id": "d",
+          "text": "傷心"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 8,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "この技術は、すでに（　）化されている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "動力"
+        },
+        {
+          "id": "b",
+          "text": "試作"
+        },
+        {
+          "id": "c",
+          "text": "演算"
+        },
+        {
+          "id": "d",
+          "text": "実用"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "はげ山に木を植える（　）活動に参加した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "排気"
+        },
+        {
+          "id": "b",
+          "text": "伐採"
+        },
+        {
+          "id": "c",
+          "text": "廃棄"
+        },
+        {
+          "id": "d",
+          "text": "植林"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 1,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "彼は、友人が始めた新しい会社に"
+        },
+        {
+          "text": "出資した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "出資した",
+      "options": [
+        {
+          "id": "a",
+          "text": "就職した"
+        },
+        {
+          "id": "b",
+          "text": "名前を貸した"
+        },
+        {
+          "id": "c",
+          "text": "意見を出した"
+        },
+        {
+          "id": "d",
+          "text": "お金を出した"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "祖父は、広い"
+        },
+        {
+          "text": "田畑"
+        },
+        {
+          "text": "を持っている。"
+        }
+      ],
+      "underline": "田畑",
+      "options": [
+        {
+          "id": "a",
+          "text": "山と森"
+        },
+        {
+          "id": "b",
+          "text": "田んぼと畑"
+        },
+        {
+          "id": "c",
+          "text": "牛と馬"
+        },
+        {
+          "id": "d",
+          "text": "家と庭"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 6,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、"
+        },
+        {
+          "text": "朗らかな"
+        },
+        {
+          "text": "人だ。"
+        }
+      ],
+      "underline": "朗らかな",
+      "options": [
+        {
+          "id": "a",
+          "text": "明るく楽しい"
+        },
+        {
+          "id": "b",
+          "text": "頭のいい"
+        },
+        {
+          "id": "c",
+          "text": "静かでおとなしい"
+        },
+        {
+          "id": "d",
+          "text": "まじめで厳しい"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 7,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "社長は、その報告を聞いて"
+        },
+        {
+          "text": "激怒した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "激怒した",
+      "options": [
+        {
+          "id": "a",
+          "text": "驚いて黙った"
+        },
+        {
+          "id": "b",
+          "text": "とても喜んだ"
+        },
+        {
+          "id": "c",
+          "text": "ひどく怒った"
+        },
+        {
+          "id": "d",
+          "text": "深く悲しんだ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "彼は、職人としての"
+        },
+        {
+          "text": "技量"
+        },
+        {
+          "text": "が高い。"
+        }
+      ],
+      "underline": "技量",
+      "options": [
+        {
+          "id": "a",
+          "text": "年齢"
+        },
+        {
+          "id": "b",
+          "text": "腕前"
+        },
+        {
+          "id": "c",
+          "text": "給料"
+        },
+        {
+          "id": "d",
+          "text": "評判"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 10,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、事故で"
+        },
+        {
+          "text": "肉親"
+        },
+        {
+          "text": "を亡くした。"
+        }
+      ],
+      "underline": "肉親",
+      "options": [
+        {
+          "id": "a",
+          "text": "血のつながった家族"
+        },
+        {
+          "id": "b",
+          "text": "親しい友人"
+        },
+        {
+          "id": "c",
+          "text": "近所の人"
+        },
+        {
+          "id": "d",
+          "text": "仕事の仲間"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "反発"
+        }
+      ],
+      "underline": "反発",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、駅まで反発している。"
+        },
+        {
+          "id": "b",
+          "text": "新しい規則に、多くの社員が反発した。"
+        },
+        {
+          "id": "c",
+          "text": "料理に塩を少し反発した。"
+        },
+        {
+          "id": "d",
+          "text": "友達の誕生日を、みんなで反発した。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "予防"
+        }
+      ],
+      "underline": "予防",
+      "options": [
+        {
+          "id": "a",
+          "text": "試験に合格して、とても予防した。"
+        },
+        {
+          "id": "b",
+          "text": "手洗いは、風邪の予防に効果がある。"
+        },
+        {
+          "id": "c",
+          "text": "彼は友達に、手紙を予防した。"
+        },
+        {
+          "id": "d",
+          "text": "寒いので、窓を予防した。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "受講"
+        }
+      ],
+      "underline": "受講",
+      "options": [
+        {
+          "id": "a",
+          "text": "雨が降ってきたので、傘を受講した。"
+        },
+        {
+          "id": "b",
+          "text": "この講座は、誰でも無料で受講できる。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、犬を受講して散歩する。"
+        },
+        {
+          "id": "d",
+          "text": "新しい靴を受講して、出かけた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "公表"
+        }
+      ],
+      "underline": "公表",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達と公園で、公表して遊んだ。"
+        },
+        {
+          "id": "b",
+          "text": "会社は、事故の原因を記者会見で公表した。"
+        },
+        {
+          "id": "c",
+          "text": "熱があったので、薬を公表した。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、花に水を公表している。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 9,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "再生"
+        }
+      ],
+      "underline": "再生",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達に、誕生日のケーキを再生した。"
+        },
+        {
+          "id": "b",
+          "text": "彼は毎朝、駅まで再生している。"
+        },
+        {
+          "id": "c",
+          "text": "古い紙を再生して、新しいノートを作った。"
+        },
+        {
+          "id": "d",
+          "text": "試験に合格して、とても再生した。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 6,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "晴れやか"
+        }
+      ],
+      "underline": "晴れやか",
+      "options": [
+        {
+          "id": "a",
+          "text": "母は、晴れやかを作って待っていた。"
+        },
+        {
+          "id": "b",
+          "text": "卒業式の日、彼女は晴れやかな顔をしていた。"
+        },
+        {
+          "id": "c",
+          "text": "彼は友達に、晴れやかを貸した。"
+        },
+        {
+          "id": "d",
+          "text": "寒いので、晴れやかを着て出かけた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "あの人に話した（　）、すぐにみんなに広まってしまう。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "こととて"
+        },
+        {
+          "id": "b",
+          "text": "ところで"
+        },
+        {
+          "id": "c",
+          "text": "しまつで"
+        },
+        {
+          "id": "d",
+          "text": "が最後"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼女は大学で教える（　）、翻訳の仕事もしている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が最後"
+        },
+        {
+          "id": "b",
+          "text": "たところで"
+        },
+        {
+          "id": "c",
+          "text": "しまつで"
+        },
+        {
+          "id": "d",
+          "text": "かたわら"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "買い物（　）、駅前を少し散歩した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "こととて"
+        },
+        {
+          "id": "b",
+          "text": "すら"
+        },
+        {
+          "id": "c",
+          "text": "がてら"
+        },
+        {
+          "id": "d",
+          "text": "が最後"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "退院の報告（　）、先生にお礼の手紙を書いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "かたがた"
+        },
+        {
+          "id": "b",
+          "text": "からある"
+        },
+        {
+          "id": "c",
+          "text": "しまつ"
+        },
+        {
+          "id": "d",
+          "text": "すら"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "彼は、百キロ（　）道のりを歩き通した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "すら"
+        },
+        {
+          "id": "b",
+          "text": "からある"
+        },
+        {
+          "id": "c",
+          "text": "かたわら"
+        },
+        {
+          "id": "d",
+          "text": "が最後"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "初めての（　）、うまくできなくてすみません。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が最後"
+        },
+        {
+          "id": "b",
+          "text": "こととて"
+        },
+        {
+          "id": "c",
+          "text": "たところで"
+        },
+        {
+          "id": "d",
+          "text": "かたわら"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "せっかく買った新しい傘を、その日のうちに電車に忘れてくる（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "しまつだ"
+        },
+        {
+          "id": "b",
+          "text": "が最後だ"
+        },
+        {
+          "id": "c",
+          "text": "からある"
+        },
+        {
+          "id": "d",
+          "text": "かたわらだ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "会社に大きな損害を与えたのだから、責任を取ら（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "こととて"
+        },
+        {
+          "id": "b",
+          "text": "しまつだ"
+        },
+        {
+          "id": "c",
+          "text": "すら"
+        },
+        {
+          "id": "d",
+          "text": "ずにはすまない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼は、自分の名前（　）書けないほど疲れていた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "すら"
+        },
+        {
+          "id": "b",
+          "text": "かたわら"
+        },
+        {
+          "id": "c",
+          "text": "が最後"
+        },
+        {
+          "id": "d",
+          "text": "からある"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "今さら後悔した（　）、どうにもならない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ところで"
+        },
+        {
+          "id": "b",
+          "text": "こととて"
+        },
+        {
+          "id": "c",
+          "text": "かたわら"
+        },
+        {
+          "id": "d",
+          "text": "しまつで"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "この子は、一度泣き出した（　）、なかなか泣きやまない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が最後"
+        },
+        {
+          "id": "b",
+          "text": "しまつで"
+        },
+        {
+          "id": "c",
+          "text": "すら"
+        },
+        {
+          "id": "d",
+          "text": "こととて"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "父は、農業を営む（　）、地域の消防団でも活動している。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "かたわら"
+        },
+        {
+          "id": "b",
+          "text": "こととて"
+        },
+        {
+          "id": "c",
+          "text": "すら"
+        },
+        {
+          "id": "d",
+          "text": "しまつで"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "その船は、全長三百メートル（　）大型客船だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "かたわら"
+        },
+        {
+          "id": "b",
+          "text": "すら"
+        },
+        {
+          "id": "c",
+          "text": "が最後"
+        },
+        {
+          "id": "d",
+          "text": "からある"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "息子は、注意しても聞かないどころか、最近では言い返してくる（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ずにはすまない"
+        },
+        {
+          "id": "b",
+          "text": "からある"
+        },
+        {
+          "id": "c",
+          "text": "こととてだ"
+        },
+        {
+          "id": "d",
+          "text": "しまつだ"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "子どもで（　）知っていることを、大人の彼が知らないとは驚いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "かたわら"
+        },
+        {
+          "id": "b",
+          "text": "が最後"
+        },
+        {
+          "id": "c",
+          "text": "からある"
+        },
+        {
+          "id": "d",
+          "text": "すら"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "天気がいいので、＿＿ ＿＿ ★ ＿＿ 、図書館まで本を返しに行った。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "し"
+        },
+        {
+          "id": "c",
+          "text": "がてら"
+        },
+        {
+          "id": "d",
+          "text": "散歩"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "この池には、＿＿ ★ ＿＿ ＿＿ 魚がいるらしい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "から"
+        },
+        {
+          "id": "b",
+          "text": "一メートル"
+        },
+        {
+          "id": "c",
+          "text": "ある"
+        },
+        {
+          "id": "d",
+          "text": "大きな"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "＿＿ ＿＿ ★ ＿＿ 、何のおもてなしもできませんが。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "村の"
+        },
+        {
+          "id": "b",
+          "text": "こととて"
+        },
+        {
+          "id": "c",
+          "text": "小さな"
+        },
+        {
+          "id": "d",
+          "text": "山奥の"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "これだけ ＿＿ ＿＿ ★ ＿＿ だろう。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "大きな"
+        },
+        {
+          "id": "b",
+          "text": "事故を"
+        },
+        {
+          "id": "c",
+          "text": "起こせば"
+        },
+        {
+          "id": "d",
+          "text": "処分されずにはすまない"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "どんなに ＿＿ ★ ＿＿ ＿＿ 、あの人には勝てない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "で"
+        },
+        {
+          "id": "b",
+          "text": "練習"
+        },
+        {
+          "id": "c",
+          "text": "した"
+        },
+        {
+          "id": "d",
+          "text": "ところ"
+        }
+      ],
+      "correct_option_id": "c"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "近年、海に流れ込むプラスチックごみが大きな問題になっている。細かく砕けたプラスチックは魚や鳥の体内に取り込まれ、やがて私たちの食卓にも戻ってくる。海から遠く離れた山の中ですら、雨とともに降ってきた小さなプラスチックが見つかっているという。一人ひとりがごみを減らす努力は、もちろん大切だ。しかし、それだけでは限界がある。企業が製品を作る段階から、使い捨てにならない形を考えることが求められている。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "プラスチックごみの問題は、海の近くだけで起きている。"
+            },
+            {
+              "id": "b",
+              "text": "一人ひとりが努力すれば、問題は解決する。"
+            },
+            {
+              "id": "c",
+              "text": "ごみを減らすには、個人の努力に加えて企業の取り組みも必要だ。"
+            },
+            {
+              "id": "d",
+              "text": "プラスチックは、魚や鳥には害がない。"
+            }
+          ],
+          "correct_option_id": "c"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "山あいの小さな町で、四十年近く診療所を続けてきた医師がいる。町に病院はここ一つしかなく、患者の多くは高齢者だ。\n医師の一日は、朝早くから始まる。診療所で患者を診るかたわら、昼休みには、歩いて通えない人の家を一軒一軒訪ね、体の具合を確かめる。夜中に電話で呼び出されることも珍しくない。\n「大きな病院のような設備はないし、難しい手術もできない。でも、ここでは患者の暮らしがよく見えるんです」と医師は話す。同じ病気でも、一人で暮らしている人と家族と暮らしている人とでは、必要な治療や支えは違ってくる。長年同じ町で暮らしてきたからこそ、患者の家族や生活の様子まで知ったうえで、一人ひとりに合った方法を考えられるのだという。\n最近、この医師のもとで研修を受ける若い医師が増えている。最新の医療技術を学ぶことは、もちろん大切だ。しかし、病気だけでなく、その人の暮らし全体を診るという姿勢は、どこで働く医師にとっても欠かせないものだろう。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "医師は、診療所で患者を診るほかに、どのようなことをしているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "町の人に、健康についての講演をしている。"
+            },
+            {
+              "id": "b",
+              "text": "通えない人の家を訪ねて、体の具合を確かめている。"
+            },
+            {
+              "id": "c",
+              "text": "大きな病院で、手術をしている。"
+            },
+            {
+              "id": "d",
+              "text": "若い医師に、最新の技術を教えている。"
+            }
+          ],
+          "correct_option_id": "b"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "医師が「患者の暮らしがよく見える」ことを大切にしているのはなぜか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "患者が、医師に何でも話してくれるから"
+            },
+            {
+              "id": "b",
+              "text": "町に病院が一つしかないから"
+            },
+            {
+              "id": "c",
+              "text": "暮らし方によって、必要な治療や支えが違うから"
+            },
+            {
+              "id": "d",
+              "text": "大きな病院より、設備が整っているから"
+            }
+          ],
+          "correct_option_id": "c"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "筆者が最も伝えたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "高齢者は、家族と暮らしたほうがいい。"
+            },
+            {
+              "id": "b",
+              "text": "最新の医療技術を学ぶことが、何より大切だ。"
+            },
+            {
+              "id": "c",
+              "text": "地方の医師は、大きな病院で研修を受けるべきだ。"
+            },
+            {
+              "id": "d",
+              "text": "病気だけでなく、患者の暮らし全体を見ることが大切だ。"
+            }
+          ],
+          "correct_option_id": "d"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "私の実家は、祖父の代から続く小さな和菓子屋だ。子どものころから、店の奥で父があんこを炊く姿を見て育った。一人息子の私が店を継ぐのは当然だと、周りの誰もが思っていたし、私自身もそう思い込んでいた。\nところが、高校生になるころ、私は店を継ぐことに疑問を感じ始めた。友人たちは、それぞれ自分の夢を語っていた。医者になりたい者、海外で働きたい者。それに比べて、生まれたときから進む道が決まっている自分が、急につまらなく思えたのだ。私は父に、店は継がずに大学で工学を学びたいと伝えた。父は何も言わなかったが、その背中が少し小さく見えたのを覚えている。\n大学を出た私は、メーカーで機械の設計の仕事に就いた。仕事はやりがいがあり、毎日が充実していた。しかし、三十歳を過ぎたころ、父が体を壊して入院した。店は閉めるしかないという母の言葉を聞いて、私は自分でも意外なほど動揺した。祖父と父が守ってきた味が、このまま消えてしまう。そう思うと、いても立ってもいられなかった。\n悩んだ末、私は会社を辞めて店に戻ることにした。とはいえ、和菓子作りは素人同然だ。退院した父に一から教わる日々が始まった。父の教え方は厳しく、何度失敗したかわからない。それでも不思議と、嫌だとは思わなかった。自分で選んだ道だからだろう。\n店に戻って五年がたった。最近は、設計の仕事で身につけた考え方を生かして、材料の配合を記録し、味が安定するように工夫している。伝統の味を守りながら、新しいやり方も取り入れる。それが、私なりの店の継ぎ方なのだと思う。\nもし高校生のときに、言われるまま店を継いでいたら、私は今ほどこの仕事を大切に思えなかったかもしれない。一度離れたからこそ、家業の重みに気づけたのだ。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "筆者が高校生のころ、店を継ぐことに疑問を感じたのはなぜか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "進む道が初めから決まっていることが、つまらなく思えたから"
+            },
+            {
+              "id": "b",
+              "text": "父に、店を継ぐなと言われたから"
+            },
+            {
+              "id": "c",
+              "text": "和菓子作りが、体力的に大変だと思ったから"
+            },
+            {
+              "id": "d",
+              "text": "店の売り上げが、年々減っていたから"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "筆者が会社を辞めて店に戻ることにしたきっかけは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "父が入院し、店がなくなるかもしれないと知ったこと"
+            },
+            {
+              "id": "b",
+              "text": "和菓子作りの技術を、大学で学んだこと"
+            },
+            {
+              "id": "c",
+              "text": "母に、店を継ぐように強く頼まれたこと"
+            },
+            {
+              "id": "d",
+              "text": "設計の仕事に、やりがいを感じなくなったこと"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、店に戻ってから、どのような工夫をしているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "材料の配合を記録して、味が安定するようにしている。"
+            },
+            {
+              "id": "b",
+              "text": "祖父の代の和菓子を、すべて作り直している。"
+            },
+            {
+              "id": "c",
+              "text": "機械を使って、和菓子を大量に作っている。"
+            },
+            {
+              "id": "d",
+              "text": "店を広げて、新しい客を増やしている。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "筆者が最も言いたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "子どもは、親の仕事を継がないほうがいい。"
+            },
+            {
+              "id": "b",
+              "text": "和菓子作りには、工学の知識が欠かせない。"
+            },
+            {
+              "id": "c",
+              "text": "一度家業を離れたからこそ、その大切さに気づけた。"
+            },
+            {
+              "id": "d",
+              "text": "家業は、子どもが継ぐのが当然だ。"
+            }
+          ],
+          "correct_option_id": "c"
+        }
+      ]
+    }
+  ]
+}
