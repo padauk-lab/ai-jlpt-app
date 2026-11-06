@@ -127,8 +127,10 @@ export default function UnitScreen() {
         router.replace({ pathname: '/unit/[id]', params: { id: String(next.id) } });
       } else if (next?.type === 'quiz') {
         router.replace({ pathname: '/quiz/[id]', params: { id: String(next.id) } });
+      } else if (next?.type === 'mock_test') {
+        router.replace({ pathname: '/mock/[id]', params: { id: String(next.id), session: String(unit.session_number) } });
       } else {
-        router.back(); // mock test (screen not built yet) or nothing next: back to the map
+        router.back(); // nothing next: back to the map
       }
     } catch (error) {
       setFinishing(false);

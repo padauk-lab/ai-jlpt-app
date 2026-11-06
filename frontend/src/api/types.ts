@@ -226,3 +226,60 @@ export type MoreExamples = {
   examples: Example[];
   remaining_today: number;
 };
+
+// ---------- Mock test (#23 to #26) ----------
+
+export type MockQuestion = {
+  id: number;
+  number: number; // 1 to 51 across the whole test
+  type?: string; // language knowledge questions only, e.g. "kanji_reading"
+  prompt_ruby: RubyPiece[];
+  underline?: string;
+  options: QuizOption[];
+};
+
+export type MockPassage = {
+  id: number;
+  length: 'short' | 'medium' | 'long';
+  text_ruby: RubyPiece[];
+  questions: MockQuestion[];
+};
+
+// #23 POST /mock-tests/{id}/attempts  (start, resume or retake; no correct answers)
+export type MockAttempt = {
+  attempt_id: number;
+  mock_test_id: number;
+  started_at: string;
+  ends_at: string;
+  server_time: string;
+  sections: [
+    { part: 'language_knowledge'; questions: MockQuestion[] },
+    { part: 'reading'; passages: MockPassage[] },
+  ];
+  saved_answers: Record<string, QuizOption['id']>;
+};
+
+// #24 PUT /mock-attempts/{id}/answers
+export type MockSaveResult = {
+  question_id: number;
+  saved: boolean;
+  answered_count: number;
+  total_questions: number;
+};
+
+export type PassPredictionWarning = 'language_knowledge_low' | 'reading_low' | 'both_low' | null;
+
+// #25 POST /mock-attempts/{id}/submit and #26 GET /mock-attempts/{id}/result
+export type MockResult = {
+  attempt_id: number;
+  submitted_at: string;
+  submitted_by: 'user' | 'timeout';
+  time_used_seconds: number;
+  time_limit_seconds: number;
+  score: { correct: number; total: number; percent: number };
+  parts: { part: 'vocabulary' | 'grammar' | 'reading'; correct: number; total: number }[];
+  pass_prediction: number | null;
+  pass_prediction_warning: PassPredictionWarning;
+  counts_for_prediction: boolean;
+  questions: (QuizReviewQuestion & { part: 'vocabulary' | 'grammar' | 'reading' })[];
+};
