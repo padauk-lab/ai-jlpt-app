@@ -1,0 +1,1343 @@
+{
+  "session_number": 9,
+  "quiz_number": 2,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 6,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼は日ごろから"
+        },
+        {
+          "text": "摂生"
+        },
+        {
+          "text": "しているので、めったに病気にならない。"
+        }
+      ],
+      "underline": "摂生",
+      "options": [
+        {
+          "id": "a",
+          "text": "せっせい"
+        },
+        {
+          "id": "b",
+          "text": "せっしょう"
+        },
+        {
+          "id": "c",
+          "text": "せつせい"
+        },
+        {
+          "id": "d",
+          "text": "しょうせい"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 6,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "同じ仕事の繰り返しに、"
+        },
+        {
+          "text": "倦怠"
+        },
+        {
+          "text": "を覚えるようになった。"
+        }
+      ],
+      "underline": "倦怠",
+      "options": [
+        {
+          "id": "a",
+          "text": "かんたい"
+        },
+        {
+          "id": "b",
+          "text": "けんだい"
+        },
+        {
+          "id": "c",
+          "text": "けんたい"
+        },
+        {
+          "id": "d",
+          "text": "けんい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "医者に言われて、一週間田舎で（　）することにした。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "倦怠"
+        },
+        {
+          "id": "b",
+          "text": "静養"
+        },
+        {
+          "id": "c",
+          "text": "肥満"
+        },
+        {
+          "id": "d",
+          "text": "鍛錬"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "この机は（　）で、上に乗っても壊れない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "病弱"
+        },
+        {
+          "id": "b",
+          "text": "健やか"
+        },
+        {
+          "id": "c",
+          "text": "虚弱"
+        },
+        {
+          "id": "d",
+          "text": "頑丈"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 6,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "祖母は九十歳だが、まだまだ"
+        },
+        {
+          "text": "達者だ"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "達者だ",
+      "options": [
+        {
+          "id": "a",
+          "text": "お金持ちだ"
+        },
+        {
+          "id": "b",
+          "text": "忙しい"
+        },
+        {
+          "id": "c",
+          "text": "元気だ"
+        },
+        {
+          "id": "d",
+          "text": "厳しい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 6,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "養生"
+        }
+      ],
+      "underline": "養生",
+      "options": [
+        {
+          "id": "a",
+          "text": "駅前に、新しい養生ができた。"
+        },
+        {
+          "id": "b",
+          "text": "友達に、養生を貸した。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、養生を飲んでから出かける。"
+        },
+        {
+          "id": "d",
+          "text": "風邪をひいたので、無理をせず家で養生している。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "わざわざお越しいただき、恐縮（　）です。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "の至り"
+        },
+        {
+          "id": "b",
+          "text": "はさておき"
+        },
+        {
+          "id": "c",
+          "text": "を受けて"
+        },
+        {
+          "id": "d",
+          "text": "にして"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 8,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "学生時代に髪を金色に ＿＿ ＿＿ ★ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "至りだ"
+        },
+        {
+          "id": "b",
+          "text": "のは"
+        },
+        {
+          "id": "c",
+          "text": "染めた"
+        },
+        {
+          "id": "d",
+          "text": "若気の"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 7,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "社員が、会社のお金を"
+        },
+        {
+          "text": "横領"
+        },
+        {
+          "text": "していた。"
+        }
+      ],
+      "underline": "横領",
+      "options": [
+        {
+          "id": "a",
+          "text": "よこりょう"
+        },
+        {
+          "id": "b",
+          "text": "おうりょう"
+        },
+        {
+          "id": "c",
+          "text": "こうりょう"
+        },
+        {
+          "id": "d",
+          "text": "おうれい"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 7,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "空港で、"
+        },
+        {
+          "text": "密輸"
+        },
+        {
+          "text": "しようとした男が捕まった。"
+        }
+      ],
+      "underline": "密輸",
+      "options": [
+        {
+          "id": "a",
+          "text": "みっしゅ"
+        },
+        {
+          "id": "b",
+          "text": "みつゆ"
+        },
+        {
+          "id": "c",
+          "text": "みつゆう"
+        },
+        {
+          "id": "d",
+          "text": "ひつゆ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "犯人は、事件の翌日に警察に（　）した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "自首"
+        },
+        {
+          "id": "b",
+          "text": "共犯"
+        },
+        {
+          "id": "c",
+          "text": "前科"
+        },
+        {
+          "id": "d",
+          "text": "余罪"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "政治家が、企業から（　）を受け取った疑いで逮捕された。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "万引き"
+        },
+        {
+          "id": "b",
+          "text": "再犯"
+        },
+        {
+          "id": "c",
+          "text": "主犯"
+        },
+        {
+          "id": "d",
+          "text": "賄賂"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 7,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "うまい話に"
+        },
+        {
+          "text": "騙されて"
+        },
+        {
+          "text": "、お金を失った。"
+        }
+      ],
+      "underline": "騙されて",
+      "options": [
+        {
+          "id": "a",
+          "text": "急がされて"
+        },
+        {
+          "id": "b",
+          "text": "強く誘われて"
+        },
+        {
+          "id": "c",
+          "text": "うそを本当だと思わされて"
+        },
+        {
+          "id": "d",
+          "text": "脅されて"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 7,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "前科"
+        }
+      ],
+      "underline": "前科",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達と、前科を見に行った。"
+        },
+        {
+          "id": "b",
+          "text": "寒いので、前科を着て出かけた。"
+        },
+        {
+          "id": "c",
+          "text": "その男には、前科があった。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、前科を食べてから出かける。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 15,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "新品の机を一度も使わずに捨てるとは、無駄（　）だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "にして"
+        },
+        {
+          "id": "b",
+          "text": "はさておき"
+        },
+        {
+          "id": "c",
+          "text": "を受けて"
+        },
+        {
+          "id": "d",
+          "text": "の極み"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 16,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "大事な書類を ＿＿ ＿＿ ★ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "電車に"
+        },
+        {
+          "id": "b",
+          "text": "極みだ"
+        },
+        {
+          "id": "c",
+          "text": "無責任の"
+        },
+        {
+          "id": "d",
+          "text": "忘れるとは"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "江戸時代には、農民による"
+        },
+        {
+          "text": "一揆"
+        },
+        {
+          "text": "がたびたび起きた。"
+        }
+      ],
+      "underline": "一揆",
+      "options": [
+        {
+          "id": "a",
+          "text": "いっけい"
+        },
+        {
+          "id": "b",
+          "text": "いっき"
+        },
+        {
+          "id": "c",
+          "text": "いちき"
+        },
+        {
+          "id": "d",
+          "text": "いっぎ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "公家"
+        },
+        {
+          "text": "は、朝廷に仕える貴族だった。"
+        }
+      ],
+      "underline": "公家",
+      "options": [
+        {
+          "id": "a",
+          "text": "こうけ"
+        },
+        {
+          "id": "b",
+          "text": "こうか"
+        },
+        {
+          "id": "c",
+          "text": "くげ"
+        },
+        {
+          "id": "d",
+          "text": "きみけ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 8,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "徳川家康は、江戸に（　）を開いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "藩"
+        },
+        {
+          "id": "b",
+          "text": "王朝"
+        },
+        {
+          "id": "c",
+          "text": "幕府"
+        },
+        {
+          "id": "d",
+          "text": "一揆"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 8,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "この遺跡から、古い土器が（　）された。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "開国"
+        },
+        {
+          "id": "b",
+          "text": "維新"
+        },
+        {
+          "id": "c",
+          "text": "史実"
+        },
+        {
+          "id": "d",
+          "text": "発掘"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "この映画は、"
+        },
+        {
+          "text": "史実"
+        },
+        {
+          "text": "に基づいている。"
+        }
+      ],
+      "underline": "史実",
+      "options": [
+        {
+          "id": "a",
+          "text": "昔話"
+        },
+        {
+          "id": "b",
+          "text": "有名な小説"
+        },
+        {
+          "id": "c",
+          "text": "歴史上、本当にあったこと"
+        },
+        {
+          "id": "d",
+          "text": "作者の想像"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 8,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "栄える"
+        }
+      ],
+      "underline": "栄える",
+      "options": [
+        {
+          "id": "a",
+          "text": "この町は、昔、港町として栄えた。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、花に水を栄えている。"
+        },
+        {
+          "id": "c",
+          "text": "熱があったので、薬を栄えた。"
+        },
+        {
+          "id": "d",
+          "text": "友達に、手紙を栄えた。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 23,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "結果（　）、最後まで全力を出したことを誇りに思う。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "にして"
+        },
+        {
+          "id": "b",
+          "text": "はさておき"
+        },
+        {
+          "id": "c",
+          "text": "にとどまらず"
+        },
+        {
+          "id": "d",
+          "text": "を受けて"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 24,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "＿＿ ＿＿ ★ ＿＿ 、このかばんはデザインがとてもいい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "値段"
+        },
+        {
+          "id": "b",
+          "text": "はさておき"
+        },
+        {
+          "id": "c",
+          "text": "の"
+        },
+        {
+          "id": "d",
+          "text": "こと"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 9,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "廊下ですれ違った先生に、軽く"
+        },
+        {
+          "text": "会釈"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "会釈",
+      "options": [
+        {
+          "id": "a",
+          "text": "かいせき"
+        },
+        {
+          "id": "b",
+          "text": "えいしゃく"
+        },
+        {
+          "id": "c",
+          "text": "かいしゃく"
+        },
+        {
+          "id": "d",
+          "text": "えしゃく"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 26,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 9,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "彼は、私に"
+        },
+        {
+          "text": "目配せ"
+        },
+        {
+          "text": "して部屋を出た。"
+        }
+      ],
+      "underline": "目配せ",
+      "options": [
+        {
+          "id": "a",
+          "text": "めぐばせ"
+        },
+        {
+          "id": "b",
+          "text": "めくばせ"
+        },
+        {
+          "id": "c",
+          "text": "もくはいせ"
+        },
+        {
+          "id": "d",
+          "text": "めはいせ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 27,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "無事に着いたら、ご（　）ください。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "主旨"
+        },
+        {
+          "id": "b",
+          "text": "会釈"
+        },
+        {
+          "id": "c",
+          "text": "身振り"
+        },
+        {
+          "id": "d",
+          "text": "一報"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 28,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "時間がないので、（　）に説明してください。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "手短"
+        },
+        {
+          "id": "b",
+          "text": "文面"
+        },
+        {
+          "id": "c",
+          "text": "口頭"
+        },
+        {
+          "id": "d",
+          "text": "書面"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 29,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 9,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "ご"
+        },
+        {
+          "text": "用件"
+        },
+        {
+          "text": "をお聞かせください。"
+        }
+      ],
+      "underline": "用件",
+      "options": [
+        {
+          "id": "a",
+          "text": "用事の内容"
+        },
+        {
+          "id": "b",
+          "text": "住所"
+        },
+        {
+          "id": "c",
+          "text": "電話番号"
+        },
+        {
+          "id": "d",
+          "text": "名前"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 30,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 9,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "取り次ぐ"
+        }
+      ],
+      "underline": "取り次ぐ",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、学校を取り次いだ。"
+        },
+        {
+          "id": "b",
+          "text": "料理に塩を少し取り次いだ。"
+        },
+        {
+          "id": "c",
+          "text": "受付で、社長への電話を取り次いでもらった。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、駅まで取り次いで歩く。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "どんなにいい商品でも、客に知られなければ（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "はさておきだ"
+        },
+        {
+          "id": "b",
+          "text": "の極みだ"
+        },
+        {
+          "id": "c",
+          "text": "それまでだ"
+        },
+        {
+          "id": "d",
+          "text": "にとどまらない"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "いくら ＿＿ ＿＿ ★ ＿＿ それまでだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "寝坊"
+        },
+        {
+          "id": "b",
+          "text": "すれば"
+        },
+        {
+          "id": "c",
+          "text": "しても"
+        },
+        {
+          "id": "d",
+          "text": "準備"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 33,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "地震のあと、町は"
+        },
+        {
+          "text": "瓦礫"
+        },
+        {
+          "text": "の山になった。"
+        }
+      ],
+      "underline": "瓦礫",
+      "options": [
+        {
+          "id": "a",
+          "text": "かわれき"
+        },
+        {
+          "id": "b",
+          "text": "がりゃく"
+        },
+        {
+          "id": "c",
+          "text": "かれき"
+        },
+        {
+          "id": "d",
+          "text": "がれき"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 34,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "強い風のため、火は隣の家にまで"
+        },
+        {
+          "text": "延焼"
+        },
+        {
+          "text": "した。"
+        }
+      ],
+      "underline": "延焼",
+      "options": [
+        {
+          "id": "a",
+          "text": "いんしょう"
+        },
+        {
+          "id": "b",
+          "text": "えんしょう"
+        },
+        {
+          "id": "c",
+          "text": "えんやき"
+        },
+        {
+          "id": "d",
+          "text": "えんじょう"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 35,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "この倉庫には、災害用の食料が（　）されている。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "備蓄"
+        },
+        {
+          "id": "b",
+          "text": "救出"
+        },
+        {
+          "id": "c",
+          "text": "倒壊"
+        },
+        {
+          "id": "d",
+          "text": "延焼"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 36,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "大雨で川があふれ、多くの家が（　）した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "浸水"
+        },
+        {
+          "id": "b",
+          "text": "消火"
+        },
+        {
+          "id": "c",
+          "text": "耐火"
+        },
+        {
+          "id": "d",
+          "text": "減災"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 37,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 10,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "崩れた家の中から、子どもが無事に"
+        },
+        {
+          "text": "救出された"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "救出された",
+      "options": [
+        {
+          "id": "a",
+          "text": "運ばれていった"
+        },
+        {
+          "id": "b",
+          "text": "助け出された"
+        },
+        {
+          "id": "c",
+          "text": "けがをした"
+        },
+        {
+          "id": "d",
+          "text": "見つからなかった"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 38,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 10,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "義援金"
+        }
+      ],
+      "underline": "義援金",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達と、義援金を見に行った。"
+        },
+        {
+          "id": "b",
+          "text": "被災地のために、駅前で義援金を集めた。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、義援金を飲んでいる。"
+        },
+        {
+          "id": "d",
+          "text": "寒いので、義援金を着て出かけた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "客の荷物を勝手に開けるなど、ホテルの従業員にある（　）ことだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "まじき"
+        },
+        {
+          "id": "b",
+          "text": "にとどまらず"
+        },
+        {
+          "id": "c",
+          "text": "はさておき"
+        },
+        {
+          "id": "d",
+          "text": "には及ばない"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "社員として、会社の情報を ＿＿ ＿＿ ★ ＿＿ 行為だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "あるまじき"
+        },
+        {
+          "id": "b",
+          "text": "など"
+        },
+        {
+          "id": "c",
+          "text": "漏らす"
+        },
+        {
+          "id": "d",
+          "text": "外部に"
+        }
+      ],
+      "correct_option_id": "b"
+    }
+  ]
+}
