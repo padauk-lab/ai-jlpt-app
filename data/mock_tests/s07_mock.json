@@ -1,0 +1,1716 @@
+{
+  "session_number": 7,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "彼は、"
+        },
+        {
+          "text": "実直"
+        },
+        {
+          "text": "な人柄で、誰からも信頼されている。"
+        }
+      ],
+      "underline": "実直",
+      "options": [
+        {
+          "id": "a",
+          "text": "じっちょく"
+        },
+        {
+          "id": "b",
+          "text": "みちょく"
+        },
+        {
+          "id": "c",
+          "text": "じつちょく"
+        },
+        {
+          "id": "d",
+          "text": "じっじき"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "つまらないことで、兄と"
+        },
+        {
+          "text": "口論"
+        },
+        {
+          "text": "になった。"
+        }
+      ],
+      "underline": "口論",
+      "options": [
+        {
+          "id": "a",
+          "text": "くろん"
+        },
+        {
+          "id": "b",
+          "text": "こうろん"
+        },
+        {
+          "id": "c",
+          "text": "こうりん"
+        },
+        {
+          "id": "d",
+          "text": "くちろん"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "和食の"
+        },
+        {
+          "text": "吸い物"
+        },
+        {
+          "text": "は、だしの味が大切だ。"
+        }
+      ],
+      "underline": "吸い物",
+      "options": [
+        {
+          "id": "a",
+          "text": "すいぶつ"
+        },
+        {
+          "id": "b",
+          "text": "すいもん"
+        },
+        {
+          "id": "c",
+          "text": "すいもの"
+        },
+        {
+          "id": "d",
+          "text": "きゅうもの"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "そのチームは、大会三"
+        },
+        {
+          "text": "連覇"
+        },
+        {
+          "text": "を達成した。"
+        }
+      ],
+      "underline": "連覇",
+      "options": [
+        {
+          "id": "a",
+          "text": "れんは"
+        },
+        {
+          "id": "b",
+          "text": "れんぱく"
+        },
+        {
+          "id": "c",
+          "text": "れんぱ"
+        },
+        {
+          "id": "d",
+          "text": "れんば"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "ミスが続き、彼は課長から"
+        },
+        {
+          "text": "降格"
+        },
+        {
+          "text": "された。"
+        }
+      ],
+      "underline": "降格",
+      "options": [
+        {
+          "id": "a",
+          "text": "ふかく"
+        },
+        {
+          "id": "b",
+          "text": "こうかく"
+        },
+        {
+          "id": "c",
+          "text": "こうがく"
+        },
+        {
+          "id": "d",
+          "text": "ごうかく"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "先般"
+        },
+        {
+          "text": "お知らせした件について、ご説明します。"
+        }
+      ],
+      "underline": "先般",
+      "options": [
+        {
+          "id": "a",
+          "text": "せんぱん"
+        },
+        {
+          "id": "b",
+          "text": "せんはん"
+        },
+        {
+          "id": "c",
+          "text": "せんばん"
+        },
+        {
+          "id": "d",
+          "text": "さきはん"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "彼は、誰も考えなかった（　）な計画を立てた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "温和"
+        },
+        {
+          "id": "b",
+          "text": "大胆"
+        },
+        {
+          "id": "c",
+          "text": "内気"
+        },
+        {
+          "id": "d",
+          "text": "柔和"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "遅刻した理由を（　）したが、先生は聞いてくれなかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "失言"
+        },
+        {
+          "id": "b",
+          "text": "口外"
+        },
+        {
+          "id": "c",
+          "text": "弁解"
+        },
+        {
+          "id": "d",
+          "text": "多弁"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "私は、お酒を飲むとすぐ顔が赤くなる（　）だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "神経"
+        },
+        {
+          "id": "b",
+          "text": "鼓動"
+        },
+        {
+          "id": "c",
+          "text": "体質"
+        },
+        {
+          "id": "d",
+          "text": "内臓"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "子どもの豊かな（　）を育てたい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "構図"
+        },
+        {
+          "id": "b",
+          "text": "遠近法"
+        },
+        {
+          "id": "c",
+          "text": "版画"
+        },
+        {
+          "id": "d",
+          "text": "感性"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "作家は、新しい小説の（　）に取りかかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "執筆"
+        },
+        {
+          "id": "b",
+          "text": "著者"
+        },
+        {
+          "id": "c",
+          "text": "朗読"
+        },
+        {
+          "id": "d",
+          "text": "文豪"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "三泊四日の（　）を立てた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "旅情"
+        },
+        {
+          "id": "b",
+          "text": "宿場"
+        },
+        {
+          "id": "c",
+          "text": "旅程"
+        },
+        {
+          "id": "d",
+          "text": "名勝"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "（　）引っ越す予定なので、家具を整理している。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "古来"
+        },
+        {
+          "id": "b",
+          "text": "近々"
+        },
+        {
+          "id": "c",
+          "text": "往年"
+        },
+        {
+          "id": "d",
+          "text": "往時"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "このカレーの"
+        },
+        {
+          "text": "隠し味"
+        },
+        {
+          "text": "は、チョコレートだ。"
+        }
+      ],
+      "underline": "隠し味",
+      "options": [
+        {
+          "id": "a",
+          "text": "主な材料"
+        },
+        {
+          "id": "b",
+          "text": "最後にかけたソース"
+        },
+        {
+          "id": "c",
+          "text": "味を深めるために少し入れたもの"
+        },
+        {
+          "id": "d",
+          "text": "いちばん多く入れたもの"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "緊張して、胸の"
+        },
+        {
+          "text": "鼓動"
+        },
+        {
+          "text": "が速くなった。"
+        }
+      ],
+      "underline": "鼓動",
+      "options": [
+        {
+          "id": "a",
+          "text": "呼吸"
+        },
+        {
+          "id": "b",
+          "text": "痛み"
+        },
+        {
+          "id": "c",
+          "text": "体温"
+        },
+        {
+          "id": "d",
+          "text": "心臓の動き"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "試合は、最後まで"
+        },
+        {
+          "text": "接戦"
+        },
+        {
+          "text": "だった。"
+        }
+      ],
+      "underline": "接戦",
+      "options": [
+        {
+          "id": "a",
+          "text": "雨の中の試合"
+        },
+        {
+          "id": "b",
+          "text": "一方が大差で勝った戦い"
+        },
+        {
+          "id": "c",
+          "text": "退屈な試合"
+        },
+        {
+          "id": "d",
+          "text": "力が近くて勝負がなかなかつかない戦い"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 6,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "この映画は、"
+        },
+        {
+          "text": "名作"
+        },
+        {
+          "text": "として知られている。"
+        }
+      ],
+      "underline": "名作",
+      "options": [
+        {
+          "id": "a",
+          "text": "すぐれた作品"
+        },
+        {
+          "id": "b",
+          "text": "長い作品"
+        },
+        {
+          "id": "c",
+          "text": "新しい作品"
+        },
+        {
+          "id": "d",
+          "text": "外国の作品"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "昼休みに、"
+        },
+        {
+          "text": "同僚"
+        },
+        {
+          "text": "とご飯を食べた。"
+        }
+      ],
+      "underline": "同僚",
+      "options": [
+        {
+          "id": "a",
+          "text": "学生時代の友人"
+        },
+        {
+          "id": "b",
+          "text": "上司"
+        },
+        {
+          "id": "c",
+          "text": "同じ職場の仲間"
+        },
+        {
+          "id": "d",
+          "text": "取引先の人"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 9,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "夏休みに、"
+        },
+        {
+          "text": "一人旅"
+        },
+        {
+          "text": "に出た。"
+        }
+      ],
+      "underline": "一人旅",
+      "options": [
+        {
+          "id": "a",
+          "text": "一人でする旅行"
+        },
+        {
+          "id": "b",
+          "text": "長い旅行"
+        },
+        {
+          "id": "c",
+          "text": "船の旅行"
+        },
+        {
+          "id": "d",
+          "text": "日帰りの旅行"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "言い渡す"
+        }
+      ],
+      "underline": "言い渡す",
+      "options": [
+        {
+          "id": "a",
+          "text": "寒いので、窓を言い渡した。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、花に水を言い渡している。"
+        },
+        {
+          "id": "c",
+          "text": "友達と公園で、言い渡して遊んだ。"
+        },
+        {
+          "id": "d",
+          "text": "裁判長は、被告に判決を言い渡した。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "炒める"
+        }
+      ],
+      "underline": "炒める",
+      "options": [
+        {
+          "id": "a",
+          "text": "試験に合格して、とても炒めた。"
+        },
+        {
+          "id": "b",
+          "text": "彼は友達に、手紙を炒めた。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、駅まで炒めて歩いている。"
+        },
+        {
+          "id": "d",
+          "text": "野菜を油でさっと炒めた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "呑気"
+        }
+      ],
+      "underline": "呑気",
+      "options": [
+        {
+          "id": "a",
+          "text": "試験前なのに、弟は呑気にテレビを見ている。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、呑気を飲んでから出かける。"
+        },
+        {
+          "id": "c",
+          "text": "母は、呑気を作って待っていた。"
+        },
+        {
+          "id": "d",
+          "text": "この部屋は、呑気で日当たりがいい。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 6,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "創作"
+        }
+      ],
+      "underline": "創作",
+      "options": [
+        {
+          "id": "a",
+          "text": "雨が降ってきたので、傘を創作した。"
+        },
+        {
+          "id": "b",
+          "text": "彼女は、仕事の合間に小説を創作している。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、犬を公園で創作している。"
+        },
+        {
+          "id": "d",
+          "text": "熱があったので、病院で創作した。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 10,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "永久"
+        }
+      ],
+      "underline": "永久",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼は毎朝、永久を食べている。"
+        },
+        {
+          "id": "b",
+          "text": "友達に、永久を貸した。"
+        },
+        {
+          "id": "c",
+          "text": "この会員カードは、永久に使える。"
+        },
+        {
+          "id": "d",
+          "text": "寒いので、永久を着て出かけた。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 4,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "捻挫"
+        }
+      ],
+      "underline": "捻挫",
+      "options": [
+        {
+          "id": "a",
+          "text": "階段で足をひねって、捻挫してしまった。"
+        },
+        {
+          "id": "b",
+          "text": "彼は、駅まで捻挫で行った。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、捻挫を飲んでいる。"
+        },
+        {
+          "id": "d",
+          "text": "友達の誕生日に、捻挫をあげた。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "こんな結果になるとは、夢に（　）思わなかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ところを"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "とは"
+        },
+        {
+          "id": "d",
+          "text": "たりとも"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "このお金は、一円（　）無駄にしてはいけない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ときたら"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "たりとも"
+        },
+        {
+          "id": "d",
+          "text": "とは"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "二人は互いに助け合う、持ち（　）持たれつの関係だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ても"
+        },
+        {
+          "id": "b",
+          "text": "ながら"
+        },
+        {
+          "id": "c",
+          "text": "たり"
+        },
+        {
+          "id": "d",
+          "text": "つ"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "部下を叱った（　）、自分が遅刻するわけにはいかない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とは"
+        },
+        {
+          "id": "b",
+          "text": "ところを"
+        },
+        {
+          "id": "c",
+          "text": "手前"
+        },
+        {
+          "id": "d",
+          "text": "と思いきや"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "一人で夜道を歩くときの心細さ（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "だに"
+        },
+        {
+          "id": "b",
+          "text": "ところを"
+        },
+        {
+          "id": "c",
+          "text": "たりとも"
+        },
+        {
+          "id": "d",
+          "text": "といったらない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "今日は晴れる（　）、午後から大雨になった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "と思いきや"
+        },
+        {
+          "id": "b",
+          "text": "とは"
+        },
+        {
+          "id": "c",
+          "text": "ところを"
+        },
+        {
+          "id": "d",
+          "text": "ときたら"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "うちのパソコン（　）、すぐに動かなくなる。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ところを"
+        },
+        {
+          "id": "b",
+          "text": "と思いきや"
+        },
+        {
+          "id": "c",
+          "text": "とは"
+        },
+        {
+          "id": "d",
+          "text": "ときたら"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "本来なら直接伺うべき（　）、メールで失礼いたします。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ときたら"
+        },
+        {
+          "id": "b",
+          "text": "ところを"
+        },
+        {
+          "id": "c",
+          "text": "とは"
+        },
+        {
+          "id": "d",
+          "text": "と思いきや"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼にお金を貸した（　）、返してもらえる保証はない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "としたところで"
+        },
+        {
+          "id": "b",
+          "text": "ところを"
+        },
+        {
+          "id": "c",
+          "text": "ときたら"
+        },
+        {
+          "id": "d",
+          "text": "と思いきや"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "あんなに優しい人が怒鳴る（　）、驚いた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "と思いきや"
+        },
+        {
+          "id": "b",
+          "text": "とは"
+        },
+        {
+          "id": "c",
+          "text": "ところを"
+        },
+        {
+          "id": "d",
+          "text": "ときたら"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "試合中は、一瞬（　）気を抜いてはいけない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とは"
+        },
+        {
+          "id": "b",
+          "text": "たりとも"
+        },
+        {
+          "id": "c",
+          "text": "だに"
+        },
+        {
+          "id": "d",
+          "text": "ときたら"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "毎日運動すると宣言した（　）、続けないと恥ずかしい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "手前"
+        },
+        {
+          "id": "b",
+          "text": "と思いきや"
+        },
+        {
+          "id": "c",
+          "text": "ときたら"
+        },
+        {
+          "id": "d",
+          "text": "とは"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "やっと終わった（　）、また新しい仕事を頼まれた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "と思いきや"
+        },
+        {
+          "id": "b",
+          "text": "ところを"
+        },
+        {
+          "id": "c",
+          "text": "ときたら"
+        },
+        {
+          "id": "d",
+          "text": "とは"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "お疲れの（　）、遅くまでありがとうございました。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ところを"
+        },
+        {
+          "id": "b",
+          "text": "ときたら"
+        },
+        {
+          "id": "c",
+          "text": "と思いきや"
+        },
+        {
+          "id": "d",
+          "text": "とは"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "たった一年で日本語がこんなに上手になる（　）、本当にすごい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ところを"
+        },
+        {
+          "id": "b",
+          "text": "ときたら"
+        },
+        {
+          "id": "c",
+          "text": "とは"
+        },
+        {
+          "id": "d",
+          "text": "と思いきや"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "戦争の話は、＿＿ ★ ＿＿ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "痛む"
+        },
+        {
+          "id": "b",
+          "text": "だに"
+        },
+        {
+          "id": "c",
+          "text": "聞く"
+        },
+        {
+          "id": "d",
+          "text": "胸が"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "二台の車は、＿＿ ＿＿ ★ ＿＿ 競り合った。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "抜かれつ"
+        },
+        {
+          "id": "b",
+          "text": "抜きつ"
+        },
+        {
+          "id": "c",
+          "text": "し"
+        },
+        {
+          "id": "d",
+          "text": "ながら"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "あの映画の ＿＿ ＿＿ ★ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "悲しさ"
+        },
+        {
+          "id": "b",
+          "text": "結末の"
+        },
+        {
+          "id": "c",
+          "text": "いったらない"
+        },
+        {
+          "id": "d",
+          "text": "と"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "隣の ＿＿ ★ ＿＿ ＿＿ うるさくて眠れない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "一晩中"
+        },
+        {
+          "id": "b",
+          "text": "犬"
+        },
+        {
+          "id": "c",
+          "text": "家の"
+        },
+        {
+          "id": "d",
+          "text": "ときたら"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "給料が ＿＿ ★ ＿＿ ＿＿ 、生活は楽にならない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "したところで"
+        },
+        {
+          "id": "b",
+          "text": "と"
+        },
+        {
+          "id": "c",
+          "text": "少し"
+        },
+        {
+          "id": "d",
+          "text": "上がった"
+        }
+      ],
+      "correct_option_id": "d"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "「几帳面な人」と「大雑把な人」は、しばしば対立する。几帳面な人は細かい点まで気になり、大雑把な人の仕事ぶりにいら立つ。一方、大雑把な人は、几帳面な人を融通がきかないと感じる。しかし、両者がいるからこそ、組織はうまく回るのかもしれない。細部に気を配る人がいなければ小さなミスが重なり、全体を大まかにとらえる人がいなければ、物事は前に進まない。違いを欠点と見るか、長所と見るかで、関係は大きく変わるのである。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "組織には、几帳面な人だけがいたほうがいい。"
+            },
+            {
+              "id": "b",
+              "text": "大雑把な人は、もっと細かい点に気を配るべきだ。"
+            },
+            {
+              "id": "c",
+              "text": "性格の違う人どうしは、一緒に働かないほうがいい。"
+            },
+            {
+              "id": "d",
+              "text": "性格の違う人がいることで、組織はうまく機能する。"
+            }
+          ],
+          "correct_option_id": "d"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "最近、料理を作らない家庭が増えているという。共働きの家庭が多くなり、帰宅してから一から料理をする時間がないのだ。スーパーには調理済みの惣菜が並び、温めるだけで食べられる食品も豊富にそろっている。\n私自身も、平日は惣菜に頼ることが多い。しかし、ある休日、久しぶりに子どもと一緒に夕食を作ってみた。野菜を洗い、包丁で刻み、鍋で煮込む。子どもは、にんじんの皮をむくのにも一苦労だったが、自分で作った煮物を「おいしい」と言って、いつもより多く食べた。\n料理には、食事を用意する以上の意味があるのではないか。材料を選び、手順を考え、味を確かめる。その過程で、子どもは、食べ物がどこから来て、どのように料理になるのかを学ぶ。また、家族で台所に立つ時間は、自然と会話が生まれる時間でもある。\nもちろん、忙しい毎日の中で、毎食手作りをするのは難しい。惣菜を上手に使うことは、決して悪いことではない。ただ、週に一度でも、家族で料理をする時間を持ってみてはどうだろうか。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "料理を作らない家庭が増えている理由として、筆者が挙げているのはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "惣菜のほうが安いから"
+            },
+            {
+              "id": "b",
+              "text": "子どもが料理を嫌がるから"
+            },
+            {
+              "id": "c",
+              "text": "料理が苦手な人が増えたから"
+            },
+            {
+              "id": "d",
+              "text": "共働きが増え、料理をする時間がないから"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "子どもと一緒に料理をしたとき、どんなことがあったか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "子どもが、包丁を上手に使いこなした。"
+            },
+            {
+              "id": "b",
+              "text": "子どもが、自分で作った料理をいつもより多く食べた。"
+            },
+            {
+              "id": "c",
+              "text": "子どもが、惣菜のほうがおいしいと言った。"
+            },
+            {
+              "id": "d",
+              "text": "子どもが、料理を手伝うのを嫌がった。"
+            }
+          ],
+          "correct_option_id": "b"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "毎食、手作りをするべきだ。"
+            },
+            {
+              "id": "b",
+              "text": "時々は、家族で料理をする時間を持つとよい。"
+            },
+            {
+              "id": "c",
+              "text": "料理は、子どもに任せたほうがいい。"
+            },
+            {
+              "id": "d",
+              "text": "惣菜を買うのは、やめたほうがいい。"
+            }
+          ],
+          "correct_option_id": "b"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "最近、本の内容を短くまとめた「要約サービス」が人気を集めている。一冊の本を十分ほどで読めるように、要点だけを抜き出してくれるのだ。忙しい人にとっては、短い時間で多くの知識を得られる便利な道具だろう。\n実は私も、仕事に関係するビジネス書を読むときには、こうしたサービスを使うことがある。必要な情報を素早く手に入れるには、確かに効率がいい。しかし、小説や随筆にまで同じ方法を使おうとは思わない。\n先日、学生時代に読んだ長編小説を、二十年ぶりに読み返した。若いころは筋書きを追うのに夢中で、どんな結末を迎えるのかばかりが気になっていた。ところが今回は、登場人物の何気ない一言や、季節の移り変わりを描いた一文に、何度も手が止まった。作者がその言葉を選ぶまでに、どれほど推敲を重ねたのだろう。そんなことを考えながら読み進めると、物語は以前とはまったく違う顔を見せた。\n読み終えたあと、私は、作者が描いた町を実際に訪ねてみたくなった。調べてみると、小説の舞台となった町は、今もほとんど変わらない姿で残っているらしい。一冊の本が、こうして新しい行動のきっかけになることもある。それもまた、時間をかけて読んだからこそ得られた体験だろう。\n文学の価値は、筋書きだけにあるのではない。言葉の選び方、文の響き、行間から伝わってくる感情。そうしたものは、要約からはこぼれ落ちてしまう。要約は物語の地図にはなっても、旅そのものにはならないのだ。\nもちろん、すべての本をじっくり読む時間はない。目的によって読み方を変えるのは、むしろ賢いことだ。ただ、効率ばかりを求めていると、私たちは本を「情報」としてしか見なくなってしまうのではないか。\n時には、急がずに一冊の本と向き合ってみたい。同じ本でも、読む人の年齢や経験によって、見えてくるものは変わる。読書の本当の楽しみは、そこにあるのだと思う。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、要約サービスをどのように使っているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "仕事に関係する本を読むときに使っている。"
+            },
+            {
+              "id": "b",
+              "text": "まったく使っていない。"
+            },
+            {
+              "id": "c",
+              "text": "小説を読むときに使っている。"
+            },
+            {
+              "id": "d",
+              "text": "すべての本を読むときに使っている。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "長編小説を読み返したとき、筆者が以前と違って感じたことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "話が長すぎて、最後まで読めなかった。"
+            },
+            {
+              "id": "b",
+              "text": "結末が、以前とは違うように感じた。"
+            },
+            {
+              "id": "c",
+              "text": "登場人物の名前を、すっかり忘れていた。"
+            },
+            {
+              "id": "d",
+              "text": "筋書きよりも、言葉や描写に心をひかれた。"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "「要約は物語の地図にはなっても、旅そのものにはならない」とはどういう意味か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "要約で内容はわかっても、作品を味わう体験は得られない。"
+            },
+            {
+              "id": "b",
+              "text": "要約を読めば、作品を読む必要はない。"
+            },
+            {
+              "id": "c",
+              "text": "要約は、物語の場所を正確に説明している。"
+            },
+            {
+              "id": "d",
+              "text": "要約は、旅行のガイドブックとして役に立つ。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "筆者が最も言いたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "若いころに読んだ本は、読み返さないほうがいい。"
+            },
+            {
+              "id": "b",
+              "text": "要約サービスは、使わないほうがいい。"
+            },
+            {
+              "id": "c",
+              "text": "効率だけでなく、時には本とじっくり向き合うことも大切だ。"
+            },
+            {
+              "id": "d",
+              "text": "ビジネス書は、ていねいに読むべきだ。"
+            }
+          ],
+          "correct_option_id": "c"
+        }
+      ]
+    }
+  ]
+}

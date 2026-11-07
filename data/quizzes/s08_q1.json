@@ -1,0 +1,1346 @@
+{
+  "session_number": 8,
+  "quiz_number": 1,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "深い"
+        },
+        {
+          "text": "峡谷"
+        },
+        {
+          "text": "の底を、川が流れている。"
+        }
+      ],
+      "underline": "峡谷",
+      "options": [
+        {
+          "id": "a",
+          "text": "きょうたに"
+        },
+        {
+          "id": "b",
+          "text": "きょうこく"
+        },
+        {
+          "id": "c",
+          "text": "こうこく"
+        },
+        {
+          "id": "d",
+          "text": "きょうごく"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "海に面した"
+        },
+        {
+          "text": "断崖"
+        },
+        {
+          "text": "の上に、灯台が立っている。"
+        }
+      ],
+      "underline": "断崖",
+      "options": [
+        {
+          "id": "a",
+          "text": "たんがい"
+        },
+        {
+          "id": "b",
+          "text": "だんぎし"
+        },
+        {
+          "id": "c",
+          "text": "だんかい"
+        },
+        {
+          "id": "d",
+          "text": "だんがい"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "京都は周りを山に囲まれた（　）で、夏は非常に暑い。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "湾"
+        },
+        {
+          "id": "b",
+          "text": "干潟"
+        },
+        {
+          "id": "c",
+          "text": "半島"
+        },
+        {
+          "id": "d",
+          "text": "盆地"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "町の向こうに、雪をかぶった山が高く（　）いる。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "茂って"
+        },
+        {
+          "id": "b",
+          "text": "吠えて"
+        },
+        {
+          "id": "c",
+          "text": "這って"
+        },
+        {
+          "id": "d",
+          "text": "そびえて"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 1,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "この川の"
+        },
+        {
+          "text": "源流"
+        },
+        {
+          "text": "を訪ねる旅に出た。"
+        }
+      ],
+      "underline": "源流",
+      "options": [
+        {
+          "id": "a",
+          "text": "川の両側"
+        },
+        {
+          "id": "b",
+          "text": "川が始まるところ"
+        },
+        {
+          "id": "c",
+          "text": "川がいちばん深いところ"
+        },
+        {
+          "id": "d",
+          "text": "川が海に出るところ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 1,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "茂る"
+        }
+      ],
+      "underline": "茂る",
+      "options": [
+        {
+          "id": "a",
+          "text": "夏になって、庭の草が勢いよく茂っている。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、駅まで茂って歩いている。"
+        },
+        {
+          "id": "c",
+          "text": "友達に、手紙を茂った。"
+        },
+        {
+          "id": "d",
+          "text": "熱があったので、病院で薬を茂った。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 7,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "春になった（　）、朝晩はまだ寒い。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "なくして"
+        },
+        {
+          "id": "b",
+          "text": "とはいえ"
+        },
+        {
+          "id": "c",
+          "text": "なりに"
+        },
+        {
+          "id": "d",
+          "text": "にかこつけて"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 8,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "いくら ＿＿ ＿＿ ★ ＿＿ 、油断は禁物だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とは"
+        },
+        {
+          "id": "b",
+          "text": "いえ"
+        },
+        {
+          "id": "c",
+          "text": "弱い"
+        },
+        {
+          "id": "d",
+          "text": "相手が"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "ヘビやトカゲは"
+        },
+        {
+          "text": "爬虫類"
+        },
+        {
+          "text": "だ。"
+        }
+      ],
+      "underline": "爬虫類",
+      "options": [
+        {
+          "id": "a",
+          "text": "はちゅうるい"
+        },
+        {
+          "id": "b",
+          "text": "はつちゅうるい"
+        },
+        {
+          "id": "c",
+          "text": "ばちゅうるい"
+        },
+        {
+          "id": "d",
+          "text": "はちゅるい"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 2,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "猫は、自分の"
+        },
+        {
+          "text": "縄張り"
+        },
+        {
+          "text": "に入ってきた猫を追い払う。"
+        }
+      ],
+      "underline": "縄張り",
+      "options": [
+        {
+          "id": "a",
+          "text": "なわばり"
+        },
+        {
+          "id": "b",
+          "text": "つなばり"
+        },
+        {
+          "id": "c",
+          "text": "なわはり"
+        },
+        {
+          "id": "d",
+          "text": "じょうばり"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "クマは、寒い冬の間（　）する。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "天敵"
+        },
+        {
+          "id": "b",
+          "text": "群れ"
+        },
+        {
+          "id": "c",
+          "text": "捕食"
+        },
+        {
+          "id": "d",
+          "text": "冬眠"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "知らない人が来ると、犬は大きな声で（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "這う"
+        },
+        {
+          "id": "b",
+          "text": "茂る"
+        },
+        {
+          "id": "c",
+          "text": "吠える"
+        },
+        {
+          "id": "d",
+          "text": "芽生える"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "ヘビは、カエルの"
+        },
+        {
+          "text": "天敵"
+        },
+        {
+          "text": "だ。"
+        }
+      ],
+      "underline": "天敵",
+      "options": [
+        {
+          "id": "a",
+          "text": "よく一緒にいる仲間"
+        },
+        {
+          "id": "b",
+          "text": "自分を食べてしまう相手"
+        },
+        {
+          "id": "c",
+          "text": "すみか"
+        },
+        {
+          "id": "d",
+          "text": "えさ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "這う"
+        }
+      ],
+      "underline": "這う",
+      "options": [
+        {
+          "id": "a",
+          "text": "寒いので、窓を這った。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、新聞を這ってから出かける。"
+        },
+        {
+          "id": "c",
+          "text": "赤ちゃんが、床の上を這ってこちらに来た。"
+        },
+        {
+          "id": "d",
+          "text": "友達の誕生日を、みんなで這った。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 15,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "毎日とは言わ（　）、週に一度は運動したほうがいい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "にかかわる"
+        },
+        {
+          "id": "b",
+          "text": "なくして"
+        },
+        {
+          "id": "c",
+          "text": "ながらに"
+        },
+        {
+          "id": "d",
+          "text": "ないまでも"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 16,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "満点とは ＿＿ ★ ＿＿ ＿＿ 取れるだろう。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までも"
+        },
+        {
+          "id": "b",
+          "text": "言わ"
+        },
+        {
+          "id": "c",
+          "text": "ない"
+        },
+        {
+          "id": "d",
+          "text": "八十点は"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "植物の"
+        },
+        {
+          "text": "種子"
+        },
+        {
+          "text": "は、風や鳥によって遠くへ運ばれる。"
+        }
+      ],
+      "underline": "種子",
+      "options": [
+        {
+          "id": "a",
+          "text": "しゅじ"
+        },
+        {
+          "id": "b",
+          "text": "たねこ"
+        },
+        {
+          "id": "c",
+          "text": "しゅうし"
+        },
+        {
+          "id": "d",
+          "text": "しゅし"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "木の"
+        },
+        {
+          "text": "梢"
+        },
+        {
+          "text": "で、小鳥が鳴いている。"
+        }
+      ],
+      "underline": "梢",
+      "options": [
+        {
+          "id": "a",
+          "text": "こずえ"
+        },
+        {
+          "id": "b",
+          "text": "こすえ"
+        },
+        {
+          "id": "c",
+          "text": "みき"
+        },
+        {
+          "id": "d",
+          "text": "しょう"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "種をまいて一週間ほどで、（　）した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "発芽"
+        },
+        {
+          "id": "b",
+          "text": "開花"
+        },
+        {
+          "id": "c",
+          "text": "枯れ葉"
+        },
+        {
+          "id": "d",
+          "text": "落葉"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "水をやるのを忘れて、花が（　）しまった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "咲き誇って"
+        },
+        {
+          "id": "b",
+          "text": "芽生えて"
+        },
+        {
+          "id": "c",
+          "text": "しおれて"
+        },
+        {
+          "id": "d",
+          "text": "茂って"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 3,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "庭に、バラが"
+        },
+        {
+          "text": "咲き誇って"
+        },
+        {
+          "text": "いる。"
+        }
+      ],
+      "underline": "咲き誇って",
+      "options": [
+        {
+          "id": "a",
+          "text": "見事にたくさん咲いて"
+        },
+        {
+          "id": "b",
+          "text": "つぼみをつけて"
+        },
+        {
+          "id": "c",
+          "text": "少しだけ咲いて"
+        },
+        {
+          "id": "d",
+          "text": "枯れかけて"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "芽生える"
+        }
+      ],
+      "underline": "芽生える",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達に、電話を芽生えた。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、駅まで芽生えて通っている。"
+        },
+        {
+          "id": "c",
+          "text": "料理に塩を少し芽生えた。"
+        },
+        {
+          "id": "d",
+          "text": "二人の間に、友情が芽生えた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 23,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "皆さんの協力（　）、この計画の成功はなかった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "とはいえ"
+        },
+        {
+          "id": "b",
+          "text": "ないまでも"
+        },
+        {
+          "id": "c",
+          "text": "なくして"
+        },
+        {
+          "id": "d",
+          "text": "なりに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 24,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "努力 ＿＿ ★ ＿＿ ＿＿ 。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "成功"
+        },
+        {
+          "id": "b",
+          "text": "は"
+        },
+        {
+          "id": "c",
+          "text": "ありえない"
+        },
+        {
+          "id": "d",
+          "text": "なくして"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 3,
+      "prompt_ruby": [
+        {
+          "text": "アパートを借りるとき、"
+        },
+        {
+          "text": "敷金"
+        },
+        {
+          "text": "を払った。"
+        }
+      ],
+      "underline": "敷金",
+      "options": [
+        {
+          "id": "a",
+          "text": "しきかね"
+        },
+        {
+          "id": "b",
+          "text": "しききむ"
+        },
+        {
+          "id": "c",
+          "text": "しききん"
+        },
+        {
+          "id": "d",
+          "text": "ふきん"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 26,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "祖父は、若いころ"
+        },
+        {
+          "text": "借家"
+        },
+        {
+          "text": "に住んでいた。"
+        }
+      ],
+      "underline": "借家",
+      "options": [
+        {
+          "id": "a",
+          "text": "しゃくか"
+        },
+        {
+          "id": "b",
+          "text": "しゃっか"
+        },
+        {
+          "id": "c",
+          "text": "しゃくや"
+        },
+        {
+          "id": "d",
+          "text": "かりや"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 27,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "このアパートを（　）するときは、一か月前に連絡が必要だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "間借り"
+        },
+        {
+          "id": "b",
+          "text": "退去"
+        },
+        {
+          "id": "c",
+          "text": "入居"
+        },
+        {
+          "id": "d",
+          "text": "転居"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 28,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 4,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "彼は、都会から田舎に（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "構えた"
+        },
+        {
+          "id": "b",
+          "text": "移り住んだ"
+        },
+        {
+          "id": "c",
+          "text": "入居した"
+        },
+        {
+          "id": "d",
+          "text": "住まった"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 29,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼は、"
+        },
+        {
+          "text": "賃貸"
+        },
+        {
+          "text": "マンションに住んでいる。"
+        }
+      ],
+      "underline": "賃貸",
+      "options": [
+        {
+          "id": "a",
+          "text": "会社が建てた"
+        },
+        {
+          "id": "b",
+          "text": "自分で買った"
+        },
+        {
+          "id": "c",
+          "text": "お金を払って借りる"
+        },
+        {
+          "id": "d",
+          "text": "家族が持っている"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 30,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 4,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "構える"
+        }
+      ],
+      "underline": "構える",
+      "options": [
+        {
+          "id": "a",
+          "text": "試験に合格して、とても構えた。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、花に水を構えている。"
+        },
+        {
+          "id": "c",
+          "text": "熱いお茶を、ゆっくり構えて飲んだ。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、駅前に小さな店を構えた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "この子は、生まれ（　）して音楽の才能を持っていた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ながらに"
+        },
+        {
+          "id": "b",
+          "text": "ないまでも"
+        },
+        {
+          "id": "c",
+          "text": "なくして"
+        },
+        {
+          "id": "d",
+          "text": "なりに"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "インターネットを使えば、＿＿ ＿＿ ★ ＿＿ 世界中の情報が手に入る。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "して"
+        },
+        {
+          "id": "b",
+          "text": "ながらに"
+        },
+        {
+          "id": "c",
+          "text": "い"
+        },
+        {
+          "id": "d",
+          "text": "家に"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 33,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "くじが当たって、"
+        },
+        {
+          "text": "景品"
+        },
+        {
+          "text": "をもらった。"
+        }
+      ],
+      "underline": "景品",
+      "options": [
+        {
+          "id": "a",
+          "text": "きょうひん"
+        },
+        {
+          "id": "b",
+          "text": "けいひん"
+        },
+        {
+          "id": "c",
+          "text": "けいびん"
+        },
+        {
+          "id": "d",
+          "text": "けいしな"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 34,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 5,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "人気の商品は、どこの店も"
+        },
+        {
+          "text": "品薄"
+        },
+        {
+          "text": "だ。"
+        }
+      ],
+      "underline": "品薄",
+      "options": [
+        {
+          "id": "a",
+          "text": "しなはく"
+        },
+        {
+          "id": "b",
+          "text": "ひんはく"
+        },
+        {
+          "id": "c",
+          "text": "ひんうす"
+        },
+        {
+          "id": "d",
+          "text": "しなうす"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 35,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "人気の商品は、発売初日に（　）になった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "返品"
+        },
+        {
+          "id": "b",
+          "text": "品切れ"
+        },
+        {
+          "id": "c",
+          "text": "入荷"
+        },
+        {
+          "id": "d",
+          "text": "品揃え"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 36,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "市場で、少しでも安く買おうと（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "入荷した"
+        },
+        {
+          "id": "b",
+          "text": "買い占めた"
+        },
+        {
+          "id": "c",
+          "text": "返品した"
+        },
+        {
+          "id": "d",
+          "text": "値切った"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 37,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "これが、今いちばんの"
+        },
+        {
+          "text": "売れ筋の"
+        },
+        {
+          "text": "商品です。"
+        }
+      ],
+      "underline": "売れ筋の",
+      "options": [
+        {
+          "id": "a",
+          "text": "数が少ない"
+        },
+        {
+          "id": "b",
+          "text": "値段が安い"
+        },
+        {
+          "id": "c",
+          "text": "よく売れている"
+        },
+        {
+          "id": "d",
+          "text": "新しく出た"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 38,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "買い占める"
+        }
+      ],
+      "underline": "買い占める",
+      "options": [
+        {
+          "id": "a",
+          "text": "熱があったので、学校を買い占めた。"
+        },
+        {
+          "id": "b",
+          "text": "台風の前に、一部の人が水や食料を買い占めた。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、犬を公園で買い占めている。"
+        },
+        {
+          "id": "d",
+          "text": "友達の話を、黙って買い占めていた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "彼は、何の連絡も（　）会社を休んだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "なしに"
+        },
+        {
+          "id": "b",
+          "text": "ないまでも"
+        },
+        {
+          "id": "c",
+          "text": "とはいえ"
+        },
+        {
+          "id": "d",
+          "text": "ながらに"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "＿＿ ＿＿ ★ ＿＿ 、他人の部屋に入ってはいけない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "する"
+        },
+        {
+          "id": "b",
+          "text": "ノック"
+        },
+        {
+          "id": "c",
+          "text": "こと"
+        },
+        {
+          "id": "d",
+          "text": "なしに"
+        }
+      ],
+      "correct_option_id": "c"
+    }
+  ]
+}
