@@ -1,0 +1,1719 @@
+{
+  "session_number": 4,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "景気の回復で、国の"
+        },
+        {
+          "text": "歳入"
+        },
+        {
+          "text": "が増えた。"
+        }
+      ],
+      "underline": "歳入",
+      "options": [
+        {
+          "id": "a",
+          "text": "さいじゅう"
+        },
+        {
+          "id": "b",
+          "text": "せいにゅう"
+        },
+        {
+          "id": "c",
+          "text": "としいり"
+        },
+        {
+          "id": "d",
+          "text": "さいにゅう"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 15,
+      "prompt_ruby": [
+        {
+          "text": "多くの人が、"
+        },
+        {
+          "text": "巡礼"
+        },
+        {
+          "text": "の旅に出る。"
+        }
+      ],
+      "underline": "巡礼",
+      "options": [
+        {
+          "id": "a",
+          "text": "めぐれい"
+        },
+        {
+          "id": "b",
+          "text": "じゅんらい"
+        },
+        {
+          "id": "c",
+          "text": "じゅんれい"
+        },
+        {
+          "id": "d",
+          "text": "しゅんれい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "大切なデータは、"
+        },
+        {
+          "text": "暗号"
+        },
+        {
+          "text": "化して保存している。"
+        }
+      ],
+      "underline": "暗号",
+      "options": [
+        {
+          "id": "a",
+          "text": "おんごう"
+        },
+        {
+          "id": "b",
+          "text": "あんぎょう"
+        },
+        {
+          "id": "c",
+          "text": "あんこう"
+        },
+        {
+          "id": "d",
+          "text": "あんごう"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 6,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "被害者を"
+        },
+        {
+          "text": "救済"
+        },
+        {
+          "text": "するための制度が作られた。"
+        }
+      ],
+      "underline": "救済",
+      "options": [
+        {
+          "id": "a",
+          "text": "きゅうざい"
+        },
+        {
+          "id": "b",
+          "text": "きゅうせい"
+        },
+        {
+          "id": "c",
+          "text": "きゅうさい"
+        },
+        {
+          "id": "d",
+          "text": "くさい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "世界の"
+        },
+        {
+          "text": "恒久"
+        },
+        {
+          "text": "的な平和を願う。"
+        }
+      ],
+      "underline": "恒久",
+      "options": [
+        {
+          "id": "a",
+          "text": "こうきゅう"
+        },
+        {
+          "id": "b",
+          "text": "ごうきゅう"
+        },
+        {
+          "id": "c",
+          "text": "こうく"
+        },
+        {
+          "id": "d",
+          "text": "こうひさ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "将来について、"
+        },
+        {
+          "text": "漠然"
+        },
+        {
+          "text": "とした不安がある。"
+        }
+      ],
+      "underline": "漠然",
+      "options": [
+        {
+          "id": "a",
+          "text": "はくぜん"
+        },
+        {
+          "id": "b",
+          "text": "まくぜん"
+        },
+        {
+          "id": "c",
+          "text": "ばくねん"
+        },
+        {
+          "id": "d",
+          "text": "ばくぜん"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 1,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "銀行の（　）が上がり、ローンの返済が苦しくなった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "株価"
+        },
+        {
+          "id": "b",
+          "text": "税収"
+        },
+        {
+          "id": "c",
+          "text": "配当"
+        },
+        {
+          "id": "d",
+          "text": "金利"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "別れた恋人に、まだ（　）がある。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "未練"
+        },
+        {
+          "id": "b",
+          "text": "感慨"
+        },
+        {
+          "id": "c",
+          "text": "憧憬"
+        },
+        {
+          "id": "d",
+          "text": "本望"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "京都に一週間（　）する予定だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "経由"
+        },
+        {
+          "id": "b",
+          "text": "運行"
+        },
+        {
+          "id": "c",
+          "text": "滞在"
+        },
+        {
+          "id": "d",
+          "text": "往来"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "このマグロは、天然ではなく（　）されたものだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "栽培"
+        },
+        {
+          "id": "b",
+          "text": "畜産"
+        },
+        {
+          "id": "c",
+          "text": "収穫"
+        },
+        {
+          "id": "d",
+          "text": "養殖"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "彼は、体調不良を（　）に会議を休んだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "比喩"
+        },
+        {
+          "id": "b",
+          "text": "口実"
+        },
+        {
+          "id": "c",
+          "text": "語源"
+        },
+        {
+          "id": "d",
+          "text": "皮肉"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "最近（　）が落ちて、遠くの文字が見えにくい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "視力"
+        },
+        {
+          "id": "b",
+          "text": "味覚"
+        },
+        {
+          "id": "c",
+          "text": "反射"
+        },
+        {
+          "id": "d",
+          "text": "聴覚"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "彼は、大きな失敗をしても（　）としていた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "公然"
+        },
+        {
+          "id": "b",
+          "text": "整然"
+        },
+        {
+          "id": "c",
+          "text": "平然"
+        },
+        {
+          "id": "d",
+          "text": "雑然"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 5,
+      "prompt_ruby": [
+        {
+          "text": "皆さんの温かい言葉に、"
+        },
+        {
+          "text": "感激しました"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "感激しました",
+      "options": [
+        {
+          "id": "a",
+          "text": "少し驚きました"
+        },
+        {
+          "id": "b",
+          "text": "深く心を動かされました"
+        },
+        {
+          "id": "c",
+          "text": "恥ずかしくなりました"
+        },
+        {
+          "id": "d",
+          "text": "不安になりました"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 4,
+      "prompt_ruby": [
+        {
+          "text": "消えたデータを"
+        },
+        {
+          "text": "復元する"
+        },
+        {
+          "text": "方法を調べた。"
+        }
+      ],
+      "underline": "復元する",
+      "options": [
+        {
+          "id": "a",
+          "text": "元に戻す"
+        },
+        {
+          "id": "b",
+          "text": "整理する"
+        },
+        {
+          "id": "c",
+          "text": "削除する"
+        },
+        {
+          "id": "d",
+          "text": "送る"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 6,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "この会社は、社員の"
+        },
+        {
+          "text": "待遇"
+        },
+        {
+          "text": "がいい。"
+        }
+      ],
+      "underline": "待遇",
+      "options": [
+        {
+          "id": "a",
+          "text": "評判"
+        },
+        {
+          "id": "b",
+          "text": "交通の便"
+        },
+        {
+          "id": "c",
+          "text": "扱い"
+        },
+        {
+          "id": "d",
+          "text": "雰囲気"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 7,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "彼は、お酒を飲むと"
+        },
+        {
+          "text": "饒舌に"
+        },
+        {
+          "text": "なる。"
+        }
+      ],
+      "underline": "饒舌に",
+      "options": [
+        {
+          "id": "a",
+          "text": "静かに"
+        },
+        {
+          "id": "b",
+          "text": "よくしゃべるように"
+        },
+        {
+          "id": "c",
+          "text": "怒りっぽく"
+        },
+        {
+          "id": "d",
+          "text": "眠く"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 11,
+      "prompt_ruby": [
+        {
+          "text": "この若者たちの"
+        },
+        {
+          "text": "前途"
+        },
+        {
+          "text": "は明るい。"
+        }
+      ],
+      "underline": "前途",
+      "options": [
+        {
+          "id": "a",
+          "text": "性格"
+        },
+        {
+          "id": "b",
+          "text": "過去"
+        },
+        {
+          "id": "c",
+          "text": "生活"
+        },
+        {
+          "id": "d",
+          "text": "これから先"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 9,
+      "word_position": 14,
+      "prompt_ruby": [
+        {
+          "text": "彼女は"
+        },
+        {
+          "text": "物腰"
+        },
+        {
+          "text": "が柔らかい。"
+        }
+      ],
+      "underline": "物腰",
+      "options": [
+        {
+          "id": "a",
+          "text": "人に接する態度"
+        },
+        {
+          "id": "b",
+          "text": "体つき"
+        },
+        {
+          "id": "c",
+          "text": "考え方"
+        },
+        {
+          "id": "d",
+          "text": "声"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "和む"
+        }
+      ],
+      "underline": "和む",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、新聞を和んでから出かける。"
+        },
+        {
+          "id": "b",
+          "text": "熱があったので、病院で注射を和んだ。"
+        },
+        {
+          "id": "c",
+          "text": "赤ちゃんの笑顔に、みんなの心が和んだ。"
+        },
+        {
+          "id": "d",
+          "text": "友達に、手紙を和んだ。"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 17,
+      "prompt_ruby": [
+        {
+          "text": "辿る"
+        }
+      ],
+      "underline": "辿る",
+      "options": [
+        {
+          "id": "a",
+          "text": "新しい服を、デパートで辿った。"
+        },
+        {
+          "id": "b",
+          "text": "古い地図を辿って、祖父の生まれた村を訪ねた。"
+        },
+        {
+          "id": "c",
+          "text": "寒いので、ストーブを辿った。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、窓を辿ってから出かける。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 5,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "蒔く"
+        }
+      ],
+      "underline": "蒔く",
+      "options": [
+        {
+          "id": "a",
+          "text": "雨が降ってきたので、傘を蒔いた。"
+        },
+        {
+          "id": "b",
+          "text": "春になったので、畑に花の種を蒔いた。"
+        },
+        {
+          "id": "c",
+          "text": "熱いお茶を、ゆっくり蒔いた。"
+        },
+        {
+          "id": "d",
+          "text": "友達の誕生日に、手紙を蒔いた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 7,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "罵る"
+        }
+      ],
+      "underline": "罵る",
+      "options": [
+        {
+          "id": "a",
+          "text": "新しい靴を罵って、出かけた。"
+        },
+        {
+          "id": "b",
+          "text": "彼は審判を大声で罵って、退場になった。"
+        },
+        {
+          "id": "c",
+          "text": "母は毎朝、朝ご飯を罵っている。"
+        },
+        {
+          "id": "d",
+          "text": "雨が降ってきたので、急いで窓を罵った。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 8,
+      "word_position": 16,
+      "prompt_ruby": [
+        {
+          "text": "移ろう"
+        }
+      ],
+      "underline": "移ろう",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼は、駅前の新しい家に移ろった。"
+        },
+        {
+          "id": "b",
+          "text": "季節が移ろい、庭の木々も色づき始めた。"
+        },
+        {
+          "id": "c",
+          "text": "母は、料理を皿に移ろった。"
+        },
+        {
+          "id": "d",
+          "text": "友達の荷物を、駅まで移ろってあげた。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 9,
+      "word_position": 20,
+      "prompt_ruby": [
+        {
+          "text": "掴む"
+        }
+      ],
+      "underline": "掴む",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼は、チャンスを掴んで大成功した。"
+        },
+        {
+          "id": "b",
+          "text": "毎晩、寝る前に音楽を掴んでいる。"
+        },
+        {
+          "id": "c",
+          "text": "友達の誕生日を、みんなで掴んだ。"
+        },
+        {
+          "id": "d",
+          "text": "熱があったので、学校を掴んだ。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "そのニュースが流れる（　）、問い合わせの電話が殺到した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が早いか"
+        },
+        {
+          "id": "b",
+          "text": "ずじまいで"
+        },
+        {
+          "id": "c",
+          "text": "にたえず"
+        },
+        {
+          "id": "d",
+          "text": "であれ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "被災地の様子は、見る（　）ものだった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "なりの"
+        },
+        {
+          "id": "b",
+          "text": "とばかりの"
+        },
+        {
+          "id": "c",
+          "text": "が早いか"
+        },
+        {
+          "id": "d",
+          "text": "にたえない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "娘が生まれ（　）、夫は毎日早く帰宅するようになった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "てまで"
+        },
+        {
+          "id": "b",
+          "text": "ていながら"
+        },
+        {
+          "id": "c",
+          "text": "てからでないと"
+        },
+        {
+          "id": "d",
+          "text": "てからというもの"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "最新の医療技術（　）、この病気も治せるはずだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "であれ"
+        },
+        {
+          "id": "b",
+          "text": "にたえず"
+        },
+        {
+          "id": "c",
+          "text": "をもってすれば"
+        },
+        {
+          "id": "d",
+          "text": "とばかりに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "理由は何（　）、遅刻は遅刻だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "たるもの"
+        },
+        {
+          "id": "b",
+          "text": "であれ"
+        },
+        {
+          "id": "c",
+          "text": "をもってすれば"
+        },
+        {
+          "id": "d",
+          "text": "までだ"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "医者（　）、患者の命を第一に考えるべきだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "たるもの"
+        },
+        {
+          "id": "b",
+          "text": "ずじまい"
+        },
+        {
+          "id": "c",
+          "text": "が早いか"
+        },
+        {
+          "id": "d",
+          "text": "なり"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "犬は、待っていました（　）、しっぽを振って駆け寄ってきた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までに"
+        },
+        {
+          "id": "b",
+          "text": "とばかりに"
+        },
+        {
+          "id": "c",
+          "text": "なり"
+        },
+        {
+          "id": "d",
+          "text": "が早いか"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "せっかく京都に行ったのに、時間がなくて金閣寺は見（　）だった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ずにはいられない"
+        },
+        {
+          "id": "b",
+          "text": "ずじまい"
+        },
+        {
+          "id": "c",
+          "text": "ずにはおかない"
+        },
+        {
+          "id": "d",
+          "text": "までもない"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼は私の顔を見る（　）、怒鳴り始めた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "であれ"
+        },
+        {
+          "id": "b",
+          "text": "たるもの"
+        },
+        {
+          "id": "c",
+          "text": "なり"
+        },
+        {
+          "id": "d",
+          "text": "までだ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "誰も手伝ってくれないなら、自分でやる（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までだ"
+        },
+        {
+          "id": "b",
+          "text": "にたえない"
+        },
+        {
+          "id": "c",
+          "text": "ずじまいだ"
+        },
+        {
+          "id": "d",
+          "text": "たるものだ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "あのタレントのブログは、悪口ばかりで読む（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が早いかだ"
+        },
+        {
+          "id": "b",
+          "text": "ずじまいだ"
+        },
+        {
+          "id": "c",
+          "text": "とばかりだ"
+        },
+        {
+          "id": "d",
+          "text": "にたえない"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "彼女の語学力（　）、通訳の仕事も十分にこなせるだろう。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "をもってすれば"
+        },
+        {
+          "id": "b",
+          "text": "なり"
+        },
+        {
+          "id": "c",
+          "text": "であれ"
+        },
+        {
+          "id": "d",
+          "text": "にたえず"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "社会人（　）、時間を守るのは当然のことだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が早いか"
+        },
+        {
+          "id": "b",
+          "text": "とばかりに"
+        },
+        {
+          "id": "c",
+          "text": "たるもの"
+        },
+        {
+          "id": "d",
+          "text": "ずじまい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "彼女に気持ちを伝えようと思いながら、結局言え（　）に終わった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "なり"
+        },
+        {
+          "id": "b",
+          "text": "ずじまい"
+        },
+        {
+          "id": "c",
+          "text": "までも"
+        },
+        {
+          "id": "d",
+          "text": "ずにはおかない"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "失敗したら、もう一度やり直す（　）のことだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が早いか"
+        },
+        {
+          "id": "b",
+          "text": "たる"
+        },
+        {
+          "id": "c",
+          "text": "ずじまい"
+        },
+        {
+          "id": "d",
+          "text": "まで"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "彼は ＿＿ ★ ＿＿ ＿＿ 、駅に向かって走り出した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "が"
+        },
+        {
+          "id": "b",
+          "text": "電車を"
+        },
+        {
+          "id": "c",
+          "text": "早いか"
+        },
+        {
+          "id": "d",
+          "text": "降りる"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "この町に ＿＿ ＿＿ ★ ＿＿ 、毎日が楽しい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "引っ越して"
+        },
+        {
+          "id": "b",
+          "text": "きて"
+        },
+        {
+          "id": "c",
+          "text": "から"
+        },
+        {
+          "id": "d",
+          "text": "というもの"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "たとえ ＿＿ ＿＿ ★ ＿＿ 、規則は守らなければならない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "命令"
+        },
+        {
+          "id": "b",
+          "text": "であれ"
+        },
+        {
+          "id": "c",
+          "text": "の"
+        },
+        {
+          "id": "d",
+          "text": "社長"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "彼は、＿＿ ★ ＿＿ ＿＿ 、手を挙げた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "と"
+        },
+        {
+          "id": "b",
+          "text": "自分の"
+        },
+        {
+          "id": "c",
+          "text": "出番だ"
+        },
+        {
+          "id": "d",
+          "text": "ばかりに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "息子は ＿＿ ＿＿ ★ ＿＿ 放り投げた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "かばんを"
+        },
+        {
+          "id": "b",
+          "text": "部屋に"
+        },
+        {
+          "id": "c",
+          "text": "なり"
+        },
+        {
+          "id": "d",
+          "text": "入る"
+        }
+      ],
+      "correct_option_id": "c"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "日本語には、はっきり断らずに相手に意思を伝える表現が多い。「考えておきます」や「ちょっと難しいですね」といった言い方は、多くの場合、断りの意味を含んでいる。こうした婉曲な表現は、相手との関係を壊さないための知恵だと言える。しかし、日本語を学ぶ外国人にとっては、言葉どおりに受け取ってしまい、誤解の原因になることもある。言葉そのものだけでなく、その場の状況や話し手の様子から意図を読み取る力が求められるのである。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者によると、婉曲な表現を理解するために必要なことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "断りの表現を、できるだけ多く覚えること"
+            },
+            {
+              "id": "b",
+              "text": "状況や話し手の様子から、言葉の裏にある意図を読み取ること"
+            },
+            {
+              "id": "c",
+              "text": "相手の言葉を、そのままの意味で受け取ること"
+            },
+            {
+              "id": "d",
+              "text": "わからないときは、すぐに相手に聞き返すこと"
+            }
+          ],
+          "correct_option_id": "b"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "近年、都会での会社勤めをやめて、地方で農業を始める若者が増えている。私の知人のAさんもその一人だ。東京のIT企業で十年働いた後、三年前に山あいの村に移り住み、米と野菜を栽培している。\n移住した当初、Aさんは苦労の連続だった。土の状態を見極める力も、天候を読む経験もない。一年目は害虫の被害を受け、収穫は予定の半分にも届かなかったという。それでも続けられたのは、近所の農家の人たちが、自分の畑の手入れの合間に、何かと声をかけてくれたからだ。肥料の選び方から機械の使い方まで、教わったことは数えきれない。\n一方で、Aさんは自分の経験を生かして、村に新しい風も吹き込んだ。インターネットを使った直接販売の仕組みを作り、ほかの農家の野菜もまとめて都会の消費者に届けるようにしたのだ。それまで市場に出すしかなかった農家にとって、収入を増やす新たな道となった。\n「教わるだけでなく、自分にできることで恩返しをしたかった」とAさんは話す。地方に移り住むことは、単に暮らす場所を変えることではない。その土地の人々と支え合う関係を築くことなのだと、Aさんの姿から教えられた。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "Aさんが一年目に苦労した理由として、正しいものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "村の天候が、例年になく悪かったから"
+            },
+            {
+              "id": "b",
+              "text": "畑を借りるのに、お金がかかりすぎたから"
+            },
+            {
+              "id": "c",
+              "text": "農業の経験がなく、害虫の被害を受けたから"
+            },
+            {
+              "id": "d",
+              "text": "近所の人と、うまく付き合えなかったから"
+            }
+          ],
+          "correct_option_id": "c"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "Aさんが村のために始めたことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "若者向けに、農業の教室を開いた。"
+            },
+            {
+              "id": "b",
+              "text": "農家に、機械の使い方を教えた。"
+            },
+            {
+              "id": "c",
+              "text": "新しい品種の米を開発した。"
+            },
+            {
+              "id": "d",
+              "text": "インターネットで、村の野菜を都会の人に直接売る仕組みを作った。"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、地方に移り住むことについてどのように考えているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "その土地の人々と、助け合う関係を作ることだ。"
+            },
+            {
+              "id": "b",
+              "text": "一人で、自然の中で静かに暮らすことだ。"
+            },
+            {
+              "id": "c",
+              "text": "都会の仕事より、収入が多くなることだ。"
+            },
+            {
+              "id": "d",
+              "text": "新しい技術を、地方に広めることだ。"
+            }
+          ],
+          "correct_option_id": "a"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "先日、近所に住む一人暮らしの高齢の男性が、自宅で倒れているのが見つかった。幸い命に別状はなかったが、発見されたのは倒れてから二日後のことだった。毎朝見かけていた男性の姿が見えないことに、向かいの家の人が気づいたのがきっかけだったという。\nこの話を聞いて、私は複雑な気持ちになった。同じ町内に住みながら、私はその男性と言葉を交わしたことがほとんどなかったからだ。顔は知っていても、名前さえ知らずじまいだった。もし向かいの人が気づかなければ、どうなっていただろうか。\n今、一人暮らしの高齢者は年々増えている。家族と離れて暮らす人も多く、地域とのつながりが途切れてしまうと、困ったときに頼る相手がいなくなる。社会から孤立した人を支える仕組みとして、行政による見守りサービスも広がっているが、それだけですべての人に目を配ることは難しい。\nそこで注目されているのが、住民どうしの「ゆるやかな見守り」である。特別なことをするわけではない。朝のあいさつを交わす、ごみ出しのときに一言声をかける、いつも開いている窓が閉まったままになっていないか気にかける。その程度のことだ。しかし、こうした小さな関わりの積み重ねが、いざというときに大きな助けになる。実際、今回の男性を救ったのも、向かいの人の何気ない気づきだった。\nもちろん、他人の生活に踏み込みすぎれば、相手を不快にさせることもある。見守りとは、監視することではない。相手の暮らし方を尊重しながら、必要なときに手を差し伸べられる距離を保つことが大切なのだろう。\nあの出来事以来、私は近所の人に自分からあいさつをするようにしている。最初は少し照れくさかったが、今では立ち話をする相手も増えた。誰かに寄り添うというのは、案外こうした小さな一歩から始まるのかもしれない。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "倒れていた男性が見つかったきっかけは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "筆者が、男性の家の窓が閉まっていることに気づいたこと"
+            },
+            {
+              "id": "b",
+              "text": "向かいの家の人が、男性の姿が見えないことに気づいたこと"
+            },
+            {
+              "id": "c",
+              "text": "行政の見守りサービスの職員が訪問したこと"
+            },
+            {
+              "id": "d",
+              "text": "男性の家族が、連絡がつかないことを心配したこと"
+            }
+          ],
+          "correct_option_id": "b"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "筆者が「複雑な気持ち」になったのはなぜか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "近所に住んでいながら、男性とほとんど関わりがなかったから"
+            },
+            {
+              "id": "b",
+              "text": "行政のサービスが、役に立たなかったから"
+            },
+            {
+              "id": "c",
+              "text": "向かいの人が、もっと早く気づくべきだったと思ったから"
+            },
+            {
+              "id": "d",
+              "text": "男性が、家族と離れて暮らしていることを知らなかったから"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "筆者は、見守りについてどのように考えているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "相手の暮らし方を尊重しつつ、必要なときに助けられる距離を保つことが大切だ。"
+            },
+            {
+              "id": "b",
+              "text": "行政のサービスに、すべて任せるべきだ。"
+            },
+            {
+              "id": "c",
+              "text": "特別な訓練を受けた人だけが行うべきだ。"
+            },
+            {
+              "id": "d",
+              "text": "相手の生活を、できるだけ細かく見ておくことが大切だ。"
+            }
+          ],
+          "correct_option_id": "a"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "この文章で筆者が最も言いたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "見守りサービスを、もっと増やす必要がある。"
+            },
+            {
+              "id": "b",
+              "text": "近所の人とは、深く付き合わなければならない。"
+            },
+            {
+              "id": "c",
+              "text": "一人暮らしの高齢者は、家族と一緒に住むべきだ。"
+            },
+            {
+              "id": "d",
+              "text": "日ごろの小さな関わりが、人を支える大きな力になる。"
+            }
+          ],
+          "correct_option_id": "d"
+        }
+      ]
+    }
+  ]
+}
