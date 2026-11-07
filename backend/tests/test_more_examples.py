@@ -187,3 +187,21 @@ def test_ai_failure_is_503_and_the_tap_is_given_back(client, content, clock, mon
     assert error_code(response) == "ai_unavailable"
     assert "HTTP 500" not in response.text  # details stay in the server log
     assert used_today() == 0  # a failed try doesn't count
+
+
+@pytest.mark.parametrize("missing", ["LLM_MODEL", "LLM_API_KEY"])
+def test_missing_ai_setting_is_503_not_500(client, content, clock, monkeypatch, missing):
+    """Found by LMHP (#115): without LLM_MODEL the server crashed with KeyError (500)."""
+    monkeypatch.setenv("LLM_MODEL", "test-model")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
+    monkeypatch.delenv(missing)
+
+    def no_network(*args, **kwargs):
+        raise AssertionError("the AI must not be called without its settings")
+
+    monkeypatch.setattr("urllib.request.urlopen", no_network)
+    response = more(client, user_header(client), "word", content["word1"])
+    assert response.status_code == 503
+    assert error_code(response) == "ai_unavailable"
+    assert missing not in response.text  # details stay in the server log
+    assert used_today() == 0  # the tap is given back
