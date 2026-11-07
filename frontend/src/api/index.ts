@@ -9,6 +9,9 @@ import type {
   QuizAttempt,
   QuizFinish,
   Me,
+  MockAttempt,
+  MockResult,
+  MockSaveResult,
   MoreExamples,
   NotificationSettings,
   QuizOption,
@@ -103,6 +106,29 @@ export function explainAnswer(questionId: number, selected: QuizOption['id']): P
 // #27 POST /ai/examples  ("More examples": 3 new AI sentences; daily limit, 429 when reached)
 export function moreExamples(itemType: 'word' | 'grammar', itemId: number): Promise<MoreExamples> {
   return request<MoreExamples>('/ai/examples', { method: 'POST', body: { item_type: itemType, item_id: itemId } });
+}
+
+// #23 POST /mock-tests/{id}/attempts  (start, resume the one in progress, or retake)
+export function startMockTest(mockTestId: number): Promise<MockAttempt> {
+  return request<MockAttempt>(`/mock-tests/${mockTestId}/attempts`, { method: 'POST' });
+}
+
+// #24 PUT /mock-attempts/{id}/answers  (save or change one answer; no feedback)
+export function saveMockAnswer(attemptId: number, questionId: number, selected: QuizOption['id']): Promise<MockSaveResult> {
+  return request<MockSaveResult>(`/mock-attempts/${attemptId}/answers`, {
+    method: 'PUT',
+    body: { question_id: questionId, selected_option_id: selected },
+  });
+}
+
+// #25 POST /mock-attempts/{id}/submit
+export function submitMockTest(attemptId: number): Promise<MockResult> {
+  return request<MockResult>(`/mock-attempts/${attemptId}/submit`, { method: 'POST' });
+}
+
+// #26 GET /mock-attempts/{id}/result  (result and review)
+export function getMockResult(attemptId: number): Promise<MockResult> {
+  return request<MockResult>(`/mock-attempts/${attemptId}/result`);
 }
 
 // #9 POST /onboarding  (returns the new plan, same shape as #10)

@@ -3,7 +3,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
 import Svg, { Path } from 'react-native-svg';
-import { explainAnswer, getQuizReview } from '@/api';
+import { explainAnswer, getMockResult, getQuizReview } from '@/api';
 import type { Explanation, QuizReview, QuizReviewQuestion } from '@/api/types';
 import { PromptText } from '@/components/quiz/PromptText';
 import { BackIcon, SparkIcon } from '@/components/ui/Icons';
@@ -11,19 +11,28 @@ import { colors, fonts, spacing, text } from '@/theme';
 
 type Filter = 'all' | 'wrong';
 
-// Quiz review (#22): every question with the user's answer and the correct one.
+// Review after a quiz (#22) or a mock test (#26, with kind=mock): every question with
+// the user's answer and the correct one.
 export default function ReviewScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, kind } = useLocalSearchParams<{ id: string; kind?: string }>();
+  const isMock = kind === 'mock';
   const [review, setReview] = useState<QuizReview | null>(null);
   const [filter, setFilter] = useState<Filter>('all');
 
   useEffect(() => {
+    if (isMock) {
+      // The mock test result has the same question shape as the quiz review.
+      getMockResult(Number(id)).then((data) =>
+        setReview({ attempt_id: data.attempt_id, score: data.score.percent, passed: true, finished_at: data.submitted_at, questions: data.questions }),
+      );
+      return;
+    }
     getQuizReview(Number(id)).then((data) => {
       setReview(data);
       // Coming from "review my mistakes": start on the wrong ones if there are any.
       if (!data.passed && data.questions.some((q) => !q.is_correct)) setFilter('wrong');
     });
-  }, [id]);
+  }, [id, isMock]);
 
   if (!review) {
     return (
@@ -45,7 +54,7 @@ export default function ReviewScreen() {
           </Pressable>
           <View>
             <Text style={styles.title}>အဖြေများ ပြန်ကြည့်ရန်</Text>
-            <Text style={styles.subtitle}>စာမေးပွဲငယ် ၊ {review.score}%</Text>
+            <Text style={styles.subtitle}>{isMock ? 'စမ်းသပ် စာမေးပွဲ' : 'စာမေးပွဲငယ်'} ၊ {review.score}%</Text>
           </View>
         </View>
         <View style={styles.tabs} accessibilityRole="tablist">

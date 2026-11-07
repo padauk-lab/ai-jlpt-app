@@ -74,8 +74,13 @@ export default function HomeScreen() {
       router.push({ pathname: '/unit/[id]', params: { id: String(stop.id) } });
     } else if (stop.kind === 'quiz') {
       router.push({ pathname: '/quiz/[id]', params: { id: String(stop.id) } });
+    } else if (stop.kind === 'mock' && data?.session.mock_test) {
+      const mock = data.session.mock_test;
+      router.push({
+        pathname: '/mock/[id]',
+        params: { id: String(stop.id), session: String(data.session.number), status: mock.status, attempts: String(mock.attempts) },
+      });
     }
-    // The mock test screen is designed next (#23 to #26).
   }
 
   if (problem) {
