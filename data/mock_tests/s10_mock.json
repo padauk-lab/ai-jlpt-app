@@ -1,0 +1,1719 @@
+{
+  "session_number": 10,
+  "time_limit_minutes": 30,
+  "questions": [
+    {
+      "number": 1,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 1,
+      "word_position": 8,
+      "prompt_ruby": [
+        {
+          "text": "彼は、"
+        },
+        {
+          "text": "虚偽"
+        },
+        {
+          "text": "の報告をした。"
+        }
+      ],
+      "underline": "虚偽",
+      "options": [
+        {
+          "id": "a",
+          "text": "こぎ"
+        },
+        {
+          "id": "b",
+          "text": "きょい"
+        },
+        {
+          "id": "c",
+          "text": "きょぎ"
+        },
+        {
+          "id": "d",
+          "text": "きょうぎ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 2,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 3,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "水から、"
+        },
+        {
+          "text": "微量"
+        },
+        {
+          "text": "の毒物が検出された。"
+        }
+      ],
+      "underline": "微量",
+      "options": [
+        {
+          "id": "a",
+          "text": "みりょう"
+        },
+        {
+          "id": "b",
+          "text": "びりょう"
+        },
+        {
+          "id": "c",
+          "text": "びりょ"
+        },
+        {
+          "id": "d",
+          "text": "ひりょう"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 3,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 4,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "彼の勇気ある行動は、多くの人の"
+        },
+        {
+          "text": "称賛"
+        },
+        {
+          "text": "を集めた。"
+        }
+      ],
+      "underline": "称賛",
+      "options": [
+        {
+          "id": "a",
+          "text": "しょさん"
+        },
+        {
+          "id": "b",
+          "text": "せいさん"
+        },
+        {
+          "id": "c",
+          "text": "しょうさん"
+        },
+        {
+          "id": "d",
+          "text": "しょうざん"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 4,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 6,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "その人物の"
+        },
+        {
+          "text": "容貌"
+        },
+        {
+          "text": "は、記録に残っていない。"
+        }
+      ],
+      "underline": "容貌",
+      "options": [
+        {
+          "id": "a",
+          "text": "よぼう"
+        },
+        {
+          "id": "b",
+          "text": "ようもう"
+        },
+        {
+          "id": "c",
+          "text": "ようぼう"
+        },
+        {
+          "id": "d",
+          "text": "ようぼ"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 5,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 8,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "牛が、こちらに向かって"
+        },
+        {
+          "text": "突進"
+        },
+        {
+          "text": "してきた。"
+        }
+      ],
+      "underline": "突進",
+      "options": [
+        {
+          "id": "a",
+          "text": "とっしん"
+        },
+        {
+          "id": "b",
+          "text": "ついしん"
+        },
+        {
+          "id": "c",
+          "text": "とつしん"
+        },
+        {
+          "id": "d",
+          "text": "とっすすむ"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 6,
+      "part": "vocabulary",
+      "type": "kanji_reading",
+      "unit_number": 10,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "彼のチームは、優勝の"
+        },
+        {
+          "text": "栄誉"
+        },
+        {
+          "text": "に輝いた。"
+        }
+      ],
+      "underline": "栄誉",
+      "options": [
+        {
+          "id": "a",
+          "text": "えいよう"
+        },
+        {
+          "id": "b",
+          "text": "えよ"
+        },
+        {
+          "id": "c",
+          "text": "えいほまれ"
+        },
+        {
+          "id": "d",
+          "text": "えいよ"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 7,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 2,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "来年から、新しいシステムに（　）する予定だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "転落"
+        },
+        {
+          "id": "b",
+          "text": "移行"
+        },
+        {
+          "id": "c",
+          "text": "変節"
+        },
+        {
+          "id": "d",
+          "text": "変わり種"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 8,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 3,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "（　）な包装は、ごみを増やすだけだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "僅か"
+        },
+        {
+          "id": "b",
+          "text": "少量"
+        },
+        {
+          "id": "c",
+          "text": "欠乏"
+        },
+        {
+          "id": "d",
+          "text": "過剰"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 9,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 5,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "（　）カメラを設置したら、空き巣の被害が減った。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "防犯"
+        },
+        {
+          "id": "b",
+          "text": "防衛"
+        },
+        {
+          "id": "c",
+          "text": "護身"
+        },
+        {
+          "id": "d",
+          "text": "安泰"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 10,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 6,
+      "word_position": 7,
+      "prompt_ruby": [
+        {
+          "text": "息子の（　）は、もう父親と同じくらいだ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "美貌"
+        },
+        {
+          "id": "b",
+          "text": "風貌"
+        },
+        {
+          "id": "c",
+          "text": "顔立ち"
+        },
+        {
+          "id": "d",
+          "text": "背丈"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 11,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 7,
+      "word_position": 9,
+      "prompt_ruby": [
+        {
+          "text": "難しい問題を（　）にしても、何も解決しない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "先送り"
+        },
+        {
+          "id": "b",
+          "text": "選択"
+        },
+        {
+          "id": "c",
+          "text": "決め手"
+        },
+        {
+          "id": "d",
+          "text": "英断"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 12,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 9,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "夜中に、台所で変な（　）がした。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "物音"
+        },
+        {
+          "id": "b",
+          "text": "閃光"
+        },
+        {
+          "id": "c",
+          "text": "静寂"
+        },
+        {
+          "id": "d",
+          "text": "陰影"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 13,
+      "part": "vocabulary",
+      "type": "context",
+      "unit_number": 10,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼は、営業で大きな（　）を上げた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "失脚"
+        },
+        {
+          "id": "b",
+          "text": "不覚"
+        },
+        {
+          "id": "c",
+          "text": "実績"
+        },
+        {
+          "id": "d",
+          "text": "敗因"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 14,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 1,
+      "word_position": 2,
+      "prompt_ruby": [
+        {
+          "text": "やっと彼の"
+        },
+        {
+          "text": "本音"
+        },
+        {
+          "text": "が聞けた。"
+        }
+      ],
+      "underline": "本音",
+      "options": [
+        {
+          "id": "a",
+          "text": "冗談"
+        },
+        {
+          "id": "b",
+          "text": "うそ"
+        },
+        {
+          "id": "c",
+          "text": "本当の気持ち"
+        },
+        {
+          "id": "d",
+          "text": "言い訳"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 15,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 2,
+      "word_position": 10,
+      "prompt_ruby": [
+        {
+          "text": "引っ越して、生活環境が"
+        },
+        {
+          "text": "激変した"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "激変した",
+      "options": [
+        {
+          "id": "a",
+          "text": "元に戻った"
+        },
+        {
+          "id": "b",
+          "text": "変わらなかった"
+        },
+        {
+          "id": "c",
+          "text": "急に大きく変わった"
+        },
+        {
+          "id": "d",
+          "text": "少しずつ変わった"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 16,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 4,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "安全を"
+        },
+        {
+          "text": "軽んじて"
+        },
+        {
+          "text": "はいけない。"
+        }
+      ],
+      "underline": "軽んじて",
+      "options": [
+        {
+          "id": "a",
+          "text": "大切にして"
+        },
+        {
+          "id": "b",
+          "text": "急いで"
+        },
+        {
+          "id": "c",
+          "text": "大切に考えないで"
+        },
+        {
+          "id": "d",
+          "text": "疑って"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 17,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 5,
+      "word_position": 1,
+      "prompt_ruby": [
+        {
+          "text": "あの会社は、経営が"
+        },
+        {
+          "text": "危うい"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "危うい",
+      "options": [
+        {
+          "id": "a",
+          "text": "新しくなった"
+        },
+        {
+          "id": "b",
+          "text": "危ない状態だ"
+        },
+        {
+          "id": "c",
+          "text": "安定している"
+        },
+        {
+          "id": "d",
+          "text": "急に成長している"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 18,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 8,
+      "word_position": 6,
+      "prompt_ruby": [
+        {
+          "text": "景気が、"
+        },
+        {
+          "text": "後退している"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "後退している",
+      "options": [
+        {
+          "id": "a",
+          "text": "悪くなっている"
+        },
+        {
+          "id": "b",
+          "text": "よくなっている"
+        },
+        {
+          "id": "c",
+          "text": "変わらない"
+        },
+        {
+          "id": "d",
+          "text": "注目されている"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 19,
+      "part": "vocabulary",
+      "type": "paraphrase",
+      "unit_number": 9,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "夏の日差しが"
+        },
+        {
+          "text": "眩しい"
+        },
+        {
+          "text": "。"
+        }
+      ],
+      "underline": "眩しい",
+      "options": [
+        {
+          "id": "a",
+          "text": "暑くて汗が出る"
+        },
+        {
+          "id": "b",
+          "text": "弱くて寒い"
+        },
+        {
+          "id": "c",
+          "text": "明るすぎて目を開けていられない"
+        },
+        {
+          "id": "d",
+          "text": "暗くて見えにくい"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 20,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 2,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "転身"
+        }
+      ],
+      "underline": "転身",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、転身を飲んでいる。"
+        },
+        {
+          "id": "b",
+          "text": "料理に、転身を少し入れた。"
+        },
+        {
+          "id": "c",
+          "text": "寒いので、転身を着て出かけた。"
+        },
+        {
+          "id": "d",
+          "text": "彼は、銀行員から作家に転身した。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 21,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 3,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "夥しい"
+        }
+      ],
+      "underline": "夥しい",
+      "options": [
+        {
+          "id": "a",
+          "text": "彼女は、とても夥しい人だ。"
+        },
+        {
+          "id": "b",
+          "text": "彼は、夥しい声で歌った。"
+        },
+        {
+          "id": "c",
+          "text": "今日は、夥しい天気だ。"
+        },
+        {
+          "id": "d",
+          "text": "事故の現場には、夥しい数の車が止まっていた。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 22,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 6,
+      "word_position": 18,
+      "prompt_ruby": [
+        {
+          "text": "やつれる"
+        }
+      ],
+      "underline": "やつれる",
+      "options": [
+        {
+          "id": "a",
+          "text": "料理に塩を少しやつれた。"
+        },
+        {
+          "id": "b",
+          "text": "毎朝、新聞をやつれてから出かける。"
+        },
+        {
+          "id": "c",
+          "text": "友達に、プレゼントをやつれた。"
+        },
+        {
+          "id": "d",
+          "text": "看病の疲れで、母はすっかりやつれてしまった。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 23,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 7,
+      "word_position": 13,
+      "prompt_ruby": [
+        {
+          "text": "即決"
+        }
+      ],
+      "underline": "即決",
+      "options": [
+        {
+          "id": "a",
+          "text": "友達に、即決を貸した。"
+        },
+        {
+          "id": "b",
+          "text": "寒いので、即決を着て出かけた。"
+        },
+        {
+          "id": "c",
+          "text": "毎朝、即決を飲んでいる。"
+        },
+        {
+          "id": "d",
+          "text": "社長は、その場で契約を即決した。"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 24,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 8,
+      "word_position": 19,
+      "prompt_ruby": [
+        {
+          "text": "舞い上がる"
+        }
+      ],
+      "underline": "舞い上がる",
+      "options": [
+        {
+          "id": "a",
+          "text": "毎朝、新聞を舞い上がってから出かける。"
+        },
+        {
+          "id": "b",
+          "text": "強い風で、ほこりが舞い上がった。"
+        },
+        {
+          "id": "c",
+          "text": "友達に、電話を舞い上がった。"
+        },
+        {
+          "id": "d",
+          "text": "料理に塩を少し舞い上がった。"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 25,
+      "part": "vocabulary",
+      "type": "usage",
+      "unit_number": 10,
+      "word_position": 12,
+      "prompt_ruby": [
+        {
+          "text": "しくじる"
+        }
+      ],
+      "underline": "しくじる",
+      "options": [
+        {
+          "id": "a",
+          "text": "大事な面接で、しくじってしまった。"
+        },
+        {
+          "id": "b",
+          "text": "熱いお茶を、ゆっくりしくじった。"
+        },
+        {
+          "id": "c",
+          "text": "寒いので、窓をしくじった。"
+        },
+        {
+          "id": "d",
+          "text": "毎朝、駅までしくじって歩く。"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 26,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "高い手数料を払って（　）、そのチケットがほしいのか。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ものとして"
+        },
+        {
+          "id": "b",
+          "text": "をいいことに"
+        },
+        {
+          "id": "c",
+          "text": "もさることながら"
+        },
+        {
+          "id": "d",
+          "text": "まで"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 27,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼の話は、どこか言い訳（　）聞こえた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "めいて"
+        },
+        {
+          "id": "b",
+          "text": "を経て"
+        },
+        {
+          "id": "c",
+          "text": "ゆえに"
+        },
+        {
+          "id": "d",
+          "text": "までして"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 28,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "この映画は、ストーリー（　）、音楽も素晴らしい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "んばかりに"
+        },
+        {
+          "id": "b",
+          "text": "ものとして"
+        },
+        {
+          "id": "c",
+          "text": "をいいことに"
+        },
+        {
+          "id": "d",
+          "text": "もさることながら"
+        }
+      ],
+      "correct_option_id": "d"
+    },
+    {
+      "number": 29,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "この書類は、本人が確認した（　）処理します。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "をいいことに"
+        },
+        {
+          "id": "b",
+          "text": "ものとして"
+        },
+        {
+          "id": "c",
+          "text": "までして"
+        },
+        {
+          "id": "d",
+          "text": "めいて"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 30,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "人気がある（　）、予約がなかなか取れない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "もさることながら"
+        },
+        {
+          "id": "b",
+          "text": "ゆえに"
+        },
+        {
+          "id": "c",
+          "text": "ものとして"
+        },
+        {
+          "id": "d",
+          "text": "んばかりに"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 31,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "多くの議論（　）、ようやく新しい法律が成立した。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までして"
+        },
+        {
+          "id": "b",
+          "text": "めいて"
+        },
+        {
+          "id": "c",
+          "text": "を経て"
+        },
+        {
+          "id": "d",
+          "text": "ゆえに"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 32,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "相手が新人なの（　）、彼は面倒な仕事を全部押しつけた。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を経て"
+        },
+        {
+          "id": "b",
+          "text": "もさることながら"
+        },
+        {
+          "id": "c",
+          "text": "をいいことに"
+        },
+        {
+          "id": "d",
+          "text": "ものとして"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 33,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "観客は、割れ（　）拍手を送った。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "んばかりの"
+        },
+        {
+          "id": "b",
+          "text": "べくもない"
+        },
+        {
+          "id": "c",
+          "text": "めいた"
+        },
+        {
+          "id": "d",
+          "text": "ゆえの"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 34,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "彼の誠実さは、疑う（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "べくもない"
+        },
+        {
+          "id": "b",
+          "text": "めいている"
+        },
+        {
+          "id": "c",
+          "text": "んばかりだ"
+        },
+        {
+          "id": "d",
+          "text": "ものとして"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 35,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "これほどの被害が出たのだから、責任者は処分され（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "んばかりだ"
+        },
+        {
+          "id": "b",
+          "text": "てしかるべきだ"
+        },
+        {
+          "id": "c",
+          "text": "めいている"
+        },
+        {
+          "id": "d",
+          "text": "べくもない"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 36,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 1,
+      "prompt_ruby": [
+        {
+          "text": "他人を傷つけて（　）、成功したいとは思わない。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "まで"
+        },
+        {
+          "id": "b",
+          "text": "を経て"
+        },
+        {
+          "id": "c",
+          "text": "めいて"
+        },
+        {
+          "id": "d",
+          "text": "ゆえに"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 37,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 3,
+      "prompt_ruby": [
+        {
+          "text": "この仕事は、給料（　）、やりがいがあるのがいい。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "もさることながら"
+        },
+        {
+          "id": "b",
+          "text": "を経て"
+        },
+        {
+          "id": "c",
+          "text": "ものとして"
+        },
+        {
+          "id": "d",
+          "text": "をいいことに"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 38,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 5,
+      "prompt_ruby": [
+        {
+          "text": "経験不足（　）、判断を誤ってしまった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "をいいことに"
+        },
+        {
+          "id": "b",
+          "text": "ゆえに"
+        },
+        {
+          "id": "c",
+          "text": "までして"
+        },
+        {
+          "id": "d",
+          "text": "もさることながら"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 39,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 7,
+      "prompt_ruby": [
+        {
+          "text": "親が旅行中なの（　）、彼は毎晩友達を家に呼んでいる。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ものとして"
+        },
+        {
+          "id": "b",
+          "text": "を経て"
+        },
+        {
+          "id": "c",
+          "text": "をいいことに"
+        },
+        {
+          "id": "d",
+          "text": "めいて"
+        }
+      ],
+      "correct_option_id": "c"
+    },
+    {
+      "number": 40,
+      "part": "grammar",
+      "type": "grammar_form",
+      "unit_number": 9,
+      "prompt_ruby": [
+        {
+          "text": "現場にいなかった私たちには、事故の本当の原因など知る（　）。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "までして"
+        },
+        {
+          "id": "b",
+          "text": "べくもない"
+        },
+        {
+          "id": "c",
+          "text": "んばかりだ"
+        },
+        {
+          "id": "d",
+          "text": "ものとする"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 41,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 2,
+      "prompt_ruby": [
+        {
+          "text": "彼女は、＿＿ ＿＿ ★ ＿＿ 残して、去っていった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "言葉"
+        },
+        {
+          "id": "b",
+          "text": "謎"
+        },
+        {
+          "id": "c",
+          "text": "を"
+        },
+        {
+          "id": "d",
+          "text": "めいた"
+        }
+      ],
+      "correct_option_id": "a"
+    },
+    {
+      "number": 42,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 4,
+      "prompt_ruby": [
+        {
+          "text": "＿＿ ★ ＿＿ ＿＿ 、計画を立てる。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "として"
+        },
+        {
+          "id": "b",
+          "text": "増えない"
+        },
+        {
+          "id": "c",
+          "text": "予算は"
+        },
+        {
+          "id": "d",
+          "text": "もの"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 43,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 6,
+      "prompt_ruby": [
+        {
+          "text": "彼は、＿＿ ＿＿ ★ ＿＿ 、社長になった。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "を経て"
+        },
+        {
+          "id": "b",
+          "text": "副社長"
+        },
+        {
+          "id": "c",
+          "text": "営業部長"
+        },
+        {
+          "id": "d",
+          "text": "や"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 44,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 8,
+      "prompt_ruby": [
+        {
+          "text": "犬は、＿＿ ＿＿ ★ ＿＿ 尻尾を振った。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "見ると"
+        },
+        {
+          "id": "b",
+          "text": "ちぎれ"
+        },
+        {
+          "id": "c",
+          "text": "飼い主を"
+        },
+        {
+          "id": "d",
+          "text": "んばかりに"
+        }
+      ],
+      "correct_option_id": "b"
+    },
+    {
+      "number": 45,
+      "part": "grammar",
+      "type": "sentence_order",
+      "unit_number": 10,
+      "prompt_ruby": [
+        {
+          "text": "これほど ＿＿ ＿＿ ★ ＿＿ だ。"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "もっと売れて"
+        },
+        {
+          "id": "b",
+          "text": "しかるべき"
+        },
+        {
+          "id": "c",
+          "text": "製品なら"
+        },
+        {
+          "id": "d",
+          "text": "安全な"
+        }
+      ],
+      "correct_option_id": "a"
+    }
+  ],
+  "passages": [
+    {
+      "length": "short",
+      "text_ruby": [
+        {
+          "text": "人は見た目が九割だ、という言葉を聞いたことがある。確かに、初めて会った人の印象は、顔立ちや服装、表情などに大きく左右される。面接や商談の場で、身だしなみに気を配るのは当然のことだろう。しかし、外見から受けた印象が、その人のすべてを表しているわけではない。無口で近寄りがたく見えた人が、話してみると、実は思いやりのある人だった。そんな経験は、だれにでもあるはずだ。第一印象を大切にしつつも、それだけで人を判断しないようにしたいものである。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "面接では、見た目より話す内容のほうが重要だ。"
+            },
+            {
+              "id": "b",
+              "text": "無口な人には、思いやりのある人が多い。"
+            },
+            {
+              "id": "c",
+              "text": "人の性格は、見た目でほとんどわかる。"
+            },
+            {
+              "id": "d",
+              "text": "見た目の印象は大切だが、それだけで人を決めつけてはいけない。"
+            }
+          ],
+          "correct_option_id": "d"
+        }
+      ]
+    },
+    {
+      "length": "medium",
+      "text_ruby": [
+        {
+          "text": "インターネットやSNSの普及によって、だれもが簡単に情報を発信できるようになった。災害や事件が起きると、現場にいる人の投稿によって、テレビや新聞より早く状況を知ることができる場合もある。\nその一方で、事実無根のうわさや、でたらめな情報が広がる問題も起きている。特に、人の不安をあおる情報や、驚くような内容の情報ほど、多くの人に共有されやすいという研究もある。ある地震のときには、「動物園からライオンが逃げた」という嘘の投稿が、写真付きで瞬く間に広まった。\nこうした情報を信じて行動すると、自分だけでなく、周りの人にも迷惑をかけることになりかねない。善意から「みんなに知らせよう」と思って共有したことが、結果的に混乱を大きくしてしまうこともあるのだ。\nでは、私たちはどうすればよいのだろうか。まず、情報の出どころを確認することである。だれが、いつ発信したのかがわからない情報は、すぐに信じないほうがよい。また、すぐに共有せず、ひと呼吸おいて、他の情報と比べてみることも大切だ。真偽がはっきりしないうちは広めない、という姿勢が求められている。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 47,
+          "prompt_ruby": [
+            {
+              "text": "筆者によると、どんな情報が多くの人に共有されやすいか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "専門家が発信した情報"
+            },
+            {
+              "id": "b",
+              "text": "テレビや新聞が伝えた情報"
+            },
+            {
+              "id": "c",
+              "text": "写真がついていない情報"
+            },
+            {
+              "id": "d",
+              "text": "人の不安をあおる情報や、驚くような内容の情報"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 48,
+          "prompt_ruby": [
+            {
+              "text": "善意からの共有が混乱を大きくするとは、どういうことか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "情報を共有すると、自分が損をすること"
+            },
+            {
+              "id": "b",
+              "text": "正しい情報を広めると、混乱が起きること"
+            },
+            {
+              "id": "c",
+              "text": "人のためと思って広めた情報が嘘で、かえって騒ぎを大きくすること"
+            },
+            {
+              "id": "d",
+              "text": "親切な人ほど、情報を共有しないこと"
+            }
+          ],
+          "correct_option_id": "c"
+        },
+        {
+          "number": 49,
+          "prompt_ruby": [
+            {
+              "text": "筆者の考えに合うものはどれか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "情報は、テレビや新聞からだけ得るべきだ。"
+            },
+            {
+              "id": "b",
+              "text": "災害のときは、SNSの情報を一切見ないほうがよい。"
+            },
+            {
+              "id": "c",
+              "text": "出どころや真偽がはっきりしない情報は、広めないほうがよい。"
+            },
+            {
+              "id": "d",
+              "text": "驚くような情報は、すぐにみんなに知らせるべきだ。"
+            }
+          ],
+          "correct_option_id": "c"
+        }
+      ]
+    },
+    {
+      "length": "long",
+      "text_ruby": [
+        {
+          "text": "成功した人の話を聞くと、華やかな栄光の部分ばかりが目に入る。しかし、その裏には、数えきれないほどの失敗があることが多い。\nある有名な発明家は、新しい電球を作るまでに、何千回も実験に失敗したと言われている。周りから、なぜそんなに失敗を続けるのかと聞かれた彼は、「私は失敗したのではない。うまくいかない方法を何千通りも見つけたのだ」と答えたという。この話が事実かどうかはともかく、失敗をどうとらえるかによって、その後の行動が大きく変わることをよく表している。\n日本の学校や職場では、失敗を恥ずかしいこととして避ける傾向が強いと言われる。テストでは間違えないことが評価され、仕事でもミスをしないことが求められる。もちろん、ミスが許されない場面はある。医療や交通の現場で、同じ失敗を繰り返すことは許されない。しかし、何も挑戦しなければ、失敗もしない代わりに、新しいものも生まれない。失敗を恐れるあまり、だれも新しいことに手を出さなくなれば、組織も社会も成長を止めてしまうだろう。\n大切なのは、失敗したあとに何をするかである。なぜうまくいかなかったのか、敗因を冷静に分析し、次に生かす。そうした積み重ねが、やがて大きな成果となって実を結ぶのだ。ある企業では、社員が自分の失敗を発表し合う会を定期的に開いている。失敗を隠さずに共有することで、同じミスを防げるようになっただけでなく、新しいことに挑戦しやすい雰囲気が生まれたという。\nまた、周囲の態度も見直す必要がある。失敗した人を厳しく責めるばかりでは、人は失敗を隠すようになる。隠された失敗は、後になって、もっと大きな問題として表に出てくることが多い。\n失敗した人を支え、次の挑戦を後押しする周囲の姿勢こそが、新しいものを生み出す力になる。\n失敗は、決して喜ばしいものではない。しかし、それを恐れて立ち止まるより、失敗から学び続ける人のほうが、最後にはずっと遠くまで進むことができるのではないだろうか。"
+        }
+      ],
+      "questions": [
+        {
+          "number": 50,
+          "prompt_ruby": [
+            {
+              "text": "発明家の話から、筆者が伝えたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "発明には、何千回もの実験が必要なこと"
+            },
+            {
+              "id": "b",
+              "text": "失敗のとらえ方しだいで、その後の行動が変わること"
+            },
+            {
+              "id": "c",
+              "text": "有名な話には、うそが多いこと"
+            },
+            {
+              "id": "d",
+              "text": "失敗の数が多い人ほど、必ず成功すること"
+            }
+          ],
+          "correct_option_id": "b"
+        },
+        {
+          "number": 51,
+          "prompt_ruby": [
+            {
+              "text": "失敗を恐れて挑戦しなくなると、どうなると筆者は述べているか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "医療や交通の事故がなくなる。"
+            },
+            {
+              "id": "b",
+              "text": "ミスが減り、組織が強くなる。"
+            },
+            {
+              "id": "c",
+              "text": "テストの点数が上がる。"
+            },
+            {
+              "id": "d",
+              "text": "組織も社会も、成長を止めてしまう。"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 52,
+          "prompt_ruby": [
+            {
+              "text": "失敗を発表し合う会を開いた企業では、どうなったか。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "失敗した社員が、会社をやめるようになった。"
+            },
+            {
+              "id": "b",
+              "text": "会社の売り上げが、すぐに二倍になった。"
+            },
+            {
+              "id": "c",
+              "text": "社員が、失敗を隠すようになった。"
+            },
+            {
+              "id": "d",
+              "text": "同じミスを防げるようになり、挑戦しやすい雰囲気が生まれた。"
+            }
+          ],
+          "correct_option_id": "d"
+        },
+        {
+          "number": 53,
+          "prompt_ruby": [
+            {
+              "text": "筆者が最も言いたいことは何か。"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "失敗を恐れず、そこから学び続けることが大切だ。"
+            },
+            {
+              "id": "b",
+              "text": "失敗した人は、厳しく責められるべきだ。"
+            },
+            {
+              "id": "c",
+              "text": "成功するためには、失敗しないことが最も重要だ。"
+            },
+            {
+              "id": "d",
+              "text": "ミスが許されない仕事は、選ばないほうがよい。"
+            }
+          ],
+          "correct_option_id": "a"
+        }
+      ]
+    }
+  ]
+}
