@@ -1,5 +1,5 @@
 import { ApiError, request } from './client';
-import { tokens } from './tokens';
+import { tokens, type Tokens } from './tokens';
 import type { AuthResponse, Me } from './types';
 
 // #2 POST /auth/register
@@ -39,4 +39,27 @@ export async function logout(): Promise<void> {
   } finally {
     await tokens.clear();
   }
+}
+
+// #5 POST /auth/forgot-password  (always the same answer, registered email or not)
+export async function forgotPassword(email: string): Promise<void> {
+  await request<{ message: string }>('/auth/forgot-password', { method: 'POST', body: { email }, auth: false });
+}
+
+// #6 POST /auth/reset-password  (every device is signed out, so the user logs in again)
+export async function resetPassword(email: string, code: string, newPassword: string): Promise<void> {
+  await request<{ message: string }>('/auth/reset-password', {
+    method: 'POST',
+    body: { email, code, new_password: newPassword },
+    auth: false,
+  });
+}
+
+// #34 POST /auth/change-password  (other devices are signed out; this one keeps working with the new tokens)
+export async function changePassword(currentPassword: string, newPassword: string): Promise<void> {
+  const data = await request<Tokens & { message: string }>('/auth/change-password', {
+    method: 'POST',
+    body: { current_password: currentPassword, new_password: newPassword },
+  });
+  await tokens.save(data);
 }

@@ -137,7 +137,7 @@ export default function SettingsScreen() {
 
         <Group title="အကောင့်">
           {me.login_method === 'email' && (
-            <Row first label="စကားဝှက် ပြောင်းမည်" sub="မကြာမီ" onPress={() => notice.show('စကားဝှက် ပြောင်းခြင်းကို မကြာမီ ထည့်ပေးပါမယ်')} />
+            <Row first label="စကားဝှက် ပြောင်းမည်" onPress={() => router.push('/account/password')} />
           )}
           <Row first={me.login_method !== 'email'} label="ထွက်မည်" onPress={handleLogout} />
         </Group>

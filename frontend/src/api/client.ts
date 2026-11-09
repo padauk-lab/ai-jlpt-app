@@ -85,12 +85,23 @@ async function refreshTokens(): Promise<RefreshResult> {
   return 'ok';
 }
 
+// A 401 "wrong_password" (#34, #36) means the login is fine but the typed password is wrong.
+// Sending it again would only count a second wrong try toward the limit, so we don't refresh for it.
+async function isWrongPassword(res: Response): Promise<boolean> {
+  try {
+    const data = await res.clone().json();
+    return data?.error?.code === 'wrong_password';
+  } catch {
+    return false;
+  }
+}
+
 // Sends a request and returns the JSON body. When the access token has expired (401),
 // it quietly gets a new one (#7) and tries once more, as the contract describes.
 export async function request<T>(path: string, options: Options = {}): Promise<T> {
   let res = await send(path, options);
 
-  if (res.status === 401 && options.auth !== false) {
+  if (res.status === 401 && options.auth !== false && !(await isWrongPassword(res))) {
     refreshing ??= refreshTokens().finally(() => {
       refreshing = null;
     });

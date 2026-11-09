@@ -27,7 +27,7 @@ import { request } from './client';
 
 export type * from './types';
 export { ApiError } from './client';
-export { getMe, login, logout, register } from './auth';
+export { changePassword, forgotPassword, getMe, login, logout, register, resetPassword } from './auth';
 
 // Every function here calls HP's backend. Field names follow docs/api-contract.md.
 

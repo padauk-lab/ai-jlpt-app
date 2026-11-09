@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { ApiError, login, register } from '@/api';
 import { Logo } from '@/components/Logo';
 import { RubyText, type RubyPiece } from '@/components/RubyText';
@@ -29,18 +29,20 @@ const USERNAME_RULE = /^[A-Za-z0-9_]{3,20}$/;
 // To bring it back, set this to true.
 const SHOW_GOOGLE_LOGIN = false;
 
-// The "forgot password" link stays hidden until HP's reset by email (contract #5, #6)
-// is ready, so users never see a link that does nothing. Then set this to true.
-const SHOW_FORGOT_PASSWORD = false;
 
 export default function LoginScreen() {
+  // After "forgot password" (#6) the app comes back here with ?reset=1 and the email filled in.
+  const params = useLocalSearchParams<{ reset?: string; email?: string }>();
   const [mode, setMode] = useState<Mode>('login');
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(params.email ?? '');
   const [password, setPassword] = useState('');
 
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(
+    params.reset === '1' ? 'စကားဝှက် အသစ် သတ်မှတ်ပြီးပါပြီ။ စကားဝှက် အသစ်နဲ့ ဝင်ပါ။' : null,
+  );
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const isRegister = mode === 'register';
@@ -48,6 +50,7 @@ export default function LoginScreen() {
   function switchMode(next: Mode) {
     setMode(next);
     setMessage(null);
+    setInfo(null);
     setFieldErrors({});
   }
 
@@ -63,6 +66,7 @@ export default function LoginScreen() {
 
   async function handleSubmit() {
     setMessage(null);
+    setInfo(null);
     const found = checkFields();
     setFieldErrors(found);
     if (Object.keys(found).length > 0) return;
@@ -137,8 +141,12 @@ export default function LoginScreen() {
         <View style={styles.field}>
           <View style={styles.labelRow}>
             <Text style={styles.label}>စကားဝှက်</Text>
-            {!isRegister && SHOW_FORGOT_PASSWORD && (
-              <Pressable onPress={() => {}} hitSlop={8}>
+            {!isRegister && (
+              <Pressable
+                onPress={() => router.push({ pathname: '/forgot-password', params: { email: email.trim() } })}
+                hitSlop={8}
+                accessibilityRole="link"
+              >
                 <Text style={styles.link}>မေ့နေပါသလား</Text>
               </Pressable>
             )}
@@ -157,6 +165,12 @@ export default function LoginScreen() {
             isRegister && <Text style={styles.hint}>အနည်းဆုံး စာလုံး 8 လုံး</Text>
           )}
         </View>
+
+        {info && (
+          <View style={styles.infoBanner}>
+            <Text style={styles.infoText}>{info}</Text>
+          </View>
+        )}
 
         {message && (
           <View style={styles.banner} accessibilityRole="alert">
@@ -348,6 +362,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 25,
     color: '#9E2F29',
+  },
+  infoBanner: {
+    padding: spacing.md,
+    borderRadius: radius.control,
+    backgroundColor: colors.background,
+    borderWidth: 1.5,
+    borderColor: colors.goldDeep,
+  },
+  infoText: {
+    ...text.small,
+    fontSize: 14,
+    lineHeight: 25,
+    color: colors.ink,
   },
   hint: {
     ...text.small,
