@@ -9,6 +9,18 @@ A GenAI JLPT study app for Burmese speakers, built by Padauk Lab.
 - AI explanations, an Ask AI chatbot, and a personalized study plan
 - Burmese and Japanese interface
 
+## Screenshots
+
+Live demo: https://kyugo.expo.app
+
+The interface is in Burmese, because the app is made for Burmese speakers learning Japanese.
+
+| | |
+|---|---|
+| <img src="docs/screenshots/login.png" width="400"><br>Login screen | <img src="docs/screenshots/study-map.png" width="400"><br>Study map: 10 units per session, with quiz and mock test checkpoints |
+| <img src="docs/screenshots/quiz.png" width="400"><br>Quiz with instant feedback and a "Why?" button for an AI explanation | <img src="docs/screenshots/word-cards.png" width="400"><br>Word cards with Burmese meanings, example sentences and a "More examples" AI button |
+| <img src="docs/screenshots/settings.png" width="400"><br>Settings: exam date, daily study plan and reminders | |
+
 ## Tech stack
 - Frontend: Expo (React Native), iOS, Android and web
 - Backend: FastAPI (Python)
